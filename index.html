@@ -1,36 +1,678 @@
-<!doctype html>
-<html lang="en" class="bg-base-200">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-        <link rel="icon" type="image/x-icon" href="/logo.jpg" />
-        <link href="/src/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <script type="module" src="/src/main.ts"></script>
-        <script src="https://kit.fontawesome.com/e8e14ec1f1.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
+    <title>Syl.VIA - Zdrowe Żywienie i Dietoterapia</title>
 
-        <title>Syl.VIA — Zdrowe Żywienie i Dietoterapia</title>
-    </head>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <body>
-        <header id="header"
-            hx-get="/parts/_header.html"
-            hx-trigger="load"
-            hx-swap="outerHTML">
-        </header>
+    <!-- Custom styles for this template -->
+    <link href="css/logo-nav.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <main id="main" class="mt-36 mb-20"
-            hx-get="/parts/home.html"
-            hx-trigger="load"
-            hx-swap="innerHTML">
-        </main>
+	<style>
+		span {
+			background-color: #80ced6;
+		}
+	</style>
 
-        <footer id="footer"
-            hx-get="/parts/_footer.html"
-            hx-trigger="load"
-            hx-swap="outerHTML">
-        </footer>
-    </body>
-</html>
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> -->
+	<nav class="navbar navbar-expand-lg navbar-default navbar-default-edit fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+		  <img src="img/logo4.png" width="70" height="70" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+			<!--
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><b>Strona Główna</b>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+			-->
+			<li class="nav-item">
+              <a class="nav-link" href="#stronaglowna"><b>Strona Główna</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#omnie"><b>O Mnie</b></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="#uslugi"><b>Usługi</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cennik"><b>Cennik</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#wizyta"><b>Wizyta</b></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="#dyplomy"><b>Dyplomy</b></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="#nwalking"><b>Nordic Walking</b></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="#wyjazdowe"><b>Warsztaty Wyjazdowe</b></a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="#kontakt"><b>Kontakt</b></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+	<br>
+	<div class="top">
+		<img src="img/topimg3.png" width="1400" height="282" alt="imgtop">
+	</div>
+	<br><br>
+	<div class="widthWrapper">
+	<div id="top">
+		<h1>
+			<b>Sylwia Majewska</b><br>
+		</h1>
+		<br><br><br><br><br>
+		<div class="b">
+			<h2>
+			<small><b>dietetyk, psychodietetyk, chemik<br>
+			</b></small>
+			</h2>
+		</div>
+
+		<div>
+			<i></i> 501974479<br><br><br>
+			Nr konta bankowego: <b>26 1020 1042 0000 8402 0372 8599</b><br><br><br>
+			email:<i></i> dietetyka.syl.via@gmail.com<br><br>
+			<i></i> https://sylviadietetyka.home.blog<br><br><br>
+			<a href="https://www.facebook.com/SylVIA-Zdrowe-%C5%BBywienie-i-Dietoterapia-1145519688833739/">Facebook</a><br><br><br>
+			<a href="#regulamin"><b>Regulamin świadczenia usług<br><br> i polityka prywatności</b></a>
+		</div>
+	<!-- #top --></div>
+	<blockquote>
+		<p>
+			<b>„Niech pożywienie będzie lekarstwem, a lekarstwo pożywieniem.”</b>
+		</p><p>
+			<cite><b>Hipokrates (460-370 p.n.e.)</b></cite>
+		</p>
+	</blockquote>
+<!-- .widthWrapper --></div>
+	<br><br>
+	<h2 id="stronaglowna"></h2>
+	<br>
+	<br>
+	<br>
+	<br>
+    <div class="container">
+      <!--<h1 class="mt-5">Strona główna</h1>-->
+
+		<br>
+		<br>
+		<br>
+		<h2 class="nawig">Strona główna</h2>
+		<ul class="fa-ul">
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Jesteś gotowy na zmiany?</b></font></li><br>
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Potrzebujesz motywacji?</b></font></li><br>
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Myślisz o zmianie swoich nawyków żywieniowych?</b></font></li><br>
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Chcesz cieszyć się zdrowiem i dobrym samopoczuciem?</b></font></li><br>
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Masz dość diet na, których jesteś ciągle głodny?</b></font></li><br>
+			<li class="fa fa-check"> <font face="Source Sans Pro" size="4"><b>Jesteś gotowy raz na zawsze pożegnać się ze zbędnymi kilogramami?</b></font></li><br>
+		</ul>
+		<p><u>Jeśli tak, to świetnie trafiłeś!</u></p>
+
+	  <h2 id="omnie"></h2>
+		<br>
+		<br>
+		<br>
+		<br>
+	<h2 class="nawig">O mnie</h2>
+	  <div class="post-container">
+    <div class="post-thumb"><img src="img/omnie2.png" alt="O mnie"></div>
+	<div class="post-spacer"></div>
+    <div class="post-content">
+        <h3 class="post-title"></h3>
+        <p style="text-align:justify">Nazywam się Sylwia Majewska, a VIA
+ to droga do zdrowego odżywiania – ścieżka, którą chcę poprowadzić
+każdego z Was.
+		Od ponad 8 lat zajmuję się żywieniem i jego wpływem na zdrowie oraz
+samopoczucie. Dietetyka to nie tylko moja pasja, ale i sposób życia.
+		W mojej pracy nie wierzę w&nbsp;szybkie rozwiązania ani diety cud –
+stawiam na dobrze zbilansowany, urozmaicony i indywidualnie dopasowany
+jadłospis.
+		Dieta "szyta na miarę", uwzględniająca schorzenia, styl życia i poziom
+ stresu, to klucz do sukcesu.
+		Moim celem jest pomoc w wprowadzeniu zdrowych nawyków, by dieta stała
+się naturalnym, zdrowym sposobem odżywiania.
+<br><br>
+Uzyskałam tytuł magistra dietetyki w Wyższej Szkole Inżynierii i Zdrowia
+ oraz ukończyłam studia podyplomowe z zakresu psychodietetyki na
+Uniwersytecie SWPS.
+Dodatkowo posiadam tytuł Instruktora Nordic Walkingu. Jestem również
+absolwentką Wydziału Chemii na Politechnice Warszawskiej, co pozwala mi
+patrzeć
+na żywienie i zdrowie z szerszej perspektywy, z&nbsp;uwzględnieniem
+procesów biochemicznych zachodzących w organizmach. Stale poszerzam
+swoją wiedzę,
+uczestnicząc w konferencjach i szkoleniach dotyczących alternatywnych
+terapii, zdrowego odchudzania i nowoczesnych metod żywienia.
+<br><br>
+Jako psychodietetyk łączę wiedzę z zakresu dietetyki z podejściem
+psychologicznym, aby pomóc pacjentom zrozumieć emocjonalne i psychiczne
+aspekty jedzenia.
+Często to właśnie stres, emocje, nawyki czy trudności z radzeniem sobie z
+ trudnymi sytuacjami życiowymi wpływają na sposób, w jaki się odżywiamy.
+
+Psychodietetyka daje mi możliwość nie tylko zmiany nawyków żywieniowych,
+ ale także pracy z pacjentem nad poprawą jego podejścia do jedzenia,
+budowaniem zdrowych relacji z&nbsp;żywnością i radzeniem sobie z
+emocjami związanymi z jedzeniem. Zajmuję się także pracą nad motywacją,
+aby pomóc wprowadzać trwałe zmiany w stylu życia, które są zgodne z
+indywidualnymi potrzebami i celami.
+<br><br>
+Specjalizuję się w dietoterapii: cukrzycy, chorób układu krążenia,
+celiakii, chorób tarczycy oraz w żywieniu osób z chorobami
+nowotworowymi.
+Tworzę plany żywieniowe dla osób aktywnych fizycznie i organizuję
+warsztaty wyjazdowe, szkolenia oraz prelekcje. Zwracam szczególną uwagę
+na aspekt psychologiczny, redukcję stresu i aktywność fizyczną, bo wiem,
+ że zdrowie to nie tylko dieta, ale także harmonia ciała i umysłu.
+
+<h2 id="uslugi"></h2>
+		<br>
+		<br>
+		<br>
+		<br>
+	<h2 class="nawig">Moje usługi</h2>
+
+		<br>
+
+		<p>Oferuję konsultacje w trybie stacjonarnym lub online – wybierz formę, która najlepiej odpowiada Twoim potrzebom.</p>
+		<ul>
+			<li><b>Stacjonarnie:</b> Spotkania odbywają się w przytulnym gabinecie, w spokojnej i komfortowej atmosferze.</li>
+			<li><b>Online:</b> Wygodna opcja dla tych, którzy preferują elastyczność – konsultacje przeprowadzam przez bezpieczne platformy wideorozmów.</li>
+		</ul>
+
+		<p><i>Skontaktuj się, aby ustalić szczegóły i umówić termin!</i></p>
+
+		<br>
+
+		<h3>Pierwsza konsultacja dietetyczna z elementami psychodietetyki</h3>
+
+		<ol>
+			<li><b>Zebranie informacji dotyczących preferencji żywieniowych, stanu zdrowia, wcześniej stosowanych diet, planu dnia oraz aktywności fizycznej</b><br>
+			Szczegółowy wywiad pozwalający poznać Twoje nawyki i potrzeby.</li><br>
+
+			<li><b>Wywiad psychodietetyczny</b><br>
+			Analiza Twoich przekonań i zachowań związanych z jedzeniem.</li><br>
+
+			<li><b>Interpretacja wyników badań laboratoryjnych</b><br>
+			Jeżeli przyniesiesz aktualne wyniki swoich badań (morfologia, glukoza, profil lipidowy), profesjonalnie je zinterpretuję, aby lepiej dostosować plan żywieniowy do Twojego zdrowia.</li><br>
+
+			<li><b>Analiza dotychczasowego sposobu odżywiania oraz nawyków żywieniowych</b><br>
+			Analizuję Twój obecny sposób odżywiania, jakość i regularność posiłków oraz wskazuję obszary wymagające zmian, aby wspierać Twoje cele zdrowotne.</li><br>
+
+			<li><b>Pomiar i analiza składu ciała przy użyciu analizatora InBody 120</b><br>
+			Dokładne określenie m.in.:
+				<ul>
+					<li>zawartości tkanki tłuszczowej, masy kostnej i mięśniowej,</li>
+					<li>podstawowej przemiany materii,</li>
+					<li>ilości wody komórkowej.</li>
+				</ul>
+			</li>
+		</ol>
+
+		<br>
+
+		<h3>Jadłospis</h3>
+		<p>Jako rezultat pracy dietetyka po pierwszej wizycie powstaje jadłospis.</p>
+		<ol>
+			<li><b>Jadłospis – indywidualny plan żywieniowy na tydzień lub dwa tygodnie</b><br>
+			Jadłospis uwzględniający twój stan zdrowia i styl życia, dostosowany do Twoich potrzeb.</li><br>
+
+			<li><b>Dieta dostosowana do stylu życia oraz preferencji smakowych</b><br>
+			Uwzględnia umiejętności kulinarne, dostępny czas oraz budżet.</li><br>
+
+			<li><b>Przesłanie jadłospisu drogą mailową lub w formie drukowanej</b><br>
+			Omówienie planu odbywa się telefonicznie lub przez Zoom. Jadłospis przekazywany jest w teczce po wcześniejszym opłaceniu usługi.</li><br>
+
+			<li><b>Dostęp do aplikacji dietetycznej</b><br>
+			Umożliwia bieżący wgląd w plan żywieniowy, przepisy oraz listy zakupów.</li>
+		</ol>
+
+		<br>
+
+		<h3>Konsultacja psychodietetyczna</h3>
+
+		<p>W swojej pracy łączę wiedzę z zakresu dietetyki i psychologii, by towarzyszyć Ci w budowaniu bardziej życzliwej i zdrowej relacji z jedzeniem oraz z samym sobą. Konsultacja obejmuje:</p>
+		<ol>
+			<li><b>Doradztwo psychodietetyczne</b></li>
+			<li><b>Materiały edukacyjne i ćwiczenia</b><br>
+			Wręczone na wizycie lub przesłane drogą mailową, wspierające Twój proces zmiany.</li>
+		</ol>
+
+		<p><b>Dla kogo są konsultacje psychodietetyczne?</b> Zapraszam osoby, które:</p>
+		<ul>
+			<li>zmagają się z zaburzeniami odżywiania, takimi jak anoreksja, bulimia czy kompulsywne objadanie się,</li>
+			<li>doświadczają trudności w relacji z jedzeniem i własnym ciałem,</li>
+			<li>mierzą się z napadami objadania się lub nadmiernymi restrykcjami,</li>
+			<li>odczuwają poczucie winy po jedzeniu lub lęk związany z przybieraniem na wadze,</li>
+			<li>pragną odzyskać spokój, poczucie kontroli i zdrową relację z jedzeniem,</li>
+			<li>są w trakcie terapii i potrzebują dodatkowego wsparcia żywieniowego w procesie leczenia.</li>
+		</ul>
+
+		<br>
+
+		<h3>Pakiet VIP</h3>
+
+		<ol>
+			<li><b>3 miesiące kompleksowego wsparcia żywieniowego i psychodietetycznego</b><br>
+			Regularna, zaplanowana współpraca oparta na Twoich indywidualnych potrzebach.</li><br>
+
+			<li><b>1 x konsultacja wstępna (90 min)</b><br>
+			Szczegółowa analiza Twoich potrzeb, historii żywieniowej oraz celów, które chcesz osiągnąć.</li><br>
+
+			<li><b>6 x spotkań indywidualnych (50–60 min)</b><br>
+			Spotkania co 1–2 tygodnie, w formie online lub stacjonarnej — w zależności od Twojej wygody i preferencji.</li><br>
+
+			<li><b>2 x indywidualny jadłospis na 14 dni</b><br>
+			Jadłospisy dopasowane do Twoich preferencji, trybu życia, stanu zdrowia i aktualnych możliwości.</li><br>
+
+			<li><b>Stały kontakt mailowy lub wiadomościowy</b><br>
+			Możliwość bieżącego kontaktu i uzyskania wsparcia pomiędzy spotkaniami, gdy tego potrzebujesz.</li><br>
+
+			<li><b>Materiały wspierające</b><br>
+			Ćwiczenia, dzienniki, wskazówki — starannie dobrane do Twojej sytuacji i aktualnych potrzeb.</li><br>
+
+			<li><b>Elastyczny grafik i pierwszeństwo w umawianiu wizyt</b><br>
+			Możliwość umawiania terminów dostosowanych do Twoich możliwości czasowych.</li>
+
+
+		</ol><h2 id="cennik"></h2>
+		<br>
+		<br>
+		<br>
+		<br>
+	<h2 class="nawig">Cennik</h2>
+		<br>
+
+	<table class="table table-striped" style="table-layout: fixed;">
+		<thead>
+			<tr>
+				<th scope="col" style="width: 70%; text-align: left;">Usługa</th>
+				<th scope="col" style="width: 30%; text-align: right;">Cena</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="text-align: left;">Pierwsza konsultacja dietetyczna z elementami psychodietetyki (60-80 minut)</td>
+				<td style="text-align: right;"><b>210 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Konsultacja psychodietetyczna (60-80 minut)</td>
+				<td style="text-align: right;"><b>200 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Jadłospis 7-dniowy</td>
+				<td style="text-align: right;"><b>250 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Jadłospis 14-dniowy</td>
+				<td style="text-align: right;"><b>460 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Wizyta kontrolna - dietetyczna (40-60 minut)</td>
+				<td style="text-align: right;"><b>140 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Pakiet VIP</td>
+				<td style="text-align: right;"><b>1200 zł</b></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<h4>Pakiety dla par</h4>
+	<table class="table table-striped" style="table-layout: fixed;">
+		<thead>
+			<tr>
+				<th scope="col" style="width: 70%; text-align: left;">Pakiet</th>
+				<th scope="col" style="width: 30%; text-align: right;">Cena</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td style="text-align: left;">Pierwsza wizyta (około 120 min)</td>
+				<td style="text-align: right;"><b>400 zł</b></td>
+			</tr>
+			<tr>
+				<td style="text-align: left;">Plan dietetyczny dla par 7-dniowy</td>
+				<td style="text-align: right;"><b>450 zł</b></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+<h2 id="wizyta"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 class="nawig">Wizyta</h2>
+<br><br>
+<h3>Przygotowanie do wizyty</h3>
+<br>
+<br>
+<ol>
+<li><i>Dzienniczek żywieniowy</i></li>
+<br>
+<p style="text-align:justify">
+Aby dobrze przygotować się do pierwszej konsultacji, zachęcamy
+podopiecznych do wypełnienia dzienniczka kilkudniowego spożycia, dzięki
+któremu już na pierwszej wizycie będzie możliwa ocena sposobu
+odżywiania.
+Dzienniczek bieżącego spożycia to źródło cennych informacji, a także
+znakomite rozszerzenie wywiadu, jaki przeprowadzi specjalista. Zaleca
+się wypełnienie dzienniczka z 3 dni (2 robocze w przypadku osób
+pracujących oraz 1&nbsp;dzień wolny, np. weekend).
+</p>
+<br>
+<li><i>Badania</i></li>
+<br>
+<p style="text-align:justify">Badania, które polecam wykonać w celu dobrania odpowiedniego planu żywieniowego:
+		</p><ul>
+			<li> morfologia z rozmazem</li>
+			<li> profil  lipidowy (stężenie cholesterolu, jego frakcji LDL i HDL oraz trójglicerydów)</li>
+			<li> TSH, Aty-TG, aty-TPO</li>
+			<li> Poziom cukru i insuliny na czczo</li>
+		</ul>
+<br><br><b>Jeśli posiadasz jakieś aktualne wyniki badań przynieś je ze sobą.</b>
+<p></p>
+<br>
+<li><i>Przygotowanie do pomaru składu ciała metodą BIA( bioimpedancja elektryczna)</i></li>
+<br>
+<p style="text-align:justify">Badanie BIA nie może być przeprowadzone:
+<br>
+		</p><ul class="fa-ul" style="border: 1px solid black">
+			<li class="fa fa-check"> u osób z&nbsp;wszczepionym rozrusznikiem serca lub innymi przyrządami medycznymi, jak np. metalowymi implantami.</li><br>
+			<li class="fa fa-check"> u kobiet w&nbsp;ciąży</li><br>
+			<li class="fa fa-check"> u osób chorych na epilepsję.</li><br>
+		</ul>
+		<br>
+<i>Przygotowanie do badania:</i>
+<br>
+		<ul>
+			<li> 2-3 godziny przed badaniem nie spożywaj posiłków i nie pij napojów,</li>
+			<li> 12 godzin przed wizytą nie uprawiaj intensywnego wysiłku fizycznego,</li>
+			<li> przed wizytą zadbaj o zaspokojenie potrzeb fizjologicznych,</li>
+			<li> nie należy spożywać alkoholu na 48h przed pomiarem,</li>
+			<li> nie powinno się zażywać leków diuretycznych przez 7 dni <br>
+			(oczywiście jeżeli, lekarz prowadzący na to zezwoli),</li>
+			<li> nie powinno się smarować stóp kremem przez 12 godzin przed wizytą <br>
+			(badanie wykonywane jest na bosych stopach),</li>
+			<li> nie wykonuj badania podczas choroby zakaźnej, a także w tygodniu przed menstruacją <br>
+			(w przypadku kobiet).</li>
+
+		</ul>
+<p></p>
+<br>
+<h2 id="dyplomy"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 class="nawig">Dyplomy</h2>
+<br><br>
+<img src="img/dyplom1.jpg" width="497" height="336" alt="Dyplom 1">
+<img src="img/dyplom2.jpg" width="232" height="336" alt="Dyplom 2">
+<br><br>
+<img src="img/dyplom3.jpg" width="236" height="336" alt="Dyplom 3">
+
+<br><br>
+<h2 id="nwalking"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 class="nawig">Nordic Walking</h2>
+<br><br>
+<p>
+<b>Nordic walking to najlepsza aktywność fizyczna  na świecie!</b><br>
+<br><br>
+To niepozorne, aktywne chodzenie z kijami ma same zalety :<br>
+	</p><ul>
+		<li>wspomaga nasz układ odpornościowy,</li>
+		<li>zmniejsza obciążenie stawów o 30%,</li>
+		<li>wspomaga pracę układ krążenia i układu oddechowego,</li>
+		<li>zmniejsza ryzyko osteoporozy,</li>
+		<li>wzmacnia mięśnie,</li>
+		<li>redukuje stres i poprawia nastój,</li>
+		<li>wspomaga proces odchudzania,</li>
+		<li>zmniejsza ryzyko takich chorób jak nowotwory czy cukrzyca,</li>
+		<li>wspomaga pracę układu hormonalnego.</li>
+	</ul>
+<br>
+<b>Zapraszam na zajęcia grupowe i indywidualne pod okiem certyfikowanego instruktora nordic walkingu.</b><br>
+Podczas 1,5 godzinnego spotkania:<br>
+<ol>
+  <li>Dowiesz się jak w sposób właściwy dobrać kije do NW.</li>
+  <li>Krok po kroku zapoznasz się z techniką aktywnego chodzenia z kijkami.</li>
+  <li>Nauczysz się prawidłowej techniki, która w sposób optymalny uruchomi mięśnie górnej partii ciała.</li>
+  <li>Porozciągasz i wzmocnisz swoje ciało.</li>
+  <li>Dotlenisz organizm.</li>
+  <li>Powalczysz o swoje zdrowie, dobrze się bawiąc w miłym towarzystwie.</li>
+</ol>
+<br>
+<b>Cennik zajęć nordic walking</b>
+<br><br>
+Czas zajęć-1,5 godziny.<br>
+Zajęcia indywidualne - <b>130 zł.</b><br>
+Zajęcia dla 2 osób - <b>80 zł/ osoba.</b><br>
+Zajęcia grupowe dla 3-4 osób - <b>50zł/ osoba.</b><br>
+Zajęcia grupowe dla 5-8 osób - <b>40zł/ osoba.</b><br>
+<b>Pakiet 3 indywidualnych spotkań treningowych( 3*1h)- 300 zł.</b><br>
+<br>
+Zniżka ( 50 %) dla osoby, która zgłosi grupę powyżej 4 osób.<br>
+<br>
+
+Istnieje możliwość bezpłatnego wypożyczenia kijków.<br>
+<p></p>
+<h2 id="wyjazdowe"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 class="nawig">Warsztaty Wyjazdowe</h2>
+<br><br>
+<p>
+<br>
+<img src="img/kobiecyweekend.png" width="700" height="394" alt="Kobiecy weekend">
+<br>
+<br>
+<img src="img/kobiecyweekend0.png" width="700" height="394" alt="Kobiecy weekend">
+<br>
+<br>
+<img src="img/kobiecyweekend1.png" width="700" height="394" alt="Kobiecy weekend">
+<br>
+<br>
+<img src="img/kobiecyweekend2.jpg" width="700" alt="Kobiecy weekend">
+<br>
+
+</p>
+<br><br>
+<h2 id="kontakt"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 class="nawig">Kontakt</h2>
+<br><br>
+<p>
+Sylwia Majewska<br>
+dietetyk, psychodietetyk, chemik<br><br>
+Gabinet prywatny<br><br>
+			Marki, ul. Słoneczna 3c/110<br>
+			<br>
+Tel. 501&nbsp;974&nbsp;479<br><br>
+Nr konta bankowego: <b>26 1020 1042 0000 8402 0372 8599</b><br>
+email:
+<span><script type="text/javascript">
+// <![CDATA[
+var uzytkownik = 'dietetyka.syl.via';
+var domena = 'gmail.com';
+var dodatkowe = '?subject=Temat listu&body=Napisz co%9C:%0A';
+var opis = 'dietetyka.syl.via@gmail.com';
+document.write('<a hr' + 'ef="mai' + 'lto:' + uzytkownik + '\x40' + domena + dodatkowe + '">');
+if (opis) document.write(opis + '<'+'/a>');
+else document.write(uzytkownik + '\x40' + domena + '<'+'/a>');
+// ]]>
+</script><a href="mailto:dietetyka.syl.via@gmail.com?subject=Temat%20listu&amp;body=Napisz%20co%9C:%0A">dietetyka.syl.via@gmail.com</a></span>
+<br>
+</p>
+</ol></div>
+<div class="container">
+<h2 id="regulamin"></h2>
+<br>
+<br>
+<br>
+<br>
+<h2 style="background-color:yellow;">Regulamin świadczenia usług</h2>
+​
+
+<p>Niniejszy regulamin określa zasady korzystania z usług Syl.VIA Zdrowe
+ Żywienie i Dietoterapia NIP: 8121699322 , ul.Okólna 43, 05-270 Marki</p>
+
+<h3><i>I.Zakres zastosowania Regulaminu</i></h3>
+<br>
+<ol>
+  <li>Z usług specjalisty ds. żywienia mogą korzystać osoby posiadające
+pełną zdolność do czynności prawnych. Pozostałe osoby mogą korzystać z
+usług po wyrażeniu pisemnej zgody przez ich prawnych opiekunów.</li>
+  <li>Regulamin ma zastosowanie do wszystkich Pacjentów poradni dietetycznej i ich opiekunów.</li>
+</ol>
+<br>
+
+
+<h3><i>II. Usługi dietetyczne</i></h3>
+<br>
+
+<p>
+</p><ol>
+  <li>Zakres usług widnieje na stronie internetowej www.sylviadieta.pl</li>
+  <li>Usługi świadczone są odpłatnie, zgodnie z cennikiem zamieszczonym na stronie www.sylviadieta.pl</li>
+  <li>W zależności od potrzeb, usługi poradni mogą dotyczyć:
+<br>-konsultacji dietetycznej– wywiadu, rozmowy i przeanalizowanie problemu oraz wskazania możliwości jego rozwiązania;
+<br>-poradnictwa żywieniowego- związanego z udzielaniem wskazówek dietetycznych lub/i otrzymaniem planu żywieniowego.
+<br>- analizy składu ciała- pomiar wykonywany z użyciem analizatora składu ciała InBody120 i omówienie wyników badania.
+<br>-prowadzenia warsztatów i szkoleń z zakresu odżywiania.
+<br>-lub innych działań, realizowanych przez specjalistę.</li>
+  <li>W poradni mogą być organizowane promocje, przyznawane rabaty na
+wybrane usługi z oferty poradni. O zasadach dotyczących promocji i
+udzielanych rabatów decyduje specjalista -zamieszcza je na stronie
+poradni lub na funpage.</li>
+  <li>Płatności dokonuje się bezpośrednio podczas każdej wizyty, formą
+płatności jest gotówka.W przypadku kontaktu on-line możliwą formą
+płatności jest przelew na konto bankowe nr 26 1020 1042 0000 8402 0372
+8599</li>
+  <li>Pacjent , który uiścił opłatę za Pakiet usług ma prawo do otrzymania rachunku lub innego stosownego dokumentu księgowego.</li>
+  <li>Rejestracja Pacjenta odbywa się poprzez kontakt telefoniczny-rozmowę, wiadomość sms lub drogą mailową.</li>
+  <li>Zawarcie umowy dotyczącej usługi poradnictwa ma formę ustną i/ lub pisemną (sms, wiadomość email).</li>
+  <li>Ilość wizyt ustalana jest wspólnie z pacjentem i uzależniona jest od jego potrzeb.</li>
+  <li>Czas realizacji usługi dotyczące ułożenia jadłospisu przez
+specjalistę wynosi 7-10 dni roboczych od daty zaksięgowania wpłaty na
+koncie Poradni lub uiszczenia płatności w formie gotówkowej w placówce
+Poradni.</li>
+  <li>Pierwsza wizyta trwa ok. 1, 5 h. wizyty kontrolne 30 min, analiza
+składu ciała ok.20 minut.Czas wizyty kontrolnej to około 40 minut.
+Istnieje możliwość wydłużenia czasu wizyty po wcześniejszym uzgodnieniu.</li>
+  <li>Pacjent jest zobowiązany stawiać się punktualnie na umówione spotkania ze specjalistą.</li>
+  <li>W przypadku spóźnienia na umówione spotkanie czas spotkania może zostać skrócony o czas, jaki Pacjent się spóźnił.</li>
+  <li>Odwoływanie wizyty:
+<br>- wizytę należy odwołać min.48 h przed planową wizytą. W przypadku
+nieodwołania/braku obecności na 2 wizytach w wyznaczanym czasie,
+specjalista ma prawo odmówić wpisania na kolejną wizytę. </li>
+  <li>Program żywieniowy przygotowany przez specjalistę przeznaczony
+jest wyłącznie na użytek własny pacjenta i nie może być przekazywany/
+kopiowy przez osoby trzecie.</li>
+  <li>Specjalista ma możliwość odmówienia wykonania Programu
+żywieniowego, jeżeli jego przygotowanie wzbudza wątpliwości ze względu
+na stan zdrowia pacjenta lub jeśli wykracza poza zakres jego
+kompetencji. W takich przypadkach specjalista informuje słownie lub
+pisemnie o odmowie wykonania programu żywieniowego jak również dokona
+zwrotu wpłaty, jeśli taka została wcześniej uiszczona.</li>
+  <li>Za bezpieczeństwo dzieci i młodzieży poza gabinetem tj. w
+poczekalni na terenie budynku i w gabinecie dietetycznym odpowiadają
+rodzice i prawni opiekunowie.</li>
+</ol>
+
+<p></p>
+<br>
+
+<h3><i>III Ochrona danych osobowych</i></h3>
+<br>
+<p>
+</p><ol>
+<li>Pacjent ma prawo do zachowania poufności swoich danych personalnych,
+ jak i wyników analizy składu ciała i wdrożonego planu żywieniowego.</li>
+<li>Pacjent przychodzący na pierwszą wizytę podpisuje zgodę na przetwarzanie swoich danych osobowych.</li>
+<li>Dane osobowe są przetwarzane przez specjalistę wyłącznie w celu świadczenia usług, o których mowa w punkcie II;3</li>
+<li>Specjalista jest zobowiązany do zapisywania czy kopiowania tylko
+tych danych, które są absolutnie niezbędne  w celu świadczenia usługi.</li>
+<li>Pacjent ma prawo żądać wglądu do swoich danych osobowych jak też ich  sprostowania.</li>
+<li>Pacjent ma prawo żądać usunięcia swoich danych osobowych.</li>
+<li>Pacjent ma prawo wycofać zgodę na przetwarzanie swoich danych osobowych.</li>
+<li>Dane osobowe Pacjentów przetwarzane są w zgodzie z obowiązującym
+prawem Polskim i Europejskim, w szczególności z Rozporządzeniem Ogólnym o
+ Ochronie Danych Osobowych (RODO).</li>
+<li>Karta Pacjenta zawierające niezbędne dane osobowe, kwestionariusz,
+wywiad żywieniowy, jadłospisy, a także wyniki analiz składu ciała
+przechowywane będą do 2 lat od zakończenia dietoterapii. W przypadku
+chęci ponownej współpracy po wyznaczonym czasie (2 lat) współpracę
+rozpoczyna się od wizyty nr 1 (wizyta z&nbsp;wywiadem lekarskim i
+żywieniowym).</li>
+</ol>
+<p></p>
+<br>
+<h3><i>IV.Postanowienia końcowe</i></h3>
+<br>
+<p>
+</p><ol>
+<li>Pacjent umawiający się na wizytę w poradni dietetycznej jest
+zobowiązany zapoznać się z regulaminem świadczenia usług  dietetycznych i
+ poświadczyć jego akceptację w formie pisemnej.</li>
+<li>Każdy Pacjent ma dostęp do zapoznania się z regulaminem w poradni dietetycznej.</li>
+<li>Zastrzega się prawo do dokonywania zmian Regulaminu, jak również
+wprowadzania modyfikacji cen za świadczone usługi dietetyczne, o czym
+Pacjenci będą powiadomieni poprzez udostępnienie stosownej informacji w
+gabinecie dietetycznym.</li>
+</ol>
+<br>
+<h3><i>Polityka prywatności</i></h3>
+<p>
+Nasza strona internetowa nie  wykorzystuje technologii Cookies, nie rejestrujemy również wejść na stronę internetową.
+</p>
+<br>
+<p></p>
+</div>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

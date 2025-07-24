@@ -1,0 +1,280 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+div.b {
+  text-align: left;
+}
+.navbar {
+  background-color: #46A6AF;
+}
+.navbar .navbar-brand {
+	font-size: 1.5em;
+  color: #000000;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+	font-size: 1.5em;
+  color: #000000;
+}
+.navbar .navbar-text {
+	font-size: 1.5em;
+  color: #000000;
+}
+.navbar .navbar-nav .nav-link {
+	font-size: 1.5em;
+  color: #000000;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+.navbar .navbar-nav .nav-link:not(.disabled):hover,
+.navbar .navbar-nav .nav-link:not(.disabled):focus {
+  color: #000000;
+}
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-item.active .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:focus,
+.navbar .navbar-nav .nav-item.show .nav-link,
+.navbar .navbar-nav .nav-item.show .nav-link:hover,
+.navbar .navbar-nav .nav-item.show .nav-link:focus {
+  color: #000000;
+  background-color: #11cc05;
+}
+.navbar .navbar-toggle {
+  border-color: #11cc05;
+}
+.navbar .navbar-toggle:hover,
+.navbar .navbar-toggle:focus {
+  background-color: #11cc05;
+}
+.navbar .navbar-toggle .navbar-toggler-icon {
+  color: #000000;
+}
+
+.navbar-toggler {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar .navbar-collapse,
+.navbar .navbar-form {
+  border-color: #000000;
+}
+.navbar .navbar-link {
+  color: #000000;
+}
+.navbar .navbar-link:hover {
+  color: #000000;
+}
+
+@media (max-width: 575px) {
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #000000;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #000000;
+  }
+  .navbar-expand-sm .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #000000;
+    background-color: #11cc05;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #000000;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #000000;
+  }
+  .navbar-expand-md .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #000000;
+    background-color: #11cc05;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #000000;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #000000;
+  }
+  .navbar-expand-lg .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #000000;
+    background-color: #11cc05;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item {
+    color: #000000;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+    color: #000000;
+  }
+  .navbar-expand-xl .navbar-nav .show .dropdown-menu .dropdown-item.active {
+    color: #000000;
+    background-color: #11cc05;
+  }
+}
+
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item {
+  color: #000000;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:hover,
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item:focus {
+  color: #000000;
+}
+.navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
+  color: #000000;
+  background-color: #11cc05;
+}
+
+body {
+	
+  font:normal 100%/150% arial,helvetica,sans-serif;
+  background-color: #C1FFF5;
+}
+
+
+.title {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: left;
+}
+.title1 {
+  color: black;
+  text-align: left;
+}
+.titleright {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: right;
+}
+.titleright1 {
+  color: black;
+  text-align: right;
+}
+.mt-5 {
+  color: #467800;
+}
+.nawig {
+  color: #467800;
+}
+
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+h2 {
+  font-size: 2rem;
+}
+p {
+  padding-bottom:1em;
+  margin: 0;
+  font-size: 1.3rem;
+  font:normal 100%/150% arial,helvetica,sans-serif;
+}
+
+main {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+
+li {
+    padding-left: 1.28571429em;
+    text-indent: -1.28571429em;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.post-container {
+    margin: 0px 0px 0px 0px;  
+    border: 0px solid #333;
+    overflow: auto
+}
+
+.post-thumb img {
+    display: block
+}
+.post-thumb {
+	margin: 15px 40px 25px 0px;
+	float: left
+}
+.post-content {
+    margin-left: 240px
+	float: left;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 200%
+}
+
+.widthWrapper {
+	max-width:75em;
+	margin:0 auto;
+}
+
+#top {
+	overflow:hidden; /* wrap floats */
+	zoom:1; /* trip haslayout, wrap floats legacy IE */
+	padding-bottom:1em;
+	text-align:right;
+	font:normal 130%/50% arial,helvetica,sans-serif;
+	font-style:bold;
+}
+
+#top h1 {
+	float:left;
+	text-align:left;
+	font:normal 200%/120% arial,helvetica,sans-serif;
+}
+
+#top h1 small {
+	display:block; /* removes oddball line-height bug */
+	font:normal 75%/120% arial,helvetica,sans-serif;
+}
+
+#top i {
+	display:inline-block;
+	vertical-align:middle;
+	font:normal 100%/120% FontAwesome;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+#top a {
+	font-style:normal;
+}
+
+blockquote cite {
+	display:block;
+	text-align:left;
+}
+
+@media (max-width:40em) {
+	#top {
+		text-align:center;
+	}
+	#top h1 {
+		float:none;
+		text-align:center;
+		padding-bottom:0.5em;
+	}
+}
