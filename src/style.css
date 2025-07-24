@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: light --default;
+}
+
+@theme {
+    --color-navbar: #59a4af;
+
+    --default-font-family: "Source Sans 3", system-ui;
+
+    --font-smallcaps: "Source Sans 3", system-ui;
+    --font-smallcaps--font-feature-settings: 'smcp';
+}
+
+.navbar-tab-active {
+    @apply bg-base-300 text-base-content;
+}

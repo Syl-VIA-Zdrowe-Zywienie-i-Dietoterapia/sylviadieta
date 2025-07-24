@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" class="bg-base-200">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/x-icon" href="/logo.jpg" />
+        <link href="/src/style.css" rel="stylesheet">
+
+        <script type="module" src="/src/main.ts"></script>
+        <script src="https://kit.fontawesome.com/e8e14ec1f1.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
+
+        <title>Syl.VIA — Zdrowe Żywienie i Dietoterapia</title>
+    </head>
+
+    <body>
+        <header id="header"
+            hx-get="/parts/_header.html"
+            hx-trigger="load"
+            hx-swap="outerHTML">
+        </header>
+
+        <main id="main" class="mt-36 mb-20"
+            hx-get="/parts/home.html"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+        </main>
+
+        <footer id="footer"
+            hx-get="/parts/_footer.html"
+            hx-trigger="load"
+            hx-swap="outerHTML">
+        </footer>
+    </body>
+</html>
