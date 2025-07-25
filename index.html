@@ -4,6 +4,59 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="Profesjonalna pomoc dietetyczna i psychodietetyczna. Sylwia Majewska - dietetyk, psychodietetyk, chemik. Indywidualne plany żywieniowe, konsultacje online i stacjonarne." />
+        <meta name="keywords" content="dietetyk, psychodietetyk, żywienie, dieta, konsultacje dietetyczne, Warszawa, Marki, nordic walking" />
+        <meta name="author" content="Sylwia Majewska" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sylviadieta.pl/" />
+        <meta property="og:title" content="Syl.VIA — Zdrowe Żywienie i Dietoterapia" />
+        <meta property="og:description" content="Profesjonalna pomoc dietetyczna i psychodietetyczna. Indywidualne podejście do każdego pacjenta." />
+        <meta property="og:image" content="https://sylviadieta.pl/assets/logo.jpg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://sylviadieta.pl/" />
+        <meta property="twitter:title" content="Syl.VIA — Zdrowe Żywienie i Dietoterapia" />
+        <meta property="twitter:description" content="Profesjonalna pomoc dietetyczna i psychodietetyczna." />
+        <meta property="twitter:image" content="https://sylviadieta.pl/assets/logo.jpg" />
+
+        <!-- Structured Data for Local Business -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "Syl.VIA - Zdrowe Żywienie i Dietoterapia",
+                "description": "Profesjonalna pomoc dietetyczna i psychodietetyczna",
+                "url": "https://sylviadieta.pl",
+                "telephone": "+48501974479",
+                "email": "dietetyka.syl.via@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "ul. Słoneczna 3c/110",
+                    "addressLocality": "Marki",
+                    "postalCode": "05-270",
+                    "addressCountry": "PL"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 52.325,
+                    "longitude": 21.075
+                },
+                "openingHours": "Mo-Fr 09:00-17:00",
+                "priceRange": "$$",
+                "founder": {
+                    "@type": "Person",
+                    "name": "Sylwia Majewska",
+                    "jobTitle": "Dietetyk, Psychodietetyk"
+                }
+            }
+        </script>
+
         <link rel="icon" type="image/x-icon" href="assets/logo.jpg" />
         <link href="src/style.css" rel="stylesheet" />
 
@@ -14,9 +67,152 @@
         <title>Syl.VIA — Zdrowe Żywienie i Dietoterapia</title>
     </head>
 
-    <body class="relative min-h-dvh">
-        <header id="header" class="pb-40 md:pb-36" hx-get="parts/_header.html" hx-trigger="load" hx-swap="innerHTML"></header>
-        <main id="main" class="px-6 md:px-10" hx-get="parts/home.html" hx-trigger="load" hx-swap="innerHTML"></main>
-        <footer id="footer" class="pt-30 md:pt-20" hx-get="parts/_footer.html" hx-trigger="load" hx-swap="innerHTML"></footer>
+    <body class="relative flex min-h-lvh flex-col">
+        <header id="header" class="pb-28 lg:pb-36">
+            <nav class="bg-sylvia fixed top-0 z-50 w-full px-4 md:px-10">
+                <div class="navbar mx-auto w-full max-w-6xl px-0 py-0" hx-target="#main" hx-swap="innerHTML">
+                    <div class="navbar-start lg:hidden">
+                        <div class="dropdown">
+                            <div tabindex="0" role="button" class="btn btn-ghost btn-circle text-base-100">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </div>
+                            <ul tabindex="0" class="menu menu-lg dropdown-content bg-base-100 rounded-box z-[1] mt-3 gap-1 shadow-lg" onclick="document.activeElement.blur()">
+                                <li>
+                                    <a hx-get="parts/home.html" onclick="changeNavbarTab(event)">Strona główna</a>
+                                </li>
+                                <li>
+                                    <a hx-get="parts/about.html" onclick="changeNavbarTab(event)">O mnie</a>
+                                </li>
+                                <li>
+                                    <a hx-get="parts/services.html" onclick="changeNavbarTab(event)">Usługi</a>
+                                </li>
+                                <li>
+                                    <a hx-get="parts/blog.html" onclick="changeNavbarTab(event)">Z gabinetu psychodietetyka</a>
+                                </li>
+                                <li>
+                                    <a hx-get="parts/info.html" onclick="changeNavbarTab(event)">Informacje</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Logo - centered on mobile, left on desktop -->
+                    <div class="navbar-center lg:navbar-start lg:w-fit">
+                        <a class="cursor-pointer" hx-get="parts/home.html" onclick="changeNavbarTab(event)">
+                            <img src="assets/logo.jpg" width="80" height="80" alt="logo" class="lg:h-24 lg:w-24" />
+                        </a>
+                    </div>
+
+                    <!-- Desktop menu -->
+                    <div class="navbar-center hidden lg:flex">
+                        <ul class="menu menu-horizontal gap-2 px-4 xl:gap-4">
+                            <li>
+                                <a
+                                    class="text-base-100 active:!bg-base-300 active:!text-base-content hover:bg-base-100/20 text-lg font-bold transition-colors xl:text-2xl"
+                                    hx-get="parts/about.html"
+                                    onclick="changeNavbarTab(event)">
+                                    O mnie
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="text-base-100 active:!bg-base-300 active:!text-base-content hover:bg-base-100/20 text-lg font-bold transition-colors xl:text-2xl"
+                                    hx-get="parts/services.html"
+                                    onclick="changeNavbarTab(event)"
+                                    >Usługi</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="text-base-100 active:!bg-base-300 active:!text-base-content hover:bg-base-100/20 text-lg font-bold transition-colors xl:text-2xl"
+                                    hx-get="parts/blog.html"
+                                    onclick="changeNavbarTab(event)"
+                                    >Z gabinetu psychodietetyka</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="text-base-100 active:!bg-base-300 active:!text-base-content hover:bg-base-100/20 text-lg font-bold transition-colors xl:text-2xl"
+                                    hx-get="parts/info.html"
+                                    onclick="changeNavbarTab(event)"
+                                    >Informacje</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Empty space for mobile layout balance -->
+                    <div class="navbar-end lg:hidden"></div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main" class="flex-1 px-6 md:px-10" hx-get="parts/home.html" hx-trigger="load" hx-swap="innerHTML"></main>
+
+        <footer class="bg-base-300 mt-10 px-6 py-4 sm:px-10 sm:py-6">
+            <div class="footer sm:footer-horizontal text-base-content/80 mx-auto max-w-6xl place-items-center gap-4 text-xs md:text-sm lg:text-base">
+                <aside class="flex flex-col items-center gap-1 text-center text-sm sm:items-start sm:place-self-start sm:text-left lg:text-base">
+                    <p>&copy; 2025 <span class="font-semibold">Syl.VIA — Zdrowe Żywienie i Dietoterapia</span></p>
+                    <p>Wszelkie prawa zastrzeżone. NIP: 8121699322</p>
+                    <img src="assets/logo.jpg" alt="Syl.VIA Logo" class="mt-2 hidden h-auto w-20 rounded-md shadow-lg sm:visible sm:block lg:mt-4" />
+                </aside>
+
+                <nav class="flex h-full flex-row text-center md:place-self-end lg:text-left">
+                    <div class="group/contact h-full">
+                        <h4 class="group-hover/contact:text-sylvia mb-2 text-base font-semibold uppercase transition-colors md:text-lg">Kontakt</h4>
+
+                        <div class="flex list-none flex-col items-center gap-2 lg:items-start">
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="tel:+48501974479">
+                                <i class="fas fa-phone"></i> +48 501 974 479
+                            </a>
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="mailto:dietetyka.syl.via@gmail.com">
+                                <i class="fas fa-envelope"></i> dietetyka.syl.via@gmail.com
+                            </a>
+                            <div class="group/address inline-flex items-start gap-2">
+                                <i class="fas fa-map-marker-alt group-hover/address:text-sylvia mt-1 transition-colors"></i>
+                                <p>
+                                    ul. Słoneczna 3c/110
+                                    <br />
+                                    05-270 Marki
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider divider-horizontal"></div>
+
+                    <div class="group/documents h-full">
+                        <h4 class="group-hover/documents:text-sylvia mb-2 text-base font-semibold uppercase transition-colors md:text-lg">Dokumenty</h4>
+
+                        <div class="flex list-none flex-col items-center gap-2 lg:items-start">
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="assets/regulamin.pdf" target="_blank">
+                                <i class="fas fa-file-contract"></i>
+                                Regulamin świadczenia usług
+                            </a>
+                            <a
+                                class="hover:text-sylvia hover:border-sylvia inline-flex cursor-pointer items-center gap-2 border-b border-transparent transition-colors"
+                                onclick="privacy_policy_modal.showModal()">
+                                <i class="fas fa-shield-alt"></i>
+                                Polityka prywatności
+                            </a>
+                            <dialog id="privacy_policy_modal" class="modal px-4">
+                                <div class="modal-box w-fit">
+                                <form method="dialog">
+                                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><i class="fas fa-xmark"></i></button>
+                                </form>
+                                    <h3 class="text-xl font-bold">Polityka prywatności</h3>
+                                    <p class="pt-4 text-justify text-base">Nasza strona internetowa nie wykorzystuje technologii Cookies, nie&nbsp;rejestrujemy również wejść na stronę internetową.</p>
+                                </div>
+                                <form method="dialog" class="modal-backdrop">
+                                    <button>close</button>
+                                </form>
+                            </dialog>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </footer>
     </body>
 </html>
