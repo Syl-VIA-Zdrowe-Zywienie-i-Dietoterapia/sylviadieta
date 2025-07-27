@@ -2,18 +2,24 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-    themes: light --default;
+    themes: light --default, dark --prefersdark;
 }
 
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+
+    --color-primary: oklch(78.1% 0.118 25.2);
+    --color-primary-content: oklch(97.4% 0.016 227.0);
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
-    --color-sylvia: #59a4af;
+    --color-sylvia: oklch(67.4% 0.076 206.7);
 
     --default-font-family: "Source Sans 3", system-ui;
 
     --font-smallcaps: "Source Sans 3", system-ui;
     --font-smallcaps--font-feature-settings: 'smcp';
-}
-
-.navbar-tab-active {
-    @apply bg-base-300 text-base-content;
 }

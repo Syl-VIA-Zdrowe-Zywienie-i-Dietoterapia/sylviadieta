@@ -18,7 +18,8 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
-        "copy-to-clipboard": "^3.3.3"
+        "copy-to-clipboard": "^3.3.3",
+        "htmx.org": "^2.0.6"
     },
     "trustedDependencies": [
         "@tailwindcss/oxide"

@@ -1,19 +1,20 @@
-<section class="mx-auto flex w-full max-w-6xl flex-col">
-    <h1 class="mb-12 text-center text-5xl font-bold md:mb-8 md:text-6xl">O mnie</h1>
+<main id="about" class="flex-1 px-6 md:px-10">
+    <div class="mx-auto max-w-6xl space-y-12 md:space-y-8">
+        <h1 class="text-center text-5xl font-bold md:text-6xl">O mnie</h1>
 
-    <div class="flex flex-col items-center gap-5 md:gap-2">
-        <div id="introduction" hx-get="parts/about/introduction.html" hx-trigger="load" hx-swap="outerHTML"></div>
-
-        <div class="divider"></div>
-
-        <div id="occupation" hx-get="parts/about/occupation.html" hx-trigger="load" hx-swap="outerHTML"></div>
-
-        <div class="divider"></div>
-
-        <div id="qualifications" hx-get="parts/about/qualifications.html" hx-trigger="load" hx-swap="outerHTML"></div>
-
-        <div class="divider"></div>
-
-        <div id="values" hx-get="parts/about/values.html" hx-trigger="load" hx-swap="outerHTML"></div>
+        <div class="flex flex-col gap-5 md:gap-2">
+            <section id="introduction" hx-get="parts/about/introduction.html" hx-trigger="load" hx-swap="outerHTML"></section>
+            <div class="hidden md:block">
+                <div class="divider"></div>
+                <div class="tabs tabs-lift w-full justify-center [&>.tab-content]:[--tabcontent-radius-ss:var(--radius-box)]">
+                    <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-about" aria-label="Czym się zajmuję" checked />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/about/occupation.html" hx-trigger="load" hx-swap="innerHTML"></div>
+                    <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-about" aria-label="Kwalifikacje" />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/about/qualifications.html" hx-trigger="load" hx-swap="innerHTML"></div>
+                    <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-about" aria-label="Moje wartości" />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/about/values.html" hx-trigger="load" hx-swap="innerHTML"></div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</main>
