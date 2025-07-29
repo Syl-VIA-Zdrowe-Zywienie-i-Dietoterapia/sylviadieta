@@ -1,14 +1,16 @@
 <main id="services" class="flex-1 px-6 md:px-10">
-</main>
+    <div class="mx-auto max-w-2/3 space-y-12 md:space-y-8">
+        <h1 class="text-center text-5xl font-bold md:text-6xl">Usługi</h1>
 
-<!-- <section id="pricing" class="mx-auto flex w-[87.5%] flex-col items-center gap-8">
-    <h1 class="text-6xl font-bold">Cennik</h1>
-
-    <div id="tabs" class="tabs tabs-lift w-full justify-center [&>.tab-content]:[--tabcontent-radius-ss:var(--radius-box)]">
-        <a class="tab tab-active text-xl font-medium transition-all [&.tab-active]:!text-2xl [&.tab-active]:!font-semibold" hx-on:click="changeActiveTab(event)">Pojedyncze wizyty</a>
-        <div id="tab-content" class="tab-content bg-base-100 border-base-300 py-10" hx-get="/parts/pricing/single-visit.html" hx-trigger="load" hx-swap="innerHTML"></div>
-
-        <a class="tab text-xl font-medium transition-all [&.tab-active]:!text-2xl [&.tab-active]:!font-semibold" hx-on:click="changeActiveTab(event)">Pakiety</a>
-        <div id="tab-content" class="tab-content bg-base-100 border-base-300 py-10" hx-get="/parts/pricing/bundles.html" hx-trigger="load" hx-swap="innerHTML"></div>
+        <div class="flex flex-col gap-5 md:gap-2">
+            <div class="tabs tabs-lift w-full justify-center [&>.tab-content]:[--tabcontent-radius-ss:var(--radius-box)]">
+                <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-services" aria-label="Psychodietetyka" checked />
+                <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/services/psychodietetics.html" hx-trigger="load" hx-swap="innerHTML"></div>
+                <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-services" aria-label="Nordic walking" />
+                <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/services/nordic-walking.html" hx-trigger="load" hx-swap="innerHTML"></div>
+                <input class="tab text-2xl font-semibold !pt-1" type="radio" name="tabs-services" aria-label="Warsztaty i wyjazdy" />
+                <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8" hx-get="/parts/services/workshops-trips.html" hx-trigger="load" hx-swap="innerHTML"></div>
+            </div>
+        </div>
     </div>
-</section> -->
+</main>

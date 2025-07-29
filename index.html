@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -82,40 +82,78 @@
                                 <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-home" hx-get="index.html" hx-target="body">Strona główna</label>
                             </li>
                             <li>
-                                <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-introduction" />
-                                <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-about-introduction" hx-get="parts/about/mobile/introduction.html">
-                                    O mnie
-                                </label>
-                                <ul>
-                                    <li>
-                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-occupation" />
-                                        <label
-                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                            for="nav-mobile-about-occupation"
-                                            hx-get="parts/about/mobile/occupation.html">
-                                            Czym się zajmuję
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-qualifications" />
-                                        <label
-                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                            for="nav-mobile-about-qualifications"
-                                            hx-get="parts/about/mobile/qualifications.html">
-                                            Kwalifikacje
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-values" />
-                                        <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm" for="nav-mobile-about-values" hx-get="parts/about/mobile/values.html">
-                                            Moje wartości
-                                        </label>
-                                    </li>
-                                </ul>
+                                <details open>
+                                    <summary>O mnie</summary>
+                                    <ul>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-introduction" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-about-introduction"
+                                                hx-get="parts/about/mobile/introduction.html">
+                                                Kim jestem
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-occupation" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-about-occupation"
+                                                hx-get="parts/about/mobile/occupation.html">
+                                                Czym się zajmuję
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-qualifications" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-about-qualifications"
+                                                hx-get="parts/about/mobile/qualifications.html">
+                                                Kwalifikacje
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-values" />
+                                            <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm" for="nav-mobile-about-values" hx-get="parts/about/mobile/values.html">
+                                                Moje wartości
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </details>
                             </li>
                             <li>
-                                <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services" />
-                                <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-services" hx-get="parts/services.html">Usługi</label>
+                                <details open>
+                                    <summary>Usługi</summary>
+                                    <ul>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-psychodietetics" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-services-psychodietetics"
+                                                hx-get="parts/services/mobile/psychodietetics.html">
+                                                Psychodietetyka
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-nordic-walking" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-services-nordic-walking"
+                                                hx-get="parts/services/mobile/nordic-walking.html">
+                                                Nordic walking
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-workshops" />
+                                            <label
+                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                                for="nav-mobile-services-workshops-trips"
+                                                hx-get="parts/services/mobile/workshops-trips.html">
+                                                Warsztaty i wyjazdy
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </details>
                             </li>
                             <li>
                                 <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-blog" />
