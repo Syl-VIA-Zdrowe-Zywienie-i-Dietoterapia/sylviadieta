@@ -82,78 +82,74 @@
                                 <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-home" hx-get="index.html" hx-target="body">Strona główna</label>
                             </li>
                             <li>
-                                <details open>
-                                    <summary>O mnie</summary>
-                                    <ul>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-introduction" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-about-introduction"
-                                                hx-get="parts/about/mobile/introduction.html">
-                                                Kim jestem
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-occupation" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-about-occupation"
-                                                hx-get="parts/about/mobile/occupation.html">
-                                                Czym się zajmuję
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-qualifications" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-about-qualifications"
-                                                hx-get="parts/about/mobile/qualifications.html">
-                                                Kwalifikacje
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-values" />
-                                            <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm" for="nav-mobile-about-values" hx-get="parts/about/mobile/values.html">
-                                                Moje wartości
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </details>
+                                <span class="menu-dropdown-toggle">O mnie</span>
+                                <ul class="menu-dropdown menu-dropdown-show">
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-introduction" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-about-introduction"
+                                            hx-get="parts/about/mobile/introduction.html">
+                                            Kim jestem
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-occupation" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-about-occupation"
+                                            hx-get="parts/about/mobile/occupation.html">
+                                            Czym się zajmuję
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-qualifications" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-about-qualifications"
+                                            hx-get="parts/about/mobile/qualifications.html">
+                                            Kwalifikacje
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-values" />
+                                        <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm" for="nav-mobile-about-values" hx-get="parts/about/mobile/values.html">
+                                            Moje wartości
+                                        </label>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <details open>
-                                    <summary>Usługi</summary>
-                                    <ul>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-psychodietetics" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-services-psychodietetics"
-                                                hx-get="parts/services/mobile/psychodietetics.html">
-                                                Psychodietetyka
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-nordic-walking" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-services-nordic-walking"
-                                                hx-get="parts/services/mobile/nordic-walking.html">
-                                                Nordic walking
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-workshops" />
-                                            <label
-                                                class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
-                                                for="nav-mobile-services-workshops-trips"
-                                                hx-get="parts/services/mobile/workshops-trips.html">
-                                                Warsztaty i wyjazdy
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </details>
+                                <span class="menu-dropdown-toggle">Usługi</span>
+                                <ul class="menu-dropdown menu-dropdown-show">
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-psychodietetics" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-services-psychodietetics"
+                                            hx-get="parts/services/mobile/psychodietetics.html">
+                                            Psychodietetyka
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-nordic-walking" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-services-nordic-walking"
+                                            hx-get="parts/services/mobile/nordic-walking.html">
+                                            Nordic walking
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-services-workshops" />
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-services-workshops-trips"
+                                            hx-get="parts/services/mobile/workshops-trips.html">
+                                            Warsztaty i wyjazdy
+                                        </label>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-blog" />
@@ -288,14 +284,14 @@
                                         <i class="fas fa-building"></i>
                                         Stacjonarnie
                                     </h4>
-                                    <p class="text-sm lg:text-base">Spotkania odbywają się w przytulnym gabinecie, w spokojnej i komfortowej atmosferze.</p>
+                                    <p class="text-sm md:text-base">Spotkania odbywają się w przytulnym gabinecie, w spokojnej i komfortowej atmosferze.</p>
                                 </div>
                                 <div class="bg-base-100 text-base-content space-y-2 rounded-lg p-4">
                                     <h4 class="inline-flex items-center gap-2 font-bold">
                                         <i class="fas fa-video"></i>
                                         Online
                                     </h4>
-                                    <p class="text-sm lg:text-base">Wygodna opcja dla tych, którzy preferują elastyczność — konsultacje przeprowadzam poprzez bezpieczne platformy wideokonferencyjne.</p>
+                                    <p class="text-sm md:text-base">Wygodna opcja dla tych, którzy preferują elastyczność — konsultacje przeprowadzam poprzez bezpieczne platformy wideokonferencyjne.</p>
                                 </div>
                             </div>
                             <p class="text-lg font-semibold md:text-xl">Skontaktuj się, aby ustalić szczegóły i umówić termin!</p>
@@ -306,8 +302,8 @@
         </main>
 
         <footer class="bg-base-300 mt-10 px-6 py-4 sm:px-10 sm:py-6">
-            <div class="footer sm:footer-horizontal text-base-content/80 mx-auto max-w-6xl place-items-center gap-4 text-xs sm:text-sm lg:text-base">
-                <aside class="-space-y-1 text-center text-sm sm:place-self-start sm:text-left lg:text-base">
+            <div class="footer sm:footer-horizontal text-base-content/80 mx-auto max-w-6xl place-items-center gap-4 text-xs sm:text-sm md:text-base">
+                <aside class="-space-y-1 text-center text-sm sm:place-self-start sm:text-left md:text-base">
                     <p class="w-full">&copy; 2025 <span class="font-semibold">Syl.VIA — Zdrowe Żywienie i Dietoterapia</span></p>
                     <p class="w-full">Wszelkie prawa zastrzeżone. NIP:&nbsp;8121699322</p>
                     <img src="assets/logo-horizontal-color-transparent.png" alt="Syl.VIA Logo" class="mt-2 hidden h-auto w-48 sm:block dark:!hidden" />
@@ -357,8 +353,8 @@
                                     <form method="dialog">
                                         <button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"><i class="fas fa-xmark"></i></button>
                                     </form>
-                                    <h3 class="text-xl font-bold">Polityka prywatności</h3>
-                                    <p class="pt-4 text-justify text-base">Nasza strona internetowa nie wykorzystuje technologii Cookies, nie&nbsp;rejestrujemy również wejść na stronę internetową.</p>
+                                    <h5 class="text-xl font-bold">Polityka prywatności</h5>
+                                    <p class="pt-4 text-base">Nasza strona internetowa nie wykorzystuje technologii Cookies, nie&nbsp;rejestrujemy również wejść na stronę internetową.</p>
                                 </div>
                                 <form method="dialog" class="modal-backdrop">
                                     <button>close</button>

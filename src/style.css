@@ -23,3 +23,32 @@
     --font-smallcaps: "Source Sans 3", system-ui;
     --font-smallcaps--font-feature-settings: 'smcp';
 }
+
+/* Swiper.js styles */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+/* Custom Swiper styling */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: oklch(67.4% 0.076 206.7); /* sylvia color */
+}
+
+.swiper-pagination-bullet-active {
+    background: oklch(67.4% 0.076 206.7); /* sylvia color */
+}
