@@ -1,8 +1,8 @@
 <section id="workshops-trips" class="flex flex-col items-center gap-4">
-    <!-- Workshop Gallery Carousel -->
-    <div class="w-full max-w-6xl">
-        <h2 class="text-center text-4xl font-bold mb-8 md:text-5xl">Warsztaty i Wyjazdy</h2>
-
+    <a class="btn bg-sylvia text-primary-content hover:bg-sylvia/80 -mt-2 mb-4 rounded-full p-5 text-lg font-medium shadow-lg md:mt-0 md:text-xl" href="#warsztaty-cennik" aria-label="Przejdź do cennika">
+        <i class="fas fa-caret-down"></i>Przejdź do cennika
+    </a>
+    <!-- <div class="w-full max-w-6xl">
         <div class="swiper workshop-carousel mb-8">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -50,15 +50,27 @@
                     </div>
                 </div>
             </div>
-            <!-- Add Navigation -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
         </div>
+    </div> -->
+
+    <div class="hidden grid-cols-2 grid-rows-3 gap-8 xl:grid">
+        <img class="row-span-3 rounded-2xl" src="assets/workshops-trips/trip-current.jpg" alt="Aktualny wyjazd" />
+        <img class="size-full rounded-2xl object-contain" src="assets/workshops-trips/trip1.png" alt="Przeszły wyjazd" />
+        <img class="size-full rounded-2xl object-contain" src="assets/workshops-trips/trip2.png" alt="Przeszły wyjazd" />
+        <img class="size-full rounded-2xl object-contain" src="assets/workshops-trips/trip3.png" alt="Przeszły wyjazd" />
     </div>
 
-    <div id="pricing" class="divider scroll-mt-18"></div>
+    <div class="flex flex-col gap-4 xl:hidden">
+        <img class="rounded-2xl" src="assets/workshops-trips/trip-current.jpg" alt="Aktualny wyjazd" />
+        <img class="rounded-2xl" src="assets/workshops-trips/trip1.png" alt="Przeszły wyjazd" />
+        <img class="rounded-2xl" src="assets/workshops-trips/trip2.png" alt="Przeszły wyjazd" />
+        <img class="rounded-2xl" src="assets/workshops-trips/trip3.png" alt="Przeszły wyjazd" />
+    </div>
+
+    <div id="warsztaty-cennik" class="divider scroll-mt-18"></div>
 
     <div class="w-full space-y-8">
         <h2 class="text-center text-4xl font-bold md:text-5xl">Cennik</h2>
