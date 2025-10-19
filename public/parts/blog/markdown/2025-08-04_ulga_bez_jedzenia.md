@@ -14,38 +14,38 @@ tags: ["psychodietetyka", "emocjonalne jedzenie", "samoregulacja", "uważność"
 date: 2025-08-04
 ---
 
-# Odłączeni od siebie – gdy jedzenie staje się jedynym sposobem na ulgę  
+# Odłączeni od siebie – gdy jedzenie staje się jedynym sposobem na ulgę
 
-Zauważyłam coś ważnego u wielu osób, z którymi pracuję.  
-Kiedy jesteśmy zmęczeni, przeciążeni i odłączeni od siebie oraz swoich potrzeb, jedzenie często staje się jedynym sposobem, by „zatrzymać się” i poczuć ulgę.  
+Zauważyłam coś ważnego u wielu osób, z którymi pracuję.
+Kiedy jesteśmy zmęczeni, przeciążeni i odłączeni od siebie oraz swoich potrzeb, jedzenie często staje się jedynym sposobem, by „zatrzymać się” i poczuć ulgę.
 
-Część osób sięga też po alkohol.  
-Nie dlatego, że brakuje im silnej woli.  
-Ale dlatego, że brakuje **zasobów**.  
+Część osób sięga też po alkohol.
+Nie dlatego, że brakuje im silnej woli.
+Ale dlatego, że brakuje **zasobów**.
 
-## Samoregulacja – umiejętność, której można się nauczyć  
-Psychologia mówi o samoregulacji – to zdolność radzenia sobie z emocjami, napięciem, stresem.  
-Nie jest to coś, co *„ma się albo nie”*.  
-To umiejętność, którą można rozwijać. Ale nie dzieje się to z dnia na dzień.  
+## Samoregulacja – umiejętność, której można się nauczyć
+Psychologia mówi o samoregulacji – to zdolność radzenia sobie z emocjami, napięciem, stresem.
+Nie jest to coś, co *„ma się albo nie”*.
+To umiejętność, którą można rozwijać. Ale nie dzieje się to z dnia na dzień.
 
-Ogromnym krokiem jest samo uświadomienie sobie, że nie chodzi tylko o **co jem**, ale też **dlaczego jem**.  
-I co jeszcze – oprócz jedzenia – mogę sobie dać.  
+Ogromnym krokiem jest samo uświadomienie sobie, że nie chodzi tylko o **co jem**, ale też **dlaczego jem**.
+I co jeszcze – oprócz jedzenia – mogę sobie dać.
 
-## Co może stać się alternatywą dla jedzenia?  
-- **Sen** – czas na prawdziwą regenerację.  
-- **Spacer** – żeby poczuć ciało i uspokoić głowę.  
-- **Muzyka** – która pomaga złapać oddech i równowagę.  
-- **Rozmowa** – dająca ulgę, zanim napięcie „wyląduje na talerzu”.  
-- **Kontakt z naturą** – las koi układ nerwowy, nie wymagając od nas działania.  
-- **Uważność** – by naprawdę być w chwili, zamiast tylko ją przetrwać.  
-- **Słuchanie ptaków** – ornitologia terapeutyczna to realna forma kontaktu z tu i teraz.  
-- **Aktywność fizyczna** – nie po to, by spalić kalorie, ale by odzyskać siebie.  
-- **Psychoterapia** – która pozwala zrozumieć źródła napięcia.  
+## Co może stać się alternatywą dla jedzenia?
+- **Sen** – czas na prawdziwą regenerację.
+- **Spacer** – żeby poczuć ciało i uspokoić głowę.
+- **Muzyka** – która pomaga złapać oddech i równowagę.
+- **Rozmowa** – dająca ulgę, zanim napięcie „wyląduje na talerzu”.
+- **Kontakt z naturą** – las koi układ nerwowy, nie wymagając od nas działania.
+- **Uważność** – by naprawdę być w chwili, zamiast tylko ją przetrwać.
+- **Słuchanie ptaków** – ornitologia terapeutyczna to realna forma kontaktu z tu i teraz.
+- **Aktywność fizyczna** – nie po to, by spalić kalorie, ale by odzyskać siebie.
+- **Psychoterapia** – która pozwala zrozumieć źródła napięcia.
 
-## Nie chodzi o kontrolę  
-Nie chodzi o to, by wszystko kontrolować.  
-Chodzi o to, by budować życie, w którym jedzenie przestaje być jedynym sposobem na ulgę.  
+## Nie chodzi o kontrolę
+Nie chodzi o to, by wszystko kontrolować.
+Chodzi o to, by budować życie, w którym jedzenie przestaje być jedynym sposobem na ulgę.
 
-Z czułością do siebie.  
-Z uważnością.  
-Z czasem.  
+Z czułością do siebie.
+Z uważnością.
+Z czasem.

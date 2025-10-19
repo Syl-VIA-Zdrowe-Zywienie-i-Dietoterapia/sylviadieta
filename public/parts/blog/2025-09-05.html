@@ -1,7 +1,20 @@
-<div class="card bg-base-100 border-base-300 border-1 shadow-lg md:col-span-5">
+<div class="card bg-base-100 border-base-300 cursor-pointer border-1 shadow-lg md:col-span-5" onclick="post_2025_09_05_modal.showModal()">
     <div class="card-body">
-        <article
-            class="prose prose-li:mt-1 prose-li:mb-1 prose-img:float-left prose-img:mr-8 prose-img:mb-5 prose-img:md:mb-1 prose-img:rounded-md prose-img:shadow-sm prose-img:w-md prose-ul:md:list-inside prose-ol:md:list-inside prose-p:has-[+ol,+ul]:-mb-4 mb-6 max-w-none md:mb-3 *:mt-1">
+        <article class="prose max-w-none">
+            <h2>Media społecznościowe – inspiracja czy presja?</h2>
+            <p>Jak media społecznościowe wpływają na motywację i akceptację siebie? Psychodietetyka o presji porównań, odchudzaniu i zdrowym podejściu do diety.</p>
+            <h4>Czytaj dalej...</h4>
+        </article>
+        <p class="absolute right-0 bottom-0 pr-4 pb-3 text-sm text-gray-500">Opublikowano: 5 września 2025</p>
+    </div>
+</div>
+
+<dialog id="post_2025_09_05_modal" class="modal px-4">
+    <div class="modal-box max-h-5/6 max-w-2xl md:max-h-11/12">
+        <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"><i class="fas fa-xmark"></i></button>
+        </form>
+        <article class="prose prose-li:mt-1 prose-li:mb-1 prose-ul:md:list-inside prose-ol:md:list-inside prose-p:has-[+ol,+ul]:mb-0 max-w-none *:mt-1">
             <h2>Media społecznościowe – inspiracja czy presja?</h2>
             <p>
                 Włącza Instagram. Kolejna szczupła sylwetka, wyprostowana postawa, szeroki uśmiech, hasło o motywacji. Scroll dalej – następna. I jeszcze jedna.<br />
@@ -11,7 +24,7 @@
             <p>
                 Kiedy przyszła do gabinetu, od progu powiedziała jednym tchem:<br />
                 — <em>Chciałabym schudnąć.</em>
-
+            </p>
             <p>
                 Opowiada, że próbuje wszystkiego – ćwiczy, mocno ogranicza kalorie, zaciska zęby… a jednak wciąż nie widzi efektów.<br />
                 Czuje, że tkwi w błędnym kole odchudzania. Im więcej wysiłku wkłada, tym silniejsze poczucie porażki, gdy na wadze nic się nie zmienia.
@@ -21,11 +34,10 @@
                 — <em>Zdarza mi się płakać, kiedy patrzę na zdjęcia innych kobiet. Chciałabym poczuć się zwycięzcą, a czuję się tylko przebrana.</em>
             </p>
             <h3>Instagramowa rzeczywistość</h3>
+            <p>Media społecznościowe mają ogromną moc. Mogą inspirować, ale równie często stają się źródłem presji. Pokazują jedynie fragment życia – ten najbardziej dopracowany, wyretuszowany.</p>
             <p>
-                Media społecznościowe mają ogromną moc. Mogą inspirować, ale równie często stają się źródłem presji. Pokazują jedynie fragment życia – ten najbardziej dopracowany, wyretuszowany.
-            </p>
-            <p>
-                A my porównujemy to z własną codziennością: zmaganiami, obowiązkami, trudnymi emocjami. W internecie wszystko wygląda jak bajka, a przecież prawdziwe życie to również zmęczenie, chaos, czasem brak motywacji. Nic dziwnego, że wtedy trudniej o akceptację siebie.
+                A my porównujemy to z własną codziennością: zmaganiami, obowiązkami, trudnymi emocjami. W internecie wszystko wygląda jak bajka, a przecież prawdziwe życie to również zmęczenie, chaos, czasem
+                brak motywacji. Nic dziwnego, że wtedy trudniej o akceptację siebie.
             </p>
             <h3>Nad czym pracowałyśmy w gabinecie?</h3>
             <ul>
@@ -37,6 +49,8 @@
             <p>To dopiero początek, ale już taki, który daje nadzieję.</p>
             <p>Bo droga do zdrowia i lepszego samopoczucia nie musi prowadzić przez presję i kolejne restrykcje. Może zacząć się od troski o siebie.</p>
         </article>
-        <p class="absolute right-0 bottom-0 pr-4 pb-3 text-sm text-gray-500">Opublikowano: 5 września 2025</p>
     </div>
-</div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
