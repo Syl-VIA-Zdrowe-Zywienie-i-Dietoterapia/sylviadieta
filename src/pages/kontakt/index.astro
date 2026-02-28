@@ -1,0 +1,105 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout subtitle="Kontakt">
+    <main id="contact" class="mt-34 flex-1 px-6 md:px-10">
+        <div class="mx-auto max-w-6xl space-y-10">
+            <h1 class="text-center text-4xl font-bold md:text-6xl">Kontakt</h1>
+
+            <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+                <div class="grow space-y-8">
+                    <div class="space-y-1">
+                        <h1 class="text-4xl font-semibold md:text-5xl" style="font-variant: small-caps">Sylwia Majewska</h1>
+                        <h2 class="text-lg font-medium md:text-xl">dietetyk, psychodietetyk, chemik</h2>
+                        <div class="space-x-3">
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-1.5 border-b border-transparent text-base transition-colors" href="https://www.facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook mb-0.5"></i>
+                                <p>Facebook</p>
+                            </a>
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-1.5 border-b border-transparent text-base transition-colors" href="https://www.instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram mb-0.5"></i>
+                                <p>Instagram</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start gap-2">
+                        <span class="text-xl font-medium">Gabinety</span>
+                        <div class="flex flex-col gap-1">
+                            <label for="marki-radio">
+                                <input type="radio" id="marki-radio" name="address" class="peer sr-only" checked />
+                                <div class="peer-checked:text-sylvia hover:text-sylvia hover:border-sylvia inline-flex cursor-pointer items-center gap-2 border-b border-transparent transition-colors">
+                                    <i class="fas fa-map-marker-alt -mt-1"></i>
+                                    <p>ul. Słoneczna 3c/110, 05-270 Marki</p>
+                                </div>
+                            </label>
+                            <label for="zabki-radio">
+                                <input type="radio" id="zabki-radio" name="address" class="peer sr-only" />
+                                <div class="peer-checked:text-sylvia hover:text-sylvia hover:border-sylvia inline-flex cursor-pointer items-center gap-2 border-b border-transparent transition-colors">
+                                    <i class="fas fa-map-marker-alt -mt-1"></i>
+                                    <p>Blossom Pilates Studio &nbsp;•&nbsp; ul. Orla 4/55, 05-091 Ząbki</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start gap-0.5">
+                        <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="tel:+48501974479">
+                            <i class="fas fa-phone"></i> +48 501 974 479
+                        </a>
+                        <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="mailto:dietetyka.syl.via@gmail.com">
+                            <i class="fas fa-envelope"></i> dietetyka.syl.via@gmail.com
+                        </a>
+                        <div class="flex flex-row gap-2">
+                            <button id="copy-account-number" class="hover:text-sylvia hover:border-sylvia inline-flex cursor-pointer items-center gap-2 border-b border-transparent transition-colors" type="button">
+                                <i class="fas fa-copy"></i> 26 1020 1042 0000 8402 0372 8599
+                            </button>
+                            <span class="mb-0.5 hidden self-end text-sm lg:inline" style="font-variant: small-caps">nr konta bankowego</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative w-full overflow-hidden rounded-xl pb-[66%] text-right md:size-160 md:pb-0">
+                    <iframe id="map-iframe" class="absolute top-0 left-0 size-full" loading="lazy" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed"> </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="account-number-copied-toast" class="toast opacity-0 transition-opacity duration-300">
+            <div class="alert bg-sylvia text-primary-content border-none">
+                <span class="message">Numer konta został skopiowany do schowka.</span>
+            </div>
+        </div>
+
+        <script>
+            // google maps source switcher based on selected address
+            const MAP_URLS: Record<string, string> = {
+                "marki-radio": "https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed",
+                "zabki-radio": "https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed",
+            };
+
+            const mapIframe = document.getElementById("map-iframe") as HTMLIFrameElement;
+            const addressRadios = document.querySelectorAll<HTMLInputElement>('input[name="address"]');
+
+            addressRadios.forEach((radio) => {
+                radio.addEventListener("change", () => {
+                    const url = MAP_URLS[radio.id];
+                    if (url && mapIframe.src !== url) {
+                        mapIframe.src = url;
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // copy account number to clipboard and show toast
+            import { copyWithToast } from "../../scripts/copyWithToast";
+
+            document.getElementById("copy-account-number")!.addEventListener("click", (e) => {
+                const text = (e.currentTarget as HTMLElement).textContent?.trim().replace(/\s/g, "");
+                if (text) copyWithToast(text, "account-number-copied-toast");
+            });
+        </script>
+    </main>
+</MainLayout>
