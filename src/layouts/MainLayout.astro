@@ -1,0 +1,30 @@
+---
+import "@fontsource-variable/source-sans-3";
+import "../styles/global.css";
+import Meta from "../components/Meta.astro";
+import Header from "../components/Header/index.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    subtitle: string;
+}
+
+const { subtitle } = Astro.props;
+---
+
+<html lang="en" data-theme="light" class="scroll-smooth">
+    <head>
+        <Meta />
+
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <script src="https://kit.fontawesome.com/e8e14ec1f1.js" crossorigin="anonymous" defer />
+
+        <title>Syl.VIA — Zdrowe Żywienie i Dietoterapia | {subtitle}</title>
+    </head>
+
+    <body class="bg-base-200 relative flex min-h-screen flex-col text-base md:text-lg">
+        <Header />
+        <slot />
+        <Footer />
+    </body>
+</html>

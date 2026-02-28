@@ -1,17 +1,85 @@
 ---
-
+import { Picture } from "astro:assets";
+import MainLayout from "../layouts/MainLayout.astro";
+import banner from "../images/banner.png";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout subtitle="Strona Główna">
+    <main id="home" class="flex-1 mt-23 lg:mt-34">
+        <Picture src={banner} formats={["avif", "webp"]} alt="banner" loading="eager" class="mx-auto mb-8 min-h-40 w-full object-cover shadow-md shadow-neutral-600 lg:max-w-6xl lg:rounded-xl" />
+        <div class="px-6 md:px-10">
+            <div class="mx-auto max-w-6xl space-y-8">
+                <div class="grid grid-cols-1 gap-2 gap-y-6 md:grid-cols-2 md:gap-x-6 md:gap-y-0">
+                    <div class="space-y-2 justify-self-center md:space-y-4 md:justify-self-start">
+                        <div class="space-y-1">
+                            <h1 class="text-5xl font-semibold md:text-7xl" style="font-variant: small-caps">Sylwia Majewska</h1>
+                            <h2 class="text-xl font-medium md:text-3xl">dietetyk, psychodietetyk, chemik</h2>
+                        </div>
+                        <div class="space-x-3">
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-1.5 border-b border-transparent transition-colors md:text-xl" href="https://www.facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook mb-0.5"></i>
+                                <p>Facebook</p>
+                            </a>
+                            <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-1.5 border-b border-transparent transition-colors md:text-xl" href="https://www.instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-instagram mb-0.5"></i>
+                                <p>Instagram</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 border-base-300 row-span-2 size-fit self-center justify-self-center border shadow-md md:mt-2 md:justify-self-end">
+                        <div class="card-body gap-4 px-7 py-5">
+                            <ul class="flex flex-col gap-2 text-base">
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Jesteś gotowy na zmiany?</li>
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Potrzebujesz motywacji?</li>
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Myślisz o zmianie swoich nawyków żywieniowych?</li>
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Chcesz cieszyć się zdrowiem i dobrym samopoczuciem?</li>
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Masz dość diet, na których jesteś ciągle głodny?</li>
+                                <li class="inline-flex items-start gap-2"><i class="fas fa-check text-success mt-1 w-4"></i>Jesteś gotowy raz na zawsze pożegnać się ze zbędnymi kilogramami?</li>
+                            </ul>
+                            <p class="text-xl font-medium">Jeśli tak, to świetnie trafiłeś!</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 md:space-y-0">
+                        <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">
+                            <svg class="size-6 text-gray-400 md:mt-4 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                                <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"></path>
+                            </svg>
+                            <p class="text-center font-medium">Niech pożywienie będzie lekarstwem, a&nbsp;lekarstwo pożywieniem.</p>
+                            <svg class="size-6 text-gray-400 md:mb-4 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+                                <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-center italic">Hipokrates (460–370 p.n.e.)</p>
+                    </div>
+                </div>
+
+                <div class="card bg-sylvia text-primary-content">
+                    <div class="card-body space-y-4 text-base md:text-lg">
+                        <h3 class="card-title text-2xl md:text-3xl">Chcesz dowiedzieć się więcej lub rozpocząć współpracę?</h3>
+                        <p>Zapraszam do kontaktu — wspólnie znajdziemy Twoją drogę do zdrowia. Każdy zasługuje na to, by dobrze się czuć w swoim ciele i mieć zdrową relację z jedzeniem.</p>
+                        <p>Oferuję konsultacje w trybie stacjonarnym lub online — wybierz formę, która najlepiej odpowiada Twoim potrzebom.</p>
+                        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div class="bg-base-100 text-base-content space-y-2 rounded-lg p-4">
+                                <h4 class="inline-flex items-center gap-2 font-bold">
+                                    <i class="fas fa-building"></i>
+                                    Stacjonarnie
+                                </h4>
+                                <p class="text-sm md:text-base">Spotkania odbywają się w przytulnym gabinecie, w spokojnej i komfortowej atmosferze.</p>
+                            </div>
+                            <div class="bg-base-100 text-base-content space-y-2 rounded-lg p-4">
+                                <h4 class="inline-flex items-center gap-2 font-bold">
+                                    <i class="fas fa-video"></i>
+                                    Online
+                                </h4>
+                                <p class="text-sm md:text-base">Wygodna opcja dla tych, którzy preferują elastyczność — konsultacje przeprowadzam poprzez bezpieczne platformy wideokonferencyjne.</p>
+                            </div>
+                        </div>
+                        <p class="text-lg font-semibold md:text-xl">Skontaktuj się, aby ustalić szczegóły i umówić termin!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>

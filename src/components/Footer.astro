@@ -1,0 +1,75 @@
+---
+import { Picture } from "astro:assets";
+import logoHorizontalColorTransparent from "../images/logo-horizontal-color-transparent.png";
+import logoHorizontalWhiteTransparent from "../images/logo-horizontal-white-transparent.png";
+---
+
+<footer class="bg-base-300 mt-10 px-6 py-4 sm:px-10 sm:py-6">
+    <div class="footer sm:footer-horizontal text-base-content/80 mx-auto max-w-6xl place-items-center gap-4 text-xs sm:text-sm md:text-base">
+        <aside class="-space-y-1 text-center text-sm sm:place-self-start sm:text-left md:text-base">
+            <p class="w-full">&copy; <span id="copyright-year"></span> <span class="font-semibold">Syl.VIA — Zdrowe Żywienie i Dietoterapia</span></p>
+            <script>
+                document.getElementById("copyright-year")!.textContent = new Date().getFullYear().toString();
+            </script>
+            <p class="w-full">Wszelkie prawa zastrzeżone. NIP:&nbsp;8121699322</p>
+            <Picture src={logoHorizontalColorTransparent} formats={["avif", "webp"]} alt="Syl.VIA Logo" loading="eager" class="mt-2 hidden h-auto w-48 sm:block dark:hidden!" />
+            <Picture src={logoHorizontalWhiteTransparent} formats={["avif", "webp"]} alt="Syl.VIA Logo" loading="eager" class="mt-2 hidden h-auto w-48 dark:sm:block" />
+        </aside>
+
+        <nav class="inline-flex h-full text-center md:place-self-end md:text-left">
+            <div class="group/contact h-full space-y-2">
+                <h4 class="group-hover/contact:text-sylvia font-semibold uppercase transition-colors">Kontakt</h4>
+
+                <div class="flex flex-col items-center gap-2 md:items-start">
+                    <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="tel:+48501974479">
+                        <i class="fas fa-phone"></i> +48 501 974 479
+                    </a>
+                    <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="mailto:dietetyka.syl.via@gmail.com">
+                        <i class="fas fa-envelope"></i> dietetyka.syl.via@gmail.com
+                    </a>
+                    <div class="group/address inline-flex items-start gap-2">
+                        <i class="fas fa-map-marker-alt group-hover/address:text-sylvia mt-1 transition-colors"></i>
+                        <p>ul.&nbsp;Słoneczna&nbsp;3c/110, 05-270&nbsp;Marki</p>
+                    </div>
+                    <div class="group/address inline-flex items-start gap-2">
+                        <i class="fas fa-map-marker-alt group-hover/address:text-sylvia mt-1 transition-colors"></i>
+                        <p>
+                            Blossom Pilates Studio
+                            <br />
+                            ul.&nbsp;Orla&nbsp;4/55, 05-091&nbsp;Ząbki
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider divider-horizontal"></div>
+
+            <div class="group/documents h-full space-y-2">
+                <h4 class="group-hover/documents:text-sylvia font-semibold uppercase transition-colors">Dokumenty</h4>
+
+                <div class="flex flex-col items-center gap-2 md:items-start">
+                    <a class="hover:text-sylvia hover:border-sylvia inline-flex items-center gap-2 border-b border-transparent transition-colors" href="regulamin.pdf" target="_blank">
+                        <i class="fas fa-file-contract"></i>
+                        Regulamin świadczenia usług
+                    </a>
+                    <button class="hover:text-sylvia hover:border-sylvia inline-flex cursor-pointer items-center gap-2 border-b border-transparent transition-colors" onclick="privacy_policy_modal.showModal()">
+                        <i class="fas fa-shield-alt"></i>
+                        Polityka prywatności
+                    </button>
+                    <dialog id="privacy_policy_modal" class="modal px-4">
+                        <div class="modal-box w-fit">
+                            <form method="dialog">
+                                <button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"><i class="fas fa-xmark"></i></button>
+                            </form>
+                            <h5 class="text-xl font-bold">Polityka prywatności</h5>
+                            <p class="pt-4 text-base">Nasza strona internetowa nie wykorzystuje technologii Cookies, nie&nbsp;rejestrujemy również wejść na stronę internetową.</p>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                </div>
+            </div>
+        </nav>
+    </div>
+</footer>

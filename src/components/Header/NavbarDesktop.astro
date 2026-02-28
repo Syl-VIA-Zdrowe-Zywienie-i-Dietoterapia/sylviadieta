@@ -1,0 +1,41 @@
+---
+import { Picture } from "astro:assets";
+import logoWhiteTransparent from "../../images/logo-white-transparent.png";
+
+const pathname = Astro.url.pathname;
+---
+
+<nav class="navbar mx-auto w-full max-w-6xl py-4 hidden lg:flex">
+    <a href="/" class="navbar-start w-fit">
+        <Picture src={logoWhiteTransparent} formats={['avif', 'webp']} alt="logo" loading="eager" class="h-auto w-24 lg:w-28" />
+    </a>
+
+    <div class="navbar-center ml-6">
+        <ul class="menu menu-horizontal gap-2 px-4 text-2xl font-bold transition-colors xl:gap-4">
+            <li>
+                <a href="/o-mnie" class:list={[
+                    "hover:bg-base-100/20 hover:shadow-sm",
+                    pathname.startsWith("/o-mnie") && "bg-base-content! text-base-100 shadow-sm"
+                ]}> O mnie </a>
+            </li>
+            <li>
+                <a href="/uslugi" class:list={[
+                    "hover:bg-base-100/20 hover:shadow-sm",
+                    pathname.startsWith("/uslugi") && "bg-base-content! text-base-100 shadow-sm"
+                ]}> Usługi </a>
+            </li>
+            <li>
+                <a href="/blog" class:list={[
+                    "hover:bg-base-100/20 hover:shadow-sm",
+                    pathname.startsWith("/blog") && "bg-base-content! text-base-100 shadow-sm"
+                ]}> Z gabinetu psychodietetyka </a>
+            </li>
+            <li>
+                <a href="/kontakt" class:list={[
+                    "hover:bg-base-100/20 hover:shadow-sm",
+                    pathname.startsWith("/kontakt") && "bg-base-content! text-base-100 shadow-sm"
+                ]}> Kontakt </a>
+            </li>
+        </ul>
+    </div>
+</nav>
