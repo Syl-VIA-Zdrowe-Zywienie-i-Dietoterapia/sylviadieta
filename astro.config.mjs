@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import compressor from "astro-compressor";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -11,4 +12,5 @@ export default defineConfig({
     prefetch: {
         prefetchAll: true,
     },
+    integrations: [compressor()],
 });
