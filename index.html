@@ -47,7 +47,6 @@
                     "latitude": 52.330626,
                     "longitude": 21.105557
                 },
-                "openingHours": "Mo-Fr 09:00-17:00",
                 "priceRange": "$$",
                 "founder": {
                     "@type": "Person",
@@ -79,7 +78,9 @@
                         <ul tabindex="0" class="menu menu-lg dropdown-content bg-sylvia rounded-box z-[1] mt-3 w-50.5 gap-1 font-medium shadow-lg" onclick="document.activeElement.blur()">
                             <li>
                                 <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-home" checked />
-                                <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-home" hx-get="index.html" hx-target="body" hx-push-url="strona-glowna">Strona główna</label>
+                                <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 peer-checked:shadow-sm" for="nav-mobile-home" hx-get="index.html" hx-target="body" hx-push-url="strona-glowna"
+                                    >Strona główna</label
+                                >
                             </li>
                             <li>
                                 <span class="menu-dropdown-toggle">O mnie</span>
@@ -116,7 +117,11 @@
                                     </li>
                                     <li>
                                         <input class="peer sr-only" type="radio" name="nav-mobile" id="nav-mobile-about-values" />
-                                        <label class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm" for="nav-mobile-about-values" hx-get="parts/about/mobile/values.html" hx-push-url="o-mnie#wartosci">
+                                        <label
+                                            class="peer-checked:bg-base-100/20 hover:!bg-base-100/20 font-normal peer-checked:shadow-sm"
+                                            for="nav-mobile-about-values"
+                                            hx-get="parts/about/mobile/values.html"
+                                            hx-push-url="o-mnie#wartosci">
                                             Moje wartości
                                         </label>
                                     </li>
