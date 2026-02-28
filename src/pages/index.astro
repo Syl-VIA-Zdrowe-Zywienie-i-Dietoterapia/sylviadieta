@@ -6,7 +6,7 @@ import banner from "../images/banner.png";
 
 <MainLayout subtitle="Strona Główna">
     <main id="home" class="flex-1 mt-23 lg:mt-34">
-        <Picture src={banner} formats={["avif", "webp"]} alt="banner" loading="eager" class="mx-auto mb-8 min-h-40 w-full object-cover shadow-md shadow-neutral-600 lg:max-w-6xl lg:rounded-xl" />
+        <Picture src={banner} formats={["avif", "webp"]} alt="banner" loading="eager" fetchpriority="high" class="mx-auto mb-8 min-h-40 w-full object-cover shadow-md shadow-neutral-600 lg:max-w-6xl lg:rounded-xl" />
         <div class="px-6 md:px-10">
             <div class="mx-auto max-w-6xl space-y-8">
                 <div class="grid grid-cols-1 gap-2 gap-y-6 md:grid-cols-2 md:gap-x-6 md:gap-y-0">
