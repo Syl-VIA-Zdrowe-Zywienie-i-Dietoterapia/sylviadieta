@@ -1,0 +1,31 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PsychodieteticsContent from "./content/Psychodietetics.astro";
+import NordicWalkingContent from "./content/NordicWalking.astro";
+import WorkshopsTripsContent from "./content/WorkshopsTrips.astro";
+---
+
+<MainLayout subtitle="Usługi">
+    <main id="services" class="mt-34 flex-1 px-6 md:px-10">
+        <div class="mx-auto max-w-2/3 space-y-10">
+            <h1 class="text-center text-4xl font-bold md:text-6xl">Usługi</h1>
+
+            <div class="flex flex-col gap-5 md:gap-2">
+                <div class="tabs tabs-lift w-full justify-center [&>.tab-content]:[--tabcontent-radius-ss:var(--radius-box)]">
+                    <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-services" aria-label="Psychodietetyka" checked />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
+                        <PsychodieteticsContent />
+                    </div>
+                    <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-services" aria-label="Nordic walking" />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
+                        <NordicWalkingContent />
+                    </div>
+                    <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-services" aria-label="Warsztaty i wyjazdy" />
+                    <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
+                        <WorkshopsTripsContent />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</MainLayout>
