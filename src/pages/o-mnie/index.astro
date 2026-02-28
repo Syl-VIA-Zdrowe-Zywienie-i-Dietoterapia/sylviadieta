@@ -1,9 +1,9 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import Introduction from "./content/Introduction.astro";
-import Occupation from "./content/Occupation.astro";
-import Qualifications from "./content/Qualifications.astro";
-import Values from "./content/Values.astro";
+import IntroductionContent from "./content/Introduction.astro";
+import OccupationContent from "./content/Occupation.astro";
+import QualificationsContent from "./content/Qualifications.astro";
+import ValuesContent from "./content/Values.astro";
 ---
 
 <MainLayout subtitle="O mnie">
@@ -12,23 +12,23 @@ import Values from "./content/Values.astro";
             <h1 class="text-center text-4xl font-bold md:text-6xl">Sylwia Majewska — dietetyk i&nbsp;psychodietetyk</h1>
 
             <div class="flex flex-col gap-5 md:gap-2">
-                <Introduction />
+                <IntroductionContent />
                 <div class="hidden md:block">
                     <div class="divider"></div>
                     <div class="tabs tabs-lift w-full justify-center [&>.tab-content]:[--tabcontent-radius-ss:var(--radius-box)]">
                         <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-about" aria-label="Czym się zajmuję" checked />
                         <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
-                            <Occupation />
+                            <OccupationContent />
                         </div>
 
                         <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-about" aria-label="Kwalifikacje" />
                         <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
-                            <Qualifications />
+                            <QualificationsContent />
                         </div>
 
                         <input class="tab pt-1! text-2xl font-semibold" type="radio" name="tabs-about" aria-label="Moje wartości" />
                         <div id="tab-content" class="tab-content bg-base-100 border-base-300 p-8">
-                            <Values />
+                            <ValuesContent />
                         </div>
                     </div>
                 </div>
