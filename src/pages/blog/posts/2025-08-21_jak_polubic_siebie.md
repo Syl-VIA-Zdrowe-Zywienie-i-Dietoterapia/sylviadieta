@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Jak traktować siebie w procesie zmiany nawyków? Z gabinetu psychodietetyka"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

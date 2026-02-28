@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Historia Silnego. O otyłości, stresie i odzyskiwaniu sprawczości"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

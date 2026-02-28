@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Z notatnika psychodietetyka: gdy jedzenie to coś więcej niż głód"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

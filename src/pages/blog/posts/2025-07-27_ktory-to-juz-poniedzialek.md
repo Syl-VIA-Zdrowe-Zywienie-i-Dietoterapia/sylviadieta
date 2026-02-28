@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Który to już poniedziałek? O presji i łagodności wobec siebie"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

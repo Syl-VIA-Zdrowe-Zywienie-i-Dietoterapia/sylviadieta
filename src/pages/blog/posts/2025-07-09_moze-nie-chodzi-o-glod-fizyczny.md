@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Może nie chodzi o głód fizyczny. O głodzie emocjonalnym i powrocie do siebie"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Media społecznościowe – inspiracja czy presja?"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

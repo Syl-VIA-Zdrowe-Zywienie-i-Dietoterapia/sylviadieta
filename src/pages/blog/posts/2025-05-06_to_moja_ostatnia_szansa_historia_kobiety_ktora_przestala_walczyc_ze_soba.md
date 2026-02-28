@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "To moja ostatnia szansa. Historia kobiety, która przestała walczyć ze sobą"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

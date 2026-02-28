@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Dlaczego znowu to zrobiłam? Samosabotaż w praktyce"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Kiedy sport staje się ucieczką, a nie wsparciem. O kompulsywnym ruchu i maskowanej depresji"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

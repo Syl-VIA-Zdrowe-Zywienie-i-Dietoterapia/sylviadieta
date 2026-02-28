@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Legginsy i samoakceptacja. O relacji z ciałem i wybieraniu siebie"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

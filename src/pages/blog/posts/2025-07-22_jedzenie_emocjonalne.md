@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Cisza po burzy – historia Delikatnej"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

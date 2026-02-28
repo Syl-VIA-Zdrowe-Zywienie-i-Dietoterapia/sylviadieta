@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Zaczęło się od dyslipidemii… Historia odzyskiwania kontroli nad jedzeniem i zdrowiem"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

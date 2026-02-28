@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Głodzenie sposobem, żeby poczuć się silną… O kontroli, wrażliwości i zaburzeniach odżywiania"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

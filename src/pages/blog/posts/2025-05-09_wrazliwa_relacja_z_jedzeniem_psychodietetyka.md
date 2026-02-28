@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Wrażliwa i jej relacja z jedzeniem. Historia z gabinetu psychodietetyka"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

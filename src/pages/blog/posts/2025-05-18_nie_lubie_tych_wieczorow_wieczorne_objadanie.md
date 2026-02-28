@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Nie lubię tych wieczorów… O wieczornym objadaniu i potrzebie zadbania o siebie"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

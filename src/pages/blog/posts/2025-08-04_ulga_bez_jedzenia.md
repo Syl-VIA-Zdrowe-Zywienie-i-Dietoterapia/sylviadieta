@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Odłączeni od siebie – gdy jedzenie staje się jedynym sposobem na ulgę"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

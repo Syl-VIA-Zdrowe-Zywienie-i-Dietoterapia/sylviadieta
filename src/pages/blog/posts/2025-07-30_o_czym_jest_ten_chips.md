@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "Z notatnika psychodietetyka: O czym jest ten chips?"
 author: "Sylwia Majewska"
 category: "psychodietetyka"

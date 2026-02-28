@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
 title: "(Nie)jedna historia ciała. O powrocie do siebie i czułej relacji z ciałem"
 author: "Sylwia Majewska"
 category: "psychodietetyka"
