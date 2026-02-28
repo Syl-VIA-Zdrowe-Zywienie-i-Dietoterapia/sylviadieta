@@ -23,7 +23,7 @@ Od wielu lat żyła z otyłością. Miała za sobą kilka prób odchudzania. Ka�
 
 Podczas pierwszej wizyty była konkretna i rzeczowa. Powiedziała wprost:
 
-> Nie oczekuję cudów. Ale chcę, żeby wreszcie ktoś spojrzał na mnie całościowo.
+> „Nie oczekuję cudów. Ale chcę, żeby wreszcie ktoś spojrzał na mnie całościowo.”
 
 Stworzyłyśmy indywidualny plan żywieniowy. Uwzględniał jej wyniki badań, przyjmowane leki, tryb życia i preferencje. Urocza była bardzo zaangażowana. Gotowała w domu, przygotowywała posiłki do pracy, trzymała się zaleceń.
 
@@ -31,14 +31,14 @@ A mimo to masa ciała nie spadała.
 
 Na kolejnych wizytach widziałam narastającą frustrację.
 
-> Ja nie rozumiem. Robię wszystko jak trzeba, a waga ani drgnie.
+> „Ja nie rozumiem. Robię wszystko jak trzeba, a waga ani drgnie.”
 
 Z czasem zaczęła opowiadać o swoich wieczorach.
 
-> Trzymam się cały dzień. Jem zgodnie z planem.
+> „Trzymam się cały dzień. Jem zgodnie z planem.
 > A potem wracam do domu, jem kolację… i zaczyna się.
 > Sięgam po coś jeszcze. I jeszcze.
-> Jem, aż nie mogę przestać. Czasem aż robi mi się niedobrze.
+> Jem, aż nie mogę przestać. Czasem aż robi mi się niedobrze.”
 
 Wtedy stało się jasne, że sam plan żywieniowy to za mało. Potrzebowałyśmy równoległej pracy psychodietetycznej. Bo problemem nie była wiedza o tym, co jeść — tylko to, co działo się wieczorem, kiedy emocje przejmowały kontrolę.
 
@@ -50,7 +50,7 @@ To nie była szybka zmiana. Ale była prawdziwa.
 
 Z czasem Urocza zaczęła odzyskiwać poczucie sprawczości. Coraz rzadziej mówiła: „nie dam rady”. Zamiast tego pojawiało się nowe zdanie:
 
-> Czasem jest trudno. Ale wiem, co mogę zrobić.
+> „Czasem jest trudno. Ale wiem, co mogę zrobić.”
 
 Waga zaczęła powoli spadać. Wyniki badań się poprawiły.
 
