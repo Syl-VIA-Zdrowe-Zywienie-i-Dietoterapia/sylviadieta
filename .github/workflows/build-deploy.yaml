@@ -29,6 +29,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /domains/sylwia32.ayz.pl/private_html/
+          server-dir: /domains/sylviadieta.pl/public_html/
           dangerous-clean-slate: true
-          dry-run: true
