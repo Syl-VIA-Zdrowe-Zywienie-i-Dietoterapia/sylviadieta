@@ -12,5 +12,5 @@ export default defineConfig({
     prefetch: {
         prefetchAll: true,
     },
-    integrations: [compressor()],
+    integrations: [compressor({gzip: false, brotli: true, zstd: false})],
 });
