@@ -30,4 +30,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: /domains/sylviadieta.pl/public_html/
-          dangerous-clean-slate: true
+          # dangerous-clean-slate: true
