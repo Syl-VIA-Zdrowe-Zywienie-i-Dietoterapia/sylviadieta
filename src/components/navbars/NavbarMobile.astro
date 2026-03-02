@@ -8,16 +8,16 @@ const pathname = Astro.url.pathname;
 <nav class="navbar mx-auto w-full max-w-6xl py-4 lg:hidden">
     <div class="navbar-start">
         <div class="dropdown">
-            <div tabindex="0" role="button" aria-label="Menu nawigacyjne" class="btn btn-ghost btn-circle hover:bg-base-100/20! active:bg-base-100/20! border-none p-1.5">
+            <div tabindex="0" role="button" aria-label="Menu nawigacyjne" class="btn btn-ghost hover:bg-neutral/20 text-current! active:bg-neutral/20 border-none p-2">
                 <svg class="size-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
                 </svg>
             </div>
-            <ul tabindex="0" class="menu menu-lg dropdown-content bg-sylvia rounded-box z-1 mt-3 w-50.5 gap-1 font-medium shadow-lg" onclick="document.activeElement.blur()">
+            <ul tabindex="0" class="menu menu-lg dropdown-content bg-primary rounded-box z-1 mt-3 w-50.5 gap-1 font-medium shadow-lg" onclick="document.activeElement.blur()">
                 <li>
                     <a href="/" class:list={[
-                        "hover:bg-base-100/20!",
-                        pathname === "/" && "bg-base-100/20 shadow-sm"
+                        "hover:bg-neutral/20 active:bg-neutral/20 text-current! hover:shadow-sm active:shadow-sm",
+                        pathname === "/" && "bg-neutral/20 shadow-sm"
                     ]}> Strona główna </a>
                 </li>
                 <li>
@@ -25,26 +25,26 @@ const pathname = Astro.url.pathname;
                     <ul class="menu-dropdown menu-dropdown-show">
                         <li>
                             <a href="/o-mnie/kim-jestem" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/o-mnie/kim-jestem") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/o-mnie/kim-jestem") && "bg-neutral/20 shadow-sm"
                             ]}> Z gabinetu psychodietetyka </a>
                         </li>
                         <li>
                             <a href="/o-mnie/czym-sie-zajmuje" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/o-mnie/czym-sie-zajmuje") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/o-mnie/czym-sie-zajmuje") && "bg-neutral/20 shadow-sm"
                             ]}> Czym się zajmuję </a>
                         </li>
                         <li>
                             <a href="/o-mnie/kwalifikacje" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/o-mnie/kwalifikacje") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/o-mnie/kwalifikacje") && "bg-neutral/20 shadow-sm"
                             ]}> Kwalifikacje </a>
                         </li>
                         <li>
                             <a href="/o-mnie/wartosci" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/o-mnie/wartosci") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/o-mnie/wartosci") && "bg-neutral/20 shadow-sm"
                             ]}> Moje wartości </a>
                         </li>
                     </ul>
@@ -54,34 +54,34 @@ const pathname = Astro.url.pathname;
                     <ul class="menu-dropdown menu-dropdown-show">
                         <li>
                             <a href="/uslugi/psychodietetyka" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/uslugi/psychodietetyka") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/uslugi/psychodietetyka") && "bg-neutral/20 shadow-sm"
                             ]}> Psychodietetyka </a>
                         </li>
                         <li>
                             <a href="/uslugi/nordic-walking" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/uslugi/nordic-walking") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/uslugi/nordic-walking") && "bg-neutral/20 shadow-sm"
                             ]}> Nordic walking </a>
                         </li>
                         <li>
                             <a href="/uslugi/warsztaty-i-wyjazdy" class:list={[
-                                "hover:bg-base-100/20! font-normal",
-                                pathname.startsWith("/uslugi/warsztaty-i-wyjazdy") && "bg-base-100/20 shadow-sm"
+                                "hover:bg-neutral/20 active:bg-neutral/20 font-normal text-current! hover:shadow-sm active:shadow-sm",
+                                pathname.startsWith("/uslugi/warsztaty-i-wyjazdy") && "bg-neutral/20 shadow-sm"
                             ]}> Warsztaty i wyjazdy </a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a href="/blog" class:list={[
-                        "hover:bg-base-100/20!",
-                        pathname.startsWith("/blog") && "bg-base-100/20 shadow-sm"
+                        "hover:bg-neutral/20 active:bg-neutral/20 text-current! hover:shadow-sm active:shadow-sm",
+                        pathname.startsWith("/blog") && "bg-neutral/20 shadow-sm"
                     ]}> Z gabinetu psychodietetyka </a>
                 </li>
                 <li>
                     <a href="/kontakt" class:list={[
-                        "hover:bg-base-100/20!",
-                        pathname.startsWith("/kontakt") && "bg-base-100/20 shadow-sm"
+                        "hover:bg-neutral/20 active:bg-neutral/20 text-current! hover:shadow-sm active:shadow-sm",
+                        pathname.startsWith("/kontakt") && "bg-neutral/20 shadow-sm"
                     ]}> Kontakt </a>
                 </li>
             </ul>

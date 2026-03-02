@@ -2,22 +2,39 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-    themes: light --default, dark --prefersdark;
+    themes: light, dark;
 }
-
 @plugin "daisyui/theme" {
     name: "light";
     default: true;
+    prefersdark: false;
+    color-scheme: "light";
 
-    --color-primary: oklch(78.1% 0.118 25.2);
+    --color-primary: oklch(67.4% 0.076 206.7);
     --color-primary-content: oklch(97.4% 0.016 227.0);
+    --depth: 0;
+    --noise: 0;
+}
+@plugin "daisyui/theme" {
+    name: "dark";
+    default: false;
+    prefersdark: true;
+    color-scheme: "dark";
+
+    --color-primary: oklch(67.4% 0.076 206.7);
+    --color-primary-content: oklch(97.4% 0.016 227.0);
+    --depth: 0;
+    --noise: 0;
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-@theme {
-    --color-sylvia: oklch(67.4% 0.076 206.7);
+[data-hidden-by-date],
+[data-hidden-by-keyword] {
+    display: none !important;
+}
 
+@theme {
     --default-font-family: "Source Sans 3 Variable", system-ui;
 
     --font-smallcaps: "Source Sans 3 Variable", system-ui;
