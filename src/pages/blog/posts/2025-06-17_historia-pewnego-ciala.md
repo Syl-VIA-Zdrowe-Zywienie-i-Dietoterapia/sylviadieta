@@ -21,13 +21,13 @@ Za wieloma wioskami, za wieloma mostami, żyło sobie ciało. Jedno. Wyjątkowe.
 
 Od kiedy pamiętało, czuło się… nieswojo. Ciągle oceniane.  Głodzone.  Przekarmiane.
 
-Musiało ćwiczyć – nie z radości, lecz po to, by „zasłużyć”.
+Musiało ćwiczyć — nie z radości, lecz po to, by „zasłużyć”.
 
 Niejednokrotnie milczące, bolące, zmęczone.
 Przyzwyczajone do słów rzucanych bez sympatii.
 Do kpin. Do ironii. Do traktowania jak wroga.
 
-Karmione byle czym –  raz tym, co nie służyło,  innym razem tym, co dawało siłę i spokój…  ale tylko na chwilę.
+Karmione byle czym —  raz tym, co nie służyło,  innym razem tym, co dawało siłę i spokój…  ale tylko na chwilę.
 
 Bo potem znów wracał chaos.
 
@@ -57,7 +57,7 @@ Z nadzieją, że ktoś je w końcu usłyszy.
 
 ## Moment przełomu
 
-I kiedy myślało, że już nic się nie zmieni –  pewnego dnia usłyszało cichy płacz. Nie był to zwykły płacz.  Był głęboki. Prawdziwy. Jakby z samego środka. Ciepły. Oczyszczający.
+I kiedy myślało, że już nic się nie zmieni —  pewnego dnia usłyszało cichy płacz. Nie był to zwykły płacz.  Był głęboki. Prawdziwy. Jakby z samego środka. Ciepły. Oczyszczający.
 
 Od tego momentu wszystko zaczęło się zmieniać.
 
@@ -73,7 +73,7 @@ Pewnego dnia padło pytanie:
 
 **Czego potrzebujesz?  Czego potrzebujemy?** Ciało pomyślało: „To cud”.
 
-Zaczęło dostawać odżywcze jedzenie.  Jadło wtedy, gdy było głodne –  nie wtedy, gdy głód miały tylko emocje.
+Zaczęło dostawać odżywcze jedzenie.  Jadło wtedy, gdy było głodne —  nie wtedy, gdy głód miały tylko emocje.
 
 Słuchało rozmów o akceptacji.  O powrocie do siebie.  O tym, że nie musi być inne, by być ważne.
 

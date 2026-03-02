@@ -41,7 +41,7 @@ Często maska dla emocji takich jak:
 Ciało się rusza, ale psychika stoi w miejscu.
 
 Uśmiech na zdjęciu po treningu.
-A w środku – smutek, którego nikt nie widzi.
+A w środku — smutek, którego nikt nie widzi.
 
 ---
 
@@ -63,7 +63,7 @@ Bo był produktywny. Spalił kalorie. Zasłużył.
 
 Problem w tym, że ta ulga jest chwilowa.
 
-Z czasem pojawia się coraz więcej zmęczenia – zarówno fizycznego, jak i psychicznego.
+Z czasem pojawia się coraz więcej zmęczenia — zarówno fizycznego, jak i psychicznego.
 
 ---
 
@@ -75,7 +75,7 @@ Czasem wygląda jak:
 - codzienne cardio bez radości,
 - niepokój, gdy wypada dzień wolny od aktywności.
 
-Oczywiście – ruch ma ogromną wartość.
+Oczywiście — ruch ma ogromną wartość.
 Wspiera zdrowie psychiczne i metaboliczne. Poprawia sen i nastrój.
 
 Ale jeśli:

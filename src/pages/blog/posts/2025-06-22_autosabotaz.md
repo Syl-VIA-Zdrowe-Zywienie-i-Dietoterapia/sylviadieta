@@ -9,7 +9,7 @@ slug: "dlaczego-znowu-to-zrobilam-samosabotaz"
 published: false
 keywords: [psychodietetyka, autosabotaż, emocjonalne jedzenie, zmiana nawyków, redukcja masy ciała, praca z emocjami]
 images: []
-social_sharing_description: "„Znowu wszystko zepsułam…” – czy na pewno? O samosabotażu, emocjonalnym jedzeniu i zmianie, która zaczyna się od zrozumienia, a nie od karania."
+social_sharing_description: "„Znowu wszystko zepsułam…” — czy na pewno? O samosabotażu, emocjonalnym jedzeniu i zmianie, która zaczyna się od zrozumienia, a nie od karania."
 description: "Historia pacjentki, która chciała schudnąć 15 kg, ale wciąż „zawalała”. O tym, czym naprawdę jest autosabotaż i jak przestać się obwiniać w procesie zmiany nawyków."
 tags: [autosabotaż, jedzenie pod wpływem emocji, regulacja napięcia, redukcja masy ciała, poczucie własnej wartości, zmiana nawyków]
 date: 2025-06-22
@@ -45,7 +45,7 @@ Zaproponowałam krótką rozmowę telefoniczną. 15 minut.
 Zgodziła się.
 
 – Co się wydarzyło w środę?
-– Miałam trudny dzień. Szef był niemiły. Wróciłam do domu – bałagan, dzieci się kłóciły. Nie miałam siły.
+– Miałam trudny dzień. Szef był niemiły. Wróciłam do domu — bałagan, dzieci się kłóciły. Nie miałam siły.
 – A wcześniej, jak radziła sobie Pani z takim napięciem?
 – Jadłam. Tyle że teraz przecież miałam tego nie robić!
 – To nie był „błąd”, tylko dobrze znany sposób radzenia sobie z emocjami.

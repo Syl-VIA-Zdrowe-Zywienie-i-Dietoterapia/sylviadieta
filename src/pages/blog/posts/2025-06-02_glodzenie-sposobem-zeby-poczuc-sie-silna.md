@@ -17,13 +17,13 @@ date: 2025-06-02
 
 # Głodziłam się, żeby poczuć siłę
 
-Ona – piękna, młoda dziewczyna, przed którą stoi cały świat.
+Ona — piękna, młoda dziewczyna, przed którą stoi cały świat.
 Radosna, pełna życia… na pierwszy rzut oka.
 
 Spadek masy ciała już dawno zaniepokoił rodziców.
 Dopiero hospitalizacja była momentem, który ich otrzeźwił.
 
-Po raz pierwszy wypowiedzieli na głos to, co od miesięcy wisiało w powietrzu – że ją tracą.
+Po raz pierwszy wypowiedzieli na głos to, co od miesięcy wisiało w powietrzu — że ją tracą.
 
 Nie chodziło o „modę na bycie fit”.
 Nie o „zwykłą dietę”.
@@ -33,7 +33,7 @@ Patrzyli, jak ich córka znika.
 Z tygodnia na tydzień było jej coraz mniej.
 Ciało drobniało. Policzek zapadały się. Spojrzenie gasło.
 
-Było w niej coś poruszającego – delikatność pomieszana z ogromnym napięciem.
+Było w niej coś poruszającego — delikatność pomieszana z ogromnym napięciem.
 Jakby każdy gram ciała kosztował ją za dużo.
 
 ---
@@ -62,13 +62,13 @@ Szept za plecami.
 Była wrażliwa.
 Zbyt wrażliwa, jak na ten świat.
 
-A świat – zamiast objąć – nauczył ją się chować.
+A świat — zamiast objąć — nauczył ją się chować.
 
 ## Od chowania się do głodzenia
 
 Chowanie się zamieniło w kontrolę.
-Kontrola – w głodzenie.
-A głodzenie – w jedyny sposób, by choć na chwilę poczuć się silną.
+Kontrola — w głodzenie.
+A głodzenie — w jedyny sposób, by choć na chwilę poczuć się silną.
 
 Zaczęłyśmy spotykać się regularnie.
 
@@ -91,7 +91,7 @@ Kiedy poczułam, że to dobry moment, delikatnie wróciłyśmy do tematu jedzeni
 Nie było już tyle oporu.
 Nie zamykała się. Nie zaprzeczała.
 
-To wciąż była walka – ale już nie samotna.
+To wciąż była walka — ale już nie samotna.
 
 Szła w swoim tempie.
 Raz szybciej. Raz wolniej.

@@ -9,8 +9,8 @@ slug: "z-notatnika-psychodietetyka-jedzenie-to-cos-wiecej-niz-glod"
 published: false
 keywords: [psychodietetyka, emocjonalne jedzenie, stres i odżywianie, relacja z jedzeniem, zmiana nawyków, zaburzenia odżywiania, psychologia jedzenia]
 images: ["notatnik-psychodietetyka.jpg"]
-social_sharing_description: "Dlaczego tak trudno jest schudnąć? Bo w jedzeniu rzadko chodzi tylko o jedzenie. Z notatnika psychodietetyka – historie pacjentów, które pokazują prawdziwe źródła problemów."
-description: "Jedzenie to często coś więcej niż głód – to emocje, stres, zmęczenie czy brak wsparcia. Z notatnika psychodietetyka: cztery historie pacjentów, które pokazują, że droga do zmiany zaczyna się dużo głębiej niż przy talerzu."
+social_sharing_description: "Dlaczego tak trudno jest schudnąć? Bo w jedzeniu rzadko chodzi tylko o jedzenie. Z notatnika psychodietetyka — historie pacjentów, które pokazują prawdziwe źródła problemów."
+description: "Jedzenie to często coś więcej niż głód — to emocje, stres, zmęczenie czy brak wsparcia. Z notatnika psychodietetyka: cztery historie pacjentów, które pokazują, że droga do zmiany zaczyna się dużo głębiej niż przy talerzu."
 tags: ["psychodietetyka", "emocjonalne jedzenie", "stres", "relacja z jedzeniem", "zmiana nawyków", "psychologia jedzenia", "zaburzenia odżywiania"]
 date: 2025-08-18
 ---
@@ -59,4 +59,4 @@ I właśnie od tego miejsca zaczyna się rozmowa.
 
 ---
 
-👉 A Ty? Kiedy sięgasz po jedzenie – karmisz głód czy swoje emocje?
+👉 A Ty? Kiedy sięgasz po jedzenie — karmisz głód czy swoje emocje?

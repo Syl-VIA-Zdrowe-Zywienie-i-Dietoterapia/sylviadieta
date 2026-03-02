@@ -28,7 +28,7 @@ I tak w kółko…
 
 To nie Ty zawalasz.  To podejście jest zbyt surowe.  Presja, że musisz być idealna, sprawia, że każde potknięcie wygląda jak porażka.
 
-A przecież życie rzadko bywa idealne.  Odchudzanie nie wymaga perfekcji – wymaga konsekwencji.  Nie trzeba być na 100% idealnym, żeby widzieć efekty.
+A przecież życie rzadko bywa idealne.  Odchudzanie nie wymaga perfekcji — wymaga konsekwencji.  Nie trzeba być na 100% idealnym, żeby widzieć efekty.
 
 ## Zacznij od kolejnego posiłku
 

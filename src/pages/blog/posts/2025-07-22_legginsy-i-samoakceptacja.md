@@ -10,7 +10,7 @@ published: false
 keywords: [psychodietetyka, samoakceptacja, relacja z ciałem, obraz ciała, kobiecość, pewność siebie]
 images: []
 social_sharing_description: "To nie chodzi o legginsy. Chodzi o relację z własnym ciałem. O moment, w którym przestajesz się wstydzić i zaczynasz wybierać siebie."
-description: "Osobista refleksja o samoakceptacji, pracy nad relacją z ciałem i o tym, jak małe rzeczy – jak nowe legginsy – mogą stać się symbolem dużej zmiany."
+description: "Osobista refleksja o samoakceptacji, pracy nad relacją z ciałem i o tym, jak małe rzeczy — jak nowe legginsy — mogą stać się symbolem dużej zmiany."
 tags: [samoakceptacja, obraz ciała, czułość wobec siebie, kobiety i ciało, pewność siebie, rozwój osobisty]
 date: 2025-07-22
 ---
@@ -30,13 +30,13 @@ Ale zacznijmy od początku.
 
 ## „To nie dla mnie”
 
-Przez lata byłam w stanie zaakceptować wiele – swój styl, swoje wybory, swoje słabości.
+Przez lata byłam w stanie zaakceptować wiele — swój styl, swoje wybory, swoje słabości.
 
 Ale legginsy?
 One długo budziły mój respekt.
 
 Kiedyś byłam przekonana, że to strój wyłącznie dla „fit babek”.
-Wiecie – tych w rozmiarze 34, 36, może 38.
+Wiecie — tych w rozmiarze 34, 36, może 38.
 
 Zdecydowanie nie dla mnie.
 
@@ -49,7 +49,7 @@ Wydawały mi się odważne, obcisłe, „nie na moją sylwetkę”.
 
 Z czasem, wraz z pracą nad sobą i budowaniem relacji z moim ciałem, coś zaczęło się zmieniać.
 
-Bo kiedy naprawdę wracamy do siebie – dzieją się małe cuda.
+Bo kiedy naprawdę wracamy do siebie — dzieją się małe cuda.
 
 Zaczynamy patrzeć na siebie mniej krytycznie, a bardziej z czułością.
 Zamiast nieustannie się oceniać, uczymy się trzymać ze sobą sztamę.
@@ -70,10 +70,10 @@ A mówi dużo:
 
 Dziś mogę powiedzieć, że jestem ze swoim ciałem w dobrych relacjach.
 
-Nie idealnych – czasem mamy „ciche dni”.
+Nie idealnych — czasem mamy „ciche dni”.
 Ale ogólnie się dogadujemy.
 
-Kiedy założyłam legginsy, o których od dawna marzyłam – takie, które mocno podkreślają krągłości – poczułam dumę.
+Kiedy założyłam legginsy, o których od dawna marzyłam — takie, które mocno podkreślają krągłości — poczułam dumę.
 
 Zobaczyłam, jak daleko zaszłam.
 
@@ -92,7 +92,7 @@ Odpowiedziałam mu stanowczo:
 
 Wiem, że nie jestem sama.
 
-Wiele kobiet – tak jak ja kiedyś – delikatnie mówiąc, nie przepada za swoim ciałem.
+Wiele kobiet — tak jak ja kiedyś — delikatnie mówiąc, nie przepada za swoim ciałem.
 
 Jeśli to czytasz i czujesz, że to o Tobie, chcę Ci powiedzieć jedno:
 

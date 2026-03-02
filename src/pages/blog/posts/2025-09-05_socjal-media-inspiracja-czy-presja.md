@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogPostLayout.astro
-title: "Media społecznościowe – inspiracja czy presja?"
+title: "Media społecznościowe — inspiracja czy presja?"
 author: "Sylwia Majewska"
 category: "psychodietetyka"
 reading_time: "2 min"
@@ -18,9 +18,9 @@ date: 2025-09-05
 ---
 
 
-# Media społecznościowe – inspiracja czy presja?
+# Media społecznościowe — inspiracja czy presja?
 
-Włącza Instagram.  Kolejna szczupła sylwetka, wyprostowana postawa, szeroki uśmiech, hasło o motywacji.  Scroll dalej – następna.  I jeszcze jedna.
+Włącza Instagram.  Kolejna szczupła sylwetka, wyprostowana postawa, szeroki uśmiech, hasło o motywacji.  Scroll dalej — następna.  I jeszcze jedna.
 
 Zamiast motywacji pojawia się jednak ciężar.
 
@@ -30,7 +30,7 @@ Kiedy przyszła do gabinetu, od progu powiedziała jednym tchem:
 
 — *Chciałabym schudnąć.*
 
-Opowiada, że próbuje wszystkiego – ćwiczy, mocno ogranicza kalorie, zaciska zęby… a jednak wciąż nie widzi efektów.
+Opowiada, że próbuje wszystkiego — ćwiczy, mocno ogranicza kalorie, zaciska zęby… a jednak wciąż nie widzi efektów.
 Czuje, że tkwi w błędnym kole odchudzania. Im więcej wysiłku wkłada, tym silniejsze poczucie porażki, gdy na wadze nic się nie zmienia.
 
 I wtedy dodaje:
@@ -39,7 +39,7 @@ I wtedy dodaje:
 
 ## Instagramowa rzeczywistość
 
-Media społecznościowe mają ogromną moc. Mogą inspirować, ale równie często stają się źródłem presji.  Pokazują jedynie fragment życia – ten najbardziej dopracowany, wyretuszowany.
+Media społecznościowe mają ogromną moc. Mogą inspirować, ale równie często stają się źródłem presji.  Pokazują jedynie fragment życia — ten najbardziej dopracowany, wyretuszowany.
 
 A my porównujemy to z własną codziennością: zmaganiami, obowiązkami, trudnymi emocjami.  W internecie wszystko wygląda jak bajka, a przecież prawdziwe życie to również zmęczenie, chaos, czasem brak motywacji. Nic dziwnego, że wtedy trudniej o akceptację siebie.
 

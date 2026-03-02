@@ -31,10 +31,10 @@ Motywacja oparta na nienawiści jest krótkotrwała.
 
 Prawdziwa zmiana staje się możliwa dopiero wtedy, gdy pojawia się choć odrobina życzliwości wobec siebie.
 
-## Mały krok – wielka różnica
+## Mały krok — wielka różnica
 
 Nie musisz od razu „kochać siebie”.
-Wystarczy zacząć traktować się z troską – jak przyjaciela, którego chcesz wspierać, a nie oceniać.
+Wystarczy zacząć traktować się z troską — jak przyjaciela, którego chcesz wspierać, a nie oceniać.
 
 Zdrowe nawyki to nie kara.
 To wyraz szacunku do siebie.

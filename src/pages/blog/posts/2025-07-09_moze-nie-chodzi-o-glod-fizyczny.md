@@ -21,7 +21,7 @@ Być może bardzo dawno temu zatraciłeś umiejętność odczytywania sygnałów
 
 Być może nie wiesz już, kiedy naprawdę jesteś głodny, a kiedy po prostu potrzebujesz czegoś innego.
 
-Może czujesz, że jesteś głodny cały czas.  Ale to nie żołądek woła – tylko serce.
+Może czujesz, że jesteś głodny cały czas.  Ale to nie żołądek woła — tylko serce.
 
 Może trudno Ci przestać jeść, bo w jedzeniu próbujesz odnaleźć ukojenie, obecność, bezpieczeństwo.
 

@@ -17,7 +17,7 @@ date: 2025-05-18
 
 # Nie lubię tych wieczorów…
 
-„Nie lubię tych wieczorów…” – powiedziała Promienna na jednej z pierwszych wizyt.  Promienna niedługo kończy 40 lat. Jest mamą, żoną. Rodzina jest dla niej bardzo ważna. Praca? Wymagająca. Spędza w niej większość dnia. Jest dokładna, rzetelna.
+„Nie lubię tych wieczorów…” — powiedziała Promienna na jednej z pierwszych wizyt.  Promienna niedługo kończy 40 lat. Jest mamą, żoną. Rodzina jest dla niej bardzo ważna. Praca? Wymagająca. Spędza w niej większość dnia. Jest dokładna, rzetelna.
 
 W domu wszystko dopięte na ostatni guzik.
 
@@ -35,7 +35,7 @@ I wtedy dodała:
 ## Co dzieje się wieczorem?
 
 W ciągu dnia je niewiele.
-Praca, dom, zakupy. Łapie coś w biegu, byle pod ręką – i pędzi dalej.
+Praca, dom, zakupy. Łapie coś w biegu, byle pod ręką — i pędzi dalej.
 
 Ale kiedy przychodzi wieczór, zaczyna jeść.
 
@@ -44,7 +44,7 @@ Dużo. Słodko. Tłusto.
 
 Ma wrażenie, że mogłaby biesiadować aż do nocy.
 
-To klasyczny schemat wieczornego objadania. W dzień – kontrola i zadaniowość. Wieczorem – zmęczenie i rozluźnienie hamulców.
+To klasyczny schemat wieczornego objadania. W dzień — kontrola i zadaniowość. Wieczorem — zmęczenie i rozluźnienie hamulców.
 
 Od czego zaczęłyśmy? Nie od diety cud.
 
@@ -70,7 +70,7 @@ To wszystko wpływało na ilość zjadanych wieczorem produktów.
 Zanim zaczęła się zmiana, potrzebne było zrozumienie:
 **co naprawdę kryje się za wieczornym objadaniem?**
 
-## Zamiast sięgać po jedzenie – sięga po siebie
+## Zamiast sięgać po jedzenie — sięga po siebie
 
 Promienna powoli uczy się znajdować czas dla siebie.
 Nieśmiało. Czasem jeszcze z poczuciem winy.
@@ -92,4 +92,4 @@ Ale teraz czuje, że to ona przejmuje kontrolę.
 
 Nie jedzenie.
 
-A Ty?  Co kryje się za Twoimi wieczorami? Czy potrafisz być dla siebie ważna – tak jak jesteś ważna dla innych?
+A Ty?  Co kryje się za Twoimi wieczorami? Czy potrafisz być dla siebie ważna — tak jak jesteś ważna dla innych?
