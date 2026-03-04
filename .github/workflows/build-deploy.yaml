@@ -33,5 +33,5 @@ jobs:
           protocol: ftps
           timeout: 20000
           # dangerous-clean-slate: true
-          dry-run: true
-          log-level: verbose
+          # dry-run: true
+          # log-level: verbose
