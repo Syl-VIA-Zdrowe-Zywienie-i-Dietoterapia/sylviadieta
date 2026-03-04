@@ -8,7 +8,7 @@ on:
 jobs:
   build-deploy:
     name: 🚀 Build and deploy website
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: 📦 Get latest code
         uses: actions/checkout@v4
@@ -23,8 +23,15 @@ jobs:
         run: bunx --bun astro build
 
       - name: 🚚 Deploy website
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: bun run deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          protocol: ftps
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /domains/sylviadieta.pl/public_html/
+          timeout: 20000
+          # dangerous-clean-slate: true
+          # dry-run: true
+          # log-level: verbose
