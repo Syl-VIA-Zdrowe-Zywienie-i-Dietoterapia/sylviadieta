@@ -11,7 +11,7 @@ async function deployToHosting() {
         timeout: 20000,
         // "dangerous-clean-slate": true,
         "dry-run": true,
-        // "log-level": "verbose",
+        "log-level": "verbose",
     });
 }
 
