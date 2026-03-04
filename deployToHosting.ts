@@ -10,8 +10,8 @@ async function deployToHosting() {
         "server-dir": "/domains/sylviadieta.pl/public_html/",
         timeout: 20000,
         // "dangerous-clean-slate": true,
-        "dry-run": true,
-        "log-level": "verbose",
+        // "dry-run": true,
+        // "log-level": "verbose",
     });
 }
 
