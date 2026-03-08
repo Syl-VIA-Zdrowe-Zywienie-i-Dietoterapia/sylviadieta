@@ -21,9 +21,9 @@ export default defineConfig({
         compressor({gzip: false, brotli: true, zstd: false}),
         sitemap({
             filter: (page) =>
-                !page.startsWith(`${site}/blog/posts/`) &&
                 !page.startsWith(`${site}/o-mnie/content/`) &&
-                !page.startsWith(`${site}/uslugi/content`),
+                !page.startsWith(`${site}/uslugi/content/`) &&
+                !page.startsWith(`${site}/blog/content`),
         })
     ],
 });
