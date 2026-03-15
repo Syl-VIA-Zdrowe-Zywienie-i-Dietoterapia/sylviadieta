@@ -1,0 +1,49 @@
+# Syl.VIA — Zdrowe Żywienie i Dietoterapia
+
+> Strona Sylwii Majewskiej — dietetyka, psychodietetyka i chemika z ponad 8-letnim doświadczeniem. Oferuje indywidualne konsultacje dietetyczne i psychodietetyczne, jadłospisy, zajęcia nordic walking oraz warsztaty edukacyjne. Podejście oparte na nauce, uważności i trwałej zmianie nawyków — bez restrykcyjnych diet. Gabinety w Markach i Ząbkach (woj. mazowieckie). Konsultacje stacjonarne i online.
+
+## Strona główna
+
+- [Strona główna](https://sylviadieta.pl): Strona główna z prezentacją Sylwii Majewskiej i jej podejścia do dietetyki i psychodietetyki.
+
+## O mnie
+
+- [O mnie](https://sylviadieta.pl/o-mnie): Przedstawienie Sylwii Majewskiej — ponad 8 lat pracy w dietetyce, łączenie dietetyki z psychodietetyką. Indywidualne podejście, brak cudownych diet.
+- [Kim jestem](https://sylviadieta.pl/o-mnie/kim-jestem): Osobiste wprowadzenie — „via" oznacza drogę, każdy pacjent ma swoją własną ścieżkę do zdrowia.
+- [Czym się zajmuję](https://sylviadieta.pl/o-mnie/czym-sie-zajmuje): Cztery obszary działalności: psychodietetyka (zaburzenia odżywiania, jedzenie emocjonalne, CBT), dietetyka kliniczna (cukrzyca, insulinooporność, Hashimoto, choroby układu krążenia, celiakia), żywienie dla aktywnych fizycznie, edukacja i warsztaty.
+- [Kwalifikacje](https://sylviadieta.pl/o-mnie/kwalifikacje): Magister dietetyki (WSIiZ Warszawa), studia podyplomowe z psychodietetyki (SWPS), certyfikowany instruktor nordic walking, absolwentka Wydziału Chemii Politechniki Warszawskiej.
+- [Wartości](https://sylviadieta.pl/o-mnie/wartosci): Filozofia pracy — podejście holistyczne, zdrowie jako równowaga ciała i umysłu, dieta ma wspierać a nie ograniczać, zrozumienie emocjonalnych aspektów jedzenia.
+
+## Usługi
+
+- [Usługi](https://sylviadieta.pl/uslugi): Przegląd oferowanych usług: psychodietetyka, nordic walking, warsztaty i wyjazdy.
+- [Psychodietetyka](https://sylviadieta.pl/uslugi/psychodietetyka): Szczegółowa oferta — pierwsza konsultacja dietetyczna z elementami psychodietetyki (260 zł, 60–80 min), jadłospisy 7- i 14-dniowe, konsultacje psychodietetyczne (200 zł), Pakiet VIP 3-miesięczny (1500 zł), pakiety dla par. Pomiar składu ciała InBody 120 (BIA).
+- [Nordic walking](https://sylviadieta.pl/uslugi/nordic-walking): Zajęcia nordic walking indywidualne i grupowe. Certyfikowany instruktor. Korzyści: wsparcie odporności, redukcja obciążenia stawów o 30%, prewencja osteoporozy, redukcja stresu. Ceny od 60 zł/os.
+- [Warsztaty i wyjazdy](https://sylviadieta.pl/uslugi/warsztaty-i-wyjazdy): Warsztaty edukacyjne „Świadome Odżywianie" (2h, max 20 os., 250 zł), szkolenie „Zdrowy Start" dla uczniów (1,5h, 200 zł), wyjazdy integracyjne.
+
+## Blog — Z gabinetu psychodietetyka
+
+- [Blog](https://sylviadieta.pl/blog): Blog psychodietetyczny — historie z gabinetu (fikcyjne postacie inspirowane prawdziwymi procesami terapeutycznymi), artykuły o relacji z jedzeniem, emocjach i zmianie nawyków.
+- [Zaczęło się od dyslipidemii…](https://sylviadieta.pl/blog/posts/2025-04-10_zaczelo-sie-od-dyslipidemii-historia-odzyskiwania-kontroli): Historia pacjenta z dyslipidemią i otyłością, który odzyskał kontrolę nad jedzeniem i zdrowiem dzięki psychodietetyce. Tematyka: dyslipidemia, jedzenie emocjonalne, napady objadania.
+- [To moja ostatnia szansa](https://sylviadieta.pl/blog/posts/2025-05-06_to-moja-ostatnia-szansa-historia-kobiety-ktora-przestala-walczyc-ze-soba): Historia kobiety sukcesu zmagającej się z jedzeniem emocjonalnym — zmiana zaczyna się od zatrzymania, nie od kolejnej diety. Tematyka: stres, perfekcjonizm, regulacja emocji.
+- [Wrażliwa i jej relacja z jedzeniem](https://sylviadieta.pl/blog/posts/2025-05-09_wrazliwa-relacja-z-jedzeniem-psychodietetyka): Historia relacji z jedzeniem po zaburzeniach odżywiania — od kontroli do zaufania sobie, praca z obrazem ciała.
+- [Nie lubię tych wieczorów…](https://sylviadieta.pl/blog/posts/2025-05-18_nie-lubie-tych-wieczorow-wieczorne-objadanie): Kobieta przed 40. urodzinami — wieczorne objadanie jako mechanizm radzenia sobie z emocjami. Tematyka: napady jedzenia, regulacja emocji.
+- [Głodzenie sposobem, żeby poczuć się silną…](https://sylviadieta.pl/blog/posts/2025-06-02_glodzenie-sposobem-zeby-poczuc-sie-silna): Młoda kobieta z zaburzeniami odżywiania — głodzenie jako sposób na poczucie kontroli i siły. Tematyka: anoreksja, poczucie własnej wartości.
+- [Kompulsywny ruch i maskowana depresja](https://sylviadieta.pl/blog/posts/2025-06-04_kompulsywny-ruch-maskowana-depresja): Gdy sport staje się ucieczką — kompulsywne ćwiczenia, maskowana depresja, emocjonalna ucieczka. Tematyka: uzależnienie od aktywności, regulacja emocji.
+- [(Nie)jedna historia ciała](https://sylviadieta.pl/blog/posts/2025-06-17_historia-pewnego-ciala): Alegoryczna opowieść o ciele, które było oceniane i karane przez lata — nauka czułości i samoakceptacji.
+- [Samosabotaż w praktyce](https://sylviadieta.pl/blog/posts/2025-06-22_autosabotaz): Kobieta chcąca schudnąć 15 kg, która ciągle „nie dawała rady" — zrozumienie autosabotażu i zatrzymanie samoobwiniania.
+- [Historia Silnego](https://sylviadieta.pl/blog/posts/2025-07-01_historia-silnego-otylosc-stres-sprawczosc): Mężczyzna z otyłością i wieczornym podjadaniem ze stresu — dlaczego sama dieta nie wystarcza, odzyskiwanie sprawczości.
+- [Może nie chodzi o głód fizyczny](https://sylviadieta.pl/blog/posts/2025-07-09_moze-nie-chodzi-o-glod-fizyczny): Rozróżnianie głodu fizycznego i emocjonalnego — nauka słuchania sygnałów ciała i uważnego jedzenia.
+- [Cisza po burzy — historia Delikatnej](https://sylviadieta.pl/blog/posts/2025-07-22_jedzenie-emocjonalne): Kobieta po 40. lecząca jedzenie jako pocieszenie i wroga — kompulsywne jedzenie, uważność, pierwsze kroki do zmiany.
+- [Legginsy i samoakceptacja](https://sylviadieta.pl/blog/posts/2025-07-22_legginsy-i-samoakceptacja): Refleksja o tym, jak drobny gest (nowe legginsy) może symbolizować wielką zmianę w samoakceptacji i relacji z ciałem.
+- [Który to już poniedziałek?](https://sylviadieta.pl/blog/posts/2025-07-27_ktory-to-juz-poniedzialek): Przełamywanie cyklu „od poniedziałku zaczynam" — presja perfekcji sabotuje nawyki, łagodność umożliwia prawdziwą zmianę.
+- [O czym jest ten chips?](https://sylviadieta.pl/blog/posts/2025-07-30_o-czym-jest-ten-chips): Co naprawdę kryje się za sięganiem po chipsy — praktyka uważności, rozumienie potrzeb emocjonalnych za zachciankami.
+- [Ulga bez jedzenia](https://sylviadieta.pl/blog/posts/2025-08-04_ulga-bez-jedzenia): Gdy jedzenie staje się jedynym sposobem na ulgę — nauka alternatywnych sposobów samoregulacji (sen, spacery, muzyka, natura, terapia).
+- [Jedzenie to więcej niż głód](https://sylviadieta.pl/blog/posts/2025-08-18_jedzenie-to-wiecej-niz-glod): Cztery historie pacjentów — problemy z jedzeniem wynikające z głębszych przyczyn: zmęczenia, braku wsparcia, perfekcjonizmu, stresu.
+- [Jak traktować siebie w procesie zmiany nawyków?](https://sylviadieta.pl/blog/posts/2025-08-21_jak-polubic-siebie): Rola samoakceptacji w zmianie nawyków — motywacja oparta na nienawiści do siebie jest krótkotrwała, życzliwość umożliwia trwałą zmianę.
+- [Media społecznościowe — inspiracja czy presja?](https://sylviadieta.pl/blog/posts/2025-09-05_socjal-media-inspiracja-czy-presja): Wpływ mediów społecznościowych na obraz ciała, motywację i samoakceptację — presja porównań vs. zdrowe podejście do diety.
+- [Ona i bulimia](https://sylviadieta.pl/blog/posts/2025-09-28_bulimia): Historia kobiety walczącej z bulimią — poczucie winy, wstyd, ukryte cykle objadania i przeczyszczania, wsparcie psychodietetyczne i psychoterapeutyczne.
+
+## Kontakt
+
+- [Kontakt](https://sylviadieta.pl/kontakt): Dane kontaktowe — tel. +48 501 974 479, email: dietetyka.syl.via@gmail.com. Gabinety: ul. Słoneczna 3c/110, 05-270 Marki; Blossom Pilates Studio, ul. Orla 4/55, 05-091 Ząbki. Mapa Google, dane do przelewu.

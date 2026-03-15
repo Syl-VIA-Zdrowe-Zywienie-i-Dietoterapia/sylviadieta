@@ -1,0 +1,117 @@
+---
+import Tick from "../assets/icons/tick.svg";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout subtitle="O mnie">
+    <main>
+        <section class="bg-muted/50 pt-30 pb-16 md:pt-38 md:pb-24">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="max-w-3xl">
+                    <p class="text-primary mb-4 text-base font-medium tracking-wide [font-variant:small-caps]">O Mnie</p>
+                    <h1 class="text-foreground font-serif text-4xl font-semibold md:text-5xl">Sylwia Majewska</h1>
+                    <h2 class="font-serif mt-2 mb-4 text-xl">dietetyk i psychodietetyk</h2>
+                    <p class="text-muted-foreground text-xl leading-relaxed">
+                        Z pasją i empatią pomagam moim pacjentom odnaleźć
+                        <span id="via-tooltip" class="group relative" tabindex="0">
+                            <em class="cursor-help font-serif tracking-wide italic">drogę</em><span aria-hidden="true" class="border-muted-foreground absolute right-1 -bottom-0.5 -left-1 border-b-2 border-dotted"></span>
+                            <span role="tooltip" class="bg-foreground/70 invisible absolute bottom-full left-1/2 z-10 mb-2 w-48 -translate-x-1/2 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white/90 opacity-0 shadow-lg transition-[opacity,visibility] duration-150 group-hover:visible group-hover:opacity-100 group-data-open:visible group-data-open:opacity-100 backdrop-blur-sm">
+                                <em class="font-serif">via</em> (z łac.) oznacza <strong>drogę</strong> — stąd nazwa poradni Syl.<strong>VIA</strong>
+                                <span aria-hidden="true" class="bg-foreground/70 absolute -bottom-2 left-1/2 h-2 w-4 -translate-x-1/2 [clip-path:polygon(0_0,100%_0,50%_100%)]"></span>
+                            </span>
+                        </span> do harmonijnego stylu życia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
+                    <div class="relative lg:sticky lg:top-32">
+                        <div class="bg-muted relative aspect-4/5 overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=800&q=80" alt="Zdrowy styl życia i zbilansowane odżywianie" class="h-full w-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="bg-primary-light/30 absolute -right-4 -bottom-4 -z-10 h-full w-full rounded-2xl"></div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="text-muted-foreground space-y-6 leading-relaxed">
+                            <p class="text-foreground text-lg font-medium">Moim celem jest pokazanie, że droga do zdrowia może być naturalna, przyjazna i dostosowana do indywidualnych potrzeb każdej osoby.</p>
+                            <p>Od ponad 8 lat zawodowo zajmuję się żywieniem i jego wpływem na zdrowie, samopoczucie oraz relację z jedzeniem. W swojej pracy łączę wiedzę z zakresu dietetyki i psychodietetyki, ponieważ wiem, że jedzenie to nie tylko kalorie — to emocje, nawyki i codzienne wybory, które mają znaczenie.</p>
+                            <p>Podejście psychodietetyczne pomaga mi jeszcze lepiej rozumieć trudności, z jakimi zmagają się moi pacjenci — takie jak jedzenie emocjonalne, spadki motywacji, niskie poczucie sprawczości czy negatywny obraz ciała. Dzięki temu mogę skuteczniej wspierać ich w budowaniu trwałych nawyków i zdrowej relacji z jedzeniem — bez presji, oceniania czy sztywnych zasad.</p>
+                            <p>Nie wierzę w diety cud. Wierzę w indywidualnie dopasowane rozwiązania — oparte na nauce, zrozumieniu, uważności i trwałej zmianie. Wspólnie tworzymy plan żywieniowy „szyty na miarę" — dopasowany do Twojego stylu życia, zdrowia i emocjonalnych potrzeb.</p>
+                        </div>
+
+                        <div class="border-border border-t pt-8">
+                            <h2 class="text-foreground mb-6 font-serif text-xl font-semibold">Wykształcenie i certyfikaty</h2>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4">
+                                    <span class="bg-primary/10 text-primary mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full"><Tick class="size-3.5 shrink-0" /></span>
+                                    <div class="-mt-px">
+                                        <p class="text-foreground font-medium">Dietetyka</p>
+                                        <p class="text-muted-foreground text-sm">Studia magisterskie na Wyższej Szkole Inżynierii i Zdrowia</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="bg-primary/10 text-primary mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full"><Tick class="size-3.5 shrink-0" /></span>
+                                    <div class="-mt-px">
+                                        <p class="text-foreground font-medium">Psychodietetyka</p>
+                                        <p class="text-muted-foreground text-sm">Studia podyplomowe na Uniwersytecie SWPS</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="bg-primary/10 text-primary mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full"><Tick class="size-3.5 shrink-0" /></span>
+                                    <div class="-mt-px">
+                                        <p class="text-foreground font-medium">Chemia</p>
+                                        <p class="text-muted-foreground text-sm">Absolwentka Wydziału Chemii Politechniki Warszawskiej</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="bg-primary/10 text-primary mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full"><Tick class="size-3.5 shrink-0" /></span>
+                                    <div class="-mt-px">
+                                        <p class="text-foreground font-medium">Nordic walking</p>
+                                        <p class="text-muted-foreground text-sm">Certyfikowany instruktor</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="border-border border-t pt-8">
+                            <h2 class="text-foreground mb-6 font-serif text-xl font-semibold">Moje podejście</h2>
+                            <div class="grid gap-6 sm:grid-cols-2">
+                                <div class="bg-muted/50 rounded-xl p-5">
+                                    <h3 class="text-foreground mb-2 font-medium">Indywidualność</h3>
+                                    <p class="text-muted-foreground text-sm">Każdy plan jest szyty na miarę, dostosowany do Twoich potrzeb i stylu życia.</p>
+                                </div>
+                                <div class="bg-muted/50 rounded-xl p-5">
+                                    <h3 class="text-foreground mb-2 font-medium">Holistyczne spojrzenie</h3>
+                                    <p class="text-muted-foreground text-sm">Łączę dietetykę z psychodietetyką, by wspierać ciało i umysł.</p>
+                                </div>
+                                <div class="bg-muted/50 rounded-xl p-5">
+                                    <h3 class="text-foreground mb-2 font-medium">Diety cud</h3>
+                                    <p class="text-muted-foreground text-sm">Stawiam na trwałą zmianę nawyków, nie na szybkie efekty.</p>
+                                </div>
+                                <div class="bg-muted/50 rounded-xl p-5">
+                                    <h3 class="text-foreground mb-2 font-medium">Empatia i wsparcie</h3>
+                                    <p class="text-muted-foreground text-sm">Jestem z Tobą na każdym etapie drogi do zdrowia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
+
+<script>
+    const trigger = document.getElementById("via-tooltip");
+
+    if (trigger) {
+        trigger.addEventListener("click", () => trigger.toggleAttribute("data-open"));
+        document.addEventListener("click", (e) => {
+            if (!trigger.contains(e.target as Node)) trigger.removeAttribute("data-open");
+        });
+    }
+</script>

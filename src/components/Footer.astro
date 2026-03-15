@@ -1,0 +1,39 @@
+---
+import { Picture } from "astro:assets";
+
+import Facebook from "../assets/icons/facebook.svg";
+import Instagram from "../assets/icons/instagram.svg";
+
+import LogoHorizontalBigTextWhite80 from "../assets/logos/horizontal-big-text/logo-horizontal-big-text-white80.png";
+---
+
+<footer class="bg-foreground py-8 text-white/80">
+    <div class="mx-auto max-w-6xl px-6">
+        <div class="mb-4 flex flex-col justify-between gap-8 md:flex-row">
+            <div class="space-y-4">
+                <p class="text-sm leading-relaxed">
+                    &copy; {new Date().getFullYear()} Syl.VIA — Zdrowe Żywienie i Dietoterapia <br />
+                    Wszelkie prawa zastrzeżone. NIP:&nbsp;8121699322
+                </p>
+                <div class="flex gap-6">
+                    <a href="/" class="block w-fit">
+                        <Picture src={LogoHorizontalBigTextWhite80} formats={["avif"]} alt="Logo poradni Syl.VIA" loading="eager" class="h-auto w-48" />
+                    </a>
+                    <div class="flex items-center gap-3">
+                        <a href="https://facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer" class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 p-2.5 transition-colors" aria-label="Facebook"><Facebook class="size-5" /></a>
+                        <a href="https://instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer" class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 p-2.5 transition-colors" aria-label="Instagram"><Instagram class="size-5" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-70 grow">
+                <h4 class="mb-4 font-serif font-medium text-white">Informacje</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="/regulamin.pdf" target="_blank" class="hover:text-primary transition-colors">Regulamin świadczenia usług</a></li>
+                    <li><a href="/polityka-prywatnosci.pdf" target="_blank" class="hover:text-primary transition-colors">Polityka prywatności</a></li>
+                    <li><a href="/kontakt" class="hover:text-primary transition-colors">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,16 @@
+{
+    "printWidth": 1000,
+    "tabWidth": 4,
+    "bracketSameLine": true,
+    "plugins": [
+        "prettier-plugin-astro",
+        "prettier-plugin-tailwindcss",
+        "prettier-plugin-astro-organize-imports"
+    ],
+    "overrides": [{
+        "files": "*.astro",
+        "options": {
+            "parser": "astro"
+        }
+    }]
+}

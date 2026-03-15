@@ -1,17 +1,68 @@
 ---
+import { Picture } from "astro:assets";
 
+import Tick from "../assets/icons/tick.svg";
+import FoodPicture from "../assets/images/food.jpg";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+    <main class="mx-auto max-w-6xl grow px-6 pt-32 pb-16 md:pt-40 md:pb-28">
+        <section id="hero" class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="space-y-8">
+                <div class="space-y-6">
+                    <p class="text-primary text-lg font-medium tracking-wide [font-variant:small-caps]">Sylwia Majewska</p>
+                    <h1 class="text-foreground font-serif text-4xl font-semibold text-balance md:text-5xl lg:text-6xl">
+                        Zdrowe Żywienie
+                        <span class="text-primary">i Dietoterapia</span>
+                    </h1>
+                    <p class="text-muted-foreground max-w-xl text-lg leading-relaxed">Pomagam odnaleźć drogę do harmonijnego stylu życia poprzez indywidualne podejście i trwałą zmianę nawyków żywieniowych.</p>
+                </div>
+
+                <ul class="text-muted-foreground space-y-2">
+                    <li class="flex items-start gap-2"><Tick class="text-primary mt-1.5 size-4 shrink-0" /> Myślisz o zmianie swoich nawyków żywieniowych?</li>
+                    <li class="flex items-start gap-2"><Tick class="text-primary mt-1.5 size-4 shrink-0" /> Chcesz cieszyć się zdrowiem i dobrym samopoczuciem?</li>
+                    <li class="flex items-start gap-2"><Tick class="text-primary mt-1.5 size-4 shrink-0" /> Masz dość diet, na których jesteś ciągle głodny?</li>
+                    <li class="flex items-start gap-2"><Tick class="text-primary mt-1.5 size-4 shrink-0" /> Jesteś gotowy raz na zawsze pożegnać się ze zbędnymi kilogramami?</li>
+                    <li class="flex items-start gap-2"><Tick class="text-primary mt-1.5 size-4 shrink-0" /> Potrzebujesz motywacji?</li>
+                </ul>
+
+                <div class="flex flex-col gap-4 sm:flex-row">
+                    <a href="/kontakt" class="bg-primary hover:bg-primary-dark inline-flex items-center justify-center rounded-lg px-7 py-3.5 font-medium text-white transition-colors">Rozpocznij współpracę</a>
+                    <a href="/uslugi" class="border-border text-foreground hover:bg-muted inline-flex items-center justify-center rounded-lg border px-7 py-3.5 font-medium transition-colors">Poznaj usługi</a>
+                </div>
+
+                <div class="flex flex-wrap gap-8 pt-4">
+                    <div>
+                        <p class="text-foreground font-serif text-2xl font-semibold">8+ lat</p>
+                        <p class="text-muted-foreground text-sm">doświadczenia</p>
+                    </div>
+                    <div>
+                        <p class="text-foreground font-serif text-2xl font-semibold">InBody</p>
+                        <p class="text-muted-foreground text-sm">analiza składu ciała</p>
+                    </div>
+                    <div>
+                        <p class="text-foreground font-serif text-2xl font-semibold">Online</p>
+                        <p class="text-muted-foreground text-sm">i stacjonarnie</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="bg-muted relative aspect-4/5 overflow-hidden rounded-2xl">
+                    <Picture src={FoodPicture} formats={["avif"]} alt="Zdrowe składniki do zbilansowanego żywienia" class="h-full w-full object-cover" loading="eager" />
+                </div>
+                <div class="bg-card border-border absolute -bottom-6 -left-6 max-w-55 rounded-xl border p-5 shadow-lg">
+                    <p class="text-muted-foreground mb-1 text-sm">Certyfikowany specjalista</p>
+                    <p class="text-foreground font-serif font-medium">Dietetyk, chemik, psychodietetyk</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quote" class="mx-auto mt-24 max-w-2xl text-center">
+            <blockquote class="text-foreground font-serif text-xl italic md:text-2xl">„Niech pożywienie będzie lekarstwem, a lekarstwo pożywieniem.”</blockquote>
+            <p class="text-muted-foreground mt-3">Hipokrates (460–370 p.n.e.)</p>
+        </section>
+    </main>
+</BaseLayout>

@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+    {
+        title: "Konsultacja dietetyczna",
+        description: "Pierwsza konsultacja z elementami psychodietetyki. Szczegółowy wywiad, analiza nawyków żywieniowych, interpretacja wyników badań laboratoryjnych oraz pomiar składu ciała metodą BIA (InBody 120).",
+        price: "260 zł",
+        duration: "60–80 min",
+        features: ["Szczegółowy wywiad zdrowotny i żywieniowy", "Analiza składu ciała metodą BIA (InBody 120)", "Interpretacja wyników badań laboratoryjnych", "Indywidualne zalecenia żywieniowe", "Omówienie celów i planu współpracy"],
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>`,
+    },
+    {
+        title: "Psychodietetyka",
+        description: "Pomagam zrozumieć emocjonalne i psychiczne podłoże jedzenia. Wspieram w budowaniu zdrowych nawyków, pracy nad motywacją i relacją z jedzeniem — zwłaszcza w sytuacjach stresu czy zajadania emocji.",
+        price: "200 zł",
+        duration: "60–80 min",
+        features: ["Praca z emocjonalnym podłożem jedzenia", "Budowanie zdrowej relacji z jedzeniem", "Wsparcie w zmianie nawyków", "Techniki radzenia sobie ze stresem", "Praca nad motywacją"],
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>`,
+    },
+    {
+        title: "Dietetyka kliniczna",
+        description: "Specjalizuję się w dietoterapii chorób: cukrzyca, insulinooporność, choroby tarczycy (Hashimoto), choroby układu pokarmowego, celiakia, choroby nowotworowe oraz niewydolność nerek.",
+        price: "od 250 zł",
+        duration: "jadłospis 7-dniowy",
+        features: ["Cukrzyca i insulinooporność", "Choroby tarczycy (Hashimoto)", "Choroby układu pokarmowego", "Celiakia i nietolerancje pokarmowe", "Choroby nowotworowe i niewydolność nerek"],
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
+    },
+    {
+        title: "Nordic Walking",
+        description: "Jestem certyfikowanym instruktorem nordic walking. Zapraszam na zajęcia grupowe i indywidualne! Poprawisz kondycję, dotlenisz organizm i nauczysz się prawidłowej techniki chodzenia z kijkami.",
+        price: "od 60 zł",
+        duration: "1,5 godziny",
+        features: ["Zajęcia grupowe i indywidualne", "Nauka prawidłowej techniki", "Poprawa kondycji i dotlenienie organizmu", "Zajęcia na świeżym powietrzu", "Dostosowanie do poziomu zaawansowania"],
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>`,
+    },
+];
+---
+
+<BaseLayout subtitle="Usługi">
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="bg-muted/50 py-16 md:py-24">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="max-w-3xl">
+                    <p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">Usługi</p>
+                    <h1 class="text-foreground mb-6 font-serif text-4xl font-semibold md:text-5xl">Kompleksowe wsparcie żywieniowe</h1>
+                    <p class="text-muted-foreground text-xl leading-relaxed">Holistyczne podejście do zdrowia, które łączy żywienie, psychologię i aktywność fizyczną dla pełnego dobrostanu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-16 md:py-24">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="space-y-12">
+                    {
+                        services.map((service, index) => (
+                            <article class="bg-card border-border grid items-start gap-8 rounded-2xl border p-8 md:p-10 lg:grid-cols-2 lg:gap-12">
+                                <div class="space-y-6">
+                                    <div class="flex items-start gap-4">
+                                        <div class="bg-primary-light/50 text-primary flex h-14 w-14 items-center justify-center rounded-xl">
+                                            <Fragment set:html={service.icon} />
+                                        </div>
+                                        <div>
+                                            <h2 class="text-foreground font-serif text-2xl font-semibold">{service.title}</h2>
+                                            <div class="mt-1 flex items-center gap-3">
+                                                <span class="text-primary text-lg font-semibold">{service.price}</span>
+                                                <span class="text-muted-foreground">•</span>
+                                                <span class="text-muted-foreground text-sm">{service.duration}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted-foreground leading-relaxed">{service.description}</p>
+                                    <a href="/kontakt" class="text-primary inline-flex items-center gap-2 font-medium hover:underline">
+                                        Umów wizytę
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div>
+                                    <h3 class="text-foreground mb-4 text-sm font-medium tracking-wide uppercase">Co obejmuje:</h3>
+                                    <ul class="space-y-3">
+                                        {service.features.map((feature) => (
+                                            <li class="flex items-start gap-3">
+                                                <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                                    </svg>
+                                                </span>
+                                                <span class="text-muted-foreground">{feature}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- VIP Package -->
+        <section class="bg-primary-dark py-16 text-white md:py-24">
+            <div class="mx-auto max-w-6xl px-6">
+                <div class="grid items-center gap-12 lg:grid-cols-2">
+                    <div>
+                        <p class="text-primary-light mb-4 text-sm font-medium tracking-wide uppercase">Pakiet Premium</p>
+                        <h2 class="mb-6 font-serif text-3xl font-semibold md:text-4xl">Pakiet VIP — 3 miesiące kompleksowego wsparcia</h2>
+                        <p class="mb-8 leading-relaxed text-white/80">Regularna, zaplanowana współpraca oparta na Twoich indywidualnych potrzebach. Zawiera konsultację wstępną, 6 spotkań indywidualnych, 2 jadłospisy 14-dniowe, stały kontakt oraz materiały wspierające.</p>
+                        <div class="mb-8 flex items-baseline gap-2">
+                            <span class="font-serif text-4xl font-bold">1500 zł</span>
+                            <span class="text-white/60">/ 3 miesiące</span>
+                        </div>
+                        <a href="/kontakt" class="text-primary-dark hover:bg-primary-light inline-flex items-center justify-center rounded-lg bg-white px-7 py-3.5 font-medium transition-colors"> Zapytaj o pakiet VIP </a>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
+                        <h3 class="mb-6 text-lg font-medium">Pakiet zawiera:</h3>
+                        <ul class="space-y-4">
+                            {
+                                ["Konsultacja wstępna (90 min)", "6 spotkań indywidualnych (50–60 min)", "2 × indywidualny jadłospis na 14 dni", "Stały kontakt mailowy lub wiadomościowy", "Materiały wspierające i ćwiczenia", "Pierwszeństwo w umawianiu wizyt"].map((item) => (
+                                    <li class="flex items-start gap-3">
+                                        <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                            </svg>
+                                        </span>
+                                        <span class="text-white/90">{item}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 md:py-24">
+            <div class="mx-auto max-w-3xl px-6 text-center">
+                <h2 class="text-foreground mb-6 font-serif text-3xl font-semibold md:text-4xl">Gotowy, by rozpocząć swoją podróż?</h2>
+                <p class="text-muted-foreground mb-8 leading-relaxed">Skontaktuj się ze mną, aby umówić się na pierwszą konsultację. Wspólnie znajdziemy najlepsze rozwiązanie dla Ciebie.</p>
+                <a href="/kontakt" class="bg-primary hover:bg-primary-dark inline-flex items-center justify-center rounded-lg px-7 py-3.5 font-medium text-white transition-colors"> Skontaktuj się </a>
+            </div>
+        </section>
+    </main>
+</BaseLayout>
