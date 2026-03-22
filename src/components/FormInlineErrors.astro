@@ -1,0 +1,134 @@
+---
+interface Props {
+    formId: string;
+}
+
+const { formId } = Astro.props;
+---
+
+<div data-form-error-root data-form-id={formId} class="hidden" aria-hidden="true">
+    <template data-field-error-template>
+        <p data-field-error class="mt-1 hidden text-sm text-warning"></p>
+    </template>
+</div>
+
+<script>
+    const errorMessages = {
+        inputRequiredMessage: "To pole jest wymagane.",
+        inputInvalidMessage: "Wprowadź poprawną wartość.",
+        emailInvalidMessage: "Wprowadź poprawny adres e-mail.",
+        phoneInvalidMessage: "Wprowadź poprawny numer telefonu.",
+        textareaTooShortMessage: "Napisz kilka słów (co najmniej 20 znaków).",
+    };
+
+    function getFieldErrorMessage(field: HTMLInputElement | HTMLTextAreaElement): string {
+        if (field.validity.valueMissing) return errorMessages.inputRequiredMessage;
+        if (field instanceof HTMLInputElement) {
+            if (field.type === "email" && field.validity.typeMismatch) return errorMessages.emailInvalidMessage;
+            if (field.type === "tel" && field.validity.patternMismatch) return errorMessages.phoneInvalidMessage;
+            if (!field.validity.valid) return errorMessages.inputInvalidMessage;
+        } else if (field instanceof HTMLTextAreaElement) {
+            if (field.validity.tooShort) return errorMessages.textareaTooShortMessage;
+        }
+        return errorMessages.inputInvalidMessage;
+    }
+
+    function findFieldErrorElement(field: HTMLInputElement | HTMLTextAreaElement): HTMLElement | null {
+        const fieldWrapper = field.closest("[data-field-wrapper]");
+        return fieldWrapper?.querySelector<HTMLElement>("[data-field-error]") || null;
+    }
+
+    function getFieldErrorElement(field: HTMLInputElement | HTMLTextAreaElement, template: HTMLTemplateElement): HTMLElement {
+        const existingErrorElement = findFieldErrorElement(field);
+        if (existingErrorElement) return existingErrorElement;
+
+        const clonedErrorElement = template.content.firstElementChild?.cloneNode(true) as HTMLElement | null;
+        if (!clonedErrorElement) throw new Error("[FormInlineErrors] Failed to clone error element from template.");
+
+        clonedErrorElement.id = `${field.id}-error`;
+        field.parentElement?.insertAdjacentElement("afterend", clonedErrorElement);
+        return clonedErrorElement;
+    }
+
+    function getFormErrorElements(root: HTMLElement): { form: HTMLFormElement; template: HTMLTemplateElement } | null {
+        const formId = root.dataset.formId;
+        if (!formId) {
+            console.warn("[FormInlineErrors] Missing data-form-id attribute.");
+            return null;
+        }
+        const form = document.getElementById(formId) as HTMLFormElement | null;
+        const template = root.querySelector<HTMLTemplateElement>("[data-field-error-template]");
+
+        if (!form || !template) return null;
+        return { form, template };
+    }
+
+    const formErrorRoots = document.querySelectorAll<HTMLElement>("[data-form-error-root]");
+
+    formErrorRoots.forEach((root) => {
+        const formErrorElements = getFormErrorElements(root);
+        if (!formErrorElements) return;
+        const { form, template } = formErrorElements;
+
+        const fields = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input:not([type='hidden']):not([type='submit']):not([type='button']):not([type='reset']), textarea")];
+        if (fields.length === 0) return;
+
+        let hasSubmitted = false;
+
+        function showFieldError(field: HTMLInputElement | HTMLTextAreaElement) {
+            const errorElement = getFieldErrorElement(field, template);
+            errorElement.textContent = getFieldErrorMessage(field);
+            errorElement.classList.remove("hidden");
+            field.setAttribute("aria-invalid", "true");
+            field.setAttribute("aria-describedby", errorElement.id);
+        }
+
+        function hideFieldError(field: HTMLInputElement | HTMLTextAreaElement) {
+            const errorElement = findFieldErrorElement(field);
+            if (!errorElement) {
+                field.removeAttribute("aria-invalid");
+                field.removeAttribute("aria-describedby");
+                return;
+            }
+
+            errorElement.textContent = "";
+            errorElement.classList.add("hidden");
+            field.removeAttribute("aria-invalid");
+            field.removeAttribute("aria-describedby");
+        }
+
+        function updateFieldInvalidState(field: HTMLInputElement | HTMLTextAreaElement) {
+            if (!hasSubmitted) {
+                hideFieldError(field);
+                return;
+            }
+
+            if (field.checkValidity()) hideFieldError(field);
+            else showFieldError(field);
+        }
+
+        function updateAllFieldsInvalidStates() {
+            fields.forEach(updateFieldInvalidState);
+        }
+
+        fields.forEach((field) => {
+            field.addEventListener("input", () => {
+                updateFieldInvalidState(field);
+            });
+            field.addEventListener("blur", () => updateFieldInvalidState(field));
+        });
+
+        form.addEventListener("submit", (event) => {
+            const invalidField = fields.find((field) => !field.checkValidity());
+            if (!invalidField) {
+                updateAllFieldsInvalidStates();
+                return;
+            }
+
+            event.preventDefault();
+            hasSubmitted = true;
+            updateAllFieldsInvalidStates();
+            invalidField.focus();
+        });
+    });
+</script>

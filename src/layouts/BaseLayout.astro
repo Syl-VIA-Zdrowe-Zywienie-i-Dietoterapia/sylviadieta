@@ -1,9 +1,6 @@
 ---
 import { Font } from "astro:assets";
 
-import "@fortawesome/fontawesome-free/css/brands.css";
-import "@fortawesome/fontawesome-free/css/fontawesome.css";
-import "@fortawesome/fontawesome-free/css/solid.css";
 import "../styles/global.css";
 // import Meta from "../components/Meta.astro";
 import Footer from "../components/Footer.astro";
@@ -15,7 +12,10 @@ interface Props {
     description?: string;
 }
 
-const { subtitle, description = "Profesjonalna pomoc dietetyczna i psychodietetyczna. Sylwia Majewska — dietetyk, psychodietetyk. Indywidualne plany żywieniowe, konsultacje online, stacjonarne." } = Astro.props;
+const {
+    subtitle = "",
+    description = "Profesjonalna pomoc dietetyczna i psychodietetyczna. Sylwia Majewska – dietetyk, psychodietetyk. Indywidualne plany żywieniowe, konsultacje online, stacjonarne.",
+} = Astro.props;
 ---
 
 <html lang="pl" class="scroll-smooth">
@@ -24,7 +24,6 @@ const { subtitle, description = "Profesjonalna pomoc dietetyczna i psychodietety
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta name="description" content={description} />
-        <meta name="keywords" content="dietetyk, psychodietetyk, żywienie, dieta, konsultacje dietetyczne, Warszawa, Marki, Ząbki, nordic walking" />
         <meta name="author" content="Sylwia Majewska" />
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -33,12 +32,14 @@ const { subtitle, description = "Profesjonalna pomoc dietetyczna i psychodietety
 
         <Font cssVariable="--font-inter" preload />
         <Font cssVariable="--font-playfair" preload />
-        <title>{subtitle ? `${subtitle} |` : ""} Syl.VIA — Zdrowe Żywienie i Dietoterapia</title>
+        <title>{subtitle ? `${subtitle} | ` : ""}Syl.VIA – Zdrowe Żywienie i Dietoterapia</title>
     </head>
 
-    <body class="bg-background text-foreground flex min-h-screen flex-col font-sans text-base antialiased md:text-lg">
+    <body class="flex min-h-screen flex-col antialiased">
         <Header />
-        <slot />
+        <main class="grow flex flex-col">
+            <slot />
+        </main>
         <Footer />
         <ScrollToTop />
     </body>

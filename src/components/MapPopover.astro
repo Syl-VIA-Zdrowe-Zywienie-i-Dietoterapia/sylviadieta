@@ -1,0 +1,157 @@
+---
+interface Props {
+    inputSelector?: string;
+    triggerSelector?: string;
+    srcAttribute?: string;
+    placement?: "top" | "right" | "bottom" | "left";
+    popoverPadding?: number;
+    popoverClass?: string;
+}
+
+const { inputSelector = "input[name='map-location']", triggerSelector = "[data-map-icon]", srcAttribute = "data-map-src", placement = "left", popoverPadding = 16, popoverClass = "" } = Astro.props;
+---
+
+<div data-map-popover-root data-input-selector={inputSelector} data-trigger-selector={triggerSelector} data-src-attribute={srcAttribute} data-placement={placement} data-popover-padding={String(popoverPadding)} class={`invisible fixed z-50 h-2/5 max-h-120 min-h-90 max-w-lg scale-95 rounded-2xl opacity-0 shadow-xl transition duration-200 ease-out will-change-[transform,scale,opacity] ${popoverClass}`}>
+    <div class="border-border size-full overflow-hidden rounded-2xl border">
+        <iframe data-map-popover-iframe class="size-full border-0" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa lokalizacji gabinetu" src="" loading="eager"></iframe>
+    </div>
+    <div data-map-popover-arrow aria-hidden="true" class="bg-card border-border absolute size-5 border [clip-path:polygon(0_0,100%_0,100%_100%)]"></div>
+</div>
+
+<script>
+    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
+
+    function getMapPopoverElements(root: HTMLElement) {
+        const popoverIframe = root.querySelector<HTMLIFrameElement>("[data-map-popover-iframe]");
+        const popoverArrow = root.querySelector<HTMLElement>("[data-map-popover-arrow]");
+
+        if (!popoverIframe || !popoverArrow) return null;
+
+        return { popoverIframe, popoverArrow };
+    }
+
+    const mapPopoverRoots = document.querySelectorAll<HTMLElement>("[data-map-popover-root]");
+
+    mapPopoverRoots.forEach((root) => {
+        const inputSelector = root.dataset.inputSelector || "input[name='map-location']";
+        const triggerSelector = root.dataset.triggerSelector || "[data-map-icon]";
+        const srcAttribute = root.dataset.srcAttribute || "data-map-src";
+        const preferredPlacement = (root.dataset.placement as "top" | "right" | "bottom" | "left") || "left";
+        const popoverPadding = Number(root.dataset.popoverPadding || "16");
+
+        const popover = root;
+        const popoverElements = getMapPopoverElements(popover);
+        if (!popoverElements) return;
+        const { popoverIframe, popoverArrow } = popoverElements;
+
+        // popover padding is how much space to maintain between the popover and the edges of the viewport when shifting
+        // width is set to viewport width minus double the padding to ensure the popover never exceeds the viewport when shifted
+        // and there is equal padding on both sides - the popover is centered
+        popover.style.width = `calc(100vw - ${popoverPadding * 2}px)`;
+
+        const locationRadios = document.querySelectorAll<HTMLInputElement>(inputSelector);
+        if (locationRadios.length === 0) return;
+
+        let lastChecked: HTMLInputElement | null = null;
+
+        let stopAutoUpdate: (() => void) | null = null;
+
+        async function updatePosition(trigger: HTMLElement) {
+            const { x, y, placement, middlewareData } = await computePosition(trigger, popover, {
+                placement: preferredPlacement,
+                strategy: "fixed",
+                middleware: [offset(24), flip({ fallbackPlacements: ["top", "bottom"] }), shift({ padding: popoverPadding }), arrow({ element: popoverArrow })],
+            });
+
+            const mapPopoverTransformOrigin: Record<string, string> = {
+                left: "right center",
+                right: "left center",
+                top: "center bottom",
+                bottom: "center top",
+            };
+
+            const mapPopoverArrowPlacement: Record<string, string> = {
+                top: "bottom",
+                right: "left",
+                bottom: "top",
+                left: "right",
+            };
+
+            const mapPopoverArrowRotation: Record<string, number> = {
+                left: 45,
+                right: 225,
+                top: 135,
+                bottom: 315,
+            };
+
+            const mapPopoverSide = placement.split("-")[0];
+            Object.assign(popover.style, {
+                left: `${x}px`,
+                top: `${y}px`,
+                transformOrigin: mapPopoverTransformOrigin[mapPopoverSide],
+            });
+
+            Object.assign(popoverArrow.style, {
+                left: middlewareData.arrow?.x != null ? `${middlewareData.arrow?.x}px` : "",
+                top: middlewareData.arrow?.y != null ? `${middlewareData.arrow?.y}px` : "",
+                right: "",
+                bottom: "",
+                [mapPopoverArrowPlacement[mapPopoverSide]]: "-9px",
+                transform: `rotate(${mapPopoverArrowRotation[mapPopoverSide]}deg)`,
+            });
+        }
+
+        async function openMap(input: HTMLInputElement) {
+            const src = input.getAttribute(srcAttribute);
+            if (!src) return;
+            const trigger = (input.closest("label")?.querySelector(triggerSelector) as HTMLElement) || input;
+
+            if (popoverIframe.dataset.loadedSrc !== src) {
+                popoverIframe.src = src;
+                popoverIframe.dataset.loadedSrc = src;
+            }
+
+            stopAutoUpdate?.();
+            await updatePosition(trigger);
+            stopAutoUpdate = autoUpdate(trigger, popover, () => updatePosition(trigger));
+            popover.classList.remove("invisible");
+            requestAnimationFrame(() => {
+                popover.classList.remove("opacity-0", "scale-95");
+            });
+            lastChecked = input;
+        }
+
+        function closeMap() {
+            popover.classList.add("opacity-0", "scale-95");
+            popover.addEventListener(
+                "transitionend",
+                () => {
+                    popover.classList.add("invisible");
+                    stopAutoUpdate?.();
+                    stopAutoUpdate = null;
+                },
+                { once: true },
+            );
+            if (lastChecked) {
+                lastChecked.checked = false;
+                lastChecked = null;
+            }
+        }
+
+        locationRadios.forEach((radio) => {
+            radio.addEventListener("click", () => {
+                return lastChecked === radio ? closeMap() : openMap(radio);
+            });
+        });
+
+        document.addEventListener("click", (element) => {
+            if (!lastChecked) return;
+            if (popover.contains(element.target as Node) || [...locationRadios].some((radio) => radio.closest("label")?.contains(element.target as Node))) return;
+            closeMap();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeMap();
+        });
+    });
+</script>

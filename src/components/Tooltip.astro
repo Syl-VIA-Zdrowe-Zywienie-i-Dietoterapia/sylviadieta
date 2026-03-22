@@ -1,0 +1,160 @@
+---
+interface Props {
+    tooltipId?: string;
+    placement?: "top" | "right" | "bottom" | "left";
+    triggerTabIndex?: number;
+    triggerClass?: string;
+    tooltipClass?: string;
+}
+
+const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", triggerTabIndex = 0, triggerClass = "", tooltipClass = "" } = Astro.props;
+---
+
+<span data-tooltip-root data-tooltip-placement={placement} class="relative inline-block">
+    <span data-tooltip-trigger aria-describedby={tooltipId} class={triggerClass} tabindex={triggerTabIndex}>
+        <slot name="trigger" />
+    </span>
+
+    <span id={tooltipId} data-tooltip role="tooltip" class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition-[opacity,scale] duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}>
+        <slot name="tooltip" />
+        <span data-tooltip-arrow aria-hidden="true" class="bg-muted-foreground absolute size-4 [clip-path:polygon(0_0,100%_0,100%_100%)]"></span>
+    </span>
+</span>
+
+<script>
+    import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
+
+    function getTooltipElements(root: HTMLElement) {
+        const tooltipTrigger = root.querySelector<HTMLElement>("[data-tooltip-trigger]");
+        const tooltip = root.querySelector<HTMLElement>("[data-tooltip]");
+        const tooltipArrow = root.querySelector<HTMLElement>("[data-tooltip-arrow]");
+
+        if (!tooltipTrigger || !tooltip || !tooltipArrow) return null;
+
+        return { tooltipTrigger, tooltip, tooltipArrow };
+    }
+
+    const tooltipRoots = document.querySelectorAll<HTMLElement>("[data-tooltip-root]");
+
+    tooltipRoots.forEach((root) => {
+        const preferredPlacement = (root.dataset.tooltipPlacement as "top" | "right" | "bottom" | "left") || "top";
+
+        const tooltipElements = getTooltipElements(root);
+        if (!tooltipElements) return;
+        const { tooltipTrigger, tooltip, tooltipArrow } = tooltipElements;
+
+        let showTimeout: ReturnType<typeof setTimeout> | null = null;
+        let hideTimeout: ReturnType<typeof setTimeout> | null = null;
+        let isHiding = false;
+        let stopAutoUpdate: (() => void) | null = null;
+
+        async function updatePosition() {
+            const { x, y, placement, middlewareData } = await computePosition(tooltipTrigger, tooltip, {
+                placement: preferredPlacement,
+                strategy: "fixed",
+                middleware: [offset(8), flip(), shift({ padding: 8 }), arrow({ element: tooltipArrow })],
+            });
+
+            const tooltipTransformOrigin: Record<string, string> = {
+                left: "right center",
+                right: "left center",
+                top: "center bottom",
+                bottom: "center top",
+            };
+
+            const tooltipArrowPlacement: Record<string, string> = {
+                top: "bottom",
+                right: "left",
+                bottom: "top",
+                left: "right",
+            };
+
+            const tooltipArrowRotation: Record<string, number> = {
+                left: 45,
+                right: 225,
+                top: 135,
+                bottom: 315,
+            };
+
+            const tooltipSide = placement.split("-")[0];
+            Object.assign(tooltip.style, {
+                left: `${x}px`,
+                top: `${y}px`,
+                transformOrigin: tooltipTransformOrigin[tooltipSide],
+            });
+
+            Object.assign(tooltipArrow.style, {
+                left: middlewareData.arrow?.x != null ? `${middlewareData.arrow?.x}px` : "",
+                top: middlewareData.arrow?.y != null ? `${middlewareData.arrow?.y}px` : "",
+                right: "",
+                bottom: "",
+                [tooltipArrowPlacement[tooltipSide]]: "-4px",
+                transform: `rotate(${tooltipArrowRotation[tooltipSide]}deg)`,
+            });
+        }
+
+        function showTooltip(delay = 0) {
+            isHiding = false;
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            if (showTimeout) clearTimeout(showTimeout);
+            showTimeout = setTimeout(async () => {
+                stopAutoUpdate?.();
+                await updatePosition();
+                stopAutoUpdate = autoUpdate(tooltipTrigger, tooltip, updatePosition);
+                tooltip.classList.remove("invisible");
+                requestAnimationFrame(() => {
+                    tooltip.classList.remove("opacity-0", "scale-95");
+                });
+            }, delay);
+        }
+
+        function hideTooltip(delay = 0) {
+            if (showTimeout) {
+                clearTimeout(showTimeout);
+                showTimeout = null;
+            }
+            hideTimeout = setTimeout(() => {
+                isHiding = true;
+                tooltip.classList.add("opacity-0", "scale-95");
+                tooltip.addEventListener(
+                    "transitionend",
+                    () => {
+                        if (isHiding) {
+                            tooltip.classList.add("invisible");
+                            stopAutoUpdate?.();
+                            stopAutoUpdate = null;
+                        }
+                    },
+                    { once: true },
+                );
+            }, delay);
+        }
+
+        const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+        let suppressNextBlur = false;
+
+        if (canHover) {
+            tooltipTrigger.addEventListener("mouseenter", () => showTooltip(300));
+            tooltipTrigger.addEventListener("mouseleave", () => hideTooltip(100));
+            tooltip.addEventListener("mouseenter", () => showTooltip());
+            tooltip.addEventListener("mouseleave", () => hideTooltip(100));
+        } else {
+            tooltip.addEventListener("pointerdown", () => {
+                suppressNextBlur = true;
+            });
+        }
+
+        tooltipTrigger.addEventListener("focus", () => showTooltip());
+        tooltipTrigger.addEventListener("blur", () => {
+            if (suppressNextBlur) {
+                suppressNextBlur = false;
+                tooltipTrigger.focus({ preventScroll: true });
+                return;
+            }
+            hideTooltip();
+        });
+    });
+</script>

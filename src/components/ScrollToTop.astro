@@ -1,17 +1,17 @@
 ---
-import CaretUp from "../assets/icons/caret-up.svg";
+import ArrowUp from "../assets/icons/arrow-up.svg";
 ---
 
-<button id="scroll-to-top" class="bg-primary hover:bg-primary-dark focus:ring-primary invisible fixed right-6 bottom-6 z-40 translate-y-4 cursor-pointer rounded-full p-3 text-white opacity-0 shadow-lg transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-offset-2 focus:outline-none" aria-label="Przewiń do góry">
-    <CaretUp class="size-6 md:size-8" />
+<button id="scroll-to-top" class="group bg-primary hover:bg-primary-dark focus:ring-primary invisible fixed right-6 bottom-6 z-40 translate-y-4 cursor-pointer rounded-full p-3 md:p-4 opacity-0 shadow-lg transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-offset-2 focus:outline-none" aria-label="Przewiń do góry">
+    <ArrowUp class="size-6 stroke-white group-hover:scale-110 md:size-7" />
 </button>
 
 <script>
-    const scrollButton = document.getElementById("scroll-to-top")!;
-    let ticking = false;
+    import { onScroll } from "../utils/scroll";
 
-    function updateButton() {
-        const scrollY = window.scrollY;
+    const scrollButton = document.getElementById("scroll-to-top")!;
+
+    onScroll((scrollY) => {
         const showThreshold = 400;
 
         if (scrollY > showThreshold) {
@@ -21,20 +21,7 @@ import CaretUp from "../assets/icons/caret-up.svg";
             scrollButton.classList.add("opacity-0", "invisible", "translate-y-4");
             scrollButton.classList.remove("opacity-100", "visible", "translate-y-0");
         }
-
-        ticking = false;
-    }
-
-    window.addEventListener(
-        "scroll",
-        () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateButton);
-                ticking = true;
-            }
-        },
-        { passive: true },
-    );
+    });
 
     scrollButton.addEventListener("click", () => {
         window.scrollTo({
