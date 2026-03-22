@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @plugin "@tailwindcss/typography";
 
@@ -34,5 +33,5 @@
 }
 
 .top-level-container {
-    @apply lg:pl-[calc(100vw-100%)]
+    @apply lg:pl-[calc(100vw-100%)];
 }
