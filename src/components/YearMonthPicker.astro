@@ -1,0 +1,167 @@
+---
+interface Props {
+    availableYears: number[];
+}
+
+const { availableYears } = Astro.props;
+
+const monthAbbrevs = ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"];
+---
+
+<div id="year-month-picker" data-available-years={JSON.stringify(availableYears)}>
+    <div class="card bg-base-100 border-base-300 border shadow-lg">
+        <div class="card-body gap-0 p-0">
+            <div id="picker-card-header" class="flex items-center justify-between rounded-t-lg p-4 transition-colors">
+                <button id="previous-year" class="btn btn-ghost btn-sm" aria-label="Poprzedni rok">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="current-year" class="text-lg font-bold"></span>
+                <button id="next-year" class="btn btn-ghost btn-sm" aria-label="Następny rok">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 p-4" id="month-grid">
+                {
+                    monthAbbrevs.map((abbrev, index) => (
+                        <button class="btn btn-ghost text-base" data-month={index + 1}>
+                            {abbrev}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const picker = document.getElementById("year-month-picker")!;
+    const availableYears: number[] = JSON.parse(picker.dataset.availableYears || "[]");
+
+    if (availableYears.length > 0) {
+        const header = document.getElementById("picker-card-header")!;
+        const yearLabel = document.getElementById("current-year")!;
+        const prevButton = document.getElementById("previous-year") as HTMLButtonElement;
+        const nextButton = document.getElementById("next-year") as HTMLButtonElement;
+        const monthButtons = document.querySelectorAll<HTMLButtonElement>("#month-grid button");
+        const posts = document.querySelectorAll<HTMLElement>("[data-post-year]");
+
+        let availableMonths = new Map<number, Set<number>>();
+
+        /** Recompute which months have posts, considering only posts
+         *  not hidden by the keyword filter. */
+        function computeAvailableMonths() {
+            availableMonths = new Map();
+            posts.forEach((post) => {
+                if (post.dataset.hiddenByKeyword !== undefined) return;
+                const year = +post.dataset.postYear!;
+                const month = +post.dataset.postMonth!;
+                if (!availableMonths.has(year)) availableMonths.set(year, new Set());
+                availableMonths.get(year)!.add(month);
+            });
+        }
+
+        computeAvailableMonths();
+
+        let displayedYear = availableYears.at(-1)!;
+        let selectedYear: number | null = null;
+        let selectedMonth: number | null = null;
+
+        function render() {
+            yearLabel.textContent = displayedYear.toString();
+
+            const yearIndex = availableYears.indexOf(displayedYear);
+            prevButton.disabled = yearIndex <= 0;
+            nextButton.disabled = yearIndex >= availableYears.length - 1;
+
+            const monthsForYear = availableMonths.get(displayedYear) ?? new Set<number>();
+            monthButtons.forEach((button) => {
+                const month = +button.dataset.month!;
+                const hasContent = monthsForYear.has(month);
+                const isSelected = selectedYear === displayedYear && selectedMonth === month;
+
+                button.disabled = !hasContent;
+                button.classList.toggle("opacity-75", !hasContent);
+                button.classList.toggle("btn-outline", isSelected);
+                button.classList.toggle("btn-primary", isSelected);
+                button.classList.toggle("btn-ghost", !isSelected);
+            });
+
+            const hasFilter = selectedYear !== null && selectedMonth !== null;
+
+            // add header highlight on active filter
+            header.classList.toggle("bg-primary", hasFilter);
+            header.classList.toggle("text-primary-content", hasFilter);
+            prevButton.classList.toggle("disabled:text-neutral-content/50", hasFilter);
+            nextButton.classList.toggle("disabled:text-neutral-content/50", hasFilter);
+
+            posts.forEach((post) => {
+                const year = +post.dataset.postYear!;
+                const month = +post.dataset.postMonth!;
+                // if there's an active filter, hide posts that don't match it; else show all
+                if (hasFilter && (year !== selectedYear || month !== selectedMonth)) {
+                    post.dataset.hiddenByDate = "";
+                } else {
+                    delete post.dataset.hiddenByDate;
+                }
+            });
+        }
+
+        function navigate(delta: -1 | 1) {
+            const i = availableYears.indexOf(displayedYear) + delta;
+            if (0 <= i && i < availableYears.length) {
+                displayedYear = availableYears[i];
+                selectedMonth = null;
+                render();
+                document.dispatchEvent(new CustomEvent("date-filter-changed"));
+            }
+        }
+
+        prevButton.addEventListener("click", () => navigate(-1));
+        nextButton.addEventListener("click", () => navigate(1));
+
+        monthButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const month = +button.dataset.month!;
+                const isDeselect = selectedYear === displayedYear && selectedMonth === month;
+
+                // snapshot scroll position as a ratio of the scrollable range
+                const html = document.documentElement;
+                const maxScroll = html.scrollHeight - window.innerHeight;
+                const scrollRatio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+                selectedYear = isDeselect ? null : displayedYear;
+                selectedMonth = isDeselect ? null : month;
+                render();
+                document.dispatchEvent(new CustomEvent("date-filter-changed"));
+
+                // restore proportional scroll position so the view doesn't jump
+                // when the page height changes (posts hidden or revealed)
+                html.style.scrollBehavior = "auto";
+                window.scrollTo(0, scrollRatio * (html.scrollHeight - window.innerHeight));
+                html.style.scrollBehavior = "";
+            });
+        });
+
+        // When the keyword filter changes, recompute which months are available
+        // and auto-deselect if the current month is no longer valid.
+        document.addEventListener("keyword-filter-changed", () => {
+            computeAvailableMonths();
+            let selectionChanged = false;
+            if (selectedYear !== null && selectedMonth !== null) {
+                const months = availableMonths.get(selectedYear);
+                if (!months || !months.has(selectedMonth)) {
+                    selectedYear = null;
+                    selectedMonth = null;
+                    selectionChanged = true;
+                }
+            }
+            render();
+            if (selectionChanged) {
+                document.dispatchEvent(new CustomEvent("date-filter-changed"));
+            }
+        });
+
+        render();
+    }
+</script>

@@ -1,0 +1,120 @@
+---
+interface Props {
+    allKeywords: string[];
+}
+
+const { allKeywords } = Astro.props;
+---
+
+<div id="keyword-picker" data-all-keywords={JSON.stringify(allKeywords)}>
+    <div class="card bg-base-100 border-base-300 border shadow-lg">
+        <div class="card-body gap-0 p-0">
+            <div id="keyword-card-header" class="rounded-t-lg p-4 transition-colors">
+                <span class="text-lg font-bold">Słowa kluczowe</span>
+            </div>
+            <div class="flex max-h-56 flex-wrap gap-2 overflow-y-auto p-4" id="keyword-grid">
+                {
+                    allKeywords.map((keyword) => (
+                        <button class="btn btn-ghost btn-xs text-xs" data-keyword={keyword}>
+                            {keyword}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const picker = document.getElementById("keyword-picker")!;
+    const header = document.getElementById("keyword-card-header")!;
+    const buttons = picker.querySelectorAll<HTMLButtonElement>("#keyword-grid button");
+    const posts = document.querySelectorAll<HTMLElement>("[data-post-year]");
+
+    const selectedKeywords = new Set<string>();
+
+    /** Compute which keywords appear on posts not hidden by the date filter. */
+    function computeAvailableKeywords(): Set<string> {
+        const available = new Set<string>();
+        posts.forEach((post) => {
+            if (post.dataset.hiddenByDate !== undefined) return;
+            const postKeywords: string[] = JSON.parse(post.dataset.keywords || "[]");
+            postKeywords.forEach((kw) => available.add(kw));
+        });
+        return available;
+    }
+
+    let availableKeywords = computeAvailableKeywords();
+
+    function render() {
+        const hasFilter = selectedKeywords.size > 0;
+
+        buttons.forEach((button) => {
+            const kw = button.dataset.keyword!;
+            const isSelected = selectedKeywords.has(kw);
+            const isAvailable = availableKeywords.has(kw);
+
+            button.disabled = !isAvailable;
+            button.classList.toggle("opacity-75", !isAvailable);
+            button.classList.toggle("btn-outline", isSelected);
+            button.classList.toggle("btn-primary", isSelected);
+            button.classList.toggle("btn-ghost", !isSelected && isAvailable);
+        });
+
+        header.classList.toggle("bg-primary", hasFilter);
+        header.classList.toggle("text-primary-content", hasFilter);
+
+        posts.forEach((post) => {
+            const postKeywords: string[] = JSON.parse(post.dataset.keywords || "[]");
+            // show post if no filter active, or if it has ANY of the selected keywords
+            if (hasFilter && !postKeywords.some((kw) => selectedKeywords.has(kw))) {
+                post.dataset.hiddenByKeyword = "";
+            } else {
+                delete post.dataset.hiddenByKeyword;
+            }
+        });
+    }
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const kw = button.dataset.keyword!;
+
+            // snapshot scroll ratio
+            const html = document.documentElement;
+            const maxScroll = html.scrollHeight - window.innerHeight;
+            const scrollRatio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+            if (selectedKeywords.has(kw)) {
+                selectedKeywords.delete(kw);
+            } else {
+                selectedKeywords.add(kw);
+            }
+            render();
+            document.dispatchEvent(new CustomEvent("keyword-filter-changed"));
+
+            // restore proportional scroll position
+            html.style.scrollBehavior = "auto";
+            window.scrollTo(0, scrollRatio * (html.scrollHeight - window.innerHeight));
+            html.style.scrollBehavior = "";
+        });
+    });
+
+    // When the date filter changes, recompute which keywords are available
+    // and auto-deselect any that are no longer valid.
+    document.addEventListener("date-filter-changed", () => {
+        availableKeywords = computeAvailableKeywords();
+        let selectionChanged = false;
+        for (const kw of selectedKeywords) {
+            if (!availableKeywords.has(kw)) {
+                selectedKeywords.delete(kw);
+                selectionChanged = true;
+            }
+        }
+        render();
+        if (selectionChanged) {
+            document.dispatchEvent(new CustomEvent("keyword-filter-changed"));
+        }
+    });
+
+    render();
+</script>
