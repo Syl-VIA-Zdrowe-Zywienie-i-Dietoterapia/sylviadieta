@@ -1,7 +1,7 @@
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, fontProviders, passthroughImageService } from "astro/config";
 import compressor from "astro-compressor";
 import sitemap from "@astrojs/sitemap";
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +25,10 @@ export default defineConfig({
         },
     ],
 
+    image: {
+        service: passthroughImageService(),
+    },
+
     security: { csp: true },
     prefetch: { prefetchAll: true },
     experimental: {
@@ -33,8 +37,5 @@ export default defineConfig({
     },
 
     vite: { plugins: [tailwindcss()] },
-    integrations: [
-        compressor({gzip: false, brotli: true, zstd: false}),
-        sitemap(),
-    ],
+    integrations: [compressor({ gzip: false, brotli: true, zstd: false }), sitemap()],
 });
