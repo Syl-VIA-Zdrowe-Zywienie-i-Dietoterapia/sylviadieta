@@ -33,42 +33,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     <div>
                         <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Dane kontaktowe</h2>
                         <div class="space-y-6">
-                            <a href="mailto:kontakt@sylviadieta.pl" class="group flex w-fit items-center gap-4">
-                                <div class="bg-muted fill-primary group-hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition group-hover:fill-white active:scale-95">
+                            <div class="flex w-fit items-center gap-4">
+                                <a href="mailto:kontakt@sylviadieta.pl" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
                                     <EnvelopeIcon class="size-7" />
-                                </div>
-                                <div>
+                                </a>
+                                <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">E-mail</p>
-                                    <span class="text-foreground group-hover:text-primary font-medium transition-colors">kontakt@sylviadieta.pl</span>
+                                    <span class="text-foreground font-medium transition-colors">kontakt@sylviadieta.pl</span>
                                 </div>
-                            </a>
+                            </div>
 
-                            <a href="tel:+48501974479" class="group flex w-fit items-center gap-4">
-                                <div class="bg-muted fill-primary group-hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition group-hover:fill-white active:scale-95">
+                            <div class="flex w-fit items-center gap-4">
+                                <a href="tel:+48501974479" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
                                     <PhoneIcon class="size-7" />
-                                </div>
-                                <div>
+                                </a>
+                                <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">Telefon</p>
-                                    <span class="text-foreground group-hover:text-primary font-medium transition-colors">+48 501 974 479</span>
+                                    <span class="text-foreground font-medium transition-colors">+48 501 974 479</span>
                                 </div>
-                            </a>
+                            </div>
 
-                            <button id="bank-account" data-account="26102010420000840203728599" class="flex w-fit flex-col">
-                                <div class="group flex w-fit cursor-pointer items-center gap-4">
-                                    <div class="bg-muted fill-primary group-hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition group-hover:fill-white active:scale-95">
+                            <div class="flex w-fit flex-col">
+                                <div class="flex w-fit items-center gap-4">
+                                    <button id="bank-account" data-account="26102010420000840203728599" class="peer cursor-pointer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
                                         <BankIcon class="size-7 -translate-y-px" />
-                                    </div>
-                                    <div class="text-left select-text">
+                                    </button>
+                                    <div class="text-left select-text peer-hover:[&>div>span]:text-primary">
                                         <p class="text-muted-foreground text-sm">Konto bankowe</p>
-                                        <span class="relative font-medium">
-                                            <span class="text-foreground group-hover:text-primary transition-colors">26 1020 1042 0000 8402 0372 8599</span>
-                                            <span id="bank-account-copy-confirmation" class="text-success fill-success absolute inset-0 -mt-0.5 flex items-center gap-0.75 bg-white transition-[clip-path] duration-150 ease-linear [clip-path:inset(0_0_100%_0)]">
-                                                <TickIcon class="size-4" /> Skopiowano!
+                                        <div class="relative inline-block font-medium">
+                                            <span class="text-foreground block transition-colors">26 1020 1042 0000 8402 0372 8599</span>
+                                            <span id="bank-account-copy-confirmation" class="text-success! fill-success pointer-events-none absolute inset-0 flex items-start gap-0.75 bg-white transition-[clip-path] duration-150 ease-linear [clip-path:inset(0_0_100%_0)]">
+                                                <TickIcon class="size-4 mt-1" /> Skopiowano!
                                             </span>
-                                        </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </button>
+                            </div>
                         </div>
                     </div>
 
@@ -77,28 +77,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         <fieldset id="contact-map-locations" class="space-y-6">
                             <legend class="sr-only">Wybierz gabinet, aby zobaczyć mapę</legend>
 
-                            <label class="group relative flex w-fit cursor-pointer items-start gap-4">
-                                <input type="radio" name="map-location" value="marki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
-                                <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary group-hover:bg-primary rounded-lg p-2.5 transition group-hover:fill-white peer-checked:fill-white active:scale-95">
-                                    <LocationPinIcon class="size-7" />
-                                </div>
-                                <div>
-                                    <h3 class="text-foreground group-has-checked:text-primary group-hover:text-primary font-medium transition-colors">Marki</h3>
+                            <div class="relative flex items-start gap-4">
+                                <label class="peer">
+                                    <input type="radio" name="map-location" value="marki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
+                                    <div data-map-icon class="bg-muted cursor-pointer fill-primary peer-checked:bg-primary hover:bg-primary rounded-lg p-2.5 transition hover:fill-white peer-checked:fill-white active:scale-95">
+                                        <LocationPinIcon class="size-7" />
+                                    </div>
+                                </label>
+                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
+                                    <h3 class="text-foreground font-medium transition-colors">Marki</h3>
                                     <p class="text-muted-foreground text-[15px]">ul. Słoneczna 3c/110, 05-270 Marki</p>
                                 </div>
                                 <HandTapIcon aria-hidden="true" class="fill-foreground [&_path:last-child]:fill-foreground absolute -bottom-2 left-7.5 size-5 [&_path:first-child]:fill-white [&_path:first-child]:opacity-100" />
-                            </label>
+                            </div>
 
-                            <label class="group flex w-fit cursor-pointer items-start gap-4">
-                                <input type="radio" name="map-location" value="zabki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
-                                <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary group-hover:bg-primary rounded-lg p-2.5 transition group-hover:fill-white peer-checked:fill-white active:scale-95">
-                                    <LocationPinIcon class="size-7" />
-                                </div>
-                                <div>
-                                    <h3 class="text-foreground group-has-checked:text-primary group-hover:text-primary font-medium transition-colors">Ząbki – Blossom Pilates Studio</h3>
+                            <div class="flex items-start gap-4">
+                                <label class="peer">
+                                    <input type="radio" name="map-location" value="zabki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
+                                    <div data-map-icon class="bg-muted cursor-pointer fill-primary peer-checked:bg-primary hover:bg-primary rounded-lg p-2.5 transition hover:fill-white peer-checked:fill-white active:scale-95">
+                                        <LocationPinIcon class="size-7" />
+                                    </div>
+                                </label>
+                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
+                                    <h3 class="text-foreground font-medium transition-colors">Ząbki – Blossom Pilates Studio</h3>
                                     <p class="text-muted-foreground text-[15px]">ul. Orla 4/55, 05-091 Ząbki</p>
                                 </div>
-                            </label>
+                            </div>
                         </fieldset>
                     </div>
 
@@ -136,7 +140,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div data-field-wrapper>
                                 <label for="email" class="text-foreground mb-2 block text-sm font-medium">E-mail</label>
                                 <div class="relative">
-                                    <input type="email" id="email" name="email" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="anna@poczta.pl" required />
+                                    <input type="email" id="email" name="email" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="annakowalska@poczta.pl" required />
                                     <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
