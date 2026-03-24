@@ -1,15 +1,15 @@
 ---
 import { Picture } from "astro:assets";
 
-import GraduationCapIcon from "../assets/icons/graduation-cap.svg";
-import HeartIcon from "../assets/icons/heart.svg";
-import ScaleIcon from "../assets/icons/scale.svg";
-import PersonRunningIcon from "../assets/icons/person-running.svg";
-import TickIcon from "../assets/icons/tick.svg";
-import OMniePicture from "../assets/images/o-mnie.jpg";
+import IconGraduationCap from "../assets/icons/graduation-cap.svg";
+import IconHeart from "../assets/icons/heart.svg";
+import IconPersonRunning from "../assets/icons/person-running.svg";
+import IconScale from "../assets/icons/scale.svg";
+import IconTick from "../assets/icons/tick.svg";
+import PictureAbout from "../assets/images/o-mnie.jpg";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
 import Tooltip from "../components/Tooltip.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout subtitle="O mnie">
@@ -41,7 +41,7 @@ import Tooltip from "../components/Tooltip.astro";
             <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
                 <div class="relative lg:sticky lg:top-32">
                     <div class="bg-muted relative aspect-4/5 overflow-hidden rounded-2xl">
-                        <Picture src={OMniePicture} formats={["avif"]} alt="Zdrowy styl życia" class="size-full object-cover" loading="eager" fetchpriority="high" />
+                        <Picture src={PictureAbout} formats={["avif"]} alt="Zdrowy styl życia" class="size-full object-cover" loading="eager" fetchpriority="high" />
                     </div>
                     <div class="bg-primary-light/30 absolute -right-4 -bottom-4 -z-10 h-full w-full rounded-2xl"></div>
                 </div>
@@ -58,28 +58,28 @@ import Tooltip from "../components/Tooltip.astro";
                         <h2 class="text-foreground mb-6 font-serif text-xl font-semibold">Wykształcenie i certyfikaty</h2>
                         <ul class="space-y-4">
                             <li class="flex items-start gap-4">
-                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><TickIcon class="size-3.75" /></span>
+                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><IconTick class="size-3.75" /></span>
                                 <div class="-mt-px">
                                     <p class="text-foreground font-medium">Dietetyka</p>
                                     <p class="text-muted-foreground text-sm">Studia magisterskie na Wyższej Szkole Inżynierii i Zdrowia</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><TickIcon class="size-3.75" /></span>
+                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><IconTick class="size-3.75" /></span>
                                 <div class="-mt-px">
                                     <p class="text-foreground font-medium">Psychodietetyka</p>
                                     <p class="text-muted-foreground text-sm">Studia podyplomowe na Uniwersytecie SWPS</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><TickIcon class="size-3.75" /></span>
+                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><IconTick class="size-3.75" /></span>
                                 <div class="-mt-px">
                                     <p class="text-foreground font-medium">Chemia</p>
                                     <p class="text-muted-foreground text-sm">Absolwentka Wydziału Chemii Politechniki Warszawskiej</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><TickIcon class="size-3.75" /></span>
+                                <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1"><IconTick class="size-3.75" /></span>
                                 <div class="-mt-px">
                                     <p class="text-foreground font-medium">Nordic walking</p>
                                     <p class="text-muted-foreground text-sm">Certyfikowany instruktor</p>
@@ -102,7 +102,7 @@ import Tooltip from "../components/Tooltip.astro";
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <div class="bg-background border-border space-y-3 rounded-xl border p-6">
                     <div class="bg-primary/10 fill-primary flex size-12 items-center justify-center rounded-xl md:size-14">
-                        <ScaleIcon class="size-6 md:size-7" />
+                        <IconScale class="size-6 md:size-7" />
                     </div>
                     <h3 class="text-foreground font-serif text-lg font-semibold">Psychodietetyka</h3>
                     <p class="text-muted-foreground text-sm">Pomagam zrozumieć emocjonalne i psychiczne podłoże jedzenia. Wspieram w budowaniu zdrowych nawyków, pracy nad motywacją i relacją z jedzeniem – zwłaszcza w sytuacjach stresu, zajadania emocji czy niskiej samooceny.</p>
@@ -110,7 +110,7 @@ import Tooltip from "../components/Tooltip.astro";
 
                 <div class="bg-background border-border space-y-3 rounded-xl border p-6">
                     <div class="bg-primary/10 fill-primary flex size-12 items-center justify-center rounded-xl md:size-14">
-                        <HeartIcon class="size-6 md:size-7" />
+                        <IconHeart class="size-6 md:size-7" />
                     </div>
                     <h3 class="text-foreground font-serif text-lg font-semibold">Dietetyka kliniczna</h3>
                     <p class="text-muted-foreground text-sm">Specjalizuję się w dietoterapii: cukrzyca, insulinooporność, choroby tarczycy, choroby układu pokarmowego, celiakia, choroby nowotworowe, niewydolność nerek i wiele innych.</p>
@@ -118,7 +118,7 @@ import Tooltip from "../components/Tooltip.astro";
 
                 <div class="bg-background border-border space-y-3 rounded-xl border p-6">
                     <div class="bg-primary/10 fill-primary flex size-12 items-center justify-center rounded-xl md:size-14">
-                        <PersonRunningIcon class="size-6 md:size-7" />
+                        <IconPersonRunning class="size-6 md:size-7" />
                     </div>
                     <h3 class="text-foreground font-serif text-lg font-semibold">Dla aktywnych</h3>
                     <p class="text-muted-foreground text-sm">Opracowuję plany żywieniowe dla osób aktywnych fizycznie – od amatorów po osoby trenujące regularnie. Dostosowuję dietę do Twojego rodzaju aktywności i celów.</p>
@@ -126,7 +126,7 @@ import Tooltip from "../components/Tooltip.astro";
 
                 <div class="bg-background border-border space-y-3 rounded-xl border p-6">
                     <div class="bg-primary/10 fill-primary flex size-12 items-center justify-center rounded-xl md:size-14">
-                        <GraduationCapIcon class="size-6 md:size-7" />
+                        <IconGraduationCap class="size-6 md:size-7" />
                     </div>
                     <h3 class="text-foreground font-serif text-lg font-semibold">Edukacja i&nbsp;wsparcie</h3>
                     <p class="text-muted-foreground text-sm">Prowadzę warsztaty wyjazdowe, szkolenia i prelekcje – dzieląc się wiedzą na temat zdrowego stylu życia i nowoczesnych metod żywienia.</p>

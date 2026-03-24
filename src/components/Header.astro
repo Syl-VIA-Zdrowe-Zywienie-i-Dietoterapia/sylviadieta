@@ -3,8 +3,8 @@ import { Picture } from "astro:assets";
 
 import LogoHorizontalBigTextColor from "../assets/logos/horizontal-big-text/logo-horizontal-big-text-color.png";
 
-import HamburgerMenuIcon from "../assets/icons/hamburger-menu.svg";
-import XMarkIcon from "../assets/icons/x-mark.svg";
+import IconHamburgerMenu from "../assets/icons/hamburger-menu.svg";
+import IconXMark from "../assets/icons/x-mark.svg";
 
 const currentPath = Astro.url.pathname;
 ---
@@ -26,8 +26,8 @@ const currentPath = Astro.url.pathname;
 
             <div class="flex flex-col items-center justify-self-end">
                 <button id="mobile-menu-toggle" class="group text-foreground relative cursor-pointer pr-1 md:hidden" aria-label="Rozwiń menu nawigacyjne" aria-controls="mobile-menu" aria-expanded="false">
-                    <HamburgerMenuIcon class="size-6 transition-opacity duration-200 group-aria-expanded:opacity-0" />
-                    <XMarkIcon class="absolute inset-0 size-6 opacity-0 transition-opacity duration-150 group-aria-expanded:opacity-100 group-aria-expanded:duration-200" />
+                    <IconHamburgerMenu class="size-6 transition-opacity duration-200 group-aria-expanded:opacity-0" />
+                    <IconXMark class="absolute inset-0 size-6 opacity-0 transition-opacity duration-150 group-aria-expanded:opacity-100 group-aria-expanded:duration-200" />
                 </button>
             </div>
         </div>

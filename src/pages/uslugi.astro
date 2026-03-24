@@ -1,11 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/global.css";
+import IconArrowDown from "../assets/icons/arrow-down.svg";
+import IconGroup from "../assets/icons/group.svg";
+import IconHeart from "../assets/icons/heart.svg";
+import IconPersonHiking from "../assets/icons/person-hiking.svg";
 
-import ArrowDownIcon from "../assets/icons/arrow-down.svg";
-import HeartIcon from "../assets/icons/heart.svg";
-import PersonHikingIcon from "../assets/icons/person-hiking.svg";
-import GroupIcon from "../assets/icons/group.svg";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const categories = [
     {
@@ -72,33 +71,33 @@ const warsztatyPricing = [
             <div class="grid gap-4 md:grid-cols-3">
                 <a href="#psychodietetyka" class="group bg-card border-border hover:border-primary/50 flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md active:scale-97">
                     <div class="bg-primary/10 text-primary group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white group-hover:text-white">
-                        <HeartIcon class="size-6" />
+                        <IconHeart class="size-6" />
                     </div>
                     <div class="-mt-0.75 grow">
                         <h3 class="text-foreground group-hover:text-primary font-serif text-lg font-medium transition-colors">Psychodietetyka</h3>
                         <p class="text-muted-foreground text-sm">Konsultacje i jadłospisy</p>
                     </div>
-                    <ArrowDownIcon class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
+                    <IconArrowDown class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
                 </a>
                 <a href="#psychodietetyka" class="group bg-card border-border hover:border-primary/50 flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md active:scale-97">
                     <div class="bg-primary/10 text-primary group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white group-hover:text-white">
-                        <PersonHikingIcon class="size-6" />
+                        <IconPersonHiking class="size-6" />
                     </div>
                     <div class="-mt-0.75 grow">
                         <h3 class="text-foreground group-hover:text-primary font-serif text-lg font-medium transition-colors">Nordic walking</h3>
                         <p class="text-muted-foreground text-sm">Zajęcia grupowe i indywidualne</p>
                     </div>
-                    <ArrowDownIcon class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
+                    <IconArrowDown class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
                 </a>
                 <a href="#psychodietetyka" class="group bg-card border-border hover:border-primary/50 flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md active:scale-97">
                     <div class="bg-primary/10 text-primary group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white group-hover:text-white">
-                        <GroupIcon class="size-6" />
+                        <IconGroup class="size-6" />
                     </div>
                     <div class="-mt-0.75 grow">
                         <h3 class="text-foreground group-hover:text-primary font-serif text-lg font-medium transition-colors">Warsztaty i wyjazdy</h3>
                         <p class="text-muted-foreground text-sm">Edukacja i integracja</p>
                     </div>
-                    <ArrowDownIcon class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
+                    <IconArrowDown class="text-muted-foreground group-hover:text-primary mr-1 size-5 transition-colors" />
                 </a>
             </div>
         </div>
@@ -107,8 +106,8 @@ const warsztatyPricing = [
     <section id="psychodietetyka" class="top-level-container py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
             <div class="mb-12 flex items-center gap-4">
-                <div class="bg-primary/10 fill-primary p-3.5 flex items-center justify-center rounded-xl">
-                    <HeartIcon class="size-7" />
+                <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
+                    <IconHeart class="size-7" />
                 </div>
                 <div>
                     <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Psychodietetyka</h2>

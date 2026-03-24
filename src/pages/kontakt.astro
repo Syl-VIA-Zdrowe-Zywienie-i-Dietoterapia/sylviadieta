@@ -1,14 +1,14 @@
 ---
-import FacebookIcon from "../assets/icons/facebook.svg";
-import InstagramIcon from "../assets/icons/instagram.svg";
+import IconFacebook from "../assets/icons/facebook.svg";
+import IconInstagram from "../assets/icons/instagram.svg";
 
-import BankIcon from "../assets/icons/bank.svg";
-import EnvelopeIcon from "../assets/icons/envelope.svg";
-import ExclamationCircleIcon from "../assets/icons/exclamation-circle.svg";
-import HandTapIcon from "../assets/icons/hand-tap.svg";
-import LocationPinIcon from "../assets/icons/location-pin.svg";
-import PhoneIcon from "../assets/icons/phone.svg";
-import TickIcon from "../assets/icons/tick.svg";
+import IconBank from "../assets/icons/bank.svg";
+import IconEnvelope from "../assets/icons/envelope.svg";
+import IconExclamationCircle from "../assets/icons/exclamation-circle.svg";
+import IconHandTap from "../assets/icons/hand-tap.svg";
+import IconLocationPin from "../assets/icons/location-pin.svg";
+import IconPhone from "../assets/icons/phone.svg";
+import IconTick from "../assets/icons/tick.svg";
 
 import FormInlineErrors from "../components/FormInlineErrors.astro";
 import MapPopover from "../components/MapPopover.astro";
@@ -35,7 +35,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         <div class="space-y-6">
                             <div class="flex w-fit items-center gap-4">
                                 <a href="mailto:kontakt@sylviadieta.pl" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
-                                    <EnvelopeIcon class="size-7" />
+                                    <IconEnvelope class="size-7" />
                                 </a>
                                 <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">E-mail</p>
@@ -45,7 +45,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                             <div class="flex w-fit items-center gap-4">
                                 <a href="tel:+48501974479" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
-                                    <PhoneIcon class="size-7" />
+                                    <IconPhone class="size-7" />
                                 </a>
                                 <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">Telefon</p>
@@ -55,15 +55,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                             <div class="flex w-fit flex-col">
                                 <div class="flex w-fit items-center gap-4">
-                                    <button id="bank-account" data-account="26102010420000840203728599" class="peer cursor-pointer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
-                                        <BankIcon class="size-7 -translate-y-px" />
+                                    <button id="bank-account" data-account="26102010420000840203728599" class="peer bg-muted fill-primary hover:bg-primary flex cursor-pointer items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
+                                        <IconBank class="size-7 -translate-y-px" />
                                     </button>
-                                    <div class="text-left select-text peer-hover:[&>div>span]:text-primary">
+                                    <div class="peer-hover:[&>div>span]:text-primary text-left select-text">
                                         <p class="text-muted-foreground text-sm">Konto bankowe</p>
                                         <div class="relative inline-block font-medium">
                                             <span class="text-foreground block transition-colors">26 1020 1042 0000 8402 0372 8599</span>
                                             <span id="bank-account-copy-confirmation" class="text-success! fill-success pointer-events-none absolute inset-0 flex items-start gap-0.75 bg-white transition-[clip-path] duration-150 ease-linear [clip-path:inset(0_0_100%_0)]">
-                                                <TickIcon class="size-4 mt-1" /> Skopiowano!
+                                                <IconTick class="mt-1 size-4" /> Skopiowano!
                                             </span>
                                         </div>
                                     </div>
@@ -80,22 +80,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div class="relative flex items-start gap-4">
                                 <label class="peer">
                                     <input type="radio" name="map-location" value="marki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
-                                    <div data-map-icon class="bg-muted cursor-pointer fill-primary peer-checked:bg-primary hover:bg-primary rounded-lg p-2.5 transition hover:fill-white peer-checked:fill-white active:scale-95">
-                                        <LocationPinIcon class="size-7" />
+                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
+                                        <IconLocationPin class="size-7" />
                                     </div>
                                 </label>
                                 <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
                                     <h3 class="text-foreground font-medium transition-colors">Marki</h3>
                                     <p class="text-muted-foreground text-[15px]">ul. Słoneczna 3c/110, 05-270 Marki</p>
                                 </div>
-                                <HandTapIcon aria-hidden="true" class="fill-foreground [&_path:last-child]:fill-foreground absolute -bottom-2 left-7.5 size-5 [&_path:first-child]:fill-white [&_path:first-child]:opacity-100" />
+                                <IconHandTap aria-hidden="true" class="fill-foreground [&_path:last-child]:fill-foreground absolute -bottom-2 left-7.5 size-5 [&_path:first-child]:fill-white [&_path:first-child]:opacity-100" />
                             </div>
 
                             <div class="flex items-start gap-4">
                                 <label class="peer">
                                     <input type="radio" name="map-location" value="zabki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
-                                    <div data-map-icon class="bg-muted cursor-pointer fill-primary peer-checked:bg-primary hover:bg-primary rounded-lg p-2.5 transition hover:fill-white peer-checked:fill-white active:scale-95">
-                                        <LocationPinIcon class="size-7" />
+                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
+                                        <IconLocationPin class="size-7" />
                                     </div>
                                 </label>
                                 <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
@@ -109,8 +109,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     <div>
                         <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Media społecznościowe</h2>
                         <div class="flex items-center gap-4">
-                            <a href="https://facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Facebook"><FacebookIcon class="size-8" /></a>
-                            <a href="https://instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Instagram"><InstagramIcon class="size-8" /></a>
+                            <a href="https://facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Facebook"><IconFacebook class="size-8" /></a>
+                            <a href="https://instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Instagram"><IconInstagram class="size-8" /></a>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                     <label for="first-name" class="text-foreground mb-2 block text-sm font-medium">Imię</label>
                                     <div class="relative">
                                         <input type="text" id="first-name" name="first-name" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none" placeholder="Anna" required />
-                                        <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
+                                        <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                     </div>
                                 </div>
 
@@ -132,7 +132,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                     <label for="last-name" class="text-foreground mb-2 block text-sm font-medium">Nazwisko</label>
                                     <div class="relative">
                                         <input type="text" id="last-name" name="last-name" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none" placeholder="Kowalska" required />
-                                        <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
+                                        <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <label for="email" class="text-foreground mb-2 block text-sm font-medium">E-mail</label>
                                 <div class="relative">
                                     <input type="email" id="email" name="email" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="annakowalska@poczta.pl" required />
-                                    <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
+                                    <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
 
@@ -149,7 +149,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <label for="phone" class="text-foreground mb-2 block text-sm font-medium">Telefon (opcjonalnie)</label>
                                 <div class="relative">
                                     <input type="tel" id="phone" name="phone" pattern="([+]48[ ]?)?[4-9][0-9]{2}[ ]?[0-9]{3}[ ]?[0-9]{3}" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="987 654 321" />
-                                    <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
+                                    <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
 
@@ -169,7 +169,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <label for="message" class="text-foreground mb-2 block text-sm font-medium">Wiadomość</label>
                                 <div class="relative">
                                     <textarea id="message" name="message" rows="5" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! block w-full resize-none rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="Opowiedz o swoich celach zdrowotnych..." minlength="20" required></textarea>
-                                    <ExclamationCircleIcon aria-hidden="true" class="stroke-warning absolute top-3 right-3 size-5 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
+                                    <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-3 right-3 size-5 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
 
