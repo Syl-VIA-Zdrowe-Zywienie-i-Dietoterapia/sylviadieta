@@ -17,9 +17,9 @@
 ## Usługi
 
 - [Usługi](https://sylviadieta.pl/uslugi): Przegląd oferowanych usług: psychodietetyka, nordic walking, warsztaty i wyjazdy.
-- [Psychodietetyka](https://sylviadieta.pl/uslugi/psychodietetyka): Szczegółowa oferta – pierwsza konsultacja dietetyczna z elementami psychodietetyki (260 zł, 60–80 min), jadłospisy 7- i 14-dniowe, konsultacje psychodietetyczne (200 zł), Pakiet VIP 3-miesięczny (1500 zł), pakiety dla par. Pomiar składu ciała InBody 120 (BIA).
-- [Nordic walking](https://sylviadieta.pl/uslugi/nordic-walking): Zajęcia nordic walking indywidualne i grupowe. Certyfikowany instruktor. Korzyści: wsparcie odporności, redukcja obciążenia stawów o 30%, prewencja osteoporozy, redukcja stresu. Ceny od 60 zł/os.
-- [Warsztaty i wyjazdy](https://sylviadieta.pl/uslugi/warsztaty-i-wyjazdy): Warsztaty edukacyjne „Świadome Odżywianie" (2h, max 20 os., 250 zł), szkolenie „Zdrowy Start" dla uczniów (1,5h, 200 zł), wyjazdy integracyjne.
+- [Psychodietetyka](https://sylviadieta.pl/uslugi/#psychodietetyka): Szczegółowa oferta – pierwsza konsultacja dietetyczna z elementami psychodietetyki (260 zł, 60–80 min), jadłospisy 7- i 14-dniowe, konsultacje psychodietetyczne (200 zł), Pakiet VIP 3-miesięczny (1500 zł), pakiety dla par. Pomiar składu ciała InBody 120 (BIA).
+- [Nordic walking](https://sylviadieta.pl/uslugi/#nordic-walking): Zajęcia nordic walking indywidualne i grupowe. Certyfikowany instruktor. Korzyści: wsparcie odporności, redukcja obciążenia stawów o 30%, prewencja osteoporozy, redukcja stresu. Ceny od 60 zł/os.
+- [Warsztaty i wyjazdy](https://sylviadieta.pl/uslugi/#warsztaty-i-wyjazdy): Warsztaty edukacyjne „Świadome Odżywianie" (2h, max 20 os., 250 zł), szkolenie „Zdrowy Start" dla uczniów (1,5h, 200 zł), wyjazdy integracyjne.
 
 ## Blog – Z gabinetu psychodietetyka
 
@@ -46,4 +46,4 @@
 
 ## Kontakt
 
-- [Kontakt](https://sylviadieta.pl/kontakt): Dane kontaktowe – tel. +48 501 974 479, email: dietetyka.syl.via@gmail.com. Gabinety: ul. Słoneczna 3c/110, 05-270 Marki; Blossom Pilates Studio, ul. Orla 4/55, 05-091 Ząbki. Mapa Google, dane do przelewu.
+- [Kontakt](https://sylviadieta.pl/kontakt): Dane kontaktowe – tel. +48 501 974 479, email: kontakt@sylviadieta.pl. Gabinety: ul. Słoneczna 3c/110, 05-270 Marki; Blossom Pilates Studio, ul. Orla 4/55, 05-091 Ząbki. Mapa Google, dane do przelewu.
