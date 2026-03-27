@@ -71,7 +71,7 @@ const warsztatyPricing = [
             <div class="grid gap-4 md:grid-cols-3">
                 {
                     serviceCategories.map((serviceCategory) => (
-                        <a href={`#${serviceCategory.id}`} class="group bg-card border-border hover:border-primary/50 flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md active:scale-97">
+                        <a href={`#${serviceCategory.id}`} class="group bg-card border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md focus-visible:ring-2 focus-visible:outline-none active:scale-97">
                             <div class="bg-primary/10 fill-primary group-hover:bg-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white">
                                 <serviceCategory.icon class="size-6" />
                             </div>
@@ -87,7 +87,7 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <section id="psychodietetyka" class="top-level-container py-16 md:py-24">
+    <section id="psychodietetyka" class="top-level-container scroll-mt-24 py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
             <div class="mb-12 flex items-center gap-4">
                 <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
@@ -102,7 +102,7 @@ const warsztatyPricing = [
             <!-- First Consultation -->
             <div class="mb-16">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Pierwsza konsultacja dietetyczna z elementami psychodietetyki</h3>
-                <div class="grid gap-8 md:grid-cols-2">
+                <div class="grid gap-8 md:grid-cols-2 md:items-start">
                     <div class="space-y-4">
                         <p class="text-muted-foreground leading-relaxed">Zebranie informacji dotyczących preferencji żywieniowych, stanu zdrowia, wcześniej stosowanych diet, planu dnia oraz aktywności fizycznej. Szczegółowy wywiad pozwalający poznać Twoje nawyki i potrzeby.</p>
                         <ul class="space-y-3">
@@ -164,7 +164,7 @@ const warsztatyPricing = [
                             ["zmagają się z zaburzeniami odżywiania (anoreksja, bulimia, kompulsywne objadanie się)", "doświadczają trudności w relacji z jedzeniem i własnym ciałem", "mierzą się z napadami objadania się lub nadmiernymi restrykcjami", "odczuwają poczucie winy po jedzeniu lub lęk związany z przybieraniem na wadze", "pragną odzyskać spokój, poczucie kontroli i zdrową relację z jedzeniem", "są w trakcie terapii i potrzebują dodatkowego wsparcia żywieniowego"].map((item) => (
                                 <li class="flex items-start gap-3">
                                     <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </span>
@@ -193,7 +193,7 @@ const warsztatyPricing = [
                             ["Konsultacja wstępna (90 min)", "6 spotkań indywidualnych (50–60 min) co 1–2 tygodnie", "2 × indywidualny jadłospis na 14 dni", "Stały kontakt mailowy lub wiadomościowy", "Materiały wspierające: ćwiczenia, dzienniki, wskazówki", "Elastyczny grafik i pierwszeństwo w umawianiu wizyt"].map((item) => (
                                 <li class="flex items-start gap-3">
                                     <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </span>
@@ -279,7 +279,7 @@ const warsztatyPricing = [
                             ["zmniejsza obciążenie stawów o 30%", "wspomaga układ odpornościowy", "wspomaga układ krążenia i oddechowy", "zmniejsza ryzyko osteoporozy", "wzmacnia mięśnie", "redukuje stres i poprawia nastrój", "wspomaga proces odchudzania", "zmniejsza ryzyko cukrzycy i nowotworów", "wspomaga pracę układu hormonalnego"].map((item) => (
                                 <li class="flex items-start gap-2">
                                     <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                         </svg>
                                     </span>
