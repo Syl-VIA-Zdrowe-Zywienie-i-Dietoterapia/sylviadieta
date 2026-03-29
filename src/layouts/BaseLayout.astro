@@ -2,20 +2,17 @@
 import { Font } from "astro:assets";
 
 import "../styles/global.css";
-// import Meta from "../components/Meta.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import ScrollToTop from "../components/ScrollToTop.astro";
+// import Meta from "@components/Meta.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import ScrollToTop from "@components/ScrollToTop.astro";
 
 interface Props {
     subtitle?: string;
     description?: string;
 }
 
-const {
-    subtitle = "",
-    description = "Profesjonalna pomoc dietetyczna i psychodietetyczna. Sylwia Majewska – dietetyk, psychodietetyk. Indywidualne plany żywieniowe, konsultacje online, stacjonarne.",
-} = Astro.props;
+const { subtitle = "", description = "Profesjonalna pomoc dietetyczna i psychodietetyczna. Sylwia Majewska – dietetyk, psychodietetyk. Indywidualne plany żywieniowe, konsultacje online, stacjonarne." } = Astro.props;
 ---
 
 <html lang="pl" class="scroll-smooth">
@@ -32,12 +29,12 @@ const {
 
         <Font cssVariable="--font-inter" preload />
         <Font cssVariable="--font-playfair" preload />
-        <title>{subtitle ? `${subtitle} | ` : ""}Syl.VIA – Zdrowe Żywienie i Dietoterapia</title>
+        <title>{(subtitle ? `${subtitle} | ` : "") + "Syl.VIA – Zdrowe Żywienie i Dietoterapia"}</title>
     </head>
 
     <body class="flex min-h-screen flex-col antialiased">
         <Header />
-        <main class="grow flex flex-col">
+        <main class="flex grow flex-col">
             <slot />
         </main>
         <Footer />

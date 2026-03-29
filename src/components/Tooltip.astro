@@ -15,7 +15,12 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
         <slot name="trigger" />
     </span>
 
-    <span id={tooltipId} data-tooltip role="tooltip" class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition-[opacity,scale] duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}>
+    <span
+        id={tooltipId}
+        data-tooltip
+        role="tooltip"
+        class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition-[opacity,scale] duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}
+    >
         <slot name="tooltip" />
         <span data-tooltip-arrow aria-hidden="true" class="bg-muted-foreground absolute size-4 [clip-path:polygon(0_0,100%_0,100%_100%)]"></span>
     </span>
@@ -52,35 +57,34 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
             const { x, y, placement, middlewareData } = await computePosition(tooltipTrigger, tooltip, {
                 placement: preferredPlacement,
                 strategy: "fixed",
-                middleware: [offset(8), flip(), shift({ padding: 8 }), arrow({ element: tooltipArrow })],
+                middleware: [offset(8), flip(), shift({ padding: 8 }), arrow({ element: tooltipArrow })]
             });
 
             const tooltipTransformOrigin: Record<string, string> = {
                 left: "right center",
                 right: "left center",
                 top: "center bottom",
-                bottom: "center top",
+                bottom: "center top"
             };
 
             const tooltipArrowPlacement: Record<string, string> = {
                 top: "bottom",
                 right: "left",
                 bottom: "top",
-                left: "right",
+                left: "right"
             };
 
             const tooltipArrowRotation: Record<string, number> = {
                 left: 45,
                 right: 225,
                 top: 135,
-                bottom: 315,
+                bottom: 315
             };
 
-            const tooltipSide = placement.split("-")[0];
             Object.assign(tooltip.style, {
                 left: `${x}px`,
                 top: `${y}px`,
-                transformOrigin: tooltipTransformOrigin[tooltipSide],
+                transformOrigin: tooltipTransformOrigin[placement]
             });
 
             Object.assign(tooltipArrow.style, {
@@ -88,8 +92,8 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
                 top: middlewareData.arrow?.y != null ? `${middlewareData.arrow?.y}px` : "",
                 right: "",
                 bottom: "",
-                [tooltipArrowPlacement[tooltipSide]]: "-4px",
-                transform: `rotate(${tooltipArrowRotation[tooltipSide]}deg)`,
+                [tooltipArrowPlacement[placement]]: "-4px",
+                transform: `rotate(${tooltipArrowRotation[placement]}deg)`
             });
         }
 
@@ -128,7 +132,7 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
                             stopAutoUpdate = null;
                         }
                     },
-                    { once: true },
+                    { once: true }
                 );
             }, delay);
         }

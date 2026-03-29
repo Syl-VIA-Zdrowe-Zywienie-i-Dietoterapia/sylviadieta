@@ -1,18 +1,18 @@
 ---
-import IconFacebook from "../assets/icons/facebook.svg";
-import IconInstagram from "../assets/icons/instagram.svg";
+import IconFacebook from "@icons/facebook.svg";
+import IconInstagram from "@icons/instagram.svg";
 
-import IconBank from "../assets/icons/bank.svg";
-import IconEnvelope from "../assets/icons/envelope.svg";
-import IconExclamationCircle from "../assets/icons/exclamation-circle.svg";
-import IconHandTap from "../assets/icons/hand-tap.svg";
-import IconLocationPin from "../assets/icons/location-pin.svg";
-import IconPhone from "../assets/icons/phone.svg";
-import IconTick from "../assets/icons/tick.svg";
+import IconBank from "@icons/bank.svg";
+import IconEnvelope from "@icons/envelope.svg";
+import IconExclamationCircle from "@icons/exclamation-circle.svg";
+import IconHandTap from "@icons/hand-tap.svg";
+import IconLocationPin from "@icons/location-pin.svg";
+import IconPhone from "@icons/phone.svg";
+import IconTick from "@icons/tick.svg";
 
-import FormInlineErrors from "../components/FormInlineErrors.astro";
-import MapPopover from "../components/MapPopover.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import FormInlineErrors from "@components/FormInlineErrors.astro";
+import MapPopover from "@components/MapPopover.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout subtitle="Kontakt">
@@ -37,6 +37,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <a href="mailto:kontakt@sylviadieta.pl" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
                                     <IconEnvelope class="size-7" />
                                 </a>
+
                                 <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">E-mail</p>
                                     <span class="text-foreground font-medium transition-colors">kontakt@sylviadieta.pl</span>
@@ -47,6 +48,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <a href="tel:+48501974479" class="peer bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
                                     <IconPhone class="size-7" />
                                 </a>
+
                                 <div class="peer-hover:[&>span]:text-primary">
                                     <p class="text-muted-foreground text-sm">Telefon</p>
                                     <span class="text-foreground font-medium transition-colors">+48 501 974 479</span>
@@ -55,14 +57,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                             <div class="flex w-fit flex-col">
                                 <div class="flex w-fit items-center gap-4">
-                                    <button id="bank-account" data-account="26102010420000840203728599" class="peer bg-muted fill-primary hover:bg-primary flex cursor-pointer items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95">
+                                    <button
+                                        id="bank-account"
+                                        data-account="26102010420000840203728599"
+                                        class="peer bg-muted fill-primary hover:bg-primary flex cursor-pointer items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95"
+                                    >
                                         <IconBank class="size-7 -translate-y-px" />
                                     </button>
+
                                     <div class="peer-hover:[&>div>span]:text-primary text-left select-text">
                                         <p class="text-muted-foreground text-sm">Konto bankowe</p>
                                         <div class="relative inline-block font-medium">
                                             <span class="text-foreground block transition-colors">26 1020 1042 0000 8402 0372 8599</span>
-                                            <span id="bank-account-copy-confirmation" class="text-success! fill-success pointer-events-none absolute inset-0 flex items-start gap-0.75 bg-white transition-[clip-path] duration-150 ease-linear [clip-path:inset(0_0_100%_0)]">
+                                            <span
+                                                id="bank-account-copy-confirmation"
+                                                class="text-success! fill-success pointer-events-none absolute inset-0 flex items-start gap-0.75 bg-white transition-[clip-path] duration-150 ease-linear [clip-path:inset(0_0_100%_0)]"
+                                            >
                                                 <IconTick class="mt-1 size-4" /> Skopiowano!
                                             </span>
                                         </div>
@@ -79,7 +89,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                             <div class="relative flex items-start gap-4">
                                 <label class="peer">
-                                    <input type="radio" name="map-location" value="marki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
+                                    <input
+                                        type="radio"
+                                        name="map-location"
+                                        value="marki"
+                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                        class="peer sr-only"
+                                    />
                                     <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
                                         <IconLocationPin class="size-7" />
                                     </div>
@@ -93,7 +109,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                             <div class="flex items-start gap-4">
                                 <label class="peer">
-                                    <input type="radio" name="map-location" value="zabki" data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed" class="peer sr-only" />
+                                    <input
+                                        type="radio"
+                                        name="map-location"
+                                        value="zabki"
+                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                        class="peer sr-only"
+                                    />
                                     <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
                                         <IconLocationPin class="size-7" />
                                     </div>
@@ -109,8 +131,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                     <div>
                         <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Media społecznościowe</h2>
                         <div class="flex items-center gap-4">
-                            <a href="https://facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Facebook"><IconFacebook class="size-8" /></a>
-                            <a href="https://instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer" class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95" aria-label="Instagram"><IconInstagram class="size-8" /></a>
+                            <a
+                                href="https://facebook.com/profile.php?id=100063849379058"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95"
+                                aria-label="Facebook"><IconFacebook class="size-8" /></a
+                            >
+                            <a
+                                href="https://instagram.com/syl.viadieta_"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="bg-muted fill-primary hover:bg-primary flex items-center justify-center rounded-lg p-2 transition hover:fill-white active:scale-95"
+                                aria-label="Instagram"><IconInstagram class="size-8" /></a
+                            >
                         </div>
                     </div>
                 </div>
@@ -123,7 +157,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <div data-field-wrapper>
                                     <label for="first-name" class="text-foreground mb-2 block text-sm font-medium">Imię</label>
                                     <div class="relative">
-                                        <input type="text" id="first-name" name="first-name" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none" placeholder="Anna" required />
+                                        <input
+                                            type="text"
+                                            id="first-name"
+                                            name="first-name"
+                                            class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none"
+                                            placeholder="Anna"
+                                            required
+                                        />
                                         <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                     </div>
                                 </div>
@@ -131,7 +172,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                                 <div data-field-wrapper>
                                     <label for="last-name" class="text-foreground mb-2 block text-sm font-medium">Nazwisko</label>
                                     <div class="relative">
-                                        <input type="text" id="last-name" name="last-name" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none" placeholder="Kowalska" required />
+                                        <input
+                                            type="text"
+                                            id="last-name"
+                                            name="last-name"
+                                            class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none"
+                                            placeholder="Kowalska"
+                                            required
+                                        />
                                         <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                     </div>
                                 </div>
@@ -140,7 +188,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div data-field-wrapper>
                                 <label for="email" class="text-foreground mb-2 block text-sm font-medium">E-mail</label>
                                 <div class="relative">
-                                    <input type="email" id="email" name="email" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="annakowalska@poczta.pl" required />
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none"
+                                        placeholder="annakowalska@poczta.pl"
+                                        required
+                                    />
                                     <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
@@ -148,7 +203,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div data-field-wrapper>
                                 <label for="phone" class="text-foreground mb-2 block text-sm font-medium">Telefon (opcjonalnie)</label>
                                 <div class="relative">
-                                    <input type="tel" id="phone" name="phone" pattern="([+]48[ ]?)?[4-9][0-9]{2}[ ]?[0-9]{3}[ ]?[0-9]{3}" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="987 654 321" />
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        pattern="([+]48[ ]?)?[4-9][0-9]{2}[ ]?[0-9]{3}[ ]?[0-9]{3}"
+                                        class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! w-full rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none"
+                                        placeholder="987 654 321"
+                                    />
                                     <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-1/2 right-3 size-5 -translate-y-1/2 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>
@@ -168,7 +230,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                             <div data-field-wrapper>
                                 <label for="message" class="text-foreground mb-2 block text-sm font-medium">Wiadomość</label>
                                 <div class="relative">
-                                    <textarea id="message" name="message" rows="5" class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! block w-full resize-none rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none" placeholder="Opowiedz o swoich celach zdrowotnych..." minlength="20" required></textarea>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        rows="5"
+                                        class="peer bg-muted border-border text-foreground placeholder:text-muted-foreground focus:ring-primary/20 focus:border-primary aria-invalid:border-warning! aria-invalid:ring-warning/50! block w-full resize-none rounded-lg border px-4 py-3 pr-10 transition-colors focus:ring-2 focus:outline-none"
+                                        placeholder="Opowiedz o swoich celach zdrowotnych..."
+                                        minlength="20"
+                                        required></textarea>
                                     <IconExclamationCircle aria-hidden="true" class="stroke-warning absolute top-3 right-3 size-5 opacity-0 transition-opacity peer-aria-invalid:opacity-100" />
                                 </div>
                             </div>

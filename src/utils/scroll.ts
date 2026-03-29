@@ -1,5 +1,3 @@
-// src/utils/scroll.ts
-
 type ScrollCallback = (scrollY: number) => void;
 
 const callbacks = new Set<ScrollCallback>();
@@ -23,7 +21,7 @@ export function onScroll(callback: ScrollCallback): () => void {
                     ticking = true;
                 }
             },
-            { passive: true },
+            { passive: true }
         );
     }
 

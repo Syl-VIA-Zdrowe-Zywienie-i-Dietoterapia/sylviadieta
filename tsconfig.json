@@ -4,5 +4,14 @@
     "exclude": ["dist"],
     "compilerOptions": {
         "strict": true,
-    },
+        "paths": {
+            "@assets/*": ["./src/assets/*"],
+            "@icons/*": ["./src/assets/icons/*"],
+            "@images/*": ["./src/assets/images/*"],
+            "@logos/*": ["./src/assets/logos/*"],
+            "@components/*": ["./src/components/*"],
+            "@layouts/*": ["./src/layouts/*"],
+            "@utils/*": ["./utils/*"]
+        }
+    }
 }

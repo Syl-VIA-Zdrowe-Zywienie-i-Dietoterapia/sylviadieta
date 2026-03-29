@@ -11,7 +11,15 @@ interface Props {
 const { inputSelector = "input[name='map-location']", triggerSelector = "[data-map-icon]", srcAttribute = "data-map-src", placement = "left", popoverPadding = 16, popoverClass = "" } = Astro.props;
 ---
 
-<div data-map-popover-root data-input-selector={inputSelector} data-trigger-selector={triggerSelector} data-src-attribute={srcAttribute} data-placement={placement} data-popover-padding={String(popoverPadding)} class={`invisible fixed z-50 h-2/5 max-h-120 min-h-90 max-w-lg scale-95 rounded-2xl opacity-0 shadow-xl transition duration-200 ease-out will-change-[transform,scale,opacity] ${popoverClass}`}>
+<div
+    data-map-popover-root
+    data-input-selector={inputSelector}
+    data-trigger-selector={triggerSelector}
+    data-src-attribute={srcAttribute}
+    data-placement={placement}
+    data-popover-padding={String(popoverPadding)}
+    class={`invisible fixed z-50 h-2/5 max-h-120 min-h-90 max-w-lg scale-95 rounded-2xl opacity-0 shadow-xl transition duration-200 ease-out will-change-[transform,scale,opacity] ${popoverClass}`}
+>
     <div class="border-border size-full overflow-hidden rounded-2xl border">
         <iframe data-map-popover-iframe class="size-full border-0" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa lokalizacji gabinetu" src="" loading="eager"></iframe>
     </div>
@@ -60,35 +68,34 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
             const { x, y, placement, middlewareData } = await computePosition(trigger, popover, {
                 placement: preferredPlacement,
                 strategy: "fixed",
-                middleware: [offset(24), flip({ fallbackPlacements: ["top", "bottom"] }), shift({ padding: popoverPadding }), arrow({ element: popoverArrow })],
+                middleware: [offset(24), flip({ fallbackPlacements: ["top", "bottom"] }), shift({ padding: popoverPadding }), arrow({ element: popoverArrow })]
             });
 
             const mapPopoverTransformOrigin: Record<string, string> = {
                 left: "right center",
                 right: "left center",
                 top: "center bottom",
-                bottom: "center top",
+                bottom: "center top"
             };
 
             const mapPopoverArrowPlacement: Record<string, string> = {
                 top: "bottom",
                 right: "left",
                 bottom: "top",
-                left: "right",
+                left: "right"
             };
 
             const mapPopoverArrowRotation: Record<string, number> = {
                 left: 45,
                 right: 225,
                 top: 135,
-                bottom: 315,
+                bottom: 315
             };
 
-            const mapPopoverSide = placement.split("-")[0];
             Object.assign(popover.style, {
                 left: `${x}px`,
                 top: `${y}px`,
-                transformOrigin: mapPopoverTransformOrigin[mapPopoverSide],
+                transformOrigin: mapPopoverTransformOrigin[placement]
             });
 
             Object.assign(popoverArrow.style, {
@@ -96,8 +103,8 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
                 top: middlewareData.arrow?.y != null ? `${middlewareData.arrow?.y}px` : "",
                 right: "",
                 bottom: "",
-                [mapPopoverArrowPlacement[mapPopoverSide]]: "-9px",
-                transform: `rotate(${mapPopoverArrowRotation[mapPopoverSide]}deg)`,
+                [mapPopoverArrowPlacement[placement]]: "-9px",
+                transform: `rotate(${mapPopoverArrowRotation[placement]}deg)`
             });
         }
 
@@ -130,7 +137,7 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
                     stopAutoUpdate?.();
                     stopAutoUpdate = null;
                 },
-                { once: true },
+                { once: true }
             );
             if (lastChecked) {
                 lastChecked.checked = false;

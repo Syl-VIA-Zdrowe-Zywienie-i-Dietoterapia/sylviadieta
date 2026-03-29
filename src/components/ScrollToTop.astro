@@ -1,8 +1,12 @@
 ---
-import IconArrowUp from "../assets/icons/arrow-up.svg";
+import IconArrowUp from "@icons/arrow-up.svg";
 ---
 
-<button id="scroll-to-top" class="group bg-primary hover:bg-primary-dark focus:ring-primary invisible fixed right-6 bottom-6 z-40 translate-y-4 cursor-pointer rounded-full p-3 opacity-0 shadow-lg transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-offset-2 focus:outline-none md:p-4" aria-label="Przewiń do góry">
+<button
+    id="scroll-to-top"
+    class="group bg-primary hover:bg-primary-dark focus:ring-primary invisible fixed right-6 bottom-6 z-40 translate-y-4 cursor-pointer rounded-full p-3 opacity-0 shadow-lg transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-offset-2 focus:outline-none md:p-4"
+    aria-label="Przewiń do góry"
+>
     <IconArrowUp class="size-6 stroke-white group-hover:scale-110 md:size-7" />
 </button>
 
@@ -26,7 +30,7 @@ import IconArrowUp from "../assets/icons/arrow-up.svg";
     scrollButton.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
-            behavior: "smooth",
+            behavior: "smooth"
         });
     });
 </script>

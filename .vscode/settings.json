@@ -1,0 +1,5 @@
+{
+    "js/ts.experimental.useTsgo": true,
+    "oxc.path.oxfmt": "node_modules/.bin/oxfmt",
+    "oxc.path.oxlint": "node_modules/.bin/oxlint"
+}
