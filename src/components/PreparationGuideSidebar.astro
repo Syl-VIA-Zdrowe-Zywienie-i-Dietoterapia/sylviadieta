@@ -1,0 +1,232 @@
+---
+// Preparation Guide Sidebar Component
+// Used on uslugi.astro page
+---
+
+<!-- Preparation Guide Overlay (mobile only) -->
+<div id="preparation-guide-overlay" class="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 data-open:opacity-100 data-open:pointer-events-auto md:hidden"></div>
+
+<!-- Preparation Guide Sidebar -->
+<aside id="preparation-guide-sidebar" class="fixed z-50 border-border bg-background shadow-xl transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-y-auto touch-none bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl border-t translate-y-full data-open:translate-y-0 md:top-0 md:right-0 md:left-auto md:bottom-auto md:h-full md:max-h-full md:w-[480px] md:rounded-none md:border-l md:border-t-0 md:translate-y-0 md:translate-x-full md:data-open:translate-x-0 md:touch-auto">
+    
+    <!-- Close button -->
+    <button id="preparation-guide-close" class="text-muted-foreground hover:text-foreground absolute top-4 right-4 cursor-pointer rounded-lg p-2 transition-colors focus-visible:ring-primary focus-visible:ring-2 focus-visible:outline-none" aria-label="Zamknij">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <!-- Content -->
+    <div class="p-6 md:p-8">
+        <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Jak przygotować się do wizyty?</h2>
+        
+        <!-- Dzienniczek żywieniowy -->
+        <div class="bg-card border-border mb-6 rounded-2xl border p-6">
+            <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Dzienniczek żywieniowy</h3>
+            <p class="text-muted-foreground mb-4 leading-relaxed">Przed spotkaniem wypełnij dzienniczek żywieniowy z kilku dni — to dla mnie cenne źródło informacji o Twoim sposobie odżywiania.</p>
+            <p class="text-muted-foreground mb-4">Najlepiej opisz <strong class="text-foreground">trzy dni</strong>:</p>
+            <ul class="text-muted-foreground space-y-2">
+                <li>• dwa dni robocze (jeśli pracujesz)</li>
+                <li>• jeden dzień wolny, np. weekendowy</li>
+            </ul>
+        </div>
+
+        <!-- Badania laboratoryjne -->
+        <div class="bg-card border-border mb-6 rounded-2xl border p-6">
+            <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Badania laboratoryjne</h3>
+            <p class="text-muted-foreground mb-4 leading-relaxed">Warto wykonać kilka badań przed pierwszą konsultacją:</p>
+            <ul class="text-muted-foreground space-y-2">
+                <li>• <strong class="text-foreground">Morfologia krwi z rozmazem</strong> — ogólny stan organizmu</li>
+                <li>• <strong class="text-foreground">Glukoza na czczo i insulina</strong> — gospodarka cukrowa</li>
+                <li>• <strong class="text-foreground">Lipidogram</strong> — cholesterol całkowity, HDL, LDL, trójglicerydy</li>
+                <li>• <strong class="text-foreground">Panel tarczycowy</strong> — TSH, fT3, fT4</li>
+            </ul>
+        </div>
+
+        <!-- Pomiar BIA -->
+        <div class="bg-card border-border rounded-2xl border p-6">
+            <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Przygotowanie do pomiaru składu ciała (BIA)</h3>
+            <p class="text-muted-foreground mb-6 leading-relaxed">Pomiar składu ciała metodą BIA (bioimpedancja elektryczna) to szybka i bezbolesna metoda analizy składu ciała przy użyciu urządzenia InBody 120.</p>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div>
+                    <h4 class="text-foreground mb-3 font-medium">Przed badaniem:</h4>
+                    <ul class="text-muted-foreground space-y-2">
+                        <li>• 2-3 godz. przed — nie jedz ani nie pij</li>
+                        <li>• 12 godz. przed — nie smaruj stóp kremem</li>
+                        <li>• 12 godz. przed — nie ćwicz intensywnie</li>
+                        <li>• 48 godz. przed — nie pij alkoholu</li>
+                        <li>• 7 dni przed — nie zażywaj diuretyków (jeśli możliwe)</li>
+                        <li>• Kobiety: unikaj tygodnia przed menstruacją</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-foreground mb-3 font-medium">Przeciwwskazania:</h4>
+                    <ul class="text-muted-foreground space-y-2">
+                        <li>• Rozrusznik serca lub inne implanty medyczne</li>
+                        <li>• Ciąża</li>
+                        <li>• Epilepsja</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<script>
+    function getPreparationGuideElements() {
+        const overlay = document.getElementById("preparation-guide-overlay");
+        const sidebar = document.getElementById("preparation-guide-sidebar");
+        const mainContent = document.getElementById("main-content");
+        const toggle = document.getElementById("preparation-guide-toggle");
+        const closeBtn = document.getElementById("preparation-guide-close");
+
+        if (!overlay || !sidebar || !mainContent) return null;
+        return { overlay, sidebar, mainContent, toggle, closeBtn };
+    }
+
+    const elements = getPreparationGuideElements();
+    if (!elements) throw new Error("[PreparationGuide] Failed to find preparation guide elements.");
+    const { overlay, sidebar, mainContent, toggle, closeBtn } = elements;
+
+    const SIDEBAR_WIDTH = 480;
+    const VISUAL_SEPARATION = 24;
+    const CONTENT_MAX_WIDTH = 1152;
+
+    function calculateShiftAmount(): number {
+        const viewportWidth = window.innerWidth;
+        const contentWidth = Math.min(CONTENT_MAX_WIDTH, viewportWidth);
+        const rightMargin = (viewportWidth - contentWidth) / 2;
+        const requiredSpace = SIDEBAR_WIDTH + VISUAL_SEPARATION;
+        return Math.max(0, requiredSpace - rightMargin);
+    }
+
+    function setSidebarOpen(isOpen: boolean) {
+        if (isOpen) {
+            overlay.setAttribute("data-open", "");
+            sidebar.setAttribute("data-open", "");
+            mainContent.setAttribute("data-sidebar-open", "");
+
+            const shiftAmount = calculateShiftAmount();
+            if (shiftAmount > 0 && window.innerWidth >= 768) {
+                mainContent.style.transform = `translateX(-${shiftAmount}px)`;
+            } else {
+                mainContent.style.transform = "";
+            }
+        } else {
+            overlay.removeAttribute("data-open");
+            sidebar.removeAttribute("data-open");
+            mainContent.removeAttribute("data-sidebar-open");
+            mainContent.style.transform = "";
+        }
+        toggle?.setAttribute("aria-expanded", String(isOpen));
+        document.body.style.overflow = isOpen ? "hidden" : "";
+    }
+
+    function isOpen(): boolean {
+        return sidebar.hasAttribute("data-open");
+    }
+
+    function toggleSidebar() {
+        setSidebarOpen(!isOpen());
+    }
+
+    function closeSidebar() {
+        setSidebarOpen(false);
+    }
+
+    toggle?.addEventListener("click", toggleSidebar);
+    closeBtn?.addEventListener("click", closeSidebar);
+    overlay.addEventListener("click", closeSidebar);
+
+    document.addEventListener("click", (e) => {
+        if (!isOpen()) return;
+        const target = e.target as HTMLElement;
+        if (sidebar.contains(target) || toggle?.contains(target)) return;
+        closeSidebar();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen()) {
+            closeSidebar();
+        }
+    });
+
+    // Native-style drawer drag behavior on mobile
+    let touchStartY = 0;
+    let touchCurrentY = 0;
+    let touchStartTime = 0;
+    let isDragging = false;
+    let drawerHeight = 0;
+
+    const isMobile = () => window.innerWidth < 768;
+    const VELOCITY_THRESHOLD = 0.4;
+
+    function getDrawerHeight(): number {
+        return sidebar.getBoundingClientRect().height || window.innerHeight * 0.85;
+    }
+
+    sidebar.addEventListener("touchstart", (e) => {
+        if (!isMobile()) return;
+        
+        touchStartY = e.touches[0].clientY;
+        touchCurrentY = touchStartY;
+        touchStartTime = Date.now();
+        isDragging = true;
+        drawerHeight = getDrawerHeight();
+        
+        sidebar.style.transition = "none";
+    }, { passive: true });
+
+    sidebar.addEventListener("touchmove", (e) => {
+        if (!isDragging || !isMobile()) return;
+        
+        touchCurrentY = e.touches[0].clientY;
+        const deltaY = touchCurrentY - touchStartY;
+        
+        const isScrolledToTop = sidebar.scrollTop <= 0;
+        const isOpenState = sidebar.hasAttribute("data-open");
+        
+        if (isOpenState) {
+            const newOffset = Math.max(0, deltaY);
+            if (deltaY > 0) {
+                sidebar.style.transform = `translateY(${newOffset}px)`;
+            }
+        } else {
+            const newOffset = Math.min(drawerHeight, drawerHeight + deltaY);
+            if (deltaY < 0 && isScrolledToTop) {
+                sidebar.style.transform = `translateY(${newOffset}px)`;
+            }
+        }
+    }, { passive: true });
+
+    sidebar.addEventListener("touchend", () => {
+        if (!isDragging || !isMobile()) return;
+        
+        isDragging = false;
+        sidebar.style.transition = "";
+        sidebar.style.transform = "";
+        
+        const deltaY = touchCurrentY - touchStartY;
+        const deltaTime = Date.now() - touchStartTime;
+        const velocity = Math.abs(deltaY) / Math.max(deltaTime, 1);
+        const isOpenState = sidebar.hasAttribute("data-open");
+        const isScrolledToTop = sidebar.scrollTop <= 0;
+        
+        let visiblePercent: number;
+        if (isOpenState) {
+            visiblePercent = 100 - (Math.abs(deltaY) / drawerHeight * 100);
+        } else {
+            visiblePercent = Math.abs(deltaY) / drawerHeight * 100;
+        }
+        
+        const shouldClose = isOpenState && (visiblePercent < 50 || (deltaY > 0 && velocity > VELOCITY_THRESHOLD));
+        const shouldOpen = !isOpenState && visiblePercent > 50 && isScrolledToTop;
+        const shouldOpenByVelocity = !isOpenState && Math.abs(deltaY) > 0 && velocity > VELOCITY_THRESHOLD && isScrolledToTop;
+        
+        if (shouldClose) {
+            closeSidebar();
+        } else if (shouldOpen || shouldOpenByVelocity) {
+            setSidebarOpen(true);
+        }
+    });
+</script>

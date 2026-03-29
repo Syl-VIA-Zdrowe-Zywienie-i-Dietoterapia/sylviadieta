@@ -1,7 +1,10 @@
 ---
+import PreparationGuideSidebar from "@components/PreparationGuideSidebar.astro";
+
 import IconArrowDown from "@icons/arrow-down.svg";
 import IconGroup from "@icons/group.svg";
 import IconPersonHiking from "@icons/person-hiking.svg";
+import IconQuestionCircle from "@icons/question-circle.svg";
 import IconScale from "@icons/scale.svg";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -96,10 +99,15 @@ const warsztatyPricing = [
                 <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
                     <IconScale class="size-7" />
                 </div>
-                <div>
+                <div class="min-w-0 flex-1">
                     <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Psychodietetyka</h2>
                     <p class="text-muted-foreground">Konsultacje, jadłospisy i wsparcie psychodietetyczne</p>
                 </div>
+                <button id="preparation-guide-toggle" class="text-muted-foreground hover:text-primary focus-visible:ring-primary flex cursor-pointer items-center rounded-lg pl-1.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none sm:ml-auto sm:w-auto" aria-expanded="false" aria-controls="preparation-guide-sidebar">
+                    <IconQuestionCircle class="mt-px size-5 md:invisible" />
+                    <span>Jak przygotować się do wizyty</span>
+                    <IconQuestionCircle class="invisible mt-px -ml-1 size-5 md:visible" />
+                </button>
             </div>
 
             <!-- First Consultation -->
@@ -466,102 +474,6 @@ const warsztatyPricing = [
                     </table>
                 </div>
             </div>
-
-            <!-- Preparation Guide -->
-            <div class="mt-16">
-                <div class="bg-card border-border hover:border-primary/50 rounded-2xl border transition hover:shadow-md">
-                    <button
-                        id="preparation-guide-toggle"
-                        class="group focus-visible:ring-primary flex w-full cursor-pointer list-none items-center justify-between p-4 focus-visible:ring-2 focus-visible:outline-none active:scale-97"
-                        aria-expanded="false"
-                        aria-controls="preparation-guide-content"
-                    >
-                        <div class="flex items-center gap-4">
-                            <div class="bg-primary/10 fill-primary group-hover:bg-primary flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl transition-colors group-hover:fill-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 3.544-.884 5.52-.742.355.027.653.253.772.59.12.337.027.714-.232.952l-1.374 1.224c-.34.302-.61.667-.795 1.076l-.315.757c-.135.324-.51.476-.834.341-.324-.135-.476-.51-.341-.834l.315-.757c.25-.601.625-1.135 1.098-1.556l.37-.329c-1.506-.037-3.12.23-3.866.603-.477.239-.812.543-.992.896-.178.35-.216.758-.084 1.143.125.364.396.735.862 1.04.935.61 2.423.893 3.9.76.326-.03.626.21.656.535.03.326-.21.626-.535.656-1.657.152-3.392-.163-4.562-.926-.64-.418-1.098-.965-1.298-1.549-.197-.576-.138-1.147.09-1.63.228-.482.627-.903 1.194-1.187zm2.327-2.368c.755-.178 1.785-.296 2.817-.296 1.032 0 2.062.118 2.817.296.322.076.522.397.446.72-.076.322-.397.522-.72.446-.665-.157-1.617-.262-2.543-.262-.926 0-1.878.105-2.543.262-.322.076-.644-.124-.72-.446-.076-.322.124-.644.446-.72z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div class="grow">
-                                <h2 class="text-foreground group-hover:text-primary font-serif text-lg font-medium transition-colors">Jak przygotować się do wizyty?</h2>
-                                <p class="text-muted-foreground text-sm">Informacje i wytyczne przed konsultacją</p>
-                            </div>
-                        </div>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            class="text-muted-foreground group-hover:text-primary mr-1 h-5 w-5 transition group-aria-expanded:rotate-180"
-                        >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-                        </svg>
-                    </button>
-                    <div id="preparation-guide-content" class="grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-200 ease-out data-open:grid-rows-[1fr]">
-                        <div class="min-h-0">
-                            <div class="border-border border-t px-6 pb-6">
-                                <div class="grid gap-8 pt-6 md:grid-cols-2">
-                                    <!-- Dzienniczek żywieniowy -->
-                                    <div class="bg-card border-border rounded-2xl border p-8">
-                                        <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Dzienniczek żywieniowy</h3>
-                                        <p class="text-muted-foreground mb-4 leading-relaxed">Przed spotkaniem wypełnij dzienniczek żywieniowy z kilku dni — to dla mnie cenne źródło informacji o Twoim sposobie odżywiania.</p>
-                                        <p class="text-muted-foreground mb-4">Najlepiej opisz <strong class="text-foreground">trzy dni</strong>:</p>
-                                        <ul class="text-muted-foreground space-y-2">
-                                            <li>• dwa dni robocze (jeśli pracujesz)</li>
-                                            <li>• jeden dzień wolny, np. weekendowy</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Badania laboratoryjne -->
-                                    <div class="bg-card border-border rounded-2xl border p-8">
-                                        <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Badania laboratoryjne</h3>
-                                        <p class="text-muted-foreground mb-4 leading-relaxed">Warto wykonać kilka badań przed pierwszą konsultacją:</p>
-                                        <ul class="text-muted-foreground space-y-2">
-                                            <li>• <strong class="text-foreground">Morfologia krwi z rozmazem</strong> — ogólny stan organizmu</li>
-                                            <li>• <strong class="text-foreground">Glukoza na czczo i insulina</strong> — gospodarka cukrowa</li>
-                                            <li>• <strong class="text-foreground">Lipidogram</strong> — cholesterol całkowity, HDL, LDL, trójglicerydy</li>
-                                            <li>• <strong class="text-foreground">Panel tarczycowy</strong> — TSH, fT3, fT4</li>
-                                        </ul>
-                                    </div>
-
-                                    <!-- Pomiar BIA -->
-                                    <div class="bg-card border-border rounded-2xl border p-8 md:col-span-2">
-                                        <h3 class="text-foreground mb-4 font-serif text-xl font-semibold">Przygotowanie do pomiaru składu ciała (BIA)</h3>
-                                        <p class="text-muted-foreground mb-6 leading-relaxed">
-                                            Pomiar składu ciała metodą BIA (bioimpedancja elektryczna) to szybka i bezbolesna metoda analizy składu ciała przy użyciu urządzenia InBody 120.
-                                        </p>
-                                        <div class="grid gap-6 md:grid-cols-2">
-                                            <div>
-                                                <h4 class="text-foreground mb-3 font-medium">Przed badaniem:</h4>
-                                                <ul class="text-muted-foreground space-y-2">
-                                                    <li>• 2-3 godz. przed — nie jedz ani nie pij</li>
-                                                    <li>• 12 godz. przed — nie smaruj stóp kremem</li>
-                                                    <li>• 12 godz. przed — nie ćwicz intensywnie</li>
-                                                    <li>• 48 godz. przed — nie pij alkoholu</li>
-                                                    <li>• 7 dni przed — nie zażywaj diuretyków (jeśli możliwe)</li>
-                                                    <li>• Kobiety: unikaj tygodnia przed menstruacją</li>
-                                                </ul>
-                                            </div>
-                                            <div>
-                                                <h4 class="text-foreground mb-3 font-medium">Przeciwwskazania:</h4>
-                                                <ul class="text-muted-foreground space-y-2">
-                                                    <li>• Rozrusznik serca lub inne implanty medyczne</li>
-                                                    <li>• Ciąża</li>
-                                                    <li>• Epilepsja</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -573,32 +485,6 @@ const warsztatyPricing = [
             <a href="/kontakt" class="bg-primary hover:bg-primary-dark inline-flex items-center justify-center rounded-lg px-7 py-3.5 font-medium text-white transition-colors"> Skontaktuj się </a>
         </div>
     </section>
+
+    <PreparationGuideSidebar />
 </BaseLayout>
-
-<script>
-    function getPreparationGuideElements() {
-        const preparationGuide = document.getElementById("preparation-guide-content");
-        const preparationGuideToggle = document.getElementById("preparation-guide-toggle");
-
-        if (!preparationGuide || !preparationGuideToggle) return null;
-        return { preparationGuide, preparationGuideToggle };
-    }
-
-    const preparationGuideElements = getPreparationGuideElements();
-    if (!preparationGuideElements) throw new Error("[PreparationGuide] Failed to find preparation guide elements.");
-    const { preparationGuide, preparationGuideToggle } = preparationGuideElements;
-
-    function setPreparationGuideOpen(isOpen: boolean) {
-        if (isOpen) preparationGuide.setAttribute("data-open", "");
-        else preparationGuide.removeAttribute("data-open");
-
-        preparationGuideToggle.setAttribute("aria-expanded", String(isOpen));
-    }
-
-    function togglePreparationGuide() {
-        const nextOpenState = !preparationGuide.hasAttribute("data-open");
-        setPreparationGuideOpen(nextOpenState);
-    }
-
-    preparationGuideToggle.addEventListener("click", togglePreparationGuide);
-</script>
