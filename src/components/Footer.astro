@@ -1,10 +1,10 @@
 ---
 import { Picture } from "astro:assets";
 
-import IconFacebook from "../assets/icons/facebook.svg";
-import IconInstagram from "../assets/icons/instagram.svg";
+import IconFacebook from "@icons/facebook.svg";
+import IconInstagram from "@icons/instagram.svg";
 
-import LogoHorizontalBigTextWhite80 from "../assets/logos/horizontal-big-text/logo-horizontal-big-text-white80.png";
+import LogoHorizontalBigTextWhite80 from "@logos/horizontal-big-text/logo-horizontal-big-text-white80.png";
 ---
 
 <footer class="top-level-container bg-foreground py-8 text-white/80">
@@ -20,8 +20,20 @@ import LogoHorizontalBigTextWhite80 from "../assets/logos/horizontal-big-text/lo
                         <Picture src={LogoHorizontalBigTextWhite80} formats={["avif"]} alt="Logo poradni Syl.VIA" class="h-auto w-48" />
                     </a>
                     <span class="flex items-center gap-4">
-                        <a href="https://facebook.com/profile.php?id=100063849379058" target="_blank" rel="noopener noreferrer" class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 fill-current p-2 transition hover:fill-white active:scale-95" aria-label="Facebook"><IconFacebook class="size-6" /></a>
-                        <a href="https://instagram.com/syl.viadieta_" target="_blank" rel="noopener noreferrer" class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 fill-current p-2 transition hover:fill-white active:scale-95" aria-label="Instagram"><IconInstagram class="size-6" /></a>
+                        <a
+                            href="https://facebook.com/profile.php?id=100063849379058"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 fill-current p-2 transition hover:fill-white active:scale-95"
+                            aria-label="Facebook"><IconFacebook class="size-6" /></a
+                        >
+                        <a
+                            href="https://instagram.com/syl.viadieta_"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:bg-primary flex items-center justify-center rounded-full bg-white/10 fill-current p-2 transition hover:fill-white active:scale-95"
+                            aria-label="Instagram"><IconInstagram class="size-6" /></a
+                        >
                     </span>
                 </div>
             </div>

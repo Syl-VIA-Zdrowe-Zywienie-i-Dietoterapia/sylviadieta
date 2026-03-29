@@ -8,7 +8,7 @@ const { formId } = Astro.props;
 
 <div data-form-error-root data-form-id={formId} class="hidden" aria-hidden="true">
     <template data-field-error-template>
-        <p data-field-error class="mt-1 hidden text-sm text-warning"></p>
+        <p data-field-error class="text-warning mt-1 hidden text-sm"></p>
     </template>
 </div>
 
@@ -18,7 +18,7 @@ const { formId } = Astro.props;
         inputInvalidMessage: "Wprowadź poprawną wartość.",
         emailInvalidMessage: "Wprowadź poprawny adres e-mail.",
         phoneInvalidMessage: "Wprowadź poprawny numer telefonu.",
-        textareaTooShortMessage: "Napisz kilka słów (co najmniej 20 znaków).",
+        textareaTooShortMessage: "Napisz kilka słów (co najmniej 20 znaków)."
     };
 
     function getFieldErrorMessage(field: HTMLInputElement | HTMLTextAreaElement): string {

@@ -1,56 +1,57 @@
 ---
 import { Picture } from "astro:assets";
 
-import IconGraduationCap from "../assets/icons/graduation-cap.svg";
-import IconHeart from "../assets/icons/heart.svg";
-import IconPersonRunning from "../assets/icons/person-running.svg";
-import IconScale from "../assets/icons/scale.svg";
-import IconTick from "../assets/icons/tick.svg";
-import PictureAbout from "../assets/images/o-mnie.jpg";
+import IconGraduationCap from "@icons/graduation-cap.svg";
+import IconHeart from "@icons/heart.svg";
+import IconPersonRunning from "@icons/person-running.svg";
+import IconScale from "@icons/scale.svg";
+import IconTick from "@icons/tick.svg";
+import PictureAbout from "@images/o-mnie.jpg";
 
-import Tooltip from "../components/Tooltip.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Tooltip from "@components/Tooltip.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const competences = [
     {
         name: "Dietetyka",
-        description: "Studia magisterskie na Wyższej Szkole Inżynierii i Zdrowia",
+        description: "Studia magisterskie na Wyższej Szkole Inżynierii i Zdrowia"
     },
     {
         name: "Psychodietetyka",
-        description: "Studia podyplomowe na Uniwersytecie SWPS",
+        description: "Studia podyplomowe na Uniwersytecie SWPS"
     },
     {
         name: "Chemia",
-        description: "Absolwentka Wydziału Chemii Politechniki Warszawskiej",
+        description: "Absolwentka Wydziału Chemii Politechniki Warszawskiej"
     },
     {
         name: "Nordic walking",
-        description: "Certyfikowany instruktor",
-    },
+        description: "Certyfikowany instruktor"
+    }
 ];
 
 const specializations = [
     {
         name: "Psychodietetyka",
-        description: "Pomagam zrozumieć emocjonalne i psychiczne podłoże jedzenia. Wspieram w budowaniu zdrowych nawyków, pracy nad motywacją i relacją z jedzeniem – zwłaszcza w sytuacjach stresu, zajadania emocji czy niskiej samooceny.",
-        icon: IconScale,
+        description:
+            "Pomagam zrozumieć emocjonalne i psychiczne podłoże jedzenia. Wspieram w budowaniu zdrowych nawyków, pracy nad motywacją i relacją z jedzeniem – zwłaszcza w sytuacjach stresu, zajadania emocji czy niskiej samooceny.",
+        icon: IconScale
     },
     {
         name: "Dietetyka kliniczna",
         description: "Specjalizuję się w dietoterapii: cukrzyca, insulinooporność, choroby tarczycy, choroby układu pokarmowego, celiakia, choroby nowotworowe, niewydolność nerek i wiele innych.",
-        icon: IconHeart,
+        icon: IconHeart
     },
     {
         name: "Dla aktywnych",
         description: "Opracowuję plany żywieniowe dla osób aktywnych fizycznie – od amatorów po osoby trenujące regularnie. Dostosowuję dietę do Twojego rodzaju aktywności i celów.",
-        icon: IconPersonRunning,
+        icon: IconPersonRunning
     },
     {
         name: "Edukacja i\u00A0wsparcie",
         description: "Prowadzę warsztaty wyjazdowe, szkolenia i prelekcje – dzieląc się wiedzą na temat zdrowego stylu życia i nowoczesnych metod żywienia.",
-        icon: IconGraduationCap,
-    },
+        icon: IconGraduationCap
+    }
 ];
 ---
 
@@ -91,9 +92,18 @@ const specializations = [
                 <div class="space-y-8">
                     <div class="text-muted-foreground space-y-6 leading-relaxed">
                         <p class="text-foreground text-lg font-medium">Moim celem jest pokazanie, że droga do zdrowia może być naturalna, przyjazna i dostosowana do indywidualnych potrzeb każdej osoby.</p>
-                        <p>Od ponad 8 lat zawodowo zajmuję się żywieniem i jego wpływem na zdrowie, samopoczucie oraz relację z jedzeniem. W swojej pracy łączę wiedzę z zakresu dietetyki i psychodietetyki, ponieważ wiem, że jedzenie to nie tylko kalorie – to emocje, nawyki i&nbsp;codzienne wybory, które mają znaczenie.</p>
-                        <p>Podejście psychodietetyczne pomaga mi jeszcze lepiej rozumieć trudności, z jakimi zmagają się moi pacjenci – takie jak jedzenie emocjonalne, spadki motywacji, niskie poczucie sprawczości czy negatywny obraz ciała. Dzięki temu mogę skuteczniej wspierać ich w budowaniu trwałych nawyków i zdrowej relacji z jedzeniem – bez presji, oceniania czy sztywnych zasad.</p>
-                        <p>Nie wierzę w diety cud. Wierzę w indywidualnie dopasowane rozwiązania – oparte na nauce, zrozumieniu, uważności i trwałej zmianie. Wspólnie tworzymy plan żywieniowy „szyty na miarę” – dopasowany do Twojego stylu życia, zdrowia i emocjonalnych potrzeb.</p>
+                        <p>
+                            Od ponad 8 lat zawodowo zajmuję się żywieniem i jego wpływem na zdrowie, samopoczucie oraz relację z jedzeniem. W swojej pracy łączę wiedzę z zakresu dietetyki i psychodietetyki, ponieważ wiem, że
+                            jedzenie to nie tylko kalorie – to emocje, nawyki i&nbsp;codzienne wybory, które mają znaczenie.
+                        </p>
+                        <p>
+                            Podejście psychodietetyczne pomaga mi jeszcze lepiej rozumieć trudności, z jakimi zmagają się moi pacjenci – takie jak jedzenie emocjonalne, spadki motywacji, niskie poczucie sprawczości czy negatywny
+                            obraz ciała. Dzięki temu mogę skuteczniej wspierać ich w budowaniu trwałych nawyków i zdrowej relacji z jedzeniem – bez presji, oceniania czy sztywnych zasad.
+                        </p>
+                        <p>
+                            Nie wierzę w diety cud. Wierzę w indywidualnie dopasowane rozwiązania – oparte na nauce, zrozumieniu, uważności i trwałej zmianie. Wspólnie tworzymy plan żywieniowy „szyty na miarę” – dopasowany do
+                            Twojego stylu życia, zdrowia i emocjonalnych potrzeb.
+                        </p>
                     </div>
 
                     <div class="border-border border-t pt-8">
@@ -147,8 +157,14 @@ const specializations = [
             <h2 class="text-foreground mb-8 font-serif text-3xl font-semibold md:text-4xl">W centrum mojej pracy jest człowiek</h2>
             <div class="flex flex-col items-start gap-12 lg:flex-row lg:gap-20">
                 <div class="text-muted-foreground space-y-4 leading-relaxed">
-                    <p>Nie tylko jego wyniki badań, ale cała historia, emocje i cele. Wierzę, że zdrowie to równowaga ciała i umysłu. Dieta powinna wspierać, a nie ograniczać – powinna być naturalnym elementem codzienności, a nie przymusem.</p>
-                    <p>Jako psychodietetyk pomagam nie tylko zmienić sposób jedzenia, ale także zrozumieć emocjonalne i psychologiczne aspekty odżywiania. Wspieram osoby, które zmagają się z zajadaniem stresu, brakiem motywacji, niską samooceną czy trudnymi emocjami związanymi z jedzeniem.</p>
+                    <p>
+                        Nie tylko jego wyniki badań, ale cała historia, emocje i cele. Wierzę, że zdrowie to równowaga ciała i umysłu. Dieta powinna wspierać, a nie ograniczać – powinna być naturalnym elementem codzienności, a nie
+                        przymusem.
+                    </p>
+                    <p>
+                        Jako psychodietetyk pomagam nie tylko zmienić sposób jedzenia, ale także zrozumieć emocjonalne i psychologiczne aspekty odżywiania. Wspieram osoby, które zmagają się z zajadaniem stresu, brakiem motywacji,
+                        niską samooceną czy trudnymi emocjami związanymi z jedzeniem.
+                    </p>
                     <p>Wspieram także pacjentów zmagających się z zaburzeniami odżywiania, takimi jak anoreksja, bulimia czy kompulsywne objadanie się – z uważnością, empatią i zrozumieniem.</p>
                 </div>
 
@@ -156,7 +172,12 @@ const specializations = [
                     <h3 class="text-foreground mb-6 font-serif text-xl font-semibold">Wspólna praca nad relacją z jedzeniem pozwala:</h3>
                     <ul class="space-y-4">
                         {
-                            ["Lepiej zrozumieć swoje potrzeby", "Zwiększyć zdrowe spożywanie", "Zwiększyć satysfakcję z życia"].map((item, index) => (
+                            // prettier-ignore
+                            [
+                                "Lepiej zrozumieć swoje potrzeby",
+                                "Zwiększyć zdrowe spożywanie",
+                                "Zwiększyć satysfakcję z życia"
+                            ].map((item, index) => (
                                 <li class="flex items-start gap-4">
                                     <span class="bg-primary flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white">{index + 1}</span>
                                     <p class="text-muted-foreground pt-0.75">{item}</p>
