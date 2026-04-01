@@ -3,6 +3,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme inline {
+    --breakpoint-xs: 30rem;
+
     --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
     --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
@@ -30,8 +32,26 @@
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --default-transition-duration: 200ms;
 }
 
-.top-level-container {
-    @apply lg:pl-[calc(100vw-100%)];
+/* account for scrollbar space to prevent layout shift whenever it is visible between pages */
+header.sidebar-closed > *,
+main.sidebar-closed > *,
+footer.sidebar-closed {
+    @apply pl-[calc(100vw-100%)]!;
+}
+
+/* when sidebar is open, remove the scrollbar-reserved space to prevent double padding */
+header.sidebar-open > *,
+main.sidebar-open > *,
+footer.sidebar-open {
+    @apply pl-0!;
+}
+
+header.sidebar-transitioning > *,
+main.sidebar-transitioning > *,
+footer.sidebar-transitioning {
+    @apply ease-drawer! transition-[padding-left]! delay-0! duration-300!;
 }

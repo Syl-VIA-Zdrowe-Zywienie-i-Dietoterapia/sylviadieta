@@ -2,7 +2,7 @@
 import { Font } from "astro:assets";
 
 import "../styles/global.css";
-// import Meta from "@components/Meta.astro";
+import Meta from "@components/Meta.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import ScrollToTop from "@components/ScrollToTop.astro";
@@ -29,15 +29,19 @@ const { subtitle = "", description = "Profesjonalna pomoc dietetyczna i psychodi
 
         <Font cssVariable="--font-inter" preload />
         <Font cssVariable="--font-playfair" preload />
+
+        <Meta />
+
         <title>{(subtitle ? `${subtitle} | ` : "") + "Syl.VIA – Zdrowe Żywienie i Dietoterapia"}</title>
     </head>
 
     <body class="flex min-h-screen flex-col antialiased">
         <Header />
-        <main id="main-content" class="grow flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]">
+        <main class="sidebar-closed ease-drawer flex w-full grow flex-col transition-[width] duration-300">
             <slot />
         </main>
         <Footer />
         <ScrollToTop />
+        <slot name="overlay" />
     </body>
 </html>

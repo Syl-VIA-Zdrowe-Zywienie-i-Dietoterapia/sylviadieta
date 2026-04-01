@@ -1,33 +1,22 @@
 ---
-import PreparationGuideSidebar from "@components/PreparationGuideSidebar.astro";
+import PreparationGuideDrawer from "@components/preparation-guide/Drawer.astro";
+import PreparationGuideSidebar from "@components/preparation-guide/Sidebar.astro";
 
 import IconArrowDown from "@icons/arrow-down.svg";
+import IconTick from "@icons/tick.svg";
+import IconDollarCircle from "@icons/dollar-circle.svg";
 import IconGroup from "@icons/group.svg";
 import IconPersonHiking from "@icons/person-hiking.svg";
 import IconQuestionCircle from "@icons/question-circle.svg";
 import IconScale from "@icons/scale.svg";
+import IconDiamond from "@icons/diamond.svg";
 
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const serviceCategories = [
-    {
-        id: "psychodietetyka",
-        title: "Psychodietetyka",
-        subtitle: "Konsultacje i jadłospisy",
-        icon: IconScale
-    },
-    {
-        id: "nordic-walking",
-        title: "Nordic Walking",
-        subtitle: "Zajęcia grupowe i indywidualne",
-        icon: IconPersonHiking
-    },
-    {
-        id: "warsztaty-i-wyjazdy",
-        title: "Warsztaty i wyjazdy",
-        subtitle: "Edukacja i integracja",
-        icon: IconGroup
-    }
+    { id: "psychodietetyka", title: "Psychodietetyka", subtitle: "Konsultacje i jadłospisy", icon: IconScale },
+    { id: "nordic-walking", title: "Nordic Walking", subtitle: "Zajęcia grupowe i indywidualne", icon: IconPersonHiking },
+    { id: "warsztaty-i-wyjazdy", title: "Warsztaty i wyjazdy", subtitle: "Edukacja i integracja", icon: IconGroup }
 ];
 
 const psychodietetykaPricing = [
@@ -38,7 +27,7 @@ const psychodietetykaPricing = [
     { service: "Wizyta kontrolna — dietetyczna", duration: "40–60 min", price: "170 zł" },
     { service: "Profesjonalna analiza składu ciała z omówieniem wyników", duration: "—", price: "60 zł" },
     { service: "Modyfikacja jadłospisu — wprowadzenie powyżej 4 zmian", duration: "—", price: "80 zł" },
-    { service: "Pakiet VIP (3 miesiące wsparcia)", duration: "—", price: "1500 zł" }
+    { service: "Pakiet VIP", duration: "3 miesiące", price: "1500 zł" }
 ];
 
 const paraPricing = [
@@ -63,7 +52,7 @@ const warsztatyPricing = [
 ---
 
 <BaseLayout subtitle="Usługi">
-    <section class="top-level-container bg-muted/50 pt-28 pb-14 md:pt-38 md:pb-18">
+    <section class="bg-muted/50 pt-28 pb-14 md:pt-38 md:pb-18">
         <div class="mx-auto max-w-6xl px-6">
             <div class="mb-12 max-w-4xl">
                 <p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">Usługi</p>
@@ -76,9 +65,9 @@ const warsztatyPricing = [
                     serviceCategories.map((serviceCategory) => (
                         <a
                             href={`#${serviceCategory.id}`}
-                            class="group bg-card border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-md focus-visible:ring-2 focus-visible:outline-none active:scale-97"
+                            class="group bg-card border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-sm focus-visible:ring-2 focus-visible:outline-none active:scale-97"
                         >
-                            <div class="bg-primary/10 fill-primary group-hover:bg-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white">
+                            <div class="bg-primary/10 group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white">
                                 <serviceCategory.icon class="size-6" />
                             </div>
                             <div class="-mt-0.75 grow">
@@ -93,46 +82,59 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <section id="psychodietetyka" class="top-level-container scroll-mt-24 py-16 md:py-24">
+    <section id="psychodietetyka" class="scroll-mt-24 py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
-            <div class="mb-12 flex items-center gap-4">
-                <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
-                    <IconScale class="size-7" />
+            <div class="mb-8 space-y-4">
+                <div class="flex grow items-center gap-4">
+                    <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
+                        <IconScale class="size-7" />
+                    </div>
+                    <div>
+                        <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Psychodietetyka</h2>
+                        <p class="text-muted-foreground">Konsultacje, jadłospisy i wsparcie psychodietetyczne</p>
+                    </div>
                 </div>
-                <div class="min-w-0 flex-1">
-                    <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Psychodietetyka</h2>
-                    <p class="text-muted-foreground">Konsultacje, jadłospisy i wsparcie psychodietetyczne</p>
+
+                <div class="flex gap-2">
+                    <a
+                        href="#cennik-psychodietetyka"
+                        class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95"
+                    >
+                        <IconDollarCircle class="size-5" />
+                        <span class="-mt-px px-1">Cennik</span>
+                    </a>
+                    <button
+                        id="preparation-guide-toggle"
+                        class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit cursor-pointer items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95"
+                        aria-expanded="false"
+                        aria-controls="preparation-guide-sidebar"
+                    >
+                        <IconQuestionCircle class="size-5" />
+                        <span class="-mt-px px-1">Przygotowanie do wizyty</span>
+                    </button>
                 </div>
-                <button id="preparation-guide-toggle" class="text-muted-foreground hover:text-primary focus-visible:ring-primary flex cursor-pointer items-center rounded-lg pl-1.5 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none sm:ml-auto sm:w-auto" aria-expanded="false" aria-controls="preparation-guide-sidebar">
-                    <IconQuestionCircle class="mt-px size-5 md:invisible" />
-                    <span>Jak przygotować się do wizyty</span>
-                    <IconQuestionCircle class="invisible mt-px -ml-1 size-5 md:visible" />
-                </button>
             </div>
 
-            <!-- First Consultation -->
             <div class="mb-16">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Pierwsza konsultacja dietetyczna z elementami psychodietetyki</h3>
-                <div class="grid gap-8 md:grid-cols-2 md:items-start">
-                    <div class="space-y-4">
+                <div class="grid items-start gap-8 md:grid-cols-3">
+                    <div class="space-y-4 md:col-span-2">
                         <p class="text-muted-foreground leading-relaxed">
                             Zebranie informacji dotyczących preferencji żywieniowych, stanu zdrowia, wcześniej stosowanych diet, planu dnia oraz aktywności fizycznej. Szczegółowy wywiad pozwalający poznać Twoje nawyki i potrzeby.
                         </p>
                         <ul class="space-y-3">
                             {
                                 [
-                                    "Wywiad psychodietetyczny — analiza Twoich przekonań i zachowań związanych z jedzeniem",
+                                    "Wywiad psychodietetyczny — analiza Twoich przekonań i\u00A0zachowań związanych z\u00A0jedzeniem",
                                     "Interpretacja wyników badań laboratoryjnych (morfologia, glukoza, profil lipidowy)",
                                     "Analiza dotychczasowego sposobu odżywiania oraz nawyków żywieniowych",
-                                    "Pomiar i analiza składu ciała przy użyciu analizatora InBody 120"
+                                    "Pomiar i\u00A0analiza składu ciała przy użyciu analizatora InBody 120"
                                 ].map((item) => (
                                     <li class="flex items-start gap-3">
-                                        <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                            </svg>
+                                        <span class="bg-primary/10 fill-primary mt-px flex items-center justify-center rounded-full p-1">
+                                            <IconTick class="size-3.75" />
                                         </span>
-                                        <span class="text-muted-foreground">{item}</span>
+                                        <p class="text-muted-foreground">{item}</p>
                                     </li>
                                 ))
                             }
@@ -149,7 +151,6 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <!-- Jadłospis -->
             <div class="mb-16">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Jadłospis</h3>
                 <p class="text-muted-foreground mb-6 leading-relaxed">
@@ -158,21 +159,20 @@ const warsztatyPricing = [
                 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     {
                         [
-                            { title: "Dostosowany do stylu życia", desc: "Uwzględnia umiejętności kulinarne, dostępny czas oraz budżet" },
-                            { title: "Preferencje smakowe", desc: "Dieta dopasowana do Twoich ulubionych smaków" },
-                            { title: "Dostawa jadłospisu", desc: "Mailowo lub w formie drukowanej w teczce" },
-                            { title: "Aplikacja dietetyczna", desc: "Pełen dostęp do planu, przepisów i list zakupów" }
+                            { title: "Dostosowany do stylu życia", description: "Uwzględnia umiejętności kulinarne, dostępny czas oraz budżet" },
+                            { title: "Preferencje smakowe", description: "Dieta dopasowana do Twoich ulubionych smaków" },
+                            { title: "Dostawa jadłospisu", description: "Mailowo lub w formie drukowanej w teczce" },
+                            { title: "Aplikacja dietetyczna", description: "Pełen dostęp do planu, przepisów i list zakupów" }
                         ].map((item) => (
-                            <div class="bg-card border-border rounded-xl border p-5">
+                            <div class="bg-card border-border rounded-xl border p-5 transition-shadow hover:shadow-sm">
                                 <h4 class="text-foreground mb-2 font-medium">{item.title}</h4>
-                                <p class="text-muted-foreground text-sm">{item.desc}</p>
+                                <p class="text-muted-foreground text-sm">{item.description}</p>
                             </div>
                         ))
                     }
                 </div>
             </div>
 
-            <!-- Psychodietetyka Consultation -->
             <div class="mb-16">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Konsultacja psychodietetyczna</h3>
                 <p class="text-muted-foreground mb-6 leading-relaxed">
@@ -206,13 +206,19 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <!-- VIP Package -->
-            <div class="bg-primary-dark mb-16 rounded-2xl p-8 text-white md:p-10">
-                <div class="grid items-center gap-8 lg:grid-cols-2">
-                    <div>
-                        <p class="text-primary-light mb-3 text-sm font-medium tracking-wide uppercase">Pakiet Premium</p>
-                        <h3 class="mb-4 font-serif text-2xl font-semibold md:text-3xl">Pakiet VIP — 3 miesiące kompleksowego wsparcia</h3>
-                        <p class="mb-6 leading-relaxed text-white/80">Regularna, zaplanowana współpraca oparta na Twoich indywidualnych potrzebach.</p>
+            <div class="group bg-primary-dark mb-16 rounded-2xl p-8 text-white transition hover:shadow-lg md:p-10">
+                <div class="grid gap-8 lg:grid-cols-2">
+                    <div class="space-y-6">
+                        <div class="flex gap-3.5">
+                            <div class="group-hover:bg-primary mt-1 flex items-center justify-center rounded-xl bg-white/20 fill-white p-3 transition">
+                                <IconDiamond class="size-8" />
+                            </div>
+                            <div class="flex flex-col items-start gap-1">
+                                <h3 class="font-serif text-2xl font-semibold md:text-3xl">Pakiet VIP</h3>
+                                <p class="text-primary-light text-sm font-medium tracking-wide uppercase">3 miesiące kompleksowego wsparcia</p>
+                            </div>
+                        </div>
+                        <p class="leading-relaxed text-white/80">Regularna, zaplanowana współpraca oparta na Twoich indywidualnych potrzebach.</p>
                         <div class="flex items-baseline gap-2">
                             <span class="font-serif text-3xl font-bold">1500 zł</span>
                             <span class="text-white/60">/ 3 miesiące</span>
@@ -242,8 +248,7 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <!-- Pricing Table -->
-            <div>
+            <div id="cennik-psychodietetyka" class="scroll-mt-24">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Psychodietetyka</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -268,7 +273,7 @@ const warsztatyPricing = [
                     </table>
                 </div>
 
-                <h4 class="text-foreground mt-10 mb-4 font-serif text-xl font-semibold">Pakiety dla par</h4>
+                <h4 class="text-foreground mt-10 mb-4 font-serif text-xl font-semibold">Dla par</h4>
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
@@ -295,62 +300,69 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <!-- SECTION 2: Nordic Walking -->
     <section id="nordic-walking" class="bg-muted/50 scroll-mt-24 py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
-            <div class="mb-12 flex items-center gap-4">
-                <div class="bg-primary/10 text-primary flex h-14 w-14 items-center justify-center rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7"
-                        ><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                        ></path></svg
-                    >
-                </div>
-                <div>
-                    <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Nordic Walking</h2>
-                    <p class="text-muted-foreground">Zajęcia grupowe i indywidualne z certyfikowanym instruktorem</p>
-                </div>
-            </div>
-
             <div class="mb-16 grid gap-12 lg:grid-cols-2">
                 <div>
-                    <p class="text-muted-foreground mb-6 text-lg leading-relaxed">Nordic walking to najlepsza aktywność fizyczna na świecie! To niepozorne, aktywne chodzenie z kijami ma same zalety:</p>
-                    <ul class="grid grid-cols-2 gap-3">
-                        {
-                            [
-                                "zmniejsza obciążenie stawów o 30%",
-                                "wspomaga układ odpornościowy",
-                                "wspomaga układ krążenia i oddechowy",
-                                "zmniejsza ryzyko osteoporozy",
-                                "wzmacnia mięśnie",
-                                "redukuje stres i poprawia nastrój",
-                                "wspomaga proces odchudzania",
-                                "zmniejsza ryzyko cukrzycy i nowotworów",
-                                "wspomaga pracę układu hormonalnego"
-                            ].map((item) => (
-                                <li class="flex items-start gap-2">
-                                    <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-muted-foreground text-sm">{item}</span>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    <div class="mb-7 space-y-2 sm:space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
+                                <IconPersonHiking class="size-7" />
+                            </div>
+                            <div>
+                                <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Nordic Walking</h2>
+                                <p class="text-muted-foreground">Zajęcia grupowe i&nbsp;indywidualne z&nbsp;certyfikowanym instruktorem</p>
+                            </div>
+                        </div>
+
+                        <a
+                            href="#cennik-nordic-walking"
+                            class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95 md:hidden"
+                        >
+                            <IconDollarCircle class="size-5" />
+                            <span class="-mt-px px-1">Cennik</span>
+                        </a>
+                    </div>
+                    <div>
+                        <p class="text-muted-foreground mb-6 text-lg leading-relaxed">Nordic walking to najlepsza aktywność fizyczna na świecie! To niepozorne, aktywne chodzenie z kijami ma same zalety:</p>
+                        <ul class="grid grid-cols-2 gap-3">
+                            {
+                                [
+                                    "zmniejsza obciążenie stawów o\u00A030%",
+                                    "wspomaga układ odpornościowy",
+                                    "wspomaga układ krążenia i\u00A0oddechowy",
+                                    "zmniejsza ryzyko osteoporozy",
+                                    "zmniejsza ryzyko cukrzycy i\u00A0nowotworów",
+                                    "redukuje stres i\u00A0poprawia nastrój",
+                                    "wspomaga pracę układu hormonalnego",
+                                    "wspomaga proces odchudzania",
+                                    "wzmacnia mięśnie"
+                                ].map((item) => (
+                                    <li class="flex items-start gap-2">
+                                        <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                            </svg>
+                                        </span>
+                                        <span class="text-muted-foreground">{item}</span>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="bg-card border-border rounded-2xl border p-8">
+                <div class="bg-card border-border rounded-2xl border p-8 transition-shadow hover:shadow-sm">
                     <h3 class="text-foreground mb-6 font-serif text-xl font-semibold">Co zyskasz na zajęciach?</h3>
                     <ul class="space-y-4">
                         {
                             [
-                                "Opanujesz technikę aktywnego chodzenia z kijkami krok po kroku",
-                                "Nauczysz się angażować mięśnie górnej części ciała w optymalny sposób",
-                                "Dowiesz się, jak prawidłowo dobrać kijki do nordic walking",
-                                "Dotlenisz organizm i poprawisz zdrowie",
-                                "Wzmocnisz i rozciągniesz ciało",
-                                "Spędzisz czas aktywnie, w świetnej atmosferze!"
+                                "Dowiesz się, jak prawidłowo dobrać kijki",
+                                "Opanujesz technikę aktywnego chodzenia z\u00A0kijkami krok po kroku",
+                                "Nauczysz się angażować mięśnie górnej części ciała w\u00A0optymalny sposób",
+                                "Wzmocnisz i\u00A0rozciągniesz ciało",
+                                "Dotlenisz organizm i\u00A0poprawisz zdrowie",
+                                "Spędzisz czas aktywnie, w\u00A0świetnej atmosferze!"
                             ].map((item, i) => (
                                 <li class="flex items-start gap-4">
                                     <span class="bg-primary flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-sm font-medium text-white">{i + 1}</span>
@@ -366,7 +378,7 @@ const warsztatyPricing = [
             </div>
 
             <!-- Pricing Table -->
-            <div>
+            <div id="cennik-nordic-walking" class="scroll-mt-24">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Nordic Walking</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -397,20 +409,24 @@ const warsztatyPricing = [
     <!-- SECTION 3: Warsztaty i wyjazdy -->
     <section id="warsztaty-i-wyjazdy" class="scroll-mt-24 py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
-            <div class="mb-12 flex items-center gap-4">
-                <div class="bg-primary/10 text-primary flex h-14 w-14 items-center justify-center rounded-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7"
-                        ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-                        ></path></svg
-                    >
+            <div class="xs:space-y-4 mb-7 space-y-2">
+                <div class="flex items-center gap-4">
+                    <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
+                        <IconGroup class="size-7" />
+                    </div>
+                    <div>
+                        <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Warsztaty i wyjazdy</h2>
+                        <p class="text-muted-foreground">Edukacja żywieniowa i&nbsp;aktywny wypoczynek</p>
+                    </div>
                 </div>
-                <div>
-                    <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Warsztaty i wyjazdy</h2>
-                    <p class="text-muted-foreground">Edukacja żywieniowa i aktywny wypoczynek</p>
-                </div>
+
+                <a
+                    href="#cennik-warsztaty-i-wyjazdy"
+                    class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95 md:hidden"
+                >
+                    <IconDollarCircle class="size-5" />
+                    <span class="-mt-px px-1">Cennik</span>
+                </a>
             </div>
 
             <div class="mb-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -449,7 +465,7 @@ const warsztatyPricing = [
             </div>
 
             <!-- Pricing Table -->
-            <div>
+            <div id="cennik-warsztaty-i-wyjazdy" class="scroll-mt-24">
                 <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Warsztaty</h3>
                 <div class="overflow-x-auto">
                     <table class="w-full">
@@ -486,5 +502,6 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <PreparationGuideSidebar />
+    <PreparationGuideDrawer slot="overlay" />
+    <PreparationGuideSidebar slot="overlay" />
 </BaseLayout>

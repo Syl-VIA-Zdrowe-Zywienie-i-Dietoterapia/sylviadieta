@@ -6,7 +6,7 @@ interface Props {
 const { formId } = Astro.props;
 ---
 
-<div data-form-error-root data-form-id={formId} class="hidden" aria-hidden="true">
+<div data-form-error data-form-id={formId} class="hidden" aria-hidden="true">
     <template data-field-error-template>
         <p data-field-error class="text-warning mt-1 hidden text-sm"></p>
     </template>
@@ -43,32 +43,18 @@ const { formId } = Astro.props;
         if (existingErrorElement) return existingErrorElement;
 
         const clonedErrorElement = template.content.firstElementChild?.cloneNode(true) as HTMLElement | null;
-        if (!clonedErrorElement) throw new Error("[FormInlineErrors] Failed to clone error element from template.");
+        if (!clonedErrorElement) throw new Error("[FormInlineErrors.astro] Failed to clone error element from template.");
 
         clonedErrorElement.id = `${field.id}-error`;
         field.parentElement?.insertAdjacentElement("afterend", clonedErrorElement);
         return clonedErrorElement;
     }
 
-    function getFormErrorElements(root: HTMLElement): { form: HTMLFormElement; template: HTMLTemplateElement } | null {
-        const formId = root.dataset.formId;
-        if (!formId) {
-            console.warn("[FormInlineErrors] Missing data-form-id attribute.");
-            return null;
-        }
-        const form = document.getElementById(formId) as HTMLFormElement | null;
-        const template = root.querySelector<HTMLTemplateElement>("[data-field-error-template]");
+    const formErrors = document.querySelectorAll<HTMLElement>("[data-form-error]");
 
-        if (!form || !template) return null;
-        return { form, template };
-    }
-
-    const formErrorRoots = document.querySelectorAll<HTMLElement>("[data-form-error-root]");
-
-    formErrorRoots.forEach((root) => {
-        const formErrorElements = getFormErrorElements(root);
-        if (!formErrorElements) return;
-        const { form, template } = formErrorElements;
+    formErrors.forEach((error) => {
+        const form = document.getElementById(error.dataset.formId!) as HTMLFormElement;
+        const template = error.querySelector<HTMLTemplateElement>("[data-field-error-template]")!;
 
         const fields = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input:not([type='hidden']):not([type='submit']):not([type='button']):not([type='reset']), textarea")];
         if (fields.length === 0) return;
@@ -85,14 +71,10 @@ const { formId } = Astro.props;
 
         function hideFieldError(field: HTMLInputElement | HTMLTextAreaElement) {
             const errorElement = findFieldErrorElement(field);
-            if (!errorElement) {
-                field.removeAttribute("aria-invalid");
-                field.removeAttribute("aria-describedby");
-                return;
+            if (errorElement) {
+                errorElement.textContent = "";
+                errorElement.classList.add("hidden");
             }
-
-            errorElement.textContent = "";
-            errorElement.classList.add("hidden");
             field.removeAttribute("aria-invalid");
             field.removeAttribute("aria-describedby");
         }

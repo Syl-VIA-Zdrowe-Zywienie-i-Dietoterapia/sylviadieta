@@ -1,0 +1,156 @@
+---
+import Content from "./Content.astro";
+
+import XMark from "@icons/x-mark.svg";
+---
+
+<aside
+    id="sidebar"
+    class="border-border bg-background ease-drawer fixed top-0 right-0 bottom-0 z-40 hidden h-full w-120 translate-x-full overflow-y-auto border-l shadow-xl transition-all duration-300 [scrollbar-width:none] md:block md:data-open:translate-x-0 [&::-webkit-scrollbar]:hidden"
+>
+    <button
+        id="sidebar-close"
+        class="text-muted-foreground hover:text-foreground focus-visible:ring-primary absolute top-4 right-4 cursor-pointer rounded-lg p-2 transition-colors focus-visible:ring-2 focus-visible:outline-none"
+        aria-label="Zamknij"
+    >
+        <XMark class="size-5" />
+    </button>
+
+    <Content class="px-8 py-6" />
+</aside>
+
+<script>
+    const sidebar = document.getElementById("sidebar")!;
+    const closeButton = document.getElementById("sidebar-close")!;
+    const toggle = document.getElementById("preparation-guide-toggle")!;
+    const header = document.querySelector("header")!;
+    const mainContent = document.querySelector("main")!;
+    const footer = document.querySelector("footer")!;
+    const topLevelContainers = [header, mainContent, footer];
+
+    const SIDEBAR_WIDTH = 480; // w-120 = 480px
+    const CONTENT_MAX_WIDTH = 1152; // w-6xl = 1152px [tailwind]
+    const CONTENT_MIN_WIDTH = 768; // md breakpoint = 768px [tailwind]
+
+    const SIDEBAR_OPEN_CLASS = "sidebar-open";
+    const SIDEBAR_CLOSED_CLASS = "sidebar-closed";
+    const SIDEBAR_TRANSITIONING_CLASS = "sidebar-transitioning";
+
+    function calculateLayoutShift() {
+        const viewportWidth = document.documentElement.clientWidth;
+
+        // if the viewport is too small to fit both content and sidebar
+        // let the sidebar overlay the content without shrinking it
+        if (viewportWidth < CONTENT_MIN_WIDTH + SIDEBAR_WIDTH) return viewportWidth;
+
+        const contentWidth = Math.min(CONTENT_MAX_WIDTH, viewportWidth);
+        const contentMargin = (viewportWidth - contentWidth) / 2;
+        const sidebarOverlap = Math.max(0, SIDEBAR_WIDTH - contentMargin);
+
+        let widthShrink = sidebarOverlap * 2 >= SIDEBAR_WIDTH ? SIDEBAR_WIDTH : sidebarOverlap * 2;
+
+        return viewportWidth - widthShrink;
+    }
+
+    function isSidebarOpen() {
+        return sidebar.hasAttribute("data-open");
+    }
+
+    // add transitions to top-level containers for layout changes caused by the sidebar
+    // opening/closing to be animated alongside the sidebar, bun only when the sidebar
+    // itself is transitioning, to prevent conflicts with properties of other transitions
+    // on these containers (e.g. header hiding on scroll)
+    function toggleSidebarTransition() {
+        const classToAdd = isSidebarOpen() ? SIDEBAR_OPEN_CLASS : SIDEBAR_CLOSED_CLASS;
+        const classToRemove = isSidebarOpen() ? SIDEBAR_CLOSED_CLASS : SIDEBAR_OPEN_CLASS;
+        topLevelContainers.forEach((container) => {
+            (container as HTMLElement).classList.add(SIDEBAR_TRANSITIONING_CLASS);
+            (container as HTMLElement).classList.add(classToAdd);
+            (container as HTMLElement).classList.remove(classToRemove);
+            (container as HTMLElement).addEventListener(
+                "transitionend",
+                () => {
+                    (container as HTMLElement).classList.remove(SIDEBAR_TRANSITIONING_CLASS);
+                },
+                { once: true }
+            );
+        });
+    }
+
+    function updateHorizontalSidebarPosition() {
+        const mainWidth = calculateLayoutShift();
+        mainContent.style.width = `${mainWidth}px`;
+        toggleSidebarTransition();
+    }
+
+    function openSidebar() {
+        sidebar.setAttribute("data-open", "");
+        toggle.setAttribute("aria-expanded", "true");
+        requestAnimationFrame(updateHorizontalSidebarPosition);
+    }
+
+    function closeSidebar() {
+        sidebar.removeAttribute("data-open");
+        toggle.setAttribute("aria-expanded", "false");
+        mainContent.style.width = "";
+        toggleSidebarTransition();
+    }
+
+    // horizontal
+    toggle.addEventListener("click", () => (isSidebarOpen() ? closeSidebar() : openSidebar()));
+    closeButton.addEventListener("click", closeSidebar);
+    document.addEventListener("click", (event) => {
+        if (!isSidebarOpen()) return;
+        if (sidebar.contains(event.target as Node) || toggle.contains(event.target as Node)) return;
+        closeSidebar();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (!isSidebarOpen()) return;
+        if (event.key === "Escape") closeSidebar();
+    });
+
+    let resizeTimeout: number;
+    window.addEventListener("resize", () => {
+        if (!isSidebarOpen()) return;
+        clearTimeout(resizeTimeout);
+        // disable transitions during resize to prevent animation conflicts
+        sidebar.style.transition = "none";
+        mainContent.style.transition = "none";
+        updateHorizontalSidebarPosition();
+        // re-enable transitions after resize settles
+        resizeTimeout = window.setTimeout(() => {
+            sidebar.style.transition = "";
+            mainContent.style.transition = "";
+        }, 100);
+    });
+
+    // vertical position of the sidebar is updated only when header's visibility changes
+    // and initially on page load, to prevent it from opening from an incorrect position
+    function updateVerticalSidebarPosition() {
+        const isHeaderHidden = header.getAttribute("data-hidden") !== null;
+        const sidebarTopOffset = isHeaderHidden ? 0 : header.offsetHeight;
+        sidebar.style.top = `${sidebarTopOffset}px`;
+        sidebar.style.height = `calc(100vh - ${sidebarTopOffset}px)`;
+    }
+
+    new MutationObserver(() => {
+        updateVerticalSidebarPosition();
+    }).observe(header, { attributes: true, attributeFilter: ["data-hidden"] });
+
+    sidebar.style.transition = "none";
+    updateVerticalSidebarPosition();
+    sidebar.style.transition = "";
+
+    // close without transition when crossing breakpoint between
+    // desktop and mobile views to prevent weird transition bugs
+    let wasDesktop = window.innerWidth >= 768;
+    window.addEventListener("resize", () => {
+        const isDesktop = window.innerWidth >= 768;
+        if (wasDesktop !== isDesktop && isSidebarOpen()) {
+            sidebar.style.transition = "none";
+            closeSidebar();
+            sidebar.style.transition = "";
+        }
+        wasDesktop = isDesktop;
+    });
+</script>

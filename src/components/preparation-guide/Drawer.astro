@@ -1,0 +1,106 @@
+---
+import Content from "./Content.astro";
+---
+
+<div id="drawer-overlay" class="pointer-events-none fixed inset-0 z-30 bg-black/20 opacity-0 transition-opacity duration-300 data-open:pointer-events-auto data-open:opacity-100 md:hidden"></div>
+
+<aside
+    id="drawer"
+    class="border-border bg-background fixed right-0 bottom-0 left-0 z-40 flex max-h-[85vh] translate-y-full touch-none flex-col items-center overflow-y-auto rounded-t-2xl border-t shadow-xl transition-transform duration-300 data-open:translate-y-0 md:hidden"
+>
+    <div class="bg-muted-foreground/40 mt-3 h-1.5 w-12 rounded-full">&nbsp;</div>
+    <Content class="p-6" />
+</aside>
+
+<script>
+    const overlay = document.getElementById("drawer-overlay")!;
+    const drawer = document.getElementById("drawer")!;
+    const toggle = document.getElementById("preparation-guide-toggle")!;
+
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
+
+    function openDrawer() {
+        overlay.setAttribute("data-open", "");
+        drawer.setAttribute("data-open", "");
+        if (isMobile()) document.body.style.overflow = "hidden";
+        toggle.setAttribute("aria-expanded", "true");
+    }
+
+    function closeDrawer() {
+        overlay.removeAttribute("data-open");
+        drawer.removeAttribute("data-open");
+        if (isMobile()) document.body.style.overflow = "";
+        toggle.setAttribute("aria-expanded", "false");
+    }
+
+    function isDrawerOpen() {
+        return drawer.hasAttribute("data-open");
+    }
+
+    toggle.addEventListener("click", () => (isDrawerOpen() ? closeDrawer() : openDrawer()));
+    overlay.addEventListener("click", closeDrawer);
+    document.addEventListener("click", (event) => {
+        if (!isDrawerOpen()) return;
+        if (drawer.contains(event.target as Node) || toggle.contains(event.target as Node)) return;
+        closeDrawer();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (!isDrawerOpen()) return;
+        if (event.key === "Escape") closeDrawer();
+    });
+
+    // drag-to-dismiss
+    let touchStartY = 0;
+    let touchCurrentY = 0;
+    let touchStartTime = 0;
+    let isDragging = false;
+    let drawerHeight = 0;
+    const VELOCITY_THRESHOLD = 0.4;
+
+    drawer?.addEventListener(
+        "touchstart",
+        (event) => {
+            touchStartY = event.touches[0].clientY;
+            touchCurrentY = touchStartY;
+            touchStartTime = Date.now();
+            isDragging = true;
+            drawerHeight = drawer.getBoundingClientRect().height || window.innerHeight * 0.85;
+            drawer.style.transition = "none";
+        },
+        { passive: true }
+    );
+
+    drawer?.addEventListener(
+        "touchmove",
+        (event) => {
+            if (!isDragging) return;
+            touchCurrentY = event.touches[0].clientY;
+            const deltaY = touchCurrentY - touchStartY;
+            const isScrolledToTop = drawer.scrollTop <= 0;
+
+            if (isDrawerOpen()) {
+                if (deltaY > 0) drawer.style.transform = `translateY(${Math.max(0, deltaY)}px)`;
+            } else {
+                if (deltaY < 0 && isScrolledToTop) drawer.style.transform = `translateY(${Math.min(drawerHeight, drawerHeight + deltaY)}px)`;
+            }
+        },
+        { passive: true }
+    );
+
+    drawer?.addEventListener("touchend", () => {
+        if (!isDragging) return;
+        isDragging = false;
+        drawer.style.transition = "";
+        drawer.style.transform = "";
+
+        const deltaY = touchCurrentY - touchStartY;
+        const velocity = Math.abs(deltaY) / Math.max(Date.now() - touchStartTime, 1);
+        const visiblePercent = isDrawerOpen() ? 100 - (Math.abs(deltaY) / drawerHeight) * 100 : (Math.abs(deltaY) / drawerHeight) * 100;
+        const isScrolledToTop = drawer.scrollTop <= 0;
+
+        if (isDrawerOpen() && (visiblePercent < 50 || (deltaY > 0 && velocity > VELOCITY_THRESHOLD))) closeDrawer();
+        else if (!isDrawerOpen() && ((visiblePercent > 50 && isScrolledToTop) || (velocity > VELOCITY_THRESHOLD && isScrolledToTop))) openDrawer();
+    });
+</script>

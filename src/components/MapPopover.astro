@@ -1,5 +1,6 @@
 ---
 interface Props {
+    controlsGroupId: string;
     inputSelector?: string;
     triggerSelector?: string;
     srcAttribute?: string;
@@ -8,19 +9,19 @@ interface Props {
     popoverClass?: string;
 }
 
-const { inputSelector = "input[name='map-location']", triggerSelector = "[data-map-icon]", srcAttribute = "data-map-src", placement = "left", popoverPadding = 16, popoverClass = "" } = Astro.props;
+const { controlsGroupId, inputSelector = "input[name='map-location']", triggerSelector = "[data-map-icon]", srcAttribute = "data-map-src", placement = "left", popoverPadding = 16, popoverClass = "" } = Astro.props;
 ---
 
 <div
-    data-map-popover-root
-    data-input-selector={inputSelector}
-    data-trigger-selector={triggerSelector}
+    data-map-popover
+    data-input-selector=`#${controlsGroupId} ${inputSelector}`
+    data-trigger-selector=`#${controlsGroupId} ${triggerSelector}`
     data-src-attribute={srcAttribute}
     data-placement={placement}
     data-popover-padding={String(popoverPadding)}
-    class={`invisible fixed z-50 h-2/5 max-h-120 min-h-90 max-w-lg scale-95 rounded-2xl opacity-0 shadow-xl transition duration-200 ease-out will-change-[transform,scale,opacity] ${popoverClass}`}
+    class={`invisible fixed z-50 h-2/5 max-h-120 min-h-90 max-w-lg scale-95 rounded-2xl opacity-0 transition duration-200 ease-out will-change-[transform,scale,opacity] ${popoverClass}`}
 >
-    <div class="border-border size-full overflow-hidden rounded-2xl border">
+    <div class="border-border size-full overflow-hidden rounded-2xl border shadow-xl">
         <iframe data-map-popover-iframe class="size-full border-0" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa lokalizacji gabinetu" src="" loading="eager"></iframe>
     </div>
     <div data-map-popover-arrow aria-hidden="true" class="bg-card border-border absolute size-5 border [clip-path:polygon(0_0,100%_0,100%_100%)]"></div>
@@ -29,28 +30,17 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
 <script>
     import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
 
-    function getMapPopoverElements(root: HTMLElement) {
-        const popoverIframe = root.querySelector<HTMLIFrameElement>("[data-map-popover-iframe]");
-        const popoverArrow = root.querySelector<HTMLElement>("[data-map-popover-arrow]");
+    const mapPopovers = document.querySelectorAll<HTMLElement>("[data-map-popover]");
 
-        if (!popoverIframe || !popoverArrow) return null;
+    mapPopovers.forEach((popover) => {
+        const popoverIframe = popover.querySelector<HTMLIFrameElement>("[data-map-popover-iframe]")!;
+        const popoverArrow = popover.querySelector<HTMLElement>("[data-map-popover-arrow]")!;
 
-        return { popoverIframe, popoverArrow };
-    }
-
-    const mapPopoverRoots = document.querySelectorAll<HTMLElement>("[data-map-popover-root]");
-
-    mapPopoverRoots.forEach((root) => {
-        const inputSelector = root.dataset.inputSelector || "input[name='map-location']";
-        const triggerSelector = root.dataset.triggerSelector || "[data-map-icon]";
-        const srcAttribute = root.dataset.srcAttribute || "data-map-src";
-        const preferredPlacement = (root.dataset.placement as "top" | "right" | "bottom" | "left") || "left";
-        const popoverPadding = Number(root.dataset.popoverPadding || "16");
-
-        const popover = root;
-        const popoverElements = getMapPopoverElements(popover);
-        if (!popoverElements) return;
-        const { popoverIframe, popoverArrow } = popoverElements;
+        const inputSelector = popover.dataset.inputSelector!;
+        const triggerSelector = popover.dataset.triggerSelector!;
+        const srcAttribute = popover.dataset.srcAttribute!;
+        const preferredPlacement = popover.dataset.placement as "top" | "right" | "bottom" | "left";
+        const popoverPadding = Number(popover.dataset.popoverPadding);
 
         // popover padding is how much space to maintain between the popover and the edges of the viewport when shifting
         // width is set to viewport width minus double the padding to ensure the popover never exceeds the viewport when shifted
@@ -109,9 +99,8 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
         }
 
         async function openMap(input: HTMLInputElement) {
-            const src = input.getAttribute(srcAttribute);
-            if (!src) return;
-            const trigger = (input.closest("label")?.querySelector(triggerSelector) as HTMLElement) || input;
+            const src = input.getAttribute(srcAttribute)!;
+            const trigger = (input.closest("label")!.querySelector(triggerSelector) as HTMLElement) || input;
 
             if (popoverIframe.dataset.loadedSrc !== src) {
                 popoverIframe.src = src;
@@ -151,13 +140,14 @@ const { inputSelector = "input[name='map-location']", triggerSelector = "[data-m
             });
         });
 
-        document.addEventListener("click", (element) => {
+        document.addEventListener("click", (event) => {
             if (!lastChecked) return;
-            if (popover.contains(element.target as Node) || [...locationRadios].some((radio) => radio.closest("label")?.contains(element.target as Node))) return;
+            if (popover.contains(event.target as Node) || [...locationRadios].some((radio) => radio.closest("label")?.contains(event.target as Node))) return;
             closeMap();
         });
 
         document.addEventListener("keydown", (event) => {
+            if (!lastChecked) return;
             if (event.key === "Escape") closeMap();
         });
     });

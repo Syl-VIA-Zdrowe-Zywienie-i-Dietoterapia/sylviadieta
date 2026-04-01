@@ -1,22 +1,22 @@
 ---
-import IconFacebook from "@icons/facebook.svg";
-import IconInstagram from "@icons/instagram.svg";
-
 import IconBank from "@icons/bank.svg";
 import IconEnvelope from "@icons/envelope.svg";
 import IconExclamationCircle from "@icons/exclamation-circle.svg";
+import IconFacebook from "@icons/facebook.svg";
 import IconHandTap from "@icons/hand-tap.svg";
+import IconInstagram from "@icons/instagram.svg";
 import IconLocationPin from "@icons/location-pin.svg";
 import IconPhone from "@icons/phone.svg";
 import IconTick from "@icons/tick.svg";
 
 import FormInlineErrors from "@components/FormInlineErrors.astro";
 import MapPopover from "@components/MapPopover.astro";
+
 import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout subtitle="Kontakt">
-    <section class="top-level-container bg-muted/50 pt-28 pb-14 md:pt-38 md:pb-24">
+    <section class="bg-muted/50 pt-28 pb-14 md:pt-38 md:pb-24">
         <div class="mx-auto max-w-6xl px-6">
             <div class="max-w-3xl">
                 <p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">Kontakt</p>
@@ -26,10 +26,56 @@ import BaseLayout from "@layouts/BaseLayout.astro";
         </div>
     </section>
 
-    <section class="top-level-container py-12 md:py-24">
+    <section class="py-12 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
                 <div class="space-y-8">
+                    <div>
+                        <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Gabinety</h2>
+                        <fieldset id="contact-map-locations" class="space-y-6">
+                            <legend class="sr-only">Wybierz gabinet, aby zobaczyć mapę</legend>
+
+                            <div class="relative flex items-start gap-4">
+                                <label class="peer">
+                                    <input
+                                        type="radio"
+                                        name="map-location"
+                                        value="marki"
+                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                        class="peer sr-only"
+                                    />
+                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
+                                        <IconLocationPin class="size-7" />
+                                    </div>
+                                </label>
+                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
+                                    <h3 class="text-foreground font-medium transition-colors">Marki</h3>
+                                    <p class="text-muted-foreground text-[15px]">ul. Słoneczna 3c/110, 05-270 Marki</p>
+                                </div>
+                                <IconHandTap aria-hidden="true" class="fill-foreground absolute -bottom-2 left-7.5 size-5 [&_path:first-child]:fill-white [&_path:first-child]:opacity-100" />
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <label class="peer">
+                                    <input
+                                        type="radio"
+                                        name="map-location"
+                                        value="zabki"
+                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                        class="peer sr-only"
+                                    />
+                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
+                                        <IconLocationPin class="size-7" />
+                                    </div>
+                                </label>
+                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
+                                    <h3 class="text-foreground font-medium transition-colors">Ząbki – Blossom Pilates Studio</h3>
+                                    <p class="text-muted-foreground text-[15px]">ul. Orla 4/55, 05-091 Ząbki</p>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
                     <div>
                         <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Dane kontaktowe</h2>
                         <div class="space-y-6">
@@ -80,52 +126,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-foreground mb-6 font-serif text-2xl font-semibold">Gabinety</h2>
-                        <fieldset id="contact-map-locations" class="space-y-6">
-                            <legend class="sr-only">Wybierz gabinet, aby zobaczyć mapę</legend>
-
-                            <div class="relative flex items-start gap-4">
-                                <label class="peer">
-                                    <input
-                                        type="radio"
-                                        name="map-location"
-                                        value="marki"
-                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Poradnia%20Dietetyczna%2C%20Syl.VIA-Sylwia%20Majewska&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-                                        class="peer sr-only"
-                                    />
-                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
-                                        <IconLocationPin class="size-7" />
-                                    </div>
-                                </label>
-                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
-                                    <h3 class="text-foreground font-medium transition-colors">Marki</h3>
-                                    <p class="text-muted-foreground text-[15px]">ul. Słoneczna 3c/110, 05-270 Marki</p>
-                                </div>
-                                <IconHandTap aria-hidden="true" class="fill-foreground [&_path:last-child]:fill-foreground absolute -bottom-2 left-7.5 size-5 [&_path:first-child]:fill-white [&_path:first-child]:opacity-100" />
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <label class="peer">
-                                    <input
-                                        type="radio"
-                                        name="map-location"
-                                        value="zabki"
-                                        data-map-src="https://maps.google.com/maps?width=600&height=400&hl=en&q=Blossom%20Pilates%20Studio%20Z%C4%85bki&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-                                        class="peer sr-only"
-                                    />
-                                    <div data-map-icon class="bg-muted fill-primary peer-checked:bg-primary hover:bg-primary cursor-pointer rounded-lg p-2.5 transition peer-checked:fill-white hover:fill-white active:scale-95">
-                                        <IconLocationPin class="size-7" />
-                                    </div>
-                                </label>
-                                <div class="peer-hover:[&>h3]:text-primary peer-has-checked:[&>h3]:text-primary">
-                                    <h3 class="text-foreground font-medium transition-colors">Ząbki – Blossom Pilates Studio</h3>
-                                    <p class="text-muted-foreground text-[15px]">ul. Orla 4/55, 05-091 Ząbki</p>
-                                </div>
-                            </div>
-                        </fieldset>
                     </div>
 
                     <div>
@@ -251,7 +251,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
     </section>
 
     <FormInlineErrors formId="contact-form" />
-    <MapPopover inputSelector="#contact-map-locations input[name='map-location']" />
+    <MapPopover controlsGroupId="contact-map-locations" />
 </BaseLayout>
 
 <script>

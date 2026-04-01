@@ -1,0 +1,2 @@
+- fix bank account no. copy button repeated clicks
+- fix animation durations

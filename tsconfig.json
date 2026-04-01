@@ -11,7 +11,7 @@
             "@logos/*": ["./src/assets/logos/*"],
             "@components/*": ["./src/components/*"],
             "@layouts/*": ["./src/layouts/*"],
-            "@utils/*": ["./utils/*"]
+            "@utils/*": ["./src/utils/*"]
         }
     }
 }

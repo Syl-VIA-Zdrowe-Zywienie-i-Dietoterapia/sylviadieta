@@ -10,18 +10,18 @@ interface Props {
 const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", triggerTabIndex = 0, triggerClass = "", tooltipClass = "" } = Astro.props;
 ---
 
-<span data-tooltip-root data-tooltip-placement={placement} class="relative inline-block">
+<span data-tooltip data-tooltip-placement={placement} class="relative inline-block">
     <span data-tooltip-trigger aria-describedby={tooltipId} class={triggerClass} tabindex={triggerTabIndex}>
         <slot name="trigger" />
     </span>
 
     <span
         id={tooltipId}
-        data-tooltip
+        data-tooltip-box
         role="tooltip"
-        class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition-[opacity,scale] duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}
+        class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}
     >
-        <slot name="tooltip" />
+        <slot name="content" />
         <span data-tooltip-arrow aria-hidden="true" class="bg-muted-foreground absolute size-4 [clip-path:polygon(0_0,100%_0,100%_100%)]"></span>
     </span>
 </span>
@@ -29,24 +29,14 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
 <script>
     import { arrow, autoUpdate, computePosition, flip, offset, shift } from "@floating-ui/dom";
 
-    function getTooltipElements(root: HTMLElement) {
-        const tooltipTrigger = root.querySelector<HTMLElement>("[data-tooltip-trigger]");
-        const tooltip = root.querySelector<HTMLElement>("[data-tooltip]");
-        const tooltipArrow = root.querySelector<HTMLElement>("[data-tooltip-arrow]");
+    const tooltips = document.querySelectorAll<HTMLElement>("[data-tooltip]");
 
-        if (!tooltipTrigger || !tooltip || !tooltipArrow) return null;
+    tooltips.forEach((tooltip) => {
+        const tooltipTrigger = tooltip.querySelector<HTMLElement>("[data-tooltip-trigger]")!;
+        const tooltipBox = tooltip.querySelector<HTMLElement>("[data-tooltip-box]")!;
+        const tooltipArrow = tooltip.querySelector<HTMLElement>("[data-tooltip-arrow]")!;
 
-        return { tooltipTrigger, tooltip, tooltipArrow };
-    }
-
-    const tooltipRoots = document.querySelectorAll<HTMLElement>("[data-tooltip-root]");
-
-    tooltipRoots.forEach((root) => {
-        const preferredPlacement = (root.dataset.tooltipPlacement as "top" | "right" | "bottom" | "left") || "top";
-
-        const tooltipElements = getTooltipElements(root);
-        if (!tooltipElements) return;
-        const { tooltipTrigger, tooltip, tooltipArrow } = tooltipElements;
+        const preferredPlacement = (tooltip.dataset.tooltipPlacement as "top" | "right" | "bottom" | "left") || "top";
 
         let showTimeout: ReturnType<typeof setTimeout> | null = null;
         let hideTimeout: ReturnType<typeof setTimeout> | null = null;
@@ -54,7 +44,7 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
         let stopAutoUpdate: (() => void) | null = null;
 
         async function updatePosition() {
-            const { x, y, placement, middlewareData } = await computePosition(tooltipTrigger, tooltip, {
+            const { x, y, placement, middlewareData } = await computePosition(tooltipTrigger, tooltipBox, {
                 placement: preferredPlacement,
                 strategy: "fixed",
                 middleware: [offset(8), flip(), shift({ padding: 8 }), arrow({ element: tooltipArrow })]
@@ -81,7 +71,7 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
                 bottom: 315
             };
 
-            Object.assign(tooltip.style, {
+            Object.assign(tooltipBox.style, {
                 left: `${x}px`,
                 top: `${y}px`,
                 transformOrigin: tooltipTransformOrigin[placement]
@@ -107,10 +97,10 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
             showTimeout = setTimeout(async () => {
                 stopAutoUpdate?.();
                 await updatePosition();
-                stopAutoUpdate = autoUpdate(tooltipTrigger, tooltip, updatePosition);
-                tooltip.classList.remove("invisible");
+                stopAutoUpdate = autoUpdate(tooltipTrigger, tooltipBox, updatePosition);
+                tooltipBox.classList.remove("invisible");
                 requestAnimationFrame(() => {
-                    tooltip.classList.remove("opacity-0", "scale-95");
+                    tooltipBox.classList.remove("opacity-0", "scale-95");
                 });
             }, delay);
         }
@@ -122,12 +112,12 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
             }
             hideTimeout = setTimeout(() => {
                 isHiding = true;
-                tooltip.classList.add("opacity-0", "scale-95");
-                tooltip.addEventListener(
+                tooltipBox.classList.add("opacity-0", "scale-95");
+                tooltipBox.addEventListener(
                     "transitionend",
                     () => {
                         if (isHiding) {
-                            tooltip.classList.add("invisible");
+                            tooltipBox.classList.add("invisible");
                             stopAutoUpdate?.();
                             stopAutoUpdate = null;
                         }
@@ -143,10 +133,10 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
         if (canHover) {
             tooltipTrigger.addEventListener("mouseenter", () => showTooltip(300));
             tooltipTrigger.addEventListener("mouseleave", () => hideTooltip(100));
-            tooltip.addEventListener("mouseenter", () => showTooltip());
-            tooltip.addEventListener("mouseleave", () => hideTooltip(100));
+            tooltipBox.addEventListener("mouseenter", () => showTooltip());
+            tooltipBox.addEventListener("mouseleave", () => hideTooltip(100));
         } else {
-            tooltip.addEventListener("pointerdown", () => {
+            tooltipBox.addEventListener("pointerdown", () => {
                 suppressNextBlur = true;
             });
         }
