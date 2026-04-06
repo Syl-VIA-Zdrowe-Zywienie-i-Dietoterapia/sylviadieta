@@ -109,11 +109,11 @@ const { class: wrapperClass = "" } = Astro.props;
     }
 </div>
 
-<dialog id="lightbox-modal" class="flex size-full max-h-screen max-w-screen items-center justify-center overflow-hidden bg-transparent">
+<dialog id="lightbox-modal" class="pointer-events-none fixed inset-0 z-50 flex size-full max-h-screen max-w-screen items-center justify-center opacity-0 transition duration-400 ease-out open:pointer-events-auto open:opacity-100">
     <div id="lightbox-content" class="group/content relative">
         <button
             type="button"
-            class="group/close keyboard-focusable absolute -top-3 -right-3 z-50 flex cursor-pointer rounded-full bg-white/80 p-1.5 text-black opacity-0 shadow-lg transition duration-200 ease-in group-data-visible/content:opacity-100 hover:scale-110 hover:bg-white"
+            class="group/close keyboard-focusable absolute -top-3 -right-3 z-50 flex cursor-pointer rounded-full bg-white/80 p-1.5 text-black opacity-0 shadow-lg transition group-data-visible/content:opacity-100 hover:scale-110 hover:bg-white"
             aria-label="Zamknij podgląd"
         >
             <IconXMark class="size-5 transition group-hover/close:scale-120" />
@@ -121,8 +121,6 @@ const { class: wrapperClass = "" } = Astro.props;
         <div id="lightbox-picture-container" class="opacity-0 group-data-visible/content:opacity-100"></div>
     </div>
 </dialog>
-
-<div id="lightbox-overlay" class="pointer-events-none fixed inset-0 z-100 bg-black/90 opacity-0 transition duration-400 ease-out data-open:opacity-100"></div>
 
 <script>
     import Swiper from "swiper";
@@ -142,10 +140,9 @@ const { class: wrapperClass = "" } = Astro.props;
         }
     });
 
-    const lightboxModal = document.getElementById("lightbox-modal") as HTMLDialogElement;
-    const lightboxContent = document.getElementById("lightbox-content")!;
+    const lightboxModal = document.getElementById("lightbox-modal")! as HTMLDialogElement;
+    const lightboxContent = lightboxModal.querySelector<HTMLElement>("#lightbox-content")!;
     const lightboxPictureContainer = lightboxModal.querySelector<HTMLElement>("#lightbox-picture-container")!;
-    const lightboxOverlay = document.getElementById("lightbox-overlay")!;
 
     let isAnimating = false;
 
@@ -202,7 +199,7 @@ const { class: wrapperClass = "" } = Astro.props;
             left: `${originalImageRect.left}px`,
             width: `${originalImageRect.width}px`,
             height: `${originalImageRect.height}px`,
-            zIndex: "101",
+            zIndex: "100",
             pointerEvents: "none"
         });
         document.body.appendChild(pictureClone);
@@ -222,9 +219,6 @@ const { class: wrapperClass = "" } = Astro.props;
             lightboxPictureContainer.appendChild(finalPicture);
 
             lightboxModal.showModal();
-            lightboxOverlay.setAttribute("data-open", "");
-            document.body.setAttribute("data-modal-open", "");
-
             animateCloneToPosition(pictureClone, { width, height, top, left });
 
             setTimeout(() => {
@@ -235,29 +229,15 @@ const { class: wrapperClass = "" } = Astro.props;
         };
     }
 
-    function closeLightboxModal(): void {
-        if (isAnimating) return;
-
-        lightboxModal.close();
-        lightboxOverlay.removeAttribute("data-open");
+    lightboxModal.addEventListener("close", () => {
         lightboxContent.removeAttribute("data-visible");
-        document.body.removeAttribute("data-modal-open");
-
-        isAnimating = true;
-        setTimeout(() => {
-            lightboxPictureContainer.innerHTML = "";
-            isAnimating = false;
-        }, LIGHTBOX_ANIMATION_DURATION);
-    }
+        lightboxPictureContainer.innerHTML = "";
+    });
 
     document.addEventListener("click", (event) => {
         if (!lightboxModal.open) return;
         if (lightboxPictureContainer.contains(event.target as Node)) return; // this handles the close button as well since it is outside the container
-        closeLightboxModal();
-    });
-    document.addEventListener("keydown", (event) => {
-        if (!lightboxModal.open) return;
-        if (event.key === "Escape") closeLightboxModal();
+        lightboxModal.close();
     });
 
     const tripButtons = document.querySelectorAll<HTMLButtonElement>("[data-trip]");
@@ -268,3 +248,14 @@ const { class: wrapperClass = "" } = Astro.props;
         });
     });
 </script>
+
+<style>
+    #lightbox-modal::backdrop {
+        background-color: transparent;
+        transition: background-color 300ms ease-out;
+    }
+
+    #lightbox-modal[open]::backdrop {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+</style>
