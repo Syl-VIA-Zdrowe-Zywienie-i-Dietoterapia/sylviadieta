@@ -33,6 +33,10 @@
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
+.keyboard-focusable {
+    @apply focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
 /* account for scrollbar space to prevent layout shift whenever it is visible between pages */
 header.sidebar-closed > *,
 main.sidebar-closed > *,

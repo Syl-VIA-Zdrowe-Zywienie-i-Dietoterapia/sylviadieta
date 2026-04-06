@@ -100,7 +100,7 @@ const { controlsGroupId, inputSelector = "input[name='map-location']", triggerSe
 
         async function openMap(input: HTMLInputElement) {
             const src = input.getAttribute(srcAttribute)!;
-            const trigger = (input.closest("label")!.querySelector(triggerSelector) as HTMLElement) || input;
+            const trigger = input.closest("label")!.querySelector<HTMLElement>(triggerSelector) || input;
 
             if (popoverIframe.dataset.loadedSrc !== src) {
                 popoverIframe.src = src;

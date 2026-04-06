@@ -1,3 +1,4 @@
 - fix animation durations
+- fix mobile drawer not being scrollable
 - vibes-based paddings
 - flex-col with gap-[] vs space-y-[]

@@ -66,7 +66,7 @@ const workshopsAndTripsPricing = [
                     serviceCategories.map((serviceCategory) => (
                         <a
                             href={`#${serviceCategory.id}`}
-                            class="group bg-background border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-sm focus-visible:ring-2 focus-visible:outline-none active:scale-97"
+                            class="group keyboard-focusable bg-background border-border hover:border-primary/50 flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-sm active:scale-97"
                         >
                             <div class="bg-primary/10 group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white">
                                 <serviceCategory.icon class="size-6" />
@@ -100,14 +100,14 @@ const workshopsAndTripsPricing = [
                 <div class="flex gap-2">
                     <a
                         href="#cennik-psychodietetyka"
-                        class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95"
+                        class="text-muted-foreground hover:bg-primary bg-primary/10 border-border keyboard-focusable flex items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white active:scale-95"
                     >
                         <IconDollarCircle class="size-5" />
                         <span class="-mt-px px-1">Cennik</span>
                     </a>
                     <button
                         id="preparation-guide-toggle"
-                        class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit cursor-pointer items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95"
+                        class="text-muted-foreground hover:bg-primary bg-primary/10 border-border keyboard-focusable flex w-fit cursor-pointer items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white active:scale-95"
                         aria-expanded="false"
                         aria-controls="preparation-guide-sidebar"
                     >
@@ -332,7 +332,7 @@ const workshopsAndTripsPricing = [
 
                         <a
                             href="#cennik-nordic-walking"
-                            class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95 md:hidden"
+                            class="text-muted-foreground hover:bg-primary keyboard-focusable bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white active:scale-95 md:hidden"
                         >
                             <IconDollarCircle class="size-5" />
                             <span class="-mt-px px-1">Cennik</span>
@@ -442,7 +442,7 @@ const workshopsAndTripsPricing = [
 
                 <a
                     href="#cennik-warsztaty-i-wyjazdy"
-                    class="text-muted-foreground hover:bg-primary focus-visible:ring-primary bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white focus-visible:ring-2 focus-visible:outline-none active:scale-95 md:hidden"
+                    class="text-muted-foreground hover:bg-primary keyboard-focusable bg-primary/10 border-border flex w-fit items-center rounded-full border px-0.75 py-px text-sm font-medium shadow-xs transition hover:text-white active:scale-95 md:hidden"
                 >
                     <IconDollarCircle class="size-5" />
                     <span class="-mt-px px-1">Cennik</span>
