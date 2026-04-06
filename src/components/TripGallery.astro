@@ -1,0 +1,335 @@
+---
+import { Picture } from "astro:assets";
+
+import IconArchive from "@icons/archive.svg";
+
+import ImageTripFeatured from "@images/workshops-and-trips/trip-featured.jpg";
+import ImageTrip1 from "@images/workshops-and-trips/trip1.png";
+import ImageTrip2 from "@images/workshops-and-trips/trip2.png";
+import ImageTrip3 from "@images/workshops-and-trips/trip3.png";
+
+const featuredTrip = {
+    id: "wyróżniony-wyjazd-10-2025",
+    title: "Wyrózniony wyjazd | 10.2025",
+    image: ImageTripFeatured,
+    active: true
+};
+const badgeProps = featuredTrip.active
+    ? {
+          label: "Trwa rekrutacja",
+          badgeClass: "bg-success text-white",
+          dotClass: "bg-white",
+          ping: true
+      }
+    : {
+          label: "Wyjazd zakończony",
+          badgeClass: "bg-muted text-muted-foreground",
+          dotClass: "bg-muted-foreground",
+          ping: false
+      };
+
+const archivedTrips = [
+    // {
+    //     id: "przeszły-wyjazd-10-2025",
+    //     title: "Przeszły wyjazd | 10.2025",
+    //     image: tripFeatured
+    // },
+    {
+        id: "przeszły-wyjazd-04-2025",
+        title: "Przeszły wyjazd | 04.2025",
+        image: ImageTrip1
+    },
+    {
+        id: "przeszły-wyjazd-03-2025",
+        title: "Przeszły wyjazd | 03.2025",
+        image: ImageTrip2
+    },
+    {
+        id: "przeszły-wyjazd-12-2024",
+        title: "Przeszły wyjazd | 12.2024",
+        image: ImageTrip3
+    }
+];
+
+const { class: wrapperClass = "" } = Astro.props;
+---
+
+<div class:list={["space-y-8 md:space-y-12", wrapperClass]}>
+    <div class="relative mx-auto max-w-4xl px-4 md:px-6">
+        <div class:list={["absolute -top-3.5 left-10 z-10 rounded-full px-3.5 py-1.5 text-sm font-semibold shadow-lg", badgeProps.badgeClass]}>
+            <span class="flex items-center gap-2">
+                <span class="relative flex size-2">
+                    {badgeProps.ping && <span class="absolute size-full animate-ping rounded-full bg-white opacity-75" />}
+                    <span class:list={["size-full rounded-full", badgeProps.dotClass]}></span>
+                </span>
+                <span class="-mt-px">{badgeProps.label}</span>
+            </span>
+        </div>
+
+        <button
+            type="button"
+            class="focus-visible:ring-primary w-full cursor-zoom-in rounded-xl shadow-md transition hover:shadow-xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            data-trip
+            data-trip-id={featuredTrip.id}
+            data-trip-title={featuredTrip.title}
+            aria-label={`Powiększ obraz: ${featuredTrip.title}`}
+        >
+            <Picture src={featuredTrip.image} alt={featuredTrip.title} formats={["webp", "avif"]} class="w-full rounded-xl" />
+        </button>
+    </div>
+
+    {
+        archivedTrips.length > 0 && (
+            <div class="space-y-4 px-4 md:space-y-6">
+                <div class="text-muted-foreground flex items-center justify-center gap-3">
+                    <IconArchive class="size-5.5 md:size-6" />
+                    <h4 class="md:text-1.5xl -mt-0.5 font-serif text-xl font-semibold">Archiwum wyjazdów</h4>
+                </div>
+                <div class="swiper -mx-10 touch-pan-x overflow-hidden px-8 pb-6 md:mx-auto md:px-2" data-swiper>
+                    <div class="swiper-wrapper box-content flex">
+                        {archivedTrips.map((trip) => (
+                            <div class="swiper-slide shrink-0">
+                                <button type="button" class="xs:h-60 h-50 cursor-zoom-in sm:h-70 md:h-80 lg:h-90" data-trip data-trip-id={trip.id} data-trip-title={trip.title} aria-label={`Powiększ obraz: ${trip.title}`}>
+                                    <Picture src={trip.image} alt={trip.title} formats={["webp", "avif"]} class="h-full w-auto rounded-lg shadow-md transition hover:shadow-lg" />
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        )
+    }
+</div>
+
+<!-- Lightbox Modal -->
+<dialog id="trip-lightbox" class="m-0 h-screen max-h-screen w-screen max-w-none items-center justify-center overflow-hidden border-0 bg-black/0 p-0 opacity-0">
+    <div class="relative flex h-full w-full items-center justify-center p-4" id="trip-lightbox-content">
+        <div class="relative" id="trip-image-container">
+            <button
+                type="button"
+                class="absolute -top-3 -right-3 z-50 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-black shadow-lg transition hover:scale-110 hover:bg-white"
+                id="trip-lightbox-close"
+                onclick="closeTripLightbox()"
+                aria-label="Zamknij"
+            >
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <!-- Container for the cloned picture element -->
+            <div id="trip-lightbox-picture-container" class="opacity-0">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<!-- Animation overlay for FLIP effect -->
+<div id="trip-lightbox-overlay" class="pointer-events-none fixed inset-0 z-100 bg-black/0" style="height: 100vh; width: 100vw;"></div>
+
+<script>
+    import Swiper from "swiper";
+
+    const swiper = document.querySelector("[data-swiper]") as HTMLElement;
+    if (swiper) {
+        new Swiper(swiper, {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            grabCursor: true,
+            mousewheel: {
+                forceToAxis: true
+            },
+            breakpoints: {
+                768: {
+                    spaceBetween: 20
+                }
+            }
+        });
+    }
+
+    // Lightbox functionality
+    let activeClone: HTMLElement | null = null;
+    let isAnimating = false;
+
+    function openTripLightbox(originalPicture: HTMLPictureElement, alt: string): void {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const dialog = document.getElementById("trip-lightbox") as HTMLDialogElement;
+        const pictureContainer = document.getElementById("trip-lightbox-picture-container") as HTMLDivElement;
+        const closeBtn = document.getElementById("trip-lightbox-close") as HTMLButtonElement;
+        const overlay = document.getElementById("trip-lightbox-overlay") as HTMLDivElement;
+        const content = document.getElementById("trip-lightbox-content") as HTMLDivElement;
+        const imageContainer = document.getElementById("trip-image-container") as HTMLDivElement;
+
+        // Get the img element from the picture for positioning
+        const originalImg = originalPicture.querySelector("img") as HTMLImageElement;
+        const rect = originalImg.getBoundingClientRect();
+
+        // Clone the entire picture element (includes all source formats)
+        const pictureClone = originalPicture.cloneNode(true) as HTMLPictureElement;
+        const imgInClone = pictureClone.querySelector("img") as HTMLImageElement | null;
+
+        // Style the clone for animation
+        pictureClone.style.cssText = `
+            position: fixed;
+            top: ${rect.top}px;
+            left: ${rect.left}px;
+            width: ${rect.width}px;
+            height: ${rect.height}px;
+            z-index: 101;
+            border-radius: 12px;
+            pointer-events: none;
+            transition: none;
+        `;
+
+        if (imgInClone) {
+            imgInClone.style.cssText = `
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 12px;
+            `;
+            imgInClone.removeAttribute("loading");
+        }
+
+        document.body.appendChild(pictureClone);
+        activeClone = pictureClone;
+
+        // Calculate final position (centered)
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const maxWidth = Math.min(1200, viewportWidth * 0.9);
+        const maxHeight = viewportHeight * 0.9;
+
+        // Get natural image dimensions from the source image
+        const sourceImg = originalPicture.querySelector("img") as HTMLImageElement;
+        const imgSrc = sourceImg?.src || imgInClone?.src || "";
+
+        const tempImg = new Image();
+        tempImg.onload = () => {
+            const imgRatio = tempImg.naturalWidth / tempImg.naturalHeight;
+            const viewportRatio = maxWidth / maxHeight;
+
+            let finalWidth: number;
+            let finalHeight: number;
+            if (imgRatio > viewportRatio) {
+                // Image is wider than viewport ratio - constrain by width
+                finalWidth = maxWidth;
+                finalHeight = finalWidth / imgRatio;
+            } else {
+                // Image is taller - constrain by height
+                finalHeight = maxHeight;
+                finalWidth = finalHeight * imgRatio;
+            }
+
+            const finalTop = (viewportHeight - finalHeight) / 2;
+            const finalLeft = (viewportWidth - finalWidth) / 2;
+
+            // Setup the lightbox picture container with explicit dimensions
+            pictureContainer.innerHTML = "";
+            pictureContainer.style.cssText = `
+                width: ${finalWidth}px;
+                height: ${finalHeight}px;
+                opacity: 0;
+            `;
+
+            const finalPicture = originalPicture.cloneNode(true) as HTMLPictureElement;
+            finalPicture.style.cssText = `
+                width: 100%;
+                height: 100%;
+                display: block;
+            `;
+            const finalImg = finalPicture.querySelector("img") as HTMLImageElement | null;
+            if (finalImg) {
+                finalImg.style.cssText = `
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    border-radius: 12px;
+                `;
+                finalImg.removeAttribute("loading");
+            }
+            pictureContainer.appendChild(finalPicture);
+
+            dialog.showModal();
+            dialog.style.opacity = "1";
+            closeBtn.style.opacity = "0";
+            document.body.style.overflow = "hidden";
+
+            // oxlint-disable-next-line no-unused-expressions
+            pictureContainer.offsetHeight;
+
+            overlay.style.transition = "background-color 350ms ease-out";
+            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.92)";
+
+            // Animate the clone to match the final lightbox image size
+            requestAnimationFrame(() => {
+                pictureClone.style.transition = "all 400ms cubic-bezier(0.32, 0.72, 0, 1)";
+                pictureClone.style.top = `${finalTop}px`;
+                pictureClone.style.left = `${finalLeft}px`;
+                pictureClone.style.width = `${finalWidth}px`;
+                pictureClone.style.height = `${finalHeight}px`;
+            });
+
+            setTimeout(() => {
+                pictureContainer.style.opacity = "1";
+                closeBtn.style.opacity = "1";
+
+                pictureClone.remove();
+                activeClone = null;
+                isAnimating = false;
+            }, 400);
+        };
+        tempImg.src = imgSrc;
+
+        const handleContentClick = (e: Event) => {
+            if (e.target === content || e.target === imageContainer) {
+                closeTripLightbox();
+            }
+        };
+        content.addEventListener("click", handleContentClick);
+        (content as any)._closeHandler = handleContentClick;
+    }
+
+    function closeTripLightbox(): void {
+        if (isAnimating) return;
+
+        const dialog = document.getElementById("trip-lightbox") as HTMLDialogElement;
+        const pictureContainer = document.getElementById("trip-lightbox-picture-container") as HTMLDivElement;
+        const closeBtn = document.getElementById("trip-lightbox-close") as HTMLButtonElement;
+        const overlay = document.getElementById("trip-lightbox-overlay") as HTMLDivElement;
+        const content = document.getElementById("trip-lightbox-content") as HTMLDivElement;
+
+        if (content && (content as any)._closeHandler) {
+            content.removeEventListener("click", (content as any)._closeHandler);
+            delete (content as any)._closeHandler;
+        }
+
+        dialog.close();
+        pictureContainer.style.opacity = "0";
+        closeBtn.style.opacity = "0";
+        overlay.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        document.body.style.overflow = "";
+
+        // Clear the picture container after animation
+        setTimeout(() => {
+            pictureContainer.innerHTML = "";
+        }, 300);
+    }
+
+    // Close on escape key
+    document.addEventListener("keydown", (event) => {
+        const dialog = document.getElementById("trip-lightbox") as HTMLDialogElement;
+        if (!dialog.open) return;
+        if (event.key === "Escape") closeTripLightbox();
+    });
+
+    document.addEventListener("click", (event) => {
+        const target = event.target as HTMLElement;
+        const tripButton = target.closest("[data-trip]") as HTMLElement;
+        const tripTitle = tripButton.dataset.tripTitle!;
+        const tripPicture = tripButton.querySelector("picture")!;
+        openTripLightbox(tripPicture, tripTitle);
+    });
+</script>

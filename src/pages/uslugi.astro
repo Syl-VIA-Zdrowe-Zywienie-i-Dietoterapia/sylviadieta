@@ -1,6 +1,7 @@
 ---
 import PreparationGuideDrawer from "@components/preparation-guide/Drawer.astro";
 import PreparationGuideSidebar from "@components/preparation-guide/Sidebar.astro";
+import TripGallery from "@components/TripGallery.astro";
 
 import IconArrowDown from "@icons/arrow-down.svg";
 import IconTick from "@icons/tick.svg";
@@ -19,33 +20,33 @@ const serviceCategories = [
     { id: "warsztaty-i-wyjazdy", title: "Warsztaty i wyjazdy", subtitle: "Edukacja i integracja", icon: IconGroup }
 ];
 
-const psychodietetykaPricing = [
+const psychodieteticsPricing = [
     { service: "Pierwsza konsultacja dietetyczna z elementami psychodietetyki", duration: "60–80 min", price: "260 zł" },
     { service: "Konsultacja psychodietetyczna", duration: "60–80 min", price: "200 zł" },
     { service: "Jadłospis 7-dniowy", duration: "—", price: "250 zł" },
     { service: "Jadłospis 14-dniowy", duration: "—", price: "460 zł" },
-    { service: "Wizyta kontrolna — dietetyczna", duration: "40–60 min", price: "170 zł" },
+    { service: "Wizyta kontrolna – dietetyczna", duration: "40–60 min", price: "170 zł" },
     { service: "Profesjonalna analiza składu ciała z omówieniem wyników", duration: "—", price: "60 zł" },
-    { service: "Modyfikacja jadłospisu — wprowadzenie powyżej 4 zmian", duration: "—", price: "80 zł" },
+    { service: "Modyfikacja jadłospisu – wprowadzenie powyżej 4 zmian", duration: "—", price: "80 zł" },
     { service: "Pakiet VIP", duration: "3 miesiące", price: "1500 zł" }
 ];
 
-const paraPricing = [
+const couplePricing = [
     { service: "Pierwsza wizyta dla pary", duration: "ok. 120 min", price: "450 zł" },
     { service: "Plan dietetyczny dla par 7-dniowy", duration: "—", price: "450 zł" }
 ];
 
-const nordicPricing = [
+const nordicWalkingPricing = [
     { service: "Zajęcia indywidualne", duration: "1,5 godz.", price: "150 zł" },
-    { service: "Zajęcia dla 2 osób", duration: "1,5 godz.", price: "90 zł / osoba" },
-    { service: "Zajęcia grupowe (3–4 osoby)", duration: "1,5 godz.", price: "60 zł / osoba" },
-    { service: "Zajęcia grupowe (5–8 osób)", duration: "1,5 godz.", price: "90 zł / osoba" },
+    { service: "Zajęcia dla 2 osób", duration: "1,5 godz.", price: "90 zł / os." },
+    { service: "Zajęcia grupowe (3–4 osoby)", duration: "1,5 godz.", price: "60 zł / os." },
+    { service: "Zajęcia grupowe (5–8 osób)", duration: "1,5 godz.", price: "90 zł / os." },
     { service: "Pakiet indywidualnych spotkań treningowych", duration: "3 × 1 godz.", price: "400 zł" },
     { service: "Zniżka dla organizatora grupy (powyżej 4 osób)", duration: "—", price: "50% zniżki" },
     { service: "Wypożyczenie kijków do nordic walking", duration: "—", price: "bezpłatne" }
 ];
 
-const warsztatyPricing = [
+const workshopsAndTripsPricing = [
     { service: "Warsztaty „Świadome Odżywianie” (maks. 20 osób)", duration: "2 godz.", price: "250 zł" },
     { service: "Szkolenie „Zdrowy Start” dla dzieci szkolnych", duration: "1,5 godz.", price: "200 zł" }
 ];
@@ -65,7 +66,7 @@ const warsztatyPricing = [
                     serviceCategories.map((serviceCategory) => (
                         <a
                             href={`#${serviceCategory.id}`}
-                            class="group bg-card border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-sm focus-visible:ring-2 focus-visible:outline-none active:scale-97"
+                            class="group bg-background border-border hover:border-primary/50 focus-visible:ring-primary flex items-center gap-4 rounded-xl border p-4 transition hover:shadow-sm focus-visible:ring-2 focus-visible:outline-none active:scale-97"
                         >
                             <div class="bg-primary/10 group-hover:bg-primary fill-primary flex items-center justify-center rounded-lg p-3 transition-colors group-hover:fill-white">
                                 <serviceCategory.icon class="size-6" />
@@ -82,11 +83,12 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <section id="psychodietetyka" class="scroll-mt-24 py-16 md:py-24">
-        <div class="mx-auto max-w-6xl px-6">
-            <div class="mb-8 space-y-4">
+    <section id="psychodietetyka" class="scroll-mt-24 pt-12 pb-16 md:pt-16 md:pb-24">
+        <!-- TODO: PADDINGS -->
+        <div class="mx-auto max-w-6xl space-y-12 px-6">
+            <div class="space-y-4">
                 <div class="flex grow items-center gap-4">
-                    <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
+                    <div class="bg-primary/10 fill-primary mt-px flex items-center justify-center rounded-xl p-3.5">
                         <IconScale class="size-7" />
                     </div>
                     <div>
@@ -115,8 +117,8 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <div class="mb-16">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Pierwsza konsultacja dietetyczna z elementami psychodietetyki</h3>
+            <div class="space-y-6">
+                <h3 class="text-foreground font-serif text-2xl font-semibold">Pierwsza konsultacja dietetyczna z elementami psychodietetyki</h3>
                 <div class="grid items-start gap-8 md:grid-cols-3">
                     <div class="space-y-4 md:col-span-2">
                         <p class="text-muted-foreground leading-relaxed">
@@ -125,7 +127,7 @@ const warsztatyPricing = [
                         <ul class="space-y-3">
                             {
                                 [
-                                    "Wywiad psychodietetyczny — analiza Twoich przekonań i\u00A0zachowań związanych z\u00A0jedzeniem",
+                                    "Wywiad psychodietetyczny – analiza Twoich przekonań i\u00A0zachowań związanych z\u00A0jedzeniem",
                                     "Interpretacja wyników badań laboratoryjnych (morfologia, glukoza, profil lipidowy)",
                                     "Analiza dotychczasowego sposobu odżywiania oraz nawyków żywieniowych",
                                     "Pomiar i\u00A0analiza składu ciała przy użyciu analizatora InBody 120"
@@ -140,31 +142,38 @@ const warsztatyPricing = [
                             }
                         </ul>
                     </div>
-                    <div class="bg-muted/50 rounded-xl p-6">
+                    <div class="bg-primary/5 border-primary/10 rounded-xl border p-6 transition hover:shadow-sm">
                         <h4 class="text-foreground mb-4 font-medium">Analiza składu ciała obejmuje m.in.:</h4>
-                        <ul class="text-muted-foreground space-y-2">
-                            <li>• ilość wody komórkowej</li>
-                            <li>• podstawową przemianę materii</li>
-                            <li>• zawartość tkanki tłuszczowej, masy kostnej i mięśniowej</li>
+                        <ul class="space-y-3">
+                            {
+                                ["ilość wody komórkowej", "podstawową przemianę materii", "zawartość tkanki tłuszczowej, masy kostnej i mięśniowej"].map((item) => (
+                                    <li class="flex items-start gap-3">
+                                        <span class="bg-primary/10 fill-primary mt-px flex items-center justify-center rounded-full p-1">
+                                            <IconTick class="size-3.75" />
+                                        </span>
+                                        <p class="text-muted-foreground">{item}</p>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="mb-16">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Jadłospis</h3>
-                <p class="text-muted-foreground mb-6 leading-relaxed">
-                    Jako rezultat pracy dietetyka po pierwszej wizycie powstaje jadłospis — indywidualny plan żywieniowy na tydzień lub dwa tygodnie, uwzględniający Twój stan zdrowia i styl życia.
+            <div class="space-y-6">
+                <h3 class="text-foreground font-serif text-2xl font-semibold">Jadłospis</h3>
+                <p class="text-muted-foreground leading-relaxed">
+                    Jako rezultat pracy dietetyka po pierwszej wizycie powstaje jadłospis – indywidualny plan żywieniowy na tydzień lub dwa tygodnie, uwzględniający Twój stan zdrowia i styl życia.
                 </p>
                 <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     {
                         [
-                            { title: "Dostosowany do stylu życia", description: "Uwzględnia umiejętności kulinarne, dostępny czas oraz budżet" },
+                            { title: "Dostosowany do stylu życia", description: "Uwzględnia umiejętności kulinarne, czas oraz budżet" },
                             { title: "Preferencje smakowe", description: "Dieta dopasowana do Twoich ulubionych smaków" },
-                            { title: "Dostawa jadłospisu", description: "Mailowo lub w formie drukowanej w teczce" },
-                            { title: "Aplikacja dietetyczna", description: "Pełen dostęp do planu, przepisów i list zakupów" }
+                            { title: "Przekazanie jadłospisu", description: "Drogą mailową lub w formie drukowanej w teczce" },
+                            { title: "Aplikacja dietetyczna", description: "Wgląd w plan żywieniowy, przepisy oraz listy zakupów" }
                         ].map((item) => (
-                            <div class="bg-card border-border rounded-xl border p-5 transition-shadow hover:shadow-sm">
+                            <div class="bg-background border-border rounded-xl border p-5 transition-shadow hover:shadow-sm">
                                 <h4 class="text-foreground mb-2 font-medium">{item.title}</h4>
                                 <p class="text-muted-foreground text-sm">{item.description}</p>
                             </div>
@@ -173,32 +182,30 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <div class="mb-16">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Konsultacja psychodietetyczna</h3>
-                <p class="text-muted-foreground mb-6 leading-relaxed">
+            <div class="space-y-6">
+                <h3 class="text-foreground font-serif text-2xl font-semibold">Konsultacja psychodietetyczna</h3>
+                <p class="text-muted-foreground leading-relaxed">
                     W swojej pracy łączę wiedzę z zakresu dietetyki i psychologii, by towarzyszyć Ci w budowaniu bardziej życzliwej i zdrowej relacji z jedzeniem oraz z samym sobą. Konsultacja obejmuje materiały edukacyjne i
                     ćwiczenia wspierające Twój proces zmiany.
                 </p>
-                <div class="bg-primary/5 border-primary/10 rounded-xl border p-6">
-                    <h4 class="text-foreground mb-4 font-medium">Dla kogo są konsultacje psychodietetyczne?</h4>
-                    <p class="text-muted-foreground mb-4">Zapraszam osoby, które:</p>
+                <div class="bg-primary/5 border-primary/10 rounded-xl border p-6 transition hover:shadow-sm">
+                    <h4 class="text-foreground font-medium md:mb-4">Dla kogo są konsultacje psychodietetyczne? <span class="text-muted-foreground hidden font-normal md:inline-block">Zapraszam osoby, które:</span></h4>
+                    <p class="text-muted-foreground mb-4 md:hidden">Zapraszam osoby, które:</p>
                     <ul class="grid gap-3 md:grid-cols-2">
                         {
                             [
                                 "zmagają się z zaburzeniami odżywiania (anoreksja, bulimia, kompulsywne objadanie się)",
+                                "odczuwają poczucie winy po jedzeniu lub lęk związany z przybieraniem na wadze",
                                 "doświadczają trudności w relacji z jedzeniem i własnym ciałem",
                                 "mierzą się z napadami objadania się lub nadmiernymi restrykcjami",
-                                "odczuwają poczucie winy po jedzeniu lub lęk związany z przybieraniem na wadze",
                                 "pragną odzyskać spokój, poczucie kontroli i zdrową relację z jedzeniem",
                                 "są w trakcie terapii i potrzebują dodatkowego wsparcia żywieniowego"
                             ].map((item) => (
                                 <li class="flex items-start gap-3">
-                                    <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
+                                    <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-0.75">
+                                        <IconTick class="size-3" />
                                     </span>
-                                    <span class="text-muted-foreground text-sm">{item}</span>
+                                    <p class="text-muted-foreground text-sm">{item}</p>
                                 </li>
                             ))
                         }
@@ -206,25 +213,26 @@ const warsztatyPricing = [
                 </div>
             </div>
 
-            <div class="group bg-primary-dark mb-16 rounded-2xl p-8 text-white transition hover:shadow-lg md:p-10">
-                <div class="grid gap-8 lg:grid-cols-2">
-                    <div class="space-y-6">
-                        <div class="flex gap-3.5">
-                            <div class="group-hover:bg-primary mt-1 flex items-center justify-center rounded-xl bg-white/20 fill-white p-3 transition">
+            <div class="group bg-primary-dark rounded-2xl p-8 text-white transition duration-200 hover:shadow-lg md:p-10">
+                <div class="grid gap-6 md:gap-8 lg:grid-cols-2">
+                    <div class="flex flex-col gap-7.5">
+                        <div class="flex items-center gap-3.5">
+                            <div class="group-hover:bg-primary -mb-1 flex h-fit items-center justify-center rounded-lg bg-white/20 fill-white p-3 transition duration-200">
                                 <IconDiamond class="size-8" />
                             </div>
-                            <div class="flex flex-col items-start gap-1">
+                            <div class="flex flex-col items-start">
                                 <h3 class="font-serif text-2xl font-semibold md:text-3xl">Pakiet VIP</h3>
                                 <p class="text-primary-light text-sm font-medium tracking-wide uppercase">3 miesiące kompleksowego wsparcia</p>
                             </div>
                         </div>
                         <p class="leading-relaxed text-white/80">Regularna, zaplanowana współpraca oparta na Twoich indywidualnych potrzebach.</p>
-                        <div class="flex items-baseline gap-2">
+                        <div class="hidden items-baseline gap-2 md:flex">
                             <span class="font-serif text-3xl font-bold">1500 zł</span>
                             <span class="text-white/60">/ 3 miesiące</span>
                         </div>
                     </div>
-                    <ul class="space-y-3">
+
+                    <ul class="flex flex-col gap-3">
                         {
                             [
                                 "Konsultacja wstępna (90 min)",
@@ -235,61 +243,68 @@ const warsztatyPricing = [
                                 "Elastyczny grafik i pierwszeństwo w umawianiu wizyt"
                             ].map((item) => (
                                 <li class="flex items-start gap-3">
-                                    <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                        </svg>
+                                    <span class="mt-0.5 flex items-center justify-center rounded-full bg-white/20 fill-white p-1">
+                                        <IconTick class="size-3.25" />
                                     </span>
-                                    <span class="text-white/90">{item}</span>
+                                    <p class="text-white/90">{item}</p>
                                 </li>
                             ))
                         }
                     </ul>
+
+                    <div class="flex items-baseline gap-2 md:hidden">
+                        <span class="font-serif text-3xl font-bold">1500 zł</span>
+                        <span class="text-white/60">/ 3 miesiące</span>
+                    </div>
                 </div>
             </div>
 
-            <div id="cennik-psychodietetyka" class="scroll-mt-24">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Psychodietetyka</h3>
+            <div id="cennik-psychodietetyka" class="scroll-mt-24 space-y-2">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-primary/10 text-primary -mb-1 flex items-center justify-center rounded-xl p-3">
+                        <IconDollarCircle class="size-8" />
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <h3 class="font-serif text-2xl font-semibold md:text-3xl">Cennik</h3>
+                        <p class="text-muted-foreground text-sm font-medium tracking-wide uppercase">Psychodietetyka</p>
+                    </div>
+                </div>
+
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="border-border border-b">
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Usługa</th>
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground px-4 py-4 text-right font-medium">Cena</th>
+                                <th class="text-foreground p-4 text-left font-medium">Usługa</th>
+                                <th class="text-foreground p-4 text-left font-medium">Czas</th>
+                                <th class="text-foreground xs:static xs:shadow-none bg-background sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                psychodietetykaPricing.map((item, i) => (
-                                    <tr class={`border-border/50 border-b ${i % 2 === 0 ? "bg-muted/30" : ""}`}>
-                                        <td class="text-muted-foreground px-4 py-4">{item.service}</td>
-                                        <td class="text-muted-foreground px-4 py-4">{item.duration}</td>
-                                        <td class="text-foreground px-4 py-4 text-right font-medium">{item.price}</td>
+                                psychodieteticsPricing.map((item, i) => (
+                                    <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-muted-30" : "*:bg-background"]}>
+                                        <td class="text-muted-foreground p-4">{item.service}</td>
+                                        <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
+                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
                                     </tr>
                                 ))
                             }
-                        </tbody>
-                    </table>
-                </div>
-
-                <h4 class="text-foreground mt-10 mb-4 font-serif text-xl font-semibold">Dla par</h4>
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="border-border border-b">
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Usługa</th>
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground px-4 py-4 text-right font-medium">Cena</th>
+                            <tr class="border-border/50 border-b">
+                                <td colspan="3" class="bg-muted p-0">
+                                    <div class="flex items-center gap-3 px-4 py-3">
+                                        <span class="bg-muted-foreground/30 h-0.5 flex-1"></span>
+                                        <span class="text-muted-foreground pb-px text-sm font-semibold tracking-wide uppercase">Pakiety dla par</span>
+                                        <span class="bg-muted-foreground/30 h-0.5 flex-1"></span>
+                                        <!-- to-foreground h-0.5 flex-1 bg-linear-to-l from-transparent opacity-20 -->
+                                    </div>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
                             {
-                                paraPricing.map((item, i) => (
-                                    <tr class={`border-border/50 border-b ${i % 2 === 0 ? "bg-muted/30" : ""}`}>
-                                        <td class="text-muted-foreground px-4 py-4">{item.service}</td>
-                                        <td class="text-muted-foreground px-4 py-4">{item.duration}</td>
-                                        <td class="text-foreground px-4 py-4 text-right font-medium">{item.price}</td>
+                                couplePricing.map((item, i) => (
+                                    <tr class:list={["border-border/50 border-b", i % 2 === 1 ? "*:bg-muted-30" : "*:bg-background"]}>
+                                        <td class="text-muted-foreground p-4">{item.service}</td>
+                                        <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
+                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
                                     </tr>
                                 ))
                             }
@@ -301,8 +316,8 @@ const warsztatyPricing = [
     </section>
 
     <section id="nordic-walking" class="bg-muted/50 scroll-mt-24 py-16 md:py-24">
-        <div class="mx-auto max-w-6xl px-6">
-            <div class="mb-16 grid gap-12 lg:grid-cols-2">
+        <div class="mx-auto max-w-6xl space-y-16 px-6">
+            <div class="grid gap-12 lg:grid-cols-2">
                 <div>
                     <div class="mb-7 space-y-2 sm:space-y-4">
                         <div class="flex items-center gap-4">
@@ -311,7 +326,7 @@ const warsztatyPricing = [
                             </div>
                             <div>
                                 <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Nordic Walking</h2>
-                                <p class="text-muted-foreground">Zajęcia grupowe i&nbsp;indywidualne z&nbsp;certyfikowanym instruktorem</p>
+                                <p class="text-muted-foreground">Zajęcia grupowe i&nbsp;indywidualne z&nbsp;instruktorem</p>
                             </div>
                         </div>
 
@@ -338,13 +353,11 @@ const warsztatyPricing = [
                                     "wspomaga proces odchudzania",
                                     "wzmacnia mięśnie"
                                 ].map((item) => (
-                                    <li class="flex items-start gap-2">
-                                        <span class="bg-primary/10 text-primary mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3 w-3" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                            </svg>
+                                    <li class="flex items-start gap-3">
+                                        <span class="bg-primary/10 fill-primary mt-px flex items-center justify-center rounded-full p-1">
+                                            <IconTick class="size-3.75" />
                                         </span>
-                                        <span class="text-muted-foreground">{item}</span>
+                                        <p class="text-muted-foreground">{item}</p>
                                     </li>
                                 ))
                             }
@@ -352,8 +365,8 @@ const warsztatyPricing = [
                     </div>
                 </div>
 
-                <div class="bg-card border-border rounded-2xl border p-8 transition-shadow hover:shadow-sm">
-                    <h3 class="text-foreground mb-6 font-serif text-xl font-semibold">Co zyskasz na zajęciach?</h3>
+                <div class="bg-background border-border rounded-2xl border p-8 transition-shadow hover:shadow-sm">
+                    <h3 class="text-foreground text-1.5xl mb-6 font-serif font-semibold">Co zyskasz na zajęciach?</h3>
                     <ul class="space-y-4">
                         {
                             [
@@ -365,37 +378,45 @@ const warsztatyPricing = [
                                 "Spędzisz czas aktywnie, w\u00A0świetnej atmosferze!"
                             ].map((item, i) => (
                                 <li class="flex items-start gap-4">
-                                    <span class="bg-primary flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-sm font-medium text-white">{i + 1}</span>
+                                    <span class="bg-primary flex size-8 shrink-0 items-center justify-center rounded-[0.625rem] text-sm font-semibold text-white">{i + 1}</span>
                                     <span class="text-muted-foreground pt-1">{item}</span>
                                 </li>
                             ))
                         }
                     </ul>
-                    <p class="text-muted-foreground bg-muted/50 mt-6 rounded-lg p-4 text-sm">
+                    <p class="text-muted-foreground bg-muted/50 mt-6 rounded-lg px-5 pt-3.25 pb-4 text-sm">
                         Nie musisz od razu kupować kijków do nordic walking. Możesz je <strong class="text-foreground">bezpłatnie wypożyczyć</strong> na zajęciach, by przetestować ten sport.
                     </p>
                 </div>
             </div>
 
-            <!-- Pricing Table -->
-            <div id="cennik-nordic-walking" class="scroll-mt-24">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Nordic Walking</h3>
+            <div id="cennik-nordic-walking" class="scroll-mt-24 space-y-2">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-primary/10 text-primary -mb-1 flex items-center justify-center rounded-xl p-3">
+                        <IconDollarCircle class="size-8" />
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <h3 class="font-serif text-2xl font-semibold md:text-3xl">Cennik</h3>
+                        <p class="text-muted-foreground text-sm font-medium tracking-wide uppercase">Nordic walking</p>
+                    </div>
+                </div>
+
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="border-border border-b">
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Zajęcia</th>
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground px-4 py-4 text-right font-medium">Cena</th>
+                                <th class="text-foreground p-4 text-left font-medium">Zajęcia</th>
+                                <th class="text-foreground p-4 text-left font-medium">Czas</th>
+                                <th class="text-foreground xs:static xs:shadow-none bg-muted-50 sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                nordicPricing.map((item, i) => (
-                                    <tr class={`border-border/50 border-b ${i % 2 === 0 ? "bg-card" : ""}`}>
-                                        <td class="text-muted-foreground px-4 py-4">{item.service}</td>
-                                        <td class="text-muted-foreground px-4 py-4">{item.duration}</td>
-                                        <td class="text-foreground px-4 py-4 text-right font-medium">{item.price}</td>
+                                nordicWalkingPricing.map((item, i) => (
+                                    <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-background" : "*:bg-muted-50"]}>
+                                        <td class="text-muted-foreground p-4">{item.service}</td>
+                                        <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
+                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
                                     </tr>
                                 ))
                             }
@@ -406,10 +427,9 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <!-- SECTION 3: Warsztaty i wyjazdy -->
     <section id="warsztaty-i-wyjazdy" class="scroll-mt-24 py-16 md:py-24">
         <div class="mx-auto max-w-6xl px-6">
-            <div class="xs:space-y-4 mb-7 space-y-2">
+            <div class="xs:space-y-4 mb-12 space-y-2">
                 <div class="flex items-center gap-4">
                     <div class="bg-primary/10 fill-primary flex items-center justify-center rounded-xl p-3.5">
                         <IconGroup class="size-7" />
@@ -429,60 +449,35 @@ const warsztatyPricing = [
                 </a>
             </div>
 
-            <div class="mb-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {
-                    [
-                        {
-                            title: "Wyjazd integracyjny",
-                            desc: "Wspólne gotowanie i poznawanie zasad zdrowego żywienia w pięknej scenerii.",
-                            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`
-                        },
-                        {
-                            title: "Warsztaty kulinarne",
-                            desc: "Praktyczne zajęcia z przygotowywania zdrowych posiłków.",
-                            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" /></svg>`
-                        },
-                        {
-                            title: "Aktywny wypoczynek",
-                            desc: "Połączenie aktywności fizycznej z edukacją żywieniową.",
-                            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`
-                        },
-                        {
-                            title: "Najnowsze wydarzenia",
-                            desc: "Najnowsze wydarzenia i warsztaty z naszej działalności.",
-                            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>`
-                        }
-                    ].map((item) => (
-                        <div class="bg-card border-border rounded-xl border p-6">
-                            <div class="bg-primary/10 text-primary mb-4 flex h-12 w-12 items-center justify-center rounded-lg">
-                                <Fragment set:html={item.icon} />
-                            </div>
-                            <h3 class="text-foreground mb-2 font-medium">{item.title}</h3>
-                            <p class="text-muted-foreground text-sm">{item.desc}</p>
-                        </div>
-                    ))
-                }
-            </div>
+            <TripGallery class="mb-6" />
 
-            <!-- Pricing Table -->
-            <div id="cennik-warsztaty-i-wyjazdy" class="scroll-mt-24">
-                <h3 class="text-foreground mb-6 font-serif text-2xl font-semibold">Cennik — Warsztaty</h3>
+            <div id="cennik-warsztaty-i-wyjazdy" class="scroll-mt-24 space-y-2">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-primary/10 text-primary -mb-1 flex items-center justify-center rounded-xl p-3">
+                        <IconDollarCircle class="size-8" />
+                    </div>
+                    <div class="flex flex-col items-start">
+                        <h3 class="font-serif text-2xl font-semibold md:text-3xl">Cennik</h3>
+                        <p class="text-muted-foreground text-sm font-medium tracking-wide uppercase">Warsztaty i wyjazdy</p>
+                    </div>
+                </div>
+
                 <div class="overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="border-border border-b">
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Usługa</th>
-                                <th class="text-foreground px-4 py-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground px-4 py-4 text-right font-medium">Cena</th>
+                                <th class="text-foreground p-4 text-left font-medium">Zajęcia</th>
+                                <th class="text-foreground p-4 text-left font-medium">Czas</th>
+                                <th class="text-foreground xs:static xs:shadow-none bg-background sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                warsztatyPricing.map((item, i) => (
-                                    <tr class={`border-border/50 border-b ${i % 2 === 0 ? "bg-muted/30" : ""}`}>
-                                        <td class="text-muted-foreground px-4 py-4">{item.service}</td>
-                                        <td class="text-muted-foreground px-4 py-4">{item.duration}</td>
-                                        <td class="text-foreground px-4 py-4 text-right font-medium">{item.price}</td>
+                                workshopsAndTripsPricing.map((item, i) => (
+                                    <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-muted-50" : "*:bg-background"]}>
+                                        <td class="text-muted-foreground p-4">{item.service}</td>
+                                        <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
+                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
                                     </tr>
                                 ))
                             }
@@ -493,7 +488,6 @@ const warsztatyPricing = [
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="py-16 md:py-24">
         <div class="mx-auto max-w-3xl px-6 text-center">
             <h2 class="text-foreground mb-6 font-serif text-3xl font-semibold md:text-4xl">Gotowa/y, by rozpocząć swoją podróż?</h2>
