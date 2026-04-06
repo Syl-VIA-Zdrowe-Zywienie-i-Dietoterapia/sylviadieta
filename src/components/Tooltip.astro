@@ -19,7 +19,10 @@ const { tooltipId = `tooltip-${crypto.randomUUID()}`, placement = "top", trigger
         id={tooltipId}
         data-tooltip-box
         role="tooltip"
-        class={`bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-[''] ${tooltipClass}`}
+        class:list={[
+            "bg-muted-foreground/99 invisible fixed w-48 scale-95 rounded-lg px-3 pt-2 pb-2.5 text-center text-sm text-white opacity-0 shadow-lg transition duration-200 ease-out will-change-[transform,scale,opacity] before:absolute before:-inset-2 before:-z-10 before:content-['']",
+            tooltipClass
+        ]}
     >
         <slot name="content" />
         <span data-tooltip-arrow aria-hidden="true" class="bg-muted-foreground absolute size-4 [clip-path:polygon(0_0,100%_0,100%_100%)]"></span>

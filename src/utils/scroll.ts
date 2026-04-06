@@ -11,7 +11,7 @@ function handleScroll() {
     ticking = false;
 }
 
-export function onScroll(callback: ScrollCallback): () => void {
+export default function onScroll(callback: ScrollCallback): () => void {
     if (callbacks.size === 0) {
         window.addEventListener(
             "scroll",

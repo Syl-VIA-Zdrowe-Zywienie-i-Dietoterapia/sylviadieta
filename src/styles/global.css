@@ -5,6 +5,9 @@
 @theme inline {
     --breakpoint-xs: 30rem;
 
+    --text-1\.5xl: 1.375rem;
+    --text-1\.5xl--line-height: 1.375rem;
+
     --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
     --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 
@@ -12,19 +15,15 @@
     --color-primary-light: oklch(85% 0.05 206.7);
     --color-primary-dark: oklch(45% 0.08 206.7);
 
-    --color-background: oklch(99% 0.005 206.7);
+    --color-background: oklch(100% 0 0);
     --color-foreground: oklch(20% 0.02 206.7);
 
     --color-muted: oklch(95% 0.01 206.7);
+    --color-muted-30: oklch(0.9839 0.0025 228.78); /* color-muted/30 on white background */
+    --color-muted-50: oklch(0.9734 0.0045 214.33); /* color-muted/50 on white background */
     --color-muted-foreground: oklch(45% 0.02 206.7);
 
-    --color-card: oklch(100% 0 0);
-    --color-card-foreground: oklch(20% 0.02 206.7);
-
     --color-border: oklch(90% 0.02 206.7);
-
-    --color-accent: oklch(92% 0.03 206.7);
-    --color-accent-foreground: oklch(30% 0.05 206.7);
 
     --color-success: oklch(70% 0.1 120);
     --color-warning: oklch(60% 0.21 26.8);
@@ -32,8 +31,6 @@
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-
-    --default-transition-duration: 200ms;
 }
 
 /* account for scrollbar space to prevent layout shift whenever it is visible between pages */

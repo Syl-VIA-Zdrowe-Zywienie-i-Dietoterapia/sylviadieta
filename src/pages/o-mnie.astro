@@ -67,7 +67,7 @@ const specializations = [
             <div class="flex grid-cols-5 flex-col items-center gap-12 md:grid md:items-start md:gap-20">
                 <div class="relative col-span-2 mr-3 ml-1 max-w-sm md:sticky md:top-32 md:mx-0 md:max-w-full">
                     <div class="bg-muted relative overflow-hidden rounded-2xl">
-                        <Picture src={PictureAbout} formats={["avif"]} alt="Zdrowy styl życia" class="size-full object-cover" loading="eager" fetchpriority="high" />
+                        <Picture src={PictureAbout} formats={["webp", "avif"]} alt="Zdrowy styl życia" loading="eager" fetchpriority="high" class="size-full object-cover" />
                     </div>
                     <div class="bg-primary-light/30 absolute -right-4 -bottom-4 -z-10 size-full rounded-2xl"></div>
                 </div>
@@ -127,7 +127,7 @@ const specializations = [
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {
                     specializations.map((specialization) => (
-                        <div class="group bg-card border-border space-y-3 rounded-xl border p-6 transition-shadow hover:shadow-sm">
+                        <div class="group bg-background border-border space-y-3 rounded-xl border p-6 transition-shadow hover:shadow-sm">
                             <div class="bg-primary/10 fill-primary flex w-fit items-center justify-center rounded-xl p-3 md:p-3.5">
                                 <specialization.icon class="size-6 md:size-7" />
                             </div>

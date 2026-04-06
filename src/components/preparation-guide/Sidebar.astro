@@ -32,14 +32,10 @@ import XMark from "@icons/x-mark.svg";
     const CONTENT_MAX_WIDTH = 1152; // w-6xl = 1152px [tailwind]
     const CONTENT_MIN_WIDTH = 768; // md breakpoint = 768px [tailwind]
 
-    const SIDEBAR_OPEN_CLASS = "sidebar-open";
-    const SIDEBAR_CLOSED_CLASS = "sidebar-closed";
-    const SIDEBAR_TRANSITIONING_CLASS = "sidebar-transitioning";
-
     function calculateLayoutShift() {
         const viewportWidth = document.documentElement.clientWidth;
 
-        // if the viewport is too small to fit both content and sidebar
+        // if the viewport is too small to fit both page content and sidebar,
         // let the sidebar overlay the content without shrinking it
         if (viewportWidth < CONTENT_MIN_WIDTH + SIDEBAR_WIDTH) return viewportWidth;
 
@@ -61,16 +57,17 @@ import XMark from "@icons/x-mark.svg";
     // itself is transitioning, to prevent conflicts with properties of other transitions
     // on these containers (e.g. header hiding on scroll)
     function toggleSidebarTransition() {
-        const classToAdd = isSidebarOpen() ? SIDEBAR_OPEN_CLASS : SIDEBAR_CLOSED_CLASS;
-        const classToRemove = isSidebarOpen() ? SIDEBAR_CLOSED_CLASS : SIDEBAR_OPEN_CLASS;
+        const classToAdd = isSidebarOpen() ? "sidebar-open" : "sidebar-closed";
+        const classToRemove = isSidebarOpen() ? "sidebar-closed" : "sidebar-open";
         topLevelContainers.forEach((container) => {
-            (container as HTMLElement).classList.add(SIDEBAR_TRANSITIONING_CLASS);
-            (container as HTMLElement).classList.add(classToAdd);
-            (container as HTMLElement).classList.remove(classToRemove);
-            (container as HTMLElement).addEventListener(
+            container = container as HTMLElement;
+            container.classList.add("sidebar-transitioning");
+            container.classList.add(classToAdd);
+            container.classList.remove(classToRemove);
+            container.addEventListener(
                 "transitionend",
                 () => {
-                    (container as HTMLElement).classList.remove(SIDEBAR_TRANSITIONING_CLASS);
+                    container.classList.remove("sidebar-transitioning");
                 },
                 { once: true }
             );
@@ -96,7 +93,7 @@ import XMark from "@icons/x-mark.svg";
         toggleSidebarTransition();
     }
 
-    // horizontal
+    // horizontal position handling
     toggle.addEventListener("click", () => (isSidebarOpen() ? closeSidebar() : openSidebar()));
     closeButton.addEventListener("click", closeSidebar);
     document.addEventListener("click", (event) => {

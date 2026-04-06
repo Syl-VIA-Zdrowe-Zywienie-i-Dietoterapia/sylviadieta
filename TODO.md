@@ -1,2 +1,3 @@
-- fix bank account no. copy button repeated clicks
 - fix animation durations
+- vibes-based paddings
+- flex-col with gap-[] vs space-y-[]

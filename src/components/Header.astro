@@ -16,18 +16,20 @@ const navigationLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sidebar-closed bg-background/80 ease-drawer fixed top-0 right-0 left-0 z-50 backdrop-blur-md transition duration-300 data-hidden:-translate-y-full data-hidden:duration-400">
+<header class="sidebar-closed bg-background/70 ease-drawer fixed top-0 right-0 left-0 z-50 backdrop-blur-md transition duration-300 data-hidden:-translate-y-full data-hidden:duration-400">
     <nav class="not-has-[+[data-open]]:border-border md:border-border border-b border-transparent transition duration-0 not-has-[+[data-open]]:delay-120">
         <div class="mx-auto flex max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-6 py-3 md:grid">
-            <a href="/" class="justify-self-start">
-                <Picture src={LogoHorizontalBigTextColor} formats={["avif"]} alt="Logo poradni Syl.VIA" loading="eager" fetchpriority="high" class="h-9 w-auto md:h-10" />
-            </a>
+            <div class="justify-self-start pr-20">
+                <a href="/">
+                    <Picture src={LogoHorizontalBigTextColor} formats={["webp", "avif"]} alt="Logo poradni Syl.VIA" loading="eager" fetchpriority="high" class="h-9 min-h-9 w-auto min-w-fit md:h-10" />
+                </a>
+            </div>
 
-            <ul class="hidden items-center gap-2.5 md:flex">
+            <ul class="hidden items-center md:flex">
                 {
                     navigationLinks.map((link) => (
                         <li>
-                            <a href={link.href} class:list={["px-3.5 py-6 text-sm font-medium transition", currentPath === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"]}>
+                            <a href={link.href} class:list={["px-4 py-6 text-sm font-medium transition", currentPath === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"]}>
                                 {link.label}
                             </a>
                         </li>
@@ -48,11 +50,11 @@ const currentPath = Astro.url.pathname;
 
     <nav id="mobile-menu" class="group/mobile-menu ease-drawer grid grid-rows-[0fr] overflow-hidden transition-[grid-template-rows] duration-400 data-open:grid-rows-[1fr] data-open:duration-300 md:hidden">
         <div class="group-data-open/mobile-menu:border-border overflow-hidden transition duration-0 group-not-data-open/mobile-menu:delay-100 group-data-open/mobile-menu:border-b">
-            <ul class="space-y-4 px-6 pt-2 pb-4">
+            <ul class="flex flex-col gap-4 px-6 pt-2 pb-4">
                 {
                     navigationLinks.map((link) => (
                         <li>
-                            <a href={link.href} class:list={["block font-medium transition", currentPath === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"]}>
+                            <a href={link.href} class:list={["-my-2 block leading-10 font-medium transition", currentPath === link.href ? "text-primary" : "text-muted-foreground hover:text-primary"]}>
                                 {link.label}
                             </a>
                         </li>
@@ -64,7 +66,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-    import { onScroll } from "@utils/scroll";
+    import onScroll from "@utils/scroll";
 
     const header = document.querySelector("header")!;
     const mobileMenuToggle = document.getElementById("mobile-menu-toggle")!;

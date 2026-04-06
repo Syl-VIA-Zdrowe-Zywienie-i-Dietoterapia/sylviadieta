@@ -106,7 +106,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                                     <button
                                         id="bank-account"
                                         data-account="26102010420000840203728599"
-                                        class="peer bg-muted fill-primary hover:bg-primary flex cursor-pointer items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95"
+                                        class="peer bg-muted fill-primary hover:bg-primary disabled:bg-muted disabled:fill-primary/70 flex cursor-pointer items-center justify-center rounded-lg p-2.5 transition hover:fill-white active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 disabled:active:scale-100"
                                     >
                                         <IconBank class="size-7 -translate-y-px" />
                                     </button>
@@ -150,7 +150,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
                 </div>
 
                 <div>
-                    <div class="bg-card border-border rounded-2xl border p-8 md:-mt-8.25 md:p-10">
+                    <div class="bg-background border-border rounded-2xl border p-8 md:-mt-8.25 md:p-10">
                         <h2 class="text-foreground -mt-2 mb-6 font-serif text-2xl font-semibold">Napisz do mnie</h2>
                         <form id="contact-form" class="space-y-6" novalidate>
                             <div class="grid gap-6 sm:grid-cols-2">
@@ -255,19 +255,19 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 </BaseLayout>
 
 <script>
-    // initial/reset state — clipped from bottom (ready to reveal)
     const HIDDEN_BEFORE = "[clip-path:inset(0_0_100%_0)]";
-    // fully visible
     const VISIBLE = "[clip-path:inset(0_0_0%_0)]";
-    // exit state — clipped from top (wiped off downward)
     const HIDDEN_AFTER = "[clip-path:inset(100%_0_0%_0)]";
 
     const bankAccountButton = document.getElementById("bank-account") as HTMLButtonElement;
     const copyConfirmation = document.getElementById("bank-account-copy-confirmation") as HTMLSpanElement;
     const accountNumber = bankAccountButton.dataset.account || "";
+
     let copyTimeout: ReturnType<typeof setTimeout> | null = null;
+
     bankAccountButton.addEventListener("click", () => {
         navigator.clipboard.writeText(accountNumber).catch(() => {});
+        bankAccountButton.disabled = true;
 
         copyConfirmation.classList.add("transition-none");
         copyConfirmation.classList.remove(HIDDEN_AFTER, VISIBLE);
@@ -281,9 +281,18 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
         if (copyTimeout) clearTimeout(copyTimeout);
         copyTimeout = setTimeout(() => {
+            const onEnd = (event: TransitionEvent) => {
+                if (event.propertyName !== "clip-path") return;
+                copyConfirmation.removeEventListener("transitionend", onEnd);
+                bankAccountButton.disabled = false;
+                copyTimeout = null;
+            };
+
+            copyConfirmation.addEventListener("transitionend", onEnd);
             copyConfirmation.classList.add(HIDDEN_AFTER);
             copyConfirmation.classList.remove(VISIBLE);
-            copyTimeout = null;
+
+            bankAccountButton.disabled = false;
         }, 1500);
     });
 </script>
