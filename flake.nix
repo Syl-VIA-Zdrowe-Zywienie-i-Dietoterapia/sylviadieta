@@ -10,7 +10,13 @@
             devShells.default = pkgs.mkShell {
                 packages = with pkgs; [
                     bun
+                    tsgolint
                 ];
+
+                shellHook = ''
+                    export BUN_BIN="${pkgs.lib.getExe pkgs.bun}"
+                    export TSGOLINT_BIN="${pkgs.lib.getExe pkgs.tsgolint}"
+                '';
             };
         };
     };
