@@ -13,7 +13,7 @@ const featuredTrip = {
     id: "wyróżniony-wyjazd-10-2025",
     title: "Wyrózniony wyjazd | 10.2025",
     image: ImageTripFeatured,
-    active: true
+    active: false
 };
 const badgeProps = featuredTrip.active
     ? {
@@ -33,7 +33,7 @@ const archivedTrips = [
     // {
     //     id: "przeszły-wyjazd-10-2025",
     //     title: "Przeszły wyjazd | 10.2025",
-    //     image: tripFeatured
+    //     image: ImageTripFeatured
     // },
     {
         id: "przeszły-wyjazd-04-2025",
@@ -55,7 +55,7 @@ const archivedTrips = [
 const { class: wrapperClass = "" } = Astro.props;
 ---
 
-<div class:list={["space-y-8 md:space-y-12", wrapperClass]}>
+<div class:list={["space-y-6 md:space-y-12", wrapperClass]}>
     <div class="relative mx-auto max-w-4xl px-4 md:px-6">
         <div class:list={["absolute -top-3.5 left-10 z-10 rounded-full px-3.5 py-1.5 text-sm font-semibold shadow-lg", badgeProps.badgeClass]}>
             <span class="flex items-center gap-2">
@@ -86,13 +86,13 @@ const { class: wrapperClass = "" } = Astro.props;
                     <IconArchive class="size-5.5 md:size-6" />
                     <h4 class="md:text-1.5xl -mt-0.5 font-serif text-xl font-semibold">Archiwum wyjazdów</h4>
                 </div>
-                <div class="swiper -mx-10 touch-pan-x overflow-hidden px-8 pt-2 pb-6 md:mx-auto md:px-2">
-                    <div class="swiper-wrapper box-content flex">
+                <div class="swiper -mx-10 touch-pan-x overflow-hidden pt-2 pb-6 md:-mx-2 md:px-4">
+                    <div class="swiper-wrapper box-content flex w-max">
                         {archivedTrips.map((trip) => (
                             <div class="swiper-slide shrink-0">
                                 <button
                                     type="button"
-                                    class="keyboard-focusable xs:h-60 h-50 cursor-zoom-in rounded-lg sm:h-70 md:h-80 lg:h-90"
+                                    class="keyboard-focusable xs:h-60 h-50 cursor-[inherit] rounded-lg sm:h-70 md:h-80 lg:h-90"
                                     data-trip
                                     data-trip-id={trip.id}
                                     data-trip-title={trip.title}
@@ -109,32 +109,40 @@ const { class: wrapperClass = "" } = Astro.props;
     }
 </div>
 
-<dialog id="lightbox-modal" class="pointer-events-none fixed inset-0 z-50 flex size-full max-h-screen max-w-screen items-center justify-center opacity-0 transition duration-400 ease-out open:pointer-events-auto open:opacity-100">
+<dialog id="lightbox-modal" class="top-level-container pointer-events-none fixed inset-0 flex size-full max-h-screen max-w-screen items-center justify-center bg-transparent backdrop:bg-transparent open:pointer-events-auto">
     <div id="lightbox-content" class="group/content relative">
         <button
             type="button"
-            class="group/close keyboard-focusable absolute -top-3 -right-3 z-50 flex cursor-pointer rounded-full bg-white/80 p-1.5 text-black opacity-0 shadow-lg transition group-data-visible/content:opacity-100 hover:scale-110 hover:bg-white"
+            class="group/close keyboard-focusable absolute -top-3 -right-3 z-10 flex cursor-pointer rounded-full bg-white/80 p-1.5 text-black opacity-0 shadow-lg transition group-data-visible/content:opacity-100 hover:scale-110 hover:bg-white"
             aria-label="Zamknij podgląd"
         >
             <IconXMark class="size-5 transition group-hover/close:scale-120" />
         </button>
-        <div id="lightbox-picture-container" class="opacity-0 group-data-visible/content:opacity-100"></div>
+        <div id="lightbox-picture-container" class="opacity-0 transition group-data-visible/content:opacity-100 group-data-visible/content:transition-none"></div>
     </div>
 </dialog>
 
+<div id="lightbox-overlay" class="pointer-events-none fixed inset-0 z-100 bg-black/90 opacity-0 transition duration-400 ease-out data-visible:opacity-100"></div>
+
 <script>
     import Swiper from "swiper";
+    import { Mousewheel } from "swiper/modules";
 
     const swiper = document.querySelector<HTMLElement>(".swiper")!;
     new Swiper(swiper, {
+        modules: [Mousewheel],
         slidesPerView: "auto",
+        centeredSlides: true,
         spaceBetween: 16,
         grabCursor: true,
+        touchEventsTarget: "container",
         mousewheel: {
+            enabled: true,
             forceToAxis: true
         },
         breakpoints: {
             768: {
+                centeredSlidesBounds: true,
                 spaceBetween: 20
             }
         }
@@ -143,12 +151,13 @@ const { class: wrapperClass = "" } = Astro.props;
     const lightboxModal = document.getElementById("lightbox-modal")! as HTMLDialogElement;
     const lightboxContent = lightboxModal.querySelector<HTMLElement>("#lightbox-content")!;
     const lightboxPictureContainer = lightboxModal.querySelector<HTMLElement>("#lightbox-picture-container")!;
+    const lightboxOverlay = document.getElementById("lightbox-overlay")!;
 
     let isAnimating = false;
 
-    const LIGHTBOX_MAX_WIDTH = 1200;
+    const LIGHTBOX_MAX_WIDTH = 1152; // w-6xl = 1152px [tailwind]
     const LIGHTBOX_VIEWPORT_MARGIN = 0.9;
-    const LIGHTBOX_ANIMATION_DURATION = 400;
+    const LIGHTBOX_TRANSITION_DURATION = 400;
 
     function calculateLightboxRect(imageRatio: number): { width: number; height: number; top: number; left: number } {
         const viewportWidth = window.innerWidth;
@@ -172,15 +181,13 @@ const { class: wrapperClass = "" } = Astro.props;
         return { width, height, top, left };
     }
 
-    function animateCloneToPosition(clone: HTMLElement, position: { top: number; left: number; width: number; height: number }): void {
-        requestAnimationFrame(() => {
-            Object.assign(clone.style, {
-                transition: `all ${LIGHTBOX_ANIMATION_DURATION}ms var(--ease-out)`,
-                top: `${position.top}px`,
-                left: `${position.left}px`,
-                width: `${position.width}px`,
-                height: `${position.height}px`
-            });
+    function assignClonePosition(clone: HTMLElement, position: { top: number; left: number; width: number; height: number }) {
+        Object.assign(clone.style, {
+            transition: `all ${LIGHTBOX_TRANSITION_DURATION}ms var(--ease-out)`,
+            top: `${position.top}px`,
+            left: `${position.left}px`,
+            width: `${position.width}px`,
+            height: `${position.height}px`
         });
     }
 
@@ -199,10 +206,9 @@ const { class: wrapperClass = "" } = Astro.props;
             left: `${originalImageRect.left}px`,
             width: `${originalImageRect.width}px`,
             height: `${originalImageRect.height}px`,
-            zIndex: "100",
             pointerEvents: "none"
         });
-        document.body.appendChild(pictureClone);
+        lightboxModal.appendChild(pictureClone);
 
         const temporaryImage = new Image();
         temporaryImage.src = originalImageSrc;
@@ -219,25 +225,45 @@ const { class: wrapperClass = "" } = Astro.props;
             lightboxPictureContainer.appendChild(finalPicture);
 
             lightboxModal.showModal();
-            animateCloneToPosition(pictureClone, { width, height, top, left });
+            document.body.setAttribute("data-modal-open", "");
+            requestAnimationFrame(() => {
+                lightboxOverlay.setAttribute("data-visible", "");
+                assignClonePosition(pictureClone, { width, height, top, left });
+            });
 
             setTimeout(() => {
                 lightboxContent.setAttribute("data-visible", "");
                 pictureClone.remove();
                 isAnimating = false;
-            }, LIGHTBOX_ANIMATION_DURATION);
+            }, LIGHTBOX_TRANSITION_DURATION);
         };
     }
 
-    lightboxModal.addEventListener("close", () => {
-        lightboxContent.removeAttribute("data-visible");
-        lightboxPictureContainer.innerHTML = "";
-    });
+    function closeLightboxModal() {
+        if (isAnimating) return;
+        isAnimating = true;
 
+        requestAnimationFrame(() => {
+            lightboxOverlay.removeAttribute("data-visible");
+        });
+        lightboxContent.removeAttribute("data-visible");
+        document.body.removeAttribute("data-modal-open");
+
+        setTimeout(() => {
+            lightboxModal.close();
+            lightboxPictureContainer.innerHTML = "";
+            isAnimating = false;
+        }, LIGHTBOX_TRANSITION_DURATION / 2);
+    }
+
+    lightboxModal.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeLightboxModal();
+    });
     document.addEventListener("click", (event) => {
         if (!lightboxModal.open) return;
-        if (lightboxPictureContainer.contains(event.target as Node)) return; // this handles the close button as well since it is outside the container
-        lightboxModal.close();
+        if (lightboxPictureContainer.contains(event.target as Node)) return; // this handles the close button as well since it is outside the picture container
+        closeLightboxModal();
     });
 
     const tripButtons = document.querySelectorAll<HTMLButtonElement>("[data-trip]");
@@ -248,14 +274,3 @@ const { class: wrapperClass = "" } = Astro.props;
         });
     });
 </script>
-
-<style>
-    #lightbox-modal::backdrop {
-        background-color: transparent;
-        transition: background-color 300ms ease-out;
-    }
-
-    #lightbox-modal[open]::backdrop {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-</style>
