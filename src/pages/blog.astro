@@ -1,1 +1,180 @@
-Hello, world!
+---
+import { Picture } from "astro:assets";
+
+import IconGraduationCap from "@icons/graduation-cap.svg";
+import IconHeart from "@icons/heart.svg";
+import IconPersonRunning from "@icons/person-running.svg";
+import IconScale from "@icons/scale.svg";
+import IconTick from "@icons/tick.svg";
+
+import PictureAbout from "@images/o-mnie.png";
+
+import Tooltip from "@components/Tooltip.astro";
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const specializations = [
+    {
+        title: "Psychodietetyka",
+        description:
+            "Pomagam zrozumieć emocjonalne i psychiczne podłoże jedzenia. Wspieram w budowaniu zdrowych nawyków, pracy nad motywacją i relacją z jedzeniem – zwłaszcza w sytuacjach stresu, zajadania emocji czy niskiej samooceny.",
+        icon: IconScale
+    },
+    {
+        title: "Dietetyka kliniczna",
+        description: "Specjalizuję się w dietoterapii: cukrzyca, insulinooporność, choroby tarczycy, choroby układu pokarmowego, celiakia, choroby nowotworowe, niewydolność nerek i wiele innych.",
+        icon: IconHeart
+    },
+    {
+        title: "Dla aktywnych",
+        description: "Opracowuję plany żywieniowe dla osób aktywnych fizycznie – od amatorów po osoby trenujące regularnie. Dostosowuję dietę do Twojego rodzaju aktywności i celów.",
+        icon: IconPersonRunning
+    },
+    {
+        title: "Edukacja i wsparcie",
+        description: "Prowadzę warsztaty wyjazdowe, szkolenia i prelekcje – dzieląc się wiedzą na temat zdrowego stylu życia i nowoczesnych metod żywienia.",
+        icon: IconGraduationCap
+    }
+];
+---
+
+<BaseLayout subtitle="O mnie">
+    <section class="bg-muted/50 pt-28 pb-14 md:pt-38 md:pb-24">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="max-w-2xl">
+                <p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">O mnie</p>
+                <h1 class="text-foreground font-serif text-4xl font-semibold md:text-5xl">Sylwia Majewska</h1>
+                <h2 class="mt-2 mb-4 font-serif text-xl">dietetyk i psychodietetyk</h2>
+                <p class="text-muted-foreground text-xl leading-relaxed">
+                    Z pasją i empatią pomagam moim pacjentom odnaleźć
+                    <Tooltip>
+                        <span slot="trigger">
+                            <span class="cursor-help font-serif font-medium tracking-wide italic">drogę</span>
+                            <span aria-hidden="true" class="border-muted-foreground absolute right-0.5 bottom-0.5 -left-0.5 border-b-2 border-dotted"></span>
+                        </span>
+                        <span slot="content">
+                            <span class="font-serif font-medium tracking-wide italic">via</span> (z łac.) oznacza <span class="font-semibold">drogę</span> – stąd nazwa poradni Syl.<span class="font-serif font-semibold">VIA</span>
+                        </span>
+                    </Tooltip>
+                    do&nbsp;harmonijnego stylu życia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="flex grid-cols-5 flex-col items-center gap-12 md:grid md:items-start md:gap-20">
+                <div class="relative col-span-2 mr-3 ml-1 max-w-sm md:sticky md:top-32 md:mx-0 md:max-w-full">
+                    <div class="bg-muted relative overflow-hidden rounded-2xl">
+                        <Picture src={PictureAbout} formats={["webp", "avif"]} alt="Zdrowy styl życia" loading="eager" fetchpriority="high" class="size-full object-cover" />
+                    </div>
+                    <div class="bg-primary-light/30 absolute -right-4 -bottom-4 -z-10 size-full rounded-2xl"></div>
+                </div>
+
+                <div class="col-span-3 space-y-8">
+                    <div class="text-muted-foreground space-y-6 leading-relaxed">
+                        <p class="text-foreground text-lg font-medium">Moim celem jest pokazanie, że droga do zdrowia może być naturalna, przyjazna i dostosowana do indywidualnych potrzeb każdej osoby.</p>
+                        <p>
+                            Od ponad 8 lat zawodowo zajmuję się żywieniem i jego wpływem na zdrowie, samopoczucie oraz relację z jedzeniem. W swojej pracy łączę wiedzę z zakresu dietetyki i psychodietetyki, ponieważ wiem, że
+                            jedzenie to nie tylko kalorie – to emocje, nawyki i codzienne wybory, które mają znaczenie.
+                        </p>
+                        <p>
+                            Podejście psychodietetyczne pomaga mi jeszcze lepiej rozumieć trudności, z jakimi zmagają się moi pacjenci – takie jak jedzenie emocjonalne, spadki motywacji, niskie poczucie sprawczości czy negatywny
+                            obraz ciała. Dzięki temu mogę skuteczniej wspierać ich w budowaniu trwałych nawyków i zdrowej relacji z jedzeniem – bez presji, oceniania czy sztywnych zasad.
+                        </p>
+                        <p>
+                            Nie wierzę w diety cud. Wierzę w indywidualnie dopasowane rozwiązania – oparte na nauce, zrozumieniu, uważności i trwałej zmianie. Wspólnie tworzymy plan żywieniowy „szyty na miarę” – dopasowany do
+                            Twojego stylu życia, zdrowia i emocjonalnych potrzeb.
+                        </p>
+                    </div>
+
+                    <div class="border-border border-t pt-8">
+                        <h2 class="text-foreground mb-6 font-serif text-xl font-semibold">Wykształcenie i certyfikaty</h2>
+                        <ul class="space-y-4">
+                            {
+                                [
+                                    { title: "Dietetyka", description: "Studia magisterskie na Wyższej Szkole Inżynierii i Zdrowia" },
+                                    { title: "Psychodietetyka", description: "Studia podyplomowe na Uniwersytecie SWPS" },
+                                    { title: "Chemia", description: "Absolwentka Wydziału Chemii Politechniki Warszawskiej" },
+                                    { title: "Nordic walking", description: "Certyfikowany instruktor" }
+                                ].map((item) => (
+                                    <li class="flex items-start gap-4">
+                                        <span class="bg-primary/10 fill-primary mt-0.5 flex items-center justify-center rounded-full p-1">
+                                            <IconTick class="size-3.75" />
+                                        </span>
+                                        <div class="-mt-px">
+                                            <p class="text-foreground font-medium">{item.title}</p>
+                                            <p class="text-muted-foreground text-sm">{item.description}</p>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-muted/50 py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="mx-auto mb-12 max-w-3xl text-center">
+                <h2 class="text-foreground mb-4 font-serif text-3xl font-semibold md:text-4xl">Obszary specjalizacji</h2>
+                <p class="text-muted-foreground">Kompleksowe wsparcie w różnych obszarach zdrowia i żywienia</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    specializations.map((specialization) => (
+                        <div class="group bg-background border-border space-y-3 rounded-xl border p-6 transition-shadow hover:shadow-sm">
+                            <div class="bg-primary/10 fill-primary flex w-fit items-center justify-center rounded-xl p-3 md:p-3.5">
+                                <specialization.icon class="size-6 md:size-7" />
+                            </div>
+                            <h3 class="text-foreground font-serif text-lg font-semibold">{specialization.title}</h3>
+                            <p class="text-muted-foreground text-sm">{specialization.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-6">
+            <h2 class="text-foreground mb-8 font-serif text-3xl font-semibold md:text-4xl">W centrum mojej pracy jest człowiek</h2>
+            <div class="flex flex-col items-start gap-12 lg:flex-row lg:gap-20">
+                <div class="text-muted-foreground space-y-4 leading-relaxed">
+                    <p>
+                        Nie tylko jego wyniki badań, ale cała historia, emocje i cele. Wierzę, że zdrowie to równowaga ciała i umysłu. Dieta powinna wspierać, a nie ograniczać – powinna być naturalnym elementem codzienności, a nie
+                        przymusem.
+                    </p>
+                    <p>
+                        Jako psychodietetyk pomagam nie tylko zmienić sposób jedzenia, ale także zrozumieć emocjonalne i psychologiczne aspekty odżywiania. Wspieram osoby, które zmagają się z zajadaniem stresu, brakiem motywacji,
+                        niską samooceną czy trudnymi emocjami związanymi z jedzeniem.
+                    </p>
+                    <p>Wspieram także pacjentów zmagających się z zaburzeniami odżywiania, takimi jak anoreksja, bulimia czy kompulsywne objadanie się – z uważnością, empatią i zrozumieniem.</p>
+                </div>
+
+                <div class="bg-primary/5 w-full rounded-2xl p-8 lg:mt-2 lg:min-w-132 lg:p-10">
+                    <h3 class="text-foreground -mt-2 mb-6 font-serif text-xl font-semibold">Wspólna praca nad relacją z jedzeniem pozwala:</h3>
+                    <ul class="space-y-4">
+                        {
+                            // prettier-ignore
+                            [
+                                "Lepiej zrozumieć swoje potrzeby",
+                                "Nauczyć się regulować emocje bez sięgania po\u00A0jedzenie",
+                                "Wprowadzić trwałe zmiany w stylu życia"
+                            ].map((item, index) => (
+                                <li class="flex items-start gap-4">
+                                    <span class="bg-primary flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white">{index + 1}</span>
+                                    <p class="text-muted-foreground pt-0.75">{item}</p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

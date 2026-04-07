@@ -5,6 +5,9 @@
 @theme inline {
     --breakpoint-xs: 30rem;
 
+    --text-smd: 0.9375rem;
+    --text-smd--line-height: 1.45rem;
+
     --text-1\.5xl: 1.375rem;
     --text-1\.5xl--line-height: 1.375rem;
 
@@ -35,6 +38,10 @@
 
 .keyboard-focusable {
     @apply focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
+.sticky-price-column {
+    @apply xs:static sticky right-0 xs:before:hidden before:pointer-events-none before:absolute before:top-0 before:right-full before:bottom-0 before:w-4 before:bg-linear-to-r before:from-transparent before:to-black/8 before:content-[""];
 }
 
 /* account for scrollbar space to prevent layout shift whenever it (the scrollbar) is visible */

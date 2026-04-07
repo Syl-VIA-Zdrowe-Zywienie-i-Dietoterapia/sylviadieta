@@ -58,7 +58,7 @@ const workshopsAndTripsPricing = [
             <div class="mb-12 max-w-4xl">
                 <p class="text-primary mb-4 text-sm font-medium tracking-wide uppercase">Usługi</p>
                 <h1 class="text-foreground mb-6 font-serif text-4xl font-semibold md:text-5xl">Kompleksowe wsparcie żywieniowe</h1>
-                <p class="text-muted-foreground text-xl leading-relaxed">Holistyczne podejście do zdrowia, które łączy żywienie, psychologię i&nbsp;aktywność fizyczną dla&nbsp;pełnego dobrostanu.</p>
+                <p class="text-muted-foreground text-xl leading-relaxed">Holistyczne podejście do zdrowia, które łączy żywienie, psychologię i aktywność fizyczną dla&nbsp;pełnego dobrostanu.</p>
             </div>
 
             <div class="grid gap-4 md:grid-cols-3">
@@ -127,10 +127,10 @@ const workshopsAndTripsPricing = [
                         <ul class="space-y-3">
                             {
                                 [
-                                    "Wywiad psychodietetyczny – analiza Twoich przekonań i\u00A0zachowań związanych z\u00A0jedzeniem",
+                                    "Wywiad psychodietetyczny – analiza Twoich przekonań i zachowań związanych z jedzeniem",
                                     "Interpretacja wyników badań laboratoryjnych (morfologia, glukoza, profil lipidowy)",
                                     "Analiza dotychczasowego sposobu odżywiania oraz nawyków żywieniowych",
-                                    "Pomiar i\u00A0analiza składu ciała przy użyciu analizatora InBody 120"
+                                    "Pomiar i analiza składu ciała przy użyciu analizatora InBody 120"
                                 ].map((item) => (
                                     <li class="flex items-start gap-3">
                                         <span class="bg-primary/10 fill-primary mt-px flex items-center justify-center rounded-full p-1">
@@ -170,7 +170,7 @@ const workshopsAndTripsPricing = [
                         [
                             { title: "Dostosowany do stylu życia", description: "Uwzględnia umiejętności kulinarne, czas oraz budżet" },
                             { title: "Preferencje smakowe", description: "Dieta dopasowana do Twoich ulubionych smaków" },
-                            { title: "Przekazanie jadłospisu", description: "Drogą mailową lub w formie drukowanej w teczce" },
+                            { title: "Przekazanie jadłospisu", description: "Drogą mailową lub w formie drukowanej, w teczce" },
                             { title: "Aplikacja dietetyczna", description: "Wgląd w plan żywieniowy, przepisy oraz listy zakupów" }
                         ].map((item) => (
                             <div class="bg-background border-border rounded-xl border p-5 transition-shadow hover:shadow-sm">
@@ -259,7 +259,7 @@ const workshopsAndTripsPricing = [
                 </div>
             </div>
 
-            <div id="cennik-psychodietetyka" class="scroll-mt-24 space-y-2">
+            <div id="cennik-psychodietetyka" class="mt-16 scroll-mt-24 space-y-2">
                 <div class="flex items-center gap-3.5">
                     <div class="bg-primary/10 text-primary -mb-1 flex items-center justify-center rounded-xl p-3">
                         <IconDollarCircle class="size-8" />
@@ -270,13 +270,13 @@ const workshopsAndTripsPricing = [
                     </div>
                 </div>
 
-                <div class="overflow-x-auto">
+                <div class="@container overflow-x-auto">
                     <table class="w-full">
                         <thead>
                             <tr class="border-border border-b">
                                 <th class="text-foreground p-4 text-left font-medium">Usługa</th>
                                 <th class="text-foreground p-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground xs:static xs:shadow-none bg-background sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
+                                <th class="text-foreground bg-background sticky-price-column p-4 text-right font-medium">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -285,13 +285,13 @@ const workshopsAndTripsPricing = [
                                     <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-muted-30" : "*:bg-background"]}>
                                         <td class="text-muted-foreground p-4">{item.service}</td>
                                         <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
-                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
+                                        <td class="text-foreground sticky-price-column z-10 p-4 text-right font-medium whitespace-nowrap">{item.price}</td>
                                     </tr>
                                 ))
                             }
                             <tr class="border-border/50 border-b">
                                 <td colspan="3" class="bg-muted p-0">
-                                    <div class="flex items-center gap-3 px-4 py-3">
+                                    <div class="xs:static xs:w-auto sticky left-0 flex w-[100cqw] items-center gap-3 px-4 py-3">
                                         <span class="bg-muted-foreground/30 h-0.5 flex-1"></span>
                                         <span class="text-muted-foreground pb-px text-sm font-semibold tracking-wide uppercase">Pakiety dla par</span>
                                         <span class="bg-muted-foreground/30 h-0.5 flex-1"></span>
@@ -304,7 +304,7 @@ const workshopsAndTripsPricing = [
                                     <tr class:list={["border-border/50 border-b", i % 2 === 1 ? "*:bg-muted-30" : "*:bg-background"]}>
                                         <td class="text-muted-foreground p-4">{item.service}</td>
                                         <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
-                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
+                                        <td class="text-foreground sticky-price-column z-10 p-4 text-right font-medium whitespace-nowrap">{item.price}</td>
                                     </tr>
                                 ))
                             }
@@ -316,7 +316,7 @@ const workshopsAndTripsPricing = [
     </section>
 
     <section id="nordic-walking" class="bg-muted/50 scroll-mt-24 py-16 md:py-24">
-        <div class="mx-auto max-w-6xl space-y-16 px-6">
+        <div class="mx-auto max-w-6xl space-y-8 px-6">
             <div class="grid gap-12 lg:grid-cols-2">
                 <div>
                     <div class="mb-7 space-y-2 sm:space-y-4">
@@ -326,7 +326,7 @@ const workshopsAndTripsPricing = [
                             </div>
                             <div>
                                 <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Nordic Walking</h2>
-                                <p class="text-muted-foreground">Zajęcia grupowe i&nbsp;indywidualne z&nbsp;instruktorem</p>
+                                <p class="text-muted-foreground">Zajęcia grupowe i indywidualne z instruktorem</p>
                             </div>
                         </div>
 
@@ -343,12 +343,12 @@ const workshopsAndTripsPricing = [
                         <ul class="grid grid-cols-2 gap-3">
                             {
                                 [
-                                    "zmniejsza obciążenie stawów o\u00A030%",
+                                    "zmniejsza obciążenie stawów o 30%",
                                     "wspomaga układ odpornościowy",
-                                    "wspomaga układ krążenia i\u00A0oddechowy",
+                                    "wspomaga układ krążenia i oddechowy",
                                     "zmniejsza ryzyko osteoporozy",
-                                    "zmniejsza ryzyko cukrzycy i\u00A0nowotworów",
-                                    "redukuje stres i\u00A0poprawia nastrój",
+                                    "zmniejsza ryzyko cukrzycy i nowotworów",
+                                    "redukuje stres i poprawia nastrój",
                                     "wspomaga pracę układu hormonalnego",
                                     "wspomaga proces odchudzania",
                                     "wzmacnia mięśnie"
@@ -371,11 +371,11 @@ const workshopsAndTripsPricing = [
                         {
                             [
                                 "Dowiesz się, jak prawidłowo dobrać kijki",
-                                "Opanujesz technikę aktywnego chodzenia z\u00A0kijkami krok po kroku",
-                                "Nauczysz się angażować mięśnie górnej części ciała w\u00A0optymalny sposób",
-                                "Wzmocnisz i\u00A0rozciągniesz ciało",
-                                "Dotlenisz organizm i\u00A0poprawisz zdrowie",
-                                "Spędzisz czas aktywnie, w\u00A0świetnej atmosferze!"
+                                "Opanujesz technikę aktywnego chodzenia z kijkami krok po kroku",
+                                "Nauczysz się angażować mięśnie górnej części ciała w optymalny sposób",
+                                "Wzmocnisz i rozciągniesz ciało",
+                                "Dotlenisz organizm i poprawisz zdrowie",
+                                "Spędzisz czas aktywnie, w świetnej atmosferze!"
                             ].map((item, i) => (
                                 <li class="flex items-start gap-4">
                                     <span class="bg-primary flex size-8 shrink-0 items-center justify-center rounded-[0.625rem] text-sm font-semibold text-white">{i + 1}</span>
@@ -407,7 +407,7 @@ const workshopsAndTripsPricing = [
                             <tr class="border-border border-b">
                                 <th class="text-foreground p-4 text-left font-medium">Zajęcia</th>
                                 <th class="text-foreground p-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground xs:static xs:shadow-none bg-muted-50 sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
+                                <th class="text-foreground bg-muted-50 sticky-price-column p-4 text-right font-medium">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -416,7 +416,7 @@ const workshopsAndTripsPricing = [
                                     <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-background" : "*:bg-muted-50"]}>
                                         <td class="text-muted-foreground p-4">{item.service}</td>
                                         <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
-                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
+                                        <td class="text-foreground sticky-price-column z-10 p-4 text-right font-medium whitespace-nowrap">{item.price}</td>
                                     </tr>
                                 ))
                             }
@@ -436,7 +436,7 @@ const workshopsAndTripsPricing = [
                     </div>
                     <div>
                         <h2 class="text-foreground font-serif text-3xl font-semibold md:text-4xl">Warsztaty i wyjazdy</h2>
-                        <p class="text-muted-foreground">Edukacja żywieniowa i&nbsp;aktywny wypoczynek</p>
+                        <p class="text-muted-foreground">Edukacja żywieniowa i aktywny wypoczynek</p>
                     </div>
                 </div>
 
@@ -449,7 +449,7 @@ const workshopsAndTripsPricing = [
                 </a>
             </div>
 
-            <TripGallery class="mb-4 md:mb-8" />
+            <TripGallery class="mb-8" />
 
             <div id="cennik-warsztaty-i-wyjazdy" class="scroll-mt-24 space-y-2">
                 <div class="flex items-center gap-3.5">
@@ -468,7 +468,7 @@ const workshopsAndTripsPricing = [
                             <tr class="border-border border-b">
                                 <th class="text-foreground p-4 text-left font-medium">Zajęcia</th>
                                 <th class="text-foreground p-4 text-left font-medium">Czas</th>
-                                <th class="text-foreground xs:static xs:shadow-none bg-background sticky right-0 p-4 text-right font-medium shadow-lg">Cena</th>
+                                <th class="text-foreground bg-background sticky-price-column p-4 text-right font-medium">Cena</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -477,7 +477,7 @@ const workshopsAndTripsPricing = [
                                     <tr class:list={["border-border/50 border-b", i % 2 === 0 ? "*:bg-muted-50" : "*:bg-background"]}>
                                         <td class="text-muted-foreground p-4">{item.service}</td>
                                         <td class="text-muted-foreground p-4 whitespace-nowrap">{item.duration}</td>
-                                        <td class="text-foreground xs:static xs:shadow-none sticky right-0 z-10 p-4 text-right font-medium whitespace-nowrap shadow-lg">{item.price}</td>
+                                        <td class="text-foreground sticky-price-column z-10 p-4 text-right font-medium whitespace-nowrap">{item.price}</td>
                                     </tr>
                                 ))
                             }

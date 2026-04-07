@@ -55,9 +55,9 @@ const archivedTrips = [
 const { class: wrapperClass = "" } = Astro.props;
 ---
 
-<div class:list={["space-y-6 md:space-y-12", wrapperClass]}>
+<div class:list={["space-y-8 md:space-y-12", wrapperClass]}>
     <div class="relative mx-auto max-w-4xl px-4 md:px-6">
-        <div class:list={["absolute -top-3.5 left-10 z-10 rounded-full px-3.5 py-1.5 text-sm font-semibold shadow-lg", badgeProps.badgeClass]}>
+        <div class:list={["absolute -top-3.5 left-6.5 z-10 rounded-full px-3.5 py-1.5 text-sm font-semibold shadow-lg md:left-10", badgeProps.badgeClass]}>
             <span class="flex items-center gap-2">
                 <span class="relative flex size-2">
                     {badgeProps.ping && <span class="absolute size-full animate-ping rounded-full bg-white opacity-75" />}
@@ -81,36 +81,36 @@ const { class: wrapperClass = "" } = Astro.props;
 
     {
         archivedTrips.length > 0 && (
-            <div class="space-y-2 px-4 md:space-y-4">
+            <div class="space-y-1 px-4 md:space-y-4">
                 <div class="text-muted-foreground flex items-center justify-center gap-3">
                     <IconArchive class="size-5.5 md:size-6" />
                     <h4 class="md:text-1.5xl -mt-0.5 font-serif text-xl font-semibold">Archiwum wyjazdów</h4>
                 </div>
-                <div class="swiper -mx-10 touch-pan-x overflow-hidden pt-2 pb-6 md:-mx-2 md:px-4">
-                    <div class="swiper-wrapper box-content flex w-max">
+                <div class="swiper -mx-10 overflow-hidden py-2 md:-mx-2 md:px-4 md:pb-6">
+                    <div class="swiper-wrapper box-content flex items-center">
                         {archivedTrips.map((trip) => (
-                            <div class="swiper-slide shrink-0">
-                                <button
-                                    type="button"
-                                    class="keyboard-focusable xs:h-60 h-50 cursor-[inherit] rounded-lg sm:h-70 md:h-80 lg:h-90"
-                                    data-trip
-                                    data-trip-id={trip.id}
-                                    data-trip-title={trip.title}
-                                    aria-label={`Powiększ obraz: ${trip.title}`}
-                                >
-                                    <Picture src={trip.image} alt={trip.title} formats={["webp", "avif"]} class="h-full w-auto rounded-lg shadow-md transition hover:shadow-lg" />
+                            <div class="swiper-slide w-auto shrink-0">
+                                <button type="button" class="keyboard-focusable max-w-[90vw] cursor-[inherit] rounded-lg" data-trip data-trip-id={trip.id} data-trip-title={trip.title} aria-label={`Powiększ obraz: ${trip.title}`}>
+                                    <Picture
+                                        src={trip.image}
+                                        alt={trip.title}
+                                        formats={["webp", "avif"]}
+                                        class="xs:max-h-60 h-fit max-h-50 w-auto rounded-lg object-contain shadow-md transition hover:shadow-lg sm:max-h-70 md:max-h-80 lg:max-h-90"
+                                    />
                                 </button>
                             </div>
                         ))}
                     </div>
+
+                    <div class="swiper-pagination mt-3 flex items-center justify-center gap-2 md:hidden" />
                 </div>
             </div>
         )
     }
 </div>
 
-<dialog id="lightbox-modal" class="top-level-container pointer-events-none fixed inset-0 flex size-full max-h-screen max-w-screen items-center justify-center bg-transparent backdrop:bg-transparent open:pointer-events-auto">
-    <div id="lightbox-content" class="group/content relative">
+<dialog data-lightbox-modal class="top-level-container pointer-events-none fixed inset-0 flex size-full max-h-screen max-w-screen items-center justify-center bg-transparent backdrop:bg-transparent open:pointer-events-auto">
+    <div data-lightbox-content class="group/content relative">
         <button
             type="button"
             class="group/close keyboard-focusable absolute -top-3 -right-3 z-10 flex cursor-pointer rounded-full bg-white/80 p-1.5 text-black opacity-0 shadow-lg transition group-data-visible/content:opacity-100 hover:scale-110 hover:bg-white"
@@ -118,35 +118,56 @@ const { class: wrapperClass = "" } = Astro.props;
         >
             <IconXMark class="size-5 transition group-hover/close:scale-120" />
         </button>
-        <div id="lightbox-picture-container" class="opacity-0 transition group-data-visible/content:opacity-100 group-data-visible/content:transition-none"></div>
+        <div data-lightbox-picture-container class="opacity-0 transition group-data-visible/content:opacity-100 group-data-visible/content:transition-none"></div>
     </div>
 </dialog>
 
-<div id="lightbox-overlay" class="pointer-events-none fixed inset-0 z-100 bg-black/90 opacity-0 transition duration-400 ease-out data-visible:opacity-100"></div>
+<div data-lightbox-overlay class="pointer-events-none fixed inset-0 z-100 bg-black/90 opacity-0 transition duration-400 ease-out data-visible:opacity-100"></div>
 
 <script>
     import Swiper from "swiper";
-    import { Mousewheel } from "swiper/modules";
+    import { Mousewheel, Pagination } from "swiper/modules";
 
     const swiperContainer = document.querySelector<HTMLElement>(".swiper")!;
     const swiper = new Swiper(swiperContainer, {
-        modules: [Mousewheel],
-        slidesPerView: "auto",
+        modules: [Mousewheel, Pagination],
+
         centeredSlides: true,
-        spaceBetween: 16,
         grabCursor: true,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        slidesPerView: "auto",
+        spaceBetween: 16,
         touchEventsTarget: "container",
+
         mousewheel: {
-            enabled: true,
             forceToAxis: true
         },
+        pagination: {
+            enabled: true,
+            el: ".swiper-pagination",
+
+            clickable: true,
+
+            renderBullet: (index, className) =>
+                `<button class="${className} keyboard-focusable swiper-pagination-bullet-${index} bg-muted-foreground/30 hover:cursor-pointer hover:bg-primary size-2 rounded-full transition-all duration-300 [&.swiper-pagination-bullet-active]:bg-primary [&.swiper-pagination-bullet-active]:w-6" aria-label="Przejdź do slajdu ${index + 1}"></button>`
+        },
+
         breakpoints: {
             768: {
                 centeredSlidesBounds: true,
+                pagination: false,
                 spaceBetween: 20
             }
         }
     });
+
+    requestAnimationFrame(() => {
+        swiper.update();
+        swiper.slideTo(0, 0, false);
+    });
+
     const swiperSlides = document.querySelectorAll<HTMLElement>(".swiper-slide");
     swiperSlides.forEach((slide, index) => {
         const button = slide.querySelector("button")!;
@@ -155,10 +176,10 @@ const { class: wrapperClass = "" } = Astro.props;
         });
     });
 
-    const lightboxModal = document.getElementById("lightbox-modal")! as HTMLDialogElement;
-    const lightboxContent = lightboxModal.querySelector<HTMLElement>("#lightbox-content")!;
-    const lightboxPictureContainer = lightboxModal.querySelector<HTMLElement>("#lightbox-picture-container")!;
-    const lightboxOverlay = document.getElementById("lightbox-overlay")!;
+    const lightboxModal = document.querySelector<HTMLDialogElement>("[data-lightbox-modal]")!;
+    const lightboxContent = lightboxModal.querySelector<HTMLElement>("[data-lightbox-content]")!;
+    const lightboxPictureContainer = lightboxModal.querySelector<HTMLElement>("[data-lightbox-picture-container]")!;
+    const lightboxOverlay = document.querySelector<HTMLDivElement>("[data-lightbox-overlay]")!;
 
     let isAnimating = false;
 
