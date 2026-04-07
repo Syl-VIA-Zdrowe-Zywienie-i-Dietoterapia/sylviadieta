@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import compressor from "astro-compressor";
 import { defineConfig, fontProviders, passthroughImageService } from "astro/config";
+import fixOrphansIntegration from "./src/utils/fixOrphans";
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,5 +38,5 @@ export default defineConfig({
     },
 
     vite: { plugins: [tailwindcss()] },
-    integrations: [compressor({ gzip: false, brotli: true, zstd: false }), sitemap()]
+    integrations: [fixOrphansIntegration(), compressor({ gzip: false, brotli: true, zstd: false }), sitemap()]
 });
