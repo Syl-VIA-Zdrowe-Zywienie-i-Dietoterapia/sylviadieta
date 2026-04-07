@@ -35,7 +35,7 @@ const { subtitle = "", description = "Profesjonalna pomoc dietetyczna i psychodi
         <title>{(subtitle ? `${subtitle} | ` : "") + "Syl.VIA – Zdrowe Żywienie i Dietoterapia"}</title>
     </head>
 
-    <body class="flex min-h-screen flex-col antialiased data-modal-open:overflow-hidden">
+    <body class="flex min-h-screen flex-col antialiased data-overlay-open:overflow-hidden">
         <Header />
         <main class="sidebar-closed ease-drawer flex w-full grow flex-col transition-[width] duration-300">
             <slot />

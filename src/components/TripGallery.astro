@@ -128,8 +128,8 @@ const { class: wrapperClass = "" } = Astro.props;
     import Swiper from "swiper";
     import { Mousewheel } from "swiper/modules";
 
-    const swiper = document.querySelector<HTMLElement>(".swiper")!;
-    new Swiper(swiper, {
+    const swiperContainer = document.querySelector<HTMLElement>(".swiper")!;
+    const swiper = new Swiper(swiperContainer, {
         modules: [Mousewheel],
         slidesPerView: "auto",
         centeredSlides: true,
@@ -146,6 +146,13 @@ const { class: wrapperClass = "" } = Astro.props;
                 spaceBetween: 20
             }
         }
+    });
+    const swiperSlides = document.querySelectorAll<HTMLElement>(".swiper-slide");
+    swiperSlides.forEach((slide, index) => {
+        const button = slide.querySelector("button")!;
+        button.addEventListener("focusin", () => {
+            swiper.slideTo(index);
+        });
     });
 
     const lightboxModal = document.getElementById("lightbox-modal")! as HTMLDialogElement;
@@ -225,7 +232,7 @@ const { class: wrapperClass = "" } = Astro.props;
             lightboxPictureContainer.appendChild(finalPicture);
 
             lightboxModal.showModal();
-            document.body.setAttribute("data-modal-open", "");
+            document.body.setAttribute("data-overlay-open", "");
             requestAnimationFrame(() => {
                 lightboxOverlay.setAttribute("data-visible", "");
                 assignClonePosition(pictureClone, { width, height, top, left });
@@ -247,7 +254,7 @@ const { class: wrapperClass = "" } = Astro.props;
             lightboxOverlay.removeAttribute("data-visible");
         });
         lightboxContent.removeAttribute("data-visible");
-        document.body.removeAttribute("data-modal-open");
+        document.body.removeAttribute("data-overlay-open");
 
         setTimeout(() => {
             lightboxModal.close();

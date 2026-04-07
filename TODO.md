@@ -1,4 +1,4 @@
 - fix animation durations
-- fix mobile drawer not being scrollable
 - vibes-based paddings
-- flex-col with gap-[] vs space-y-[]
+- flex-col/row with gap-{value} vs space-x/y-{value}
+- add .keyboard-focusable to keyboard-selectable elements
