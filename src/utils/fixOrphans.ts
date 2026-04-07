@@ -39,6 +39,7 @@ export default function fixOrphansIntegration(): AstroIntegration {
                         fixOrphans(document.body, document);
 
                         writeFileSync(filePath, dom.serialize());
+                        console.log(`fix-orphans: processed ${filePath}`);
                     } catch (e) {
                         console.error(`fix-orphans: failed to process ${filePath}`, e);
                     }

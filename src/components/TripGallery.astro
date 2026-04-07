@@ -87,16 +87,18 @@ const { class: wrapperClass = "" } = Astro.props;
                     <h4 class="md:text-1.5xl -mt-0.5 font-serif text-xl font-semibold">Archiwum wyjazdów</h4>
                 </div>
                 <div class="swiper -mx-10 overflow-hidden py-2 md:-mx-2 md:px-4 md:pb-6">
-                    <div class="swiper-wrapper box-content flex items-center">
+                    <div class="swiper-wrapper box-content flex">
                         {archivedTrips.map((trip) => (
                             <div class="swiper-slide w-auto shrink-0">
-                                <button type="button" class="keyboard-focusable max-w-[90vw] cursor-[inherit] rounded-lg" data-trip data-trip-id={trip.id} data-trip-title={trip.title} aria-label={`Powiększ obraz: ${trip.title}`}>
-                                    <Picture
-                                        src={trip.image}
-                                        alt={trip.title}
-                                        formats={["webp", "avif"]}
-                                        class="xs:max-h-60 h-fit max-h-50 w-auto rounded-lg object-contain shadow-md transition hover:shadow-lg sm:max-h-70 md:max-h-80 lg:max-h-90"
-                                    />
+                                <button
+                                    type="button"
+                                    class="keyboard-focusable xs:h-60 h-50 max-w-[90vw] cursor-[inherit] rounded-lg sm:h-70 md:h-80 lg:h-90"
+                                    data-trip
+                                    data-trip-id={trip.id}
+                                    data-trip-title={trip.title}
+                                    aria-label={`Powiększ obraz: ${trip.title}`}
+                                >
+                                    <Picture src={trip.image} alt={trip.title} formats={["webp", "avif"]} class="h-full w-auto rounded-lg object-contain shadow-md transition hover:shadow-lg" />
                                 </button>
                             </div>
                         ))}
