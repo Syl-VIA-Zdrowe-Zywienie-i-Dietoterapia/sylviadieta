@@ -1,4 +1,3 @@
-import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import compressor from "astro-compressor";
@@ -29,13 +28,11 @@ export default defineConfig({
 
     security: { csp: true },
     prefetch: { prefetchAll: true },
-
     experimental: {
         rustCompiler: true,
         queuedRendering: { enabled: true }
     },
 
     vite: { plugins: [tailwindcss()] },
-    integrations: [fixOrphansIntegration(), compressor({ gzip: false, brotli: true, zstd: false }), sitemap()],
-    adapter: cloudflare()
+    integrations: [fixOrphansIntegration(), compressor({ gzip: false, brotli: true, zstd: false }), sitemap()]
 });
