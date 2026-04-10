@@ -11,11 +11,13 @@
                 packages = with pkgs; [
                     bun
                     tsgolint
+                    stdenv.cc.cc.lib
                 ];
 
                 shellHook = ''
                     export BUN_BIN="${pkgs.lib.getExe pkgs.bun}"
                     export TSGOLINT_BIN="${pkgs.lib.getExe pkgs.tsgolint}"
+                    export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc.lib ]}:$LD_LIBRARY_PATH"
                 '';
             };
         };
