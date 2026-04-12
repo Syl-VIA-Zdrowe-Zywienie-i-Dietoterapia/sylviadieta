@@ -19,8 +19,14 @@ import Content from "./Content.astro";
     const drawerHandle = document.getElementById("drawer-handle")!;
     const drawerOverlay = document.getElementById("drawer-overlay")!;
     const toggle = document.getElementById("preparation-guide-toggle")!;
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+
+    function isMobileView() {
+        return mobileQuery.matches;
+    }
 
     function openDrawer() {
+        if (!isMobileView()) return;
         drawer.setAttribute("data-open", "");
         drawerOverlay.setAttribute("data-visible", "");
         document.body.setAttribute("data-overlay-open", "");
@@ -38,7 +44,10 @@ import Content from "./Content.astro";
         return drawer.hasAttribute("data-open");
     }
 
-    toggle.addEventListener("click", () => (isDrawerOpen() ? closeDrawer() : openDrawer()));
+    toggle.addEventListener("click", () => {
+        if (!isMobileView()) return;
+        isDrawerOpen() ? closeDrawer() : openDrawer(); // eslint-disable-line no-unused-expressions
+    });
     document.addEventListener("click", (event) => {
         if (!isDrawerOpen()) return;
         if (drawer.contains(event.target as Node) || toggle.contains(event.target as Node)) return;
@@ -102,5 +111,9 @@ import Content from "./Content.astro";
         if (isDrawerOpen() && canDismiss && (visiblePercent < 50 || (deltaY > 0 && velocity > VELOCITY_THRESHOLD))) {
             closeDrawer();
         }
+    });
+
+    mobileQuery.addEventListener("change", (event) => {
+        if (!event.matches && isDrawerOpen()) closeDrawer();
     });
 </script>
