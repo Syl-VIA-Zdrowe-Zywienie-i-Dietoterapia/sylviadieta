@@ -225,49 +225,62 @@
                 <tbody>
                     <tr class="bg-base-200">
                         <td>Pierwsza konsultacja dietetyczna z elementami psychodietetyki (60–80 minut)</td>
-                        <td class="text-right font-medium whitespace-nowrap">260 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="260" data-price-updated="290" data-effective-date="2026-08-15">260 zł (<span class="font-normal">od 15.08.</span> 290 zł)</td>
                     </tr>
                     <tr>
                         <td>Konsultacja psychodietetyczna (60–80 minut)</td>
-                        <td class="text-right font-medium whitespace-nowrap">200 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="200" data-price-updated="220" data-effective-date="2026-08-15">200 zł (<span class="font-normal">od 15.08.</span> 220 zł)</td>
                     </tr>
                     <tr class="bg-base-200">
                         <td>Jadłospis 7–dniowy</td>
-                        <td class="text-right font-medium whitespace-nowrap">250 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="250" data-price-updated="280" data-effective-date="2026-08-15">250 zł (<span class="font-normal">od 15.08.</span> 280 zł)</td>
                     </tr>
                     <tr>
                         <td>Jadłospis 14–dniowy</td>
-                        <td class="text-right font-medium whitespace-nowrap">460 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="460" data-price-updated="510" data-effective-date="2026-08-15">460 zł (<span class="font-normal">od 15.08.</span> 510 zł)</td>
                     </tr>
                     <tr class="bg-base-200">
                         <td>Wizyta kontrolna — dietetyczna (40–60 minut)</td>
-                        <td class="text-right font-medium whitespace-nowrap">170 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="170" data-price-updated="180" data-effective-date="2026-08-15">170 zł (<span class="font-normal">od 15.08.</span> 180 zł)</td>
                     </tr>
                     <tr>
                         <td>Profesjonalna analiza składu ciała z omówieniem wyników</td>
-                        <td class="text-right font-medium whitespace-nowrap">60 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="60" data-price-updated="80" data-effective-date="2026-08-15">60 zł (<span class="font-normal">od 15.08.</span> 80 zł)</td>
                     </tr>
                     <tr class="bg-base-200">
                         <td>Modyfikacja jadłospisu — wprowadzenie powyżej 4 zmian</td>
-                        <td class="text-right font-medium whitespace-nowrap">80 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="80" data-price-updated="100" data-effective-date="2026-08-15">80 zł (<span class="font-normal">od 15.08.</span> 100 zł)</td>
                     </tr>
                     <tr>
                         <td>Pakiet VIP</td>
-                        <td class="text-right font-medium whitespace-nowrap">1500 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="1500" data-price-updated="1800" data-effective-date="2026-08-15">1500 zł (<span class="font-normal">od 15.08.</span> 1800 zł)</td>
                     </tr>
                     <tr>
                         <td class="bg-base-300 text-center text-lg font-semibold md:text-xl" colspan="2"><div class="divider my-1">Pakiety dla par</div></td>
                     </tr>
                     <tr>
                         <td>Pierwsza wizyta (około 120 min)</td>
-                        <td class="text-right font-medium whitespace-nowrap">450 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="450" data-price-updated="500" data-effective-date="2026-08-15">450 zł (<span class="font-normal">od 15.08.</span> 500 zł)</td>
                     </tr>
                     <tr class="bg-base-200">
                         <td>Plan dietetyczny dla par 7–dniowy</td>
-                        <td class="text-right font-medium whitespace-nowrap">450 zł</td>
+                        <td class="text-right font-medium whitespace-nowrap" data-price-current="450" data-price-updated="500" data-effective-date="2026-08-15">450 zł (<span class="font-normal">od 15.08.</span> 500 zł)</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <script is:inline>
+        const effectiveDate = new Date(2026, 7, 15, 0, 0, 0);
+
+        document.querySelectorAll("[data-price-updated]").forEach((priceCell) => {
+            const updatedPrice = priceCell.getAttribute("data-price-updated");
+            const effectiveFrom = priceCell.getAttribute("data-effective-date");
+
+            if (updatedPrice && effectiveFrom && new Date(effectiveFrom) <= new Date()) {
+                priceCell.textContent = `${updatedPrice} zł`;
+            }
+        });
+    </script>
 </section>
